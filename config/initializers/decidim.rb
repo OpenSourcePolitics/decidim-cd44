@@ -2,20 +2,21 @@
 
 Decidim.configure do |config|
   config.skip_first_login_authorization = ENV["SKIP_FIRST_LOGIN_AUTHORIZATION"] ? ActiveRecord::Type::Boolean.new.cast(ENV["SKIP_FIRST_LOGIN_AUTHORIZATION"]) : true
-  config.application_name = "OSP Agora"
-  config.mailer_sender = "OSP Agora <ne-pas-repondre@opensourcepolitics.eu>"
+  config.application_name = "Loire Atlantique"
+  config.mailer_sender = "Loire Atlantique <ne-pas-repondre@opensourcepolitics.eu>"
+  # config.mailer_sender = "Loire Atlantique <participation.citoyenne@loire-atlantique.fr>"
 
   # Change these lines to set your preferred locales
   config.default_locale = :fr
-  config.available_locales = [:en, :fr]
+  config.available_locales = [:fr]
 
   config.maximum_attachment_height_or_width = 6000
 
   # Geocoder configuration
   if !Rails.application.secrets.geocoder[:here_api_key].blank?
     config.geocoder = {
-        static_map_url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview",
-        here_api_key: Rails.application.secrets.geocoder[:here_api_key]
+      static_map_url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview",
+      here_api_key: Rails.application.secrets.geocoder[:here_api_key]
     }
   end
 
@@ -86,9 +87,9 @@ Decidim.configure do |config|
 
   if !Rails.application.secrets.etherpad[:server].blank?
     config.etherpad = {
-        server: Rails.application.secrets.etherpad[:server],
-        api_key: Rails.application.secrets.etherpad[:api_key],
-        api_version: Rails.application.secrets.etherpad[:api_version]
+      server: Rails.application.secrets.etherpad[:server],
+      api_key: Rails.application.secrets.etherpad[:api_key],
+      api_version: Rails.application.secrets.etherpad[:api_version]
     }
   end
 

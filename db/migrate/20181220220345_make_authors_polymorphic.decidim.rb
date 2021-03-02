@@ -7,7 +7,7 @@ class MakeAuthorsPolymorphic < ActiveRecord::Migration[5.2]
   end
 
   def change
-    remove_index :decidim_coauthorships, :decidim_author_id
+    remove_index :decidim_coauthorships, :decidim_author_id if index_exists?(:decidim_coauthorships, :decidim_author_id)
 
     add_column :decidim_coauthorships, :decidim_author_type, :string
 

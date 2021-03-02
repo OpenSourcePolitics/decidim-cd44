@@ -14,7 +14,7 @@ gem "decidim", git: "https://github.com/decidim/decidim.git", branch: "release/0
 # gem "decidim-calendar", git: "https://github.com/alabs/decidim-module-calendar"
 # gem "decidim-combined_budgeting", git: "https://github.com/mainio/decidim-module-combined_budgeting"
 # gem "decidim-comparative_stats", git: "https://github.com/Platoniq/decidim-module-comparative_stats"
-# gem "decidim-decidim_awesome", git: "https://github.com/Platoniq/decidim-module-decidim_awesome"
+gem "decidim-decidim_awesome", git: "https://github.com/Platoniq/decidim-module-decidim_awesome"
 # gem "decidim-direct_verifications", git: "https://github.com/Platoniq/decidim-verifications-direct_verifications"
 # gem "decidim-homepage_interactive_map", git: "https://github.com/OpenSourcePolitics/decidim-module-homepage_interactive_map.git"
 # gem "decidim-initiatives_no_signature_allowed", git: "https://github.com/OpenSourcePolitics/decidim-module-initiatives_nosignature_allowed.git"
@@ -22,6 +22,10 @@ gem "decidim-navbar_links", git: "https://github.com/OpenSourcePolitics/decidim-
 # gem "decidim-navigation_maps", git: "https://github.com/Platoniq/decidim-module-navigation_maps"
 gem "decidim-term_customizer", git: "https://github.com/OpenSourcePolitics/decidim-module-term_customizer.git", branch: "0.dev"
 gem "decidim-cookies", git: "https://github.com/OpenSourcePolitics/decidim-module_cookies.git", branch: "release/0.23-stable"
+
+gem "decidim-url_aliases", git: "https://github.com/OpenSourcePolitics/decidim-urlaliases.git"
+gem "decidim-question_captcha", git: "https://github.com/OpenSourcePolitics/decidim-module-question_captcha.git", branch: "release/0.23-stable"
+gem "acts_as_textcaptcha", "~> 4.5.1"
 
 gem "bootsnap", "~> 1.3"
 
@@ -33,6 +37,7 @@ gem "uglifier", "~> 4.1"
 gem "faker", "~> 1.8"
 
 gem "ruby-progressbar"
+gem "sentry-raven"
 
 gem "letter_opener_web", "~> 1.3"
 

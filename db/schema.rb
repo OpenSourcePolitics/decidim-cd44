@@ -146,9 +146,9 @@ ActiveRecord::Schema.define(version: 2020_11_26_165657) do
     t.boolean "show_statistics", default: false
     t.integer "decidim_scope_id"
     t.boolean "scopes_enabled", default: true, null: false
-    t.boolean "private_space", default: false
     t.string "reference"
     t.bigint "decidim_area_id"
+    t.boolean "private_space", default: false
     t.bigint "parent_id"
     t.ltree "parents_path"
     t.integer "children_count", default: 0
@@ -375,6 +375,7 @@ ActiveRecord::Schema.define(version: 2020_11_26_165657) do
     t.integer "parent_id"
     t.integer "decidim_participatory_space_id"
     t.string "decidim_participatory_space_type"
+    t.string "color"
     t.integer "weight", default: 0, null: false
     t.index ["decidim_participatory_space_id", "decidim_participatory_space_type"], name: "index_decidim_categories_on_decidim_participatory_space"
     t.index ["parent_id"], name: "index_decidim_categories_on_parent_id"
@@ -974,6 +975,7 @@ ActiveRecord::Schema.define(version: 2020_11_26_165657) do
     t.datetime "updated_at", null: false
     t.boolean "active", default: false
     t.integer "position"
+    t.jsonb "action_btn_text"
     t.jsonb "cta_text", default: {}
     t.string "cta_path"
     t.index ["decidim_participatory_process_id", "active"], name: "unique_index_to_avoid_duplicate_active_steps", unique: true, where: "(active = true)"
@@ -1019,8 +1021,8 @@ ActiveRecord::Schema.define(version: 2020_11_26_165657) do
     t.jsonb "announcement"
     t.boolean "scopes_enabled", default: true, null: false
     t.date "start_date"
-    t.boolean "private_space", default: false
     t.string "reference"
+    t.boolean "private_space", default: false
     t.bigint "decidim_area_id"
     t.bigint "decidim_scope_type_id"
     t.boolean "show_metrics", default: true
@@ -1134,8 +1136,8 @@ ActiveRecord::Schema.define(version: 2020_11_26_165657) do
     t.text "address"
     t.float "latitude"
     t.float "longitude"
-    t.datetime "published_at"
     t.integer "proposal_notes_count", default: 0, null: false
+    t.datetime "published_at"
     t.integer "coauthorships_count", default: 0, null: false
     t.integer "position"
     t.string "participatory_text_level"
@@ -1403,11 +1405,11 @@ ActiveRecord::Schema.define(version: 2020_11_26_165657) do
     t.string "roles", default: [], array: true
     t.boolean "email_on_notification", default: false, null: false
     t.string "nickname", limit: 20, default: "", null: false
+    t.datetime "officialized_at"
+    t.jsonb "officialized_as"
     t.string "personal_url"
     t.text "about"
     t.datetime "accepted_tos_version"
-    t.datetime "officialized_at"
-    t.jsonb "officialized_as"
     t.string "newsletter_token", default: ""
     t.datetime "newsletter_notifications_at"
     t.string "type", null: false
@@ -1489,6 +1491,32 @@ ActiveRecord::Schema.define(version: 2020_11_26_165657) do
     t.boolean "confidential", default: true, null: false
     t.index ["decidim_organization_id"], name: "index_oauth_applications_on_decidim_organization_id"
     t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true
+  end
+
+  create_table "redirect_rules", id: :serial, force: :cascade do |t|
+    t.string "source", null: false
+    t.boolean "source_is_regex", default: false, null: false
+    t.boolean "source_is_case_sensitive", default: false, null: false
+    t.string "destination", null: false
+    t.boolean "active", default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer "decidim_organization_id"
+    t.index ["active"], name: "index_redirect_rules_on_active"
+    t.index ["source"], name: "index_redirect_rules_on_source"
+    t.index ["source_is_case_sensitive"], name: "index_redirect_rules_on_source_is_case_sensitive"
+    t.index ["source_is_regex"], name: "index_redirect_rules_on_source_is_regex"
+  end
+
+  create_table "request_environment_rules", id: :serial, force: :cascade do |t|
+    t.integer "redirect_rule_id", null: false
+    t.string "environment_key_name", null: false
+    t.string "environment_value", null: false
+    t.boolean "environment_value_is_regex", default: false, null: false
+    t.boolean "environment_value_is_case_sensitive", default: true, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["redirect_rule_id"], name: "index_request_environment_rules_on_redirect_rule_id"
   end
 
   create_table "versions", force: :cascade do |t|
