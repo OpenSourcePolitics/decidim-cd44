@@ -176,6 +176,10 @@ fr:
       proposals:
         settings:
           global:
+            proposal_edit_time: Durée d'édition des propositions
+            proposal_edit_time_choices:
+              infinite: Autoriser l'édition des propositions pour une durée infinie
+              limited: Autoriser l'édition des propositions durant un délai spécifique
             vote_limit: Limite de soutiens par utilisateur
           step:
             endorsements_blocked: Bloquer les recommandations
@@ -292,6 +296,8 @@ fr:
         filters:
           official: Propositions du Département
           voted: Ne montrer que les propositions que j'ai soutenues
+        form_view:
+          cancel: Annuler
         linked_proposals:
           proposal_votes:
             one: soutien
@@ -380,3 +386,7 @@ fr:
           processes:
             one: '%{count} projet'
             other: '%{count} projets'
+  forms:
+    length_validator:
+      minimum:
+        other: 'Au moins %{count} caractères'
