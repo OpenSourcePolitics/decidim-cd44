@@ -10,6 +10,8 @@ fr:
         textcaptcha_answer: Réponse TextCaptcha
       participatory_process:
         private_space: Espace privé
+      organization:
+        admin_terms_of_use_body: Corps du texte pour les conditions d'utilisation administrateur
       osp_authorization_handler:
         document_number: Numéro unique
         postal_code: Code postal
@@ -224,6 +226,10 @@ fr:
             notification_title: Vous pouvez maintenant commencer <a href="%{resource_path}">à soutenir les propositions</a> de <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     menu:
       processes: Projets
+    moderations:
+      actions:
+        expand: Plus d'informations
+        unhide: Rendre visible
     pages:
       home:
         extended:
