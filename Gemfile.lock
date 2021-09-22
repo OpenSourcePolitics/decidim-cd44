@@ -232,6 +232,15 @@ GIT
       decidim-core (= 0.24.3)
 
 GIT
+  remote: https://github.com/mainio/decidim-module-simple_proposal.git
+  revision: 1356edd84a6e34ad86c4571f8c0145f8f2da82c6
+  branch: master
+  specs:
+    decidim-simple_proposal (0.24.0)
+      decidim-core (~> 0.24.0)
+      decidim-proposals (~> 0.24.0)
+
+GIT
   remote: https://github.com/mainio/decidim-module-term_customizer.git
   revision: 0e823f4f768f6255de57559c618dcad784c5d655
   branch: master
@@ -946,6 +955,7 @@ DEPENDENCIES
   decidim-dev!
   decidim-navbar_links!
   decidim-question_captcha!
+  decidim-simple_proposal!
   decidim-term_customizer!
   decidim-url_aliases!
   dotenv-rails
