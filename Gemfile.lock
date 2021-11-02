@@ -24,6 +24,15 @@ GIT
       redirector
 
 GIT
+  remote: https://github.com/Quentinchampenois/decidim-module-simple_proposal.git
+  revision: 9de63330fd3677a38ac53117685220ec5e5178ce
+  branch: fix/proposal_form
+  specs:
+    decidim-simple_proposal (0.24.0)
+      decidim-core (~> 0.24.0)
+      decidim-proposals (~> 0.24.0)
+
+GIT
   remote: https://github.com/decidim/decidim.git
   revision: ddb39829d5b8e9886e0285b740a44df2cab4c30a
   branch: release/0.24-stable
@@ -230,15 +239,6 @@ GIT
       decidim-forms (= 0.24.3)
     decidim-verifications (0.24.3)
       decidim-core (= 0.24.3)
-
-GIT
-  remote: https://github.com/mainio/decidim-module-simple_proposal.git
-  revision: 1356edd84a6e34ad86c4571f8c0145f8f2da82c6
-  branch: master
-  specs:
-    decidim-simple_proposal (0.24.0)
-      decidim-core (~> 0.24.0)
-      decidim-proposals (~> 0.24.0)
 
 GIT
   remote: https://github.com/mainio/decidim-module-term_customizer.git
@@ -984,4 +984,4 @@ RUBY VERSION
    ruby 2.7.1p83
 
 BUNDLED WITH
-   2.2.18
+   2.2.29
