@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   def render_helpscout_beacon(side)
-    return unless helpscout_beacon_id(side).present?
+    return if helpscout_beacon_id(side).blank?
 
-    render_beacon(side, :main) unless helpscout_beacon_id(side, :fallback).present?
+    render_beacon(side, :main) if helpscout_beacon_id(side, :fallback).blank?
 
     main_locale? ? render_beacon(side, :main) : render_beacon(side, :fallback)
   end
@@ -15,7 +17,7 @@ module ApplicationHelper
 
   def render_beacon(side, type)
     render partial: "support/beacon", locals: {
-        beacon_id: helpscout_beacon_id(side, type)
+      beacon_id: helpscout_beacon_id(side, type)
     }
   end
 

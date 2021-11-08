@@ -13,7 +13,7 @@ Decidim.configure do |config|
   config.maximum_attachment_height_or_width = 6000
 
   # Geocoder configuration
-  if !Rails.application.secrets.geocoder[:here_api_key].blank?
+  if Rails.application.secrets.geocoder[:here_api_key].present?
     config.geocoder = {
       static_map_url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview",
       here_api_key: Rails.application.secrets.geocoder[:here_api_key]
@@ -27,7 +27,6 @@ Decidim.configure do |config|
     Decidim::Initiatives.print_enabled = false
     Decidim::Initiatives.face_to_face_voting_allowed = false
   end
-
 
   # Custom resource reference generator method
   # config.resource_reference_generator = lambda do |resource, feature|
@@ -85,7 +84,7 @@ Decidim.configure do |config|
   # Decidim docs at docs/services/etherpad.md in order to set it up.
   #
 
-  if !Rails.application.secrets.etherpad[:server].blank?
+  if Rails.application.secrets.etherpad[:server].present?
     config.etherpad = {
       server: Rails.application.secrets.etherpad[:server],
       api_key: Rails.application.secrets.etherpad[:api_key],
@@ -93,9 +92,7 @@ Decidim.configure do |config|
     }
   end
 
-  if ENV["HEROKU_APP_NAME"].present?
-    config.base_uploads_path = ENV["HEROKU_APP_NAME"] + "/"
-  end
+  config.base_uploads_path = "#{ENV["HEROKU_APP_NAME"]}/" if ENV["HEROKU_APP_NAME"].present?
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales
