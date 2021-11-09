@@ -47,7 +47,7 @@ module Decidim
       end
 
       def author_id
-        proposal.decidim_author_id ? proposal.decidim_author_id : "Official"
+        proposal.decidim_author_id || "Official"
       end
 
       def meetings

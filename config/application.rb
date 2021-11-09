@@ -1,6 +1,8 @@
-require_relative 'boot'
+# frozen_string_literal: true
 
-require 'rails/all'
+require_relative "boot"
+
+require "rails/all"
 
 # TODO : add missing dep to decidim-initiatives/lib/decidim/initiatives/engine.rb
 # require "wicked_pdf"
@@ -23,7 +25,7 @@ module DevelopmentApp
       if Decidim.geocoder.present?
         Geocoder.configure(
           lookup: :nominatim,
-          :timeout  => 30
+          timeout: 30
         )
       end
     end
@@ -34,7 +36,7 @@ module DevelopmentApp
       if Decidim.geocoder.present?
         Geocoder.configure(
           lookup: :nominatim,
-          :timeout  => 30
+          timeout: 30
         )
       end
     end
