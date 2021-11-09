@@ -5,8 +5,15 @@ require "spec_helper"
 describe "Authentication", type: :system do
   let(:organization) { create(:organization) }
   let(:last_user) { Decidim::User.last }
+  let(:questions) do
+    {
+      en: [{ "question" => "1+1", "answers" => "2" }],
+      es: [{ "question" => "2+1", "answers" => "3" }]
+    }
+  end
 
   before do
+    allow(Decidim::QuestionCaptcha.config).to receive(:questions).and_return(questions)
     switch_to_host(organization.host)
     visit decidim.root_path
   end
@@ -17,43 +24,18 @@ describe "Authentication", type: :system do
         find(".sign-up-link").click
 
         within ".new_user" do
-          fill_in :registration_user_email, with: "user@example.org"
-          fill_in :registration_user_name, with: "Responsible Citizen"
-          fill_in :registration_user_nickname, with: "responsible"
-          fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
-          fill_in :registration_user_password_confirmation, with: "DfyvHn425mYAy2HL"
-          check :registration_user_tos_agreement
-          check :registration_user_newsletter
+          fill_in :user_email, with: "user@example.org"
+          fill_in :user_name, with: "Responsible Citizen"
+          fill_in :user_nickname, with: "responsible"
+          fill_in :user_password, with: "DfyvHn425mYAy2HL"
+          fill_in :user_password_confirmation, with: "DfyvHn425mYAy2HL"
+          fill_in :user_textcaptcha_answer, with: "2"
+          check :user_tos_agreement
+          check :user_newsletter
           find("*[type=submit]").click
         end
 
         expect(page).to have_content("You have signed up successfully")
-      end
-    end
-
-    context "when using another langage" do
-      before do
-        within_language_menu do
-          click_link "Castellano"
-        end
-      end
-
-      it "keeps the locale settings" do
-        find(".sign-up-link").click
-
-        within ".new_user" do
-          fill_in :registration_user_email, with: "user@example.org"
-          fill_in :registration_user_name, with: "Responsible Citizen"
-          fill_in :registration_user_nickname, with: "responsible"
-          fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
-          fill_in :registration_user_password_confirmation, with: "DfyvHn425mYAy2HL"
-          check :registration_user_tos_agreement
-          check :registration_user_newsletter
-          find("*[type=submit]").click
-        end
-
-        expect(page).to have_content("¡Bienvenida! Te has registrado con éxito.")
-        expect(last_user.locale).to eq("es")
       end
     end
 
@@ -63,13 +45,14 @@ describe "Authentication", type: :system do
 
         within ".new_user" do
           page.execute_script("$($('.new_user > div > input')[0]).val('Ima robot :D')")
-          fill_in :registration_user_email, with: "user@example.org"
-          fill_in :registration_user_name, with: "Responsible Citizen"
-          fill_in :registration_user_nickname, with: "responsible"
-          fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
-          fill_in :registration_user_password_confirmation, with: "DfyvHn425mYAy2HL"
-          check :registration_user_tos_agreement
-          check :registration_user_newsletter
+          fill_in :user_email, with: "user@example.org"
+          fill_in :user_name, with: "Responsible Citizen"
+          fill_in :user_nickname, with: "responsible"
+          fill_in :user_password, with: "DfyvHn425mYAy2HL"
+          fill_in :user_password_confirmation, with: "DfyvHn425mYAy2HL"
+          fill_in :user_textcaptcha_answer, with: "2"
+          check :user_tos_agreement
+          check :user_newsletter
           find("*[type=submit]").click
         end
 
@@ -350,7 +333,8 @@ describe "Authentication", type: :system do
       end
 
       it "signs out the user" do
-        within_user_menu do
+        within ".topbar__user__logged" do
+          find("a", text: user.name).hover
           find(".sign-out-link").click
         end
 
@@ -515,31 +499,6 @@ describe "Authentication", type: :system do
 
           expect(page).to have_content("Successfully")
           expect(page).to have_content(user.name)
-        end
-      end
-    end
-  end
-
-  context "when a user is already registered in another organization with the same email" do
-    let(:user) { create(:user, :confirmed, password: "DfyvHn425mYAy2HL") }
-
-    describe "Sign Up" do
-      context "when using the same email" do
-        it "creates a new User" do
-          find(".sign-up-link").click
-
-          within ".new_user" do
-            fill_in :registration_user_email, with: user.email
-            fill_in :registration_user_name, with: "Responsible Citizen"
-            fill_in :registration_user_nickname, with: "responsible"
-            fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
-            fill_in :registration_user_password_confirmation, with: "DfyvHn425mYAy2HL"
-            check :registration_user_tos_agreement
-            check :registration_user_newsletter
-            find("*[type=submit]").click
-          end
-
-          expect(page).to have_content("You have signed up successfully")
         end
       end
     end

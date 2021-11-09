@@ -16,8 +16,9 @@ describe "Account", type: :system do
     it "shows the account form when clicking on the menu" do
       visit decidim.root_path
 
-      within_user_menu do
-        find("a", text: "account").click
+      within ".topbar__user__logged" do
+        find("a", text: user.name).hover
+        find("a", text: "Profile").click
       end
 
       expect(page).to have_css("form.edit_user")
@@ -33,8 +34,6 @@ describe "Account", type: :system do
       it "updates the user's data" do
         within "form.edit_user" do
           fill_in :user_name, with: "Nikola Tesla"
-          fill_in :user_personal_url, with: "https://example.org"
-          fill_in :user_about, with: "A Serbian-American inventor, electrical engineer, mechanical engineer, physicist, and futurist."
           find("*[type=submit]").click
         end
 
@@ -49,11 +48,11 @@ describe "Account", type: :system do
         user.reload
 
         within_user_menu do
-          find("a", text: "public profile").click
+          find("a", text: user.name).hover
+          find("a", text: "My public profile").click
         end
 
-        expect(page).to have_content("example.org")
-        expect(page).to have_content("Serbian-American")
+        expect(page).to have_content("(External link)")
       end
     end
 
