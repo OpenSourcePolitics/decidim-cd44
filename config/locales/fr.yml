@@ -11,13 +11,13 @@ fr:
   decidim:
     account:
       show:
-        change_password: Change password
-        update_account: Update account
+        change_password: Modifier mon mot de passe
+        update_account: Mettre à jour mon compte
     admin:
       participatory_space_private_users:
         create:
-          error: Error
-          success: Success
+          error: L'utilisateur privé a été créé avec succès.
+          success: Il y a eu un problème lors de la création de l'utilisateur privé.
     amendments:
       emendation:
         announcement:
@@ -34,6 +34,22 @@ fr:
         name: Formulaire de vérification d'identité
       osp_authorization_workflow:
         name: Procédure d'autorisation
+    components:
+      proposals:
+        settings:
+          global:
+            proposal_edit_time_choices:
+              limited: Autoriser l'édition des propositions durant un délai spécifique
+              infinite: Autoriser l'édition des propositions pour une durée infinie
+            proposal_edit_time: Durée d'édition des propositions
+    newsletter_mailer:
+      newsletter:
+        note: Note
+        unsubscribe: Me désabonner
+    proposals:
+      proposals:
+        form_view:
+          cancel: Annuler
     verifications:
       authorizations:
         first_login:
@@ -61,17 +77,21 @@ fr:
           processes:
             one: "%{count} projet"
             other: "%{count} projets"
+  forms:
+    length_validator:
+      minimum:
+        other: Au moins %{count} caractères
   layouts:
     decidim:
       footer:
         download_open_data: Données ouvertes
-        made_with_open_source: Made with open source
+        made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
       header:
-        close_menu: Close menu
+        close_menu: Fermer le menu
         navigation: Navigation
-        sign_in: Sign in
-        sign_up: Sign up
+        sign_in: S'identifier
+        sign_up: S'inscrire
       user_menu:
         conversations: Conversations
         notifications: Notifications
-        profile: Profile
+        profile: Profil
