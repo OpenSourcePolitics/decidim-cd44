@@ -1,5 +1,9 @@
 ---
 fr:
+  forms:
+    length_validator:
+      minimum:
+        other: Au moins %{count} caractères
   activemodel:
     attributes:
       osp_authorization_handler:
