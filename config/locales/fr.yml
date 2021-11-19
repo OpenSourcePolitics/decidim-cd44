@@ -34,22 +34,10 @@ fr:
         name: Formulaire de vérification d'identité
       osp_authorization_workflow:
         name: Procédure d'autorisation
-    components:
-      proposals:
-        settings:
-          global:
-            proposal_edit_time_choices:
-              limited: Autoriser l'édition des propositions durant un délai spécifique
-              infinite: Autoriser l'édition des propositions pour une durée infinie
-            proposal_edit_time: Durée d'édition des propositions
     newsletter_mailer:
       newsletter:
         note: Note
         unsubscribe: Me désabonner
-    proposals:
-      proposals:
-        form_view:
-          cancel: Annuler
     verifications:
       authorizations:
         first_login:
@@ -77,10 +65,6 @@ fr:
           processes:
             one: "%{count} projet"
             other: "%{count} projets"
-  forms:
-    length_validator:
-      minimum:
-        other: Au moins %{count} caractères
   layouts:
     decidim:
       footer:

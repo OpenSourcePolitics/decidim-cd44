@@ -44,10 +44,6 @@ en:
           actions:
             osp_authorization_handler: Vérifier avec le formulaire de vérification de l'identité
             osp_authorization_workflow: Vérifier avec le formulaire de vérification de l'identité
-  forms:
-    length_validator:
-      minimum:
-        other: Au moins %{count} caractères
   layouts:
     decidim:
       footer:
