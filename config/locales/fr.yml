@@ -1,9 +1,5 @@
 ---
 fr:
-  forms:
-    length_validator:
-      minimum:
-        other: Au moins %{count} caractères
   activemodel:
     attributes:
       osp_authorization_handler:
@@ -13,6 +9,8 @@ fr:
       participatory_process:
         private_space: Espace privé
   decidim:
+    accessibility:
+      skip_button: Skip button
     account:
       show:
         change_password: Modifier mon mot de passe
@@ -69,6 +67,11 @@ fr:
           processes:
             one: "%{count} projet"
             other: "%{count} projets"
+  forms:
+    length_validator:
+      minimum:
+        one: Au moins %{count} caractère
+        other: Au moins %{count} caractères
   layouts:
     decidim:
       footer:
@@ -80,6 +83,7 @@ fr:
         sign_in: S'identifier
         sign_up: S'inscrire
       user_menu:
+        account: Account
         conversations: Conversations
         notifications: Notifications
         profile: Profil
