@@ -9,6 +9,8 @@ en:
       participatory_process:
         private_space: Espace privé
   decidim:
+    accessibility:
+      skip_button: Skip button
     account:
       show:
         change_password: Change password
@@ -40,6 +42,11 @@ en:
           actions:
             osp_authorization_handler: Vérifier avec le formulaire de vérification de l'identité
             osp_authorization_workflow: Vérifier avec le formulaire de vérification de l'identité
+  forms:
+    length_validator:
+      minimum:
+        one: Au moins %{count} caractère
+        other: Au moins %{count} caractères
   layouts:
     decidim:
       footer:
@@ -51,6 +58,7 @@ en:
         sign_in: Sign in
         sign_up: Sign up
       user_menu:
+        account: Account
         conversations: Conversations
         notifications: Notifications
         profile: Profile

@@ -9,15 +9,17 @@ fr:
       participatory_process:
         private_space: Espace privé
   decidim:
+    accessibility:
+      skip_button: Skip button
     account:
       show:
-        change_password: Change password
-        update_account: Update account
+        change_password: Modifier mon mot de passe
+        update_account: Mettre à jour mon compte
     admin:
       participatory_space_private_users:
         create:
-          error: Error
-          success: Success
+          error: L'utilisateur privé a été créé avec succès.
+          success: Il y a eu un problème lors de la création de l'utilisateur privé.
     amendments:
       emendation:
         announcement:
@@ -61,17 +63,23 @@ fr:
           processes:
             one: "%{count} projet"
             other: "%{count} projets"
+  forms:
+    length_validator:
+      minimum:
+        one: Au moins %{count} caractère
+        other: Au moins %{count} caractères
   layouts:
     decidim:
       footer:
         download_open_data: Données ouvertes
-        made_with_open_source: Made with open source
+        made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
       header:
-        close_menu: Close menu
+        close_menu: Fermer le menu
         navigation: Navigation
-        sign_in: Sign in
-        sign_up: Sign up
+        sign_in: S'identifier
+        sign_up: S'inscrire
       user_menu:
+        account: Account
         conversations: Conversations
         notifications: Notifications
-        profile: Profile
+        profile: Profil

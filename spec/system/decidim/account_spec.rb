@@ -17,7 +17,7 @@ describe "Account", type: :system do
       visit decidim.root_path
 
       within ".topbar__user__logged" do
-        find("a", text: user.name).hover
+        find("a", text: user.name).click
         find("a", text: "Profile").click
       end
 
@@ -146,7 +146,7 @@ describe "Account", type: :system do
           expect(page).to have_content("successfully")
         end
 
-        find(".sign-in-link").click
+        first(".sign-in-link").click
 
         within ".new_user" do
           fill_in :session_user_email, with: user.email

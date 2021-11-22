@@ -94,5 +94,6 @@ ignore_unused:
   - decidim.verifications.authorizations.first_login.actions.osp_authorization_workflow
   - activemodel.attributes.participatory_process.private_space
   - decidim.amendments.emendation.announcement.evaluating
+  - forms.length_validator.minimum.*
 
 
