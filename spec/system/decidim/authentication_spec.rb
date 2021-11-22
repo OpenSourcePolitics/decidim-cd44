@@ -8,7 +8,6 @@ describe "Authentication", type: :system do
   let(:questions) do
     {
       en: [{ "question" => "1+1", "answers" => "2" }],
-      es: [{ "question" => "2+1", "answers" => "3" }]
     }
   end
 

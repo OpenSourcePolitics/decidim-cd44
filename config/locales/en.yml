@@ -36,6 +36,10 @@ en:
         name: Formulaire de vérification d'identité
       osp_authorization_workflow:
         name: Procédure d'autorisation
+    newsletter_mailer:
+      newsletter:
+        note: Note
+        unsubscribe: Unsubscribe
     verifications:
       authorizations:
         first_login:
