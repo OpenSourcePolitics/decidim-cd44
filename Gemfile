@@ -7,28 +7,15 @@ DECIDIM_VERSION = "release/0.24-stable"
 ruby RUBY_VERSION
 
 gem "decidim", git: "https://github.com/decidim/decidim.git", branch: DECIDIM_VERSION
-# gem "decidim", path: "../decidim"
-
-# gem "decidim-conferences", git: "https://github.com/decidim/decidim.git", branch: "release/0.23-stable"
-# gem "decidim-consultations", git: "https://github.com/decidim/decidim.git", branch: "release/0.23-stable"
-# gem "decidim-initiatives", git: "https://github.com/decidim/decidim.git", branch: "release/0.23-stable"
 
 gem "decidim-decidim_awesome", "~> 0.7.0"
 gem "decidim-navbar_links", git: "https://github.com/OpenSourcePolitics/decidim-module-navbar_links.git", branch: "release/0.24-stable"
-# gem "decidim-simple_proposal", git: "https://github.com/mainio/decidim-module-simple_proposal.git", branch: "master"
+gem "decidim-simple_proposal", git: "https://github.com/Quentinchampenois/decidim-module-simple_proposal.git", branch: "fix/proposal_form"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: "master"
 
-# gem "decidim-calendar", git: "https://github.com/alabs/decidim-module-calendar"
-# gem "decidim-combined_budgeting", git: "https://github.com/mainio/decidim-module-combined_budgeting"
-# gem "decidim-comparative_stats", git: "https://github.com/Platoniq/decidim-module-comparative_stats"
-# gem "decidim-direct_verifications", git: "https://github.com/Platoniq/decidim-verifications-direct_verifications"
-# gem "decidim-homepage_interactive_map", git: "https://github.com/OpenSourcePolitics/decidim-module-homepage_interactive_map.git"
-# gem "decidim-initiatives_no_signature_allowed", git: "https://github.com/OpenSourcePolitics/decidim-module-initiatives_nosignature_allowed.git"
-# gem "decidim-navigation_maps", git: "https://github.com/Platoniq/decidim-module-navigation_maps"
-
-gem "decidim-url_aliases", git: "https://github.com/OpenSourcePolitics/decidim-urlaliases.git"
-gem "decidim-question_captcha", git: "https://github.com/OpenSourcePolitics/decidim-module-question_captcha.git"
 gem "acts_as_textcaptcha", "~> 4.5.1"
+gem "decidim-question_captcha", git: "https://github.com/OpenSourcePolitics/decidim-module-question_captcha.git"
+gem "decidim-url_aliases", git: "https://github.com/OpenSourcePolitics/decidim-urlaliases.git"
 
 gem "bootsnap", "~> 1.4"
 
@@ -61,15 +48,15 @@ end
 
 group :production do
   # gem "rubocop-rails"
-  gem "passenger"
-  gem "fog-aws"
   gem "dalli"
-  gem "sendgrid-ruby"
-  gem "newrelic_rpm"
+  gem "fog-aws"
   gem "lograge"
+  gem "newrelic_rpm"
+  gem "passenger"
+  gem "sendgrid-ruby"
+  gem "sentry-rails"
+  gem "sentry-ruby"
+  gem "sentry-sidekiq"
   gem "sidekiq"
   gem "sidekiq-scheduler"
-  gem "sentry-ruby"
-  gem "sentry-rails"
-  gem "sentry-sidekiq"
 end
