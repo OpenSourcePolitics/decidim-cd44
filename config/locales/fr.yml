@@ -36,10 +36,22 @@ fr:
         name: Formulaire de vérification d'identité
       osp_authorization_workflow:
         name: Procédure d'autorisation
+    components:
+      proposals:
+        settings:
+          global:
+            proposal_edit_time: Durée d'édition des propositions
+            proposal_edit_time_choices:
+              infinite: Autoriser l'édition des propositions pour une durée infinie
+              limited: Autoriser l'édition des propositions durant un délai spécifique
     newsletter_mailer:
       newsletter:
-        note: Note
-        unsubscribe: Unsubscribe
+        note: Vous avez reçu cet email parce que vous êtes abonné aux newsletters de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
+        unsubscribe: Pour ne plus recevoir ce type d'email, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
+    proposals:
+      proposals:
+        form_view:
+          cancel: Annuler
     verifications:
       authorizations:
         first_login:
