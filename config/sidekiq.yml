@@ -20,3 +20,7 @@
     every: ['24h', first_in: '1m']
     class: OrdersReminderJob
     queue: scheduled
+  DetectSpamUsers:
+    cron: '0 0 8 * * *' # Run at 08:00
+    class: Decidim::SpamDetection::MarkUsersJob
+    queue: scheduled

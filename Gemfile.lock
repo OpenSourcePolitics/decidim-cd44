@@ -15,6 +15,14 @@ GIT
       decidim-core (= 0.24.3)
 
 GIT
+  remote: https://github.com/OpenSourcePolitics/decidim-spam_detection.git
+  revision: 6b9e25c61225f430be9e61063efeb97c464729b5
+  branch: release/0.24-stable
+  specs:
+    decidim-spam_detection (0.24)
+      decidim-core (~> 0.24)
+
+GIT
   remote: https://github.com/OpenSourcePolitics/decidim-urlaliases.git
   revision: 3527043c1ce2886ef86cd1f34e14d2bef5c759bb
   specs:
@@ -958,6 +966,7 @@ DEPENDENCIES
   decidim-navbar_links!
   decidim-question_captcha!
   decidim-simple_proposal!
+  decidim-spam_detection!
   decidim-term_customizer!
   decidim-url_aliases!
   dotenv-rails
