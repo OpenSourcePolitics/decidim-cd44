@@ -5,6 +5,8 @@
 - mailers
 - newsletter
 - events
+- user_report
+- block_user
 - scheduled
 
 :schedule:
