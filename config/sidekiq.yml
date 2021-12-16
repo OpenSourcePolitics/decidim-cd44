@@ -11,15 +11,15 @@
 
 :schedule:
   CalculateAllMetrics:
-    every: ['24h', first_in: '1m']
+    cron: '0 0 0 * * *' # Run at 00:00
     class: CalculateAllMetricsJob
     queue: scheduled
   PreloadOpenData:
-    every: ['24h', first_in: '1m']
+    cron: '0 0 1 * * *' # Run at 01:00
     class: PreloadOpenDataJob
     queue: scheduled
   OrdersReminder:
-    every: ['24h', first_in: '1m']
+    cron: '0 0 10 * * *' # Run at 10:00
     class: OrdersReminderJob
     queue: scheduled
   DetectSpamUsers:
