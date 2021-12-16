@@ -16,7 +16,7 @@ GIT
 
 GIT
   remote: https://github.com/OpenSourcePolitics/decidim-spam_detection.git
-  revision: 6b9e25c61225f430be9e61063efeb97c464729b5
+  revision: f8e83226d2776f287b4788a767a007803997e3fc
   branch: release/0.24-stable
   specs:
     decidim-spam_detection (0.24)
