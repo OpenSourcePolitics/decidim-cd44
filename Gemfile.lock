@@ -752,6 +752,8 @@ GEM
       virtus (~> 1.0.5)
       wisper (>= 1.6.1)
     redcarpet (3.5.1)
+    redirector (1.1.7)
+      rails (>= 3.1)
     redis (4.5.1)
     redlock (1.2.2)
       redis (>= 3.0.0, < 5.0)
@@ -957,6 +959,7 @@ PLATFORMS
   x86_64-darwin-19
 
 DEPENDENCIES
+  activejob-uniqueness
   acts_as_textcaptcha (~> 4.5.1)
   bootsnap (~> 1.4)
   byebug (~> 11.0)
@@ -988,6 +991,7 @@ DEPENDENCIES
   spring (~> 2.0)
   spring-watcher-listen (~> 2.0)
   sprockets (~> 3.7)
+  sys-filesystem
   uglifier (~> 4.1)
   web-console (~> 3.5)
 
