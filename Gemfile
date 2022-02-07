@@ -7,6 +7,7 @@ DECIDIM_VERSION = "release/0.24-stable"
 ruby RUBY_VERSION
 
 gem "decidim", git: "https://github.com/decidim/decidim.git", branch: DECIDIM_VERSION
+gem "decidim-initiatives", git: "https://github.com/decidim/decidim.git", branch: DECIDIM_VERSION
 
 gem "decidim-decidim_awesome", "~> 0.7.0"
 gem "decidim-navbar_links", git: "https://github.com/OpenSourcePolitics/decidim-module-navbar_links.git", branch: "release/0.24-stable"
@@ -14,8 +15,9 @@ gem "decidim-simple_proposal", git: "https://github.com/Quentinchampenois/decidi
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: "master"
 
 gem "acts_as_textcaptcha", "~> 4.5.1"
-gem "decidim-question_captcha", git: "https://github.com/OpenSourcePolitics/decidim-module-question_captcha.git"
+gem "decidim-question_captcha", git: "https://github.com/OpenSourcePolitics/decidim-module-question_captcha.git", branch: "release/0.24-stable"
 gem "decidim-spam_detection", git: "https://github.com/OpenSourcePolitics/decidim-spam_detection.git", branch: "trash/feature/mails-admin-revamp/0.24"
+
 gem "decidim-url_aliases", git: "https://github.com/OpenSourcePolitics/decidim-urlaliases.git"
 
 gem "bootsnap", "~> 1.4"
@@ -32,6 +34,10 @@ gem "ruby-progressbar"
 gem "letter_opener_web", "~> 1.3"
 
 gem "sprockets", "~> 3.7"
+
+gem "activejob-uniqueness", require: "active_job/uniqueness/sidekiq_patch"
+gem "fog-aws"
+gem "sys-filesystem"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
@@ -50,7 +56,6 @@ end
 group :production do
   # gem "rubocop-rails"
   gem "dalli"
-  gem "fog-aws"
   gem "lograge"
   gem "newrelic_rpm"
   gem "passenger"

@@ -1,6 +1,7 @@
 :concurrency: 5
 :queues:
 - default
+- backups
 - metrics
 - mailers
 - newsletter
@@ -19,10 +20,14 @@
     class: PreloadOpenDataJob
     queue: scheduled
   OrdersReminder:
-    cron: '0 0 10 * * *' # Run at 10:00
+    cron: '0 0 18 * * *' # Run at 18:00
     class: OrdersReminderJob
     queue: scheduled
   DetectSpamUsers:
     cron: '0 0 8 * * *' # Run at 08:00
     class: Decidim::SpamDetection::MarkUsersJob
     queue: scheduled
+  Backup:
+    cron: '0 0 4 * * *' # Run at 04:00
+    class: BackupJob
+    queue: backups

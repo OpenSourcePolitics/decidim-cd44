@@ -88,6 +88,8 @@ ignore_missing:
 ignore_unused:
   - faker.*
   - activemodel.attributes.osp_authorization_handler.*
+  - activemodel.attributes.participatory_process.private_space
+  - decidim.accessibility.skip_button
   - decidim.authorization_handlers.osp_authorization_handler.*
   - decidim.authorization_handlers.osp_authorization_workflow.*
   - decidim.components.proposals.settings.global.*
@@ -97,5 +99,5 @@ ignore_unused:
   - activemodel.attributes.participatory_process.private_space
   - decidim.amendments.emendation.announcement.evaluating
   - forms.length_validator.minimum.*
-
-
+  - decidim.events.budgets.pending_order.*
+  - layouts.decidim.user_menu.account
