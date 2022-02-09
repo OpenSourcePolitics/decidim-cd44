@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-if defined?(Decidim::Initiatives) && defined?(Decidim::Initiatives.do_not_require_authorization)
+if defined?(Decidim::Initiatives)
   Decidim::Initiatives.configure do |config|
     # Public Setting that defines the similarity minimum value to consider two
     # initiatives similar. Defaults to 0.25.
     # config.similarity_threshold = 0.25
-
+    config.do_not_require_authorization = true
     # Public Setting that defines how many similar initiatives will be shown.
     # Defaults to 5.
     # config.similarity_limit = 5
