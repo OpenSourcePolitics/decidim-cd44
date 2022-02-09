@@ -1,12 +1,4 @@
 GIT
-  remote: https://github.com/OpenSourcePolitics/decidim-module-navbar_links.git
-  revision: 1fe9ff09db5c7c990ee71f7355e74226191e8e76
-  branch: release/0.24-stable
-  specs:
-    decidim-navbar_links (0.24.2)
-      decidim-core (~> 0.24.2)
-
-GIT
   remote: https://github.com/OpenSourcePolitics/decidim-module-question_captcha.git
   revision: e89ed5156088641390bc6828f9de06674bd79e3c
   branch: release/0.24-stable
@@ -14,6 +6,14 @@ GIT
     decidim-question_captcha (0.24.3)
       acts_as_textcaptcha (~> 4.5.1)
       decidim-core (= 0.24.3)
+
+GIT
+  remote: https://github.com/OpenSourcePolitics/decidim-spam_detection.git
+  revision: 48a8e81fd6fe4d7d56c2066c7d56f5bb893625e3
+  branch: release/0.24-stable
+  specs:
+    decidim-spam_detection (0.24)
+      decidim-core (~> 0.24)
 
 GIT
   remote: https://github.com/OpenSourcePolitics/decidim-urlaliases.git
@@ -989,9 +989,9 @@ DEPENDENCIES
   decidim-decidim_awesome (~> 0.7.0)
   decidim-dev!
   decidim-initiatives!
-  decidim-navbar_links!
   decidim-question_captcha!
   decidim-simple_proposal!
+  decidim-spam_detection!
   decidim-term_customizer!
   decidim-url_aliases!
   dotenv-rails
