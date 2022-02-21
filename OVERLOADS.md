@@ -19,3 +19,22 @@
         fill: rgba($primary, .2);;
     }
 ```
+## Disable proposals cells caching
+ - **app/cells/decidim/proposals/proposal_m_cell.rb**
+```ruby
+      # Potential backport at https://github.com/decidim/decidim/pull/8566/files
+      def perform_caching?
+        false
+      end
+```
+## Fix annoucement div displayed while empty
+
+- **app/cells/decidim/announcement_cell.rb**, from https://github.com/decidim/decidim/blob/release/0.24-stable/decidim-core/app/cells/decidim/announcement_cell.rb
+```ruby
+def empty_announcement?
+  clean_announcement.blank? || clean_announcement == "<p><br></p>"
+end
+``` 
+### User info panel overload
+
+- **app/views/decidim/account/show.html.erb** ([original file from Decidim repository](https://github.com/decidim/decidim/blob/release/0.23-stable/decidim-core/app/views/decidim/account/show.html.erb))
