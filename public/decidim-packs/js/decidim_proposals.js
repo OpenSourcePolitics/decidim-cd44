@@ -1,15 +1,15 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/documents sync recursive ^\\.\\/.*$":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/documents sync recursive ^\\.\\/.*$":
 /*!*************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/documents/ sync ^\.\/.*$ ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/documents/ sync ^\.\/.*$ ***!
   \*************************************************************************************************************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 var map = {
-	"./decidim/proposals/participatory_texts/participatory_text.md": "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/documents/decidim/proposals/participatory_texts/participatory_text.md",
-	"./decidim/proposals/participatory_texts/participatory_text.odt": "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/documents/decidim/proposals/participatory_texts/participatory_text.odt"
+	"./decidim/proposals/participatory_texts/participatory_text.md": "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/documents/decidim/proposals/participatory_texts/participatory_text.md",
+	"./decidim/proposals/participatory_texts/participatory_text.odt": "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/documents/decidim/proposals/participatory_texts/participatory_text.odt"
 };
 
 
@@ -30,21 +30,21 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/documents sync recursive ^\\.\\/.*$";
+webpackContext.id = "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/documents sync recursive ^\\.\\/.*$";
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/images sync recursive ^\\.\\/.*$":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/images sync recursive ^\\.\\/.*$":
 /*!**********************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/images/ sync ^\.\/.*$ ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/images/ sync ^\.\/.*$ ***!
   \**********************************************************************************************************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 var map = {
-	"./decidim/gamification/badges/decidim_gamification_badges_accepted_proposals.svg": "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/images/decidim/gamification/badges/decidim_gamification_badges_accepted_proposals.svg",
-	"./decidim/gamification/badges/decidim_gamification_badges_proposal_votes.svg": "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/images/decidim/gamification/badges/decidim_gamification_badges_proposal_votes.svg",
-	"./decidim/gamification/badges/decidim_gamification_badges_proposals.svg": "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/images/decidim/gamification/badges/decidim_gamification_badges_proposals.svg",
-	"./decidim/proposals/decidim_proposals.svg": "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/images/decidim/proposals/decidim_proposals.svg"
+	"./decidim/gamification/badges/decidim_gamification_badges_accepted_proposals.svg": "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/images/decidim/gamification/badges/decidim_gamification_badges_accepted_proposals.svg",
+	"./decidim/gamification/badges/decidim_gamification_badges_proposal_votes.svg": "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/images/decidim/gamification/badges/decidim_gamification_badges_proposal_votes.svg",
+	"./decidim/gamification/badges/decidim_gamification_badges_proposals.svg": "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/images/decidim/gamification/badges/decidim_gamification_badges_proposals.svg",
+	"./decidim/proposals/decidim_proposals.svg": "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/images/decidim/proposals/decidim_proposals.svg"
 };
 
 
@@ -65,13 +65,13 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/images sync recursive ^\\.\\/.*$";
+webpackContext.id = "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/images sync recursive ^\\.\\/.*$";
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-core/app/packs/src/decidim/geocoding/attach_input.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-core/app/packs/src/decidim/geocoding/attach_input.js":
 /*!*********************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-core/app/packs/src/decidim/geocoding/attach_input.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-core/app/packs/src/decidim/geocoding/attach_input.js ***!
   \*********************************************************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -80,7 +80,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ attachGeocoding; }
 /* harmony export */ });
-/* harmony import */ var _coordinate_input__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./coordinate_input */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-core/app/packs/src/decidim/geocoding/coordinate_input.js");
+/* harmony import */ var _coordinate_input__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./coordinate_input */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-core/app/packs/src/decidim/geocoding/coordinate_input.js");
 /* eslint-disable require-jsdoc */
 
 /**
@@ -219,9 +219,9 @@ function attachGeocoding($input, options, callback) {
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-core/app/packs/src/decidim/geocoding/coordinate_input.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-core/app/packs/src/decidim/geocoding/coordinate_input.js":
 /*!*************************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-core/app/packs/src/decidim/geocoding/coordinate_input.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-core/app/packs/src/decidim/geocoding/coordinate_input.js ***!
   \*************************************************************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -256,16 +256,16 @@ function getCoordinateInputName(coordinate, $input, options) {
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/src/decidim/proposals/add_proposal.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/src/decidim/proposals/add_proposal.js":
 /*!**************************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/src/decidim/proposals/add_proposal.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/src/decidim/proposals/add_proposal.js ***!
   \**************************************************************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var src_decidim_geocoding_attach_input__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/decidim/geocoding/attach_input */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-core/app/packs/src/decidim/geocoding/attach_input.js");
-/* harmony import */ var src_decidim_geocoding_coordinate_input__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/decidim/geocoding/coordinate_input */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-core/app/packs/src/decidim/geocoding/coordinate_input.js");
+/* harmony import */ var src_decidim_geocoding_attach_input__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/decidim/geocoding/attach_input */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-core/app/packs/src/decidim/geocoding/attach_input.js");
+/* harmony import */ var src_decidim_geocoding_coordinate_input__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/decidim/geocoding/coordinate_input */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-core/app/packs/src/decidim/geocoding/coordinate_input.js");
 
 
 $(function () {
@@ -323,9 +323,9 @@ $(function () {
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/src/decidim/proposals/utils.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/src/decidim/proposals/utils.js":
 /*!*******************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/src/decidim/proposals/utils.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/src/decidim/proposals/utils.js ***!
   \*******************************************************************************************************************************************************/
 /***/ (function() {
 
@@ -341,9 +341,9 @@ $(function () {
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/documents/decidim/proposals/participatory_texts/participatory_text.md":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/documents/decidim/proposals/participatory_texts/participatory_text.md":
 /*!**********************************************************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/documents/decidim/proposals/participatory_texts/participatory_text.md ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/documents/decidim/proposals/participatory_texts/participatory_text.md ***!
   \**********************************************************************************************************************************************************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
@@ -352,9 +352,9 @@ module.exports = __webpack_require__.p + "media/documents/0e67170e72070b470a07.m
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/documents/decidim/proposals/participatory_texts/participatory_text.odt":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/documents/decidim/proposals/participatory_texts/participatory_text.odt":
 /*!***********************************************************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/documents/decidim/proposals/participatory_texts/participatory_text.odt ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/documents/decidim/proposals/participatory_texts/participatory_text.odt ***!
   \***********************************************************************************************************************************************************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
@@ -363,9 +363,9 @@ module.exports = __webpack_require__.p + "media/documents/057f608bdff3d77526ff.o
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/images/decidim/gamification/badges/decidim_gamification_badges_accepted_proposals.svg":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/images/decidim/gamification/badges/decidim_gamification_badges_accepted_proposals.svg":
 /*!**************************************************************************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/images/decidim/gamification/badges/decidim_gamification_badges_accepted_proposals.svg ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/images/decidim/gamification/badges/decidim_gamification_badges_accepted_proposals.svg ***!
   \**************************************************************************************************************************************************************************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
@@ -374,9 +374,9 @@ module.exports = __webpack_require__.p + "media/images/decidim_gamification_badg
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/images/decidim/gamification/badges/decidim_gamification_badges_proposal_votes.svg":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/images/decidim/gamification/badges/decidim_gamification_badges_proposal_votes.svg":
 /*!**********************************************************************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/images/decidim/gamification/badges/decidim_gamification_badges_proposal_votes.svg ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/images/decidim/gamification/badges/decidim_gamification_badges_proposal_votes.svg ***!
   \**********************************************************************************************************************************************************************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
@@ -385,9 +385,9 @@ module.exports = __webpack_require__.p + "media/images/decidim_gamification_badg
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/images/decidim/gamification/badges/decidim_gamification_badges_proposals.svg":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/images/decidim/gamification/badges/decidim_gamification_badges_proposals.svg":
 /*!*****************************************************************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/images/decidim/gamification/badges/decidim_gamification_badges_proposals.svg ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/images/decidim/gamification/badges/decidim_gamification_badges_proposals.svg ***!
   \*****************************************************************************************************************************************************************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
@@ -396,9 +396,9 @@ module.exports = __webpack_require__.p + "media/images/decidim_gamification_badg
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/images/decidim/proposals/decidim_proposals.svg":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/images/decidim/proposals/decidim_proposals.svg":
 /*!***********************************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/images/decidim/proposals/decidim_proposals.svg ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/images/decidim/proposals/decidim_proposals.svg ***!
   \***********************************************************************************************************************************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
@@ -485,19 +485,19 @@ var __webpack_exports__ = {};
 !function() {
 "use strict";
 /*!*********************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/entrypoints/decidim_proposals.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/entrypoints/decidim_proposals.js ***!
   \*********************************************************************************************************************************************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var src_decidim_proposals_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/decidim/proposals/utils */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/src/decidim/proposals/utils.js");
+/* harmony import */ var src_decidim_proposals_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/decidim/proposals/utils */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/src/decidim/proposals/utils.js");
 /* harmony import */ var src_decidim_proposals_utils__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(src_decidim_proposals_utils__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var src_decidim_proposals_add_proposal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/decidim/proposals/add_proposal */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/src/decidim/proposals/add_proposal.js");
+/* harmony import */ var src_decidim_proposals_add_proposal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/decidim/proposals/add_proposal */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/src/decidim/proposals/add_proposal.js");
 
  // Images
 
-__webpack_require__("../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/images sync recursive ^\\.\\/.*$"); // Documents
+__webpack_require__("../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/images sync recursive ^\\.\\/.*$"); // Documents
 
 
-__webpack_require__("../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-proposals/app/packs/documents sync recursive ^\\.\\/.*$");
+__webpack_require__("../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-proposals/app/packs/documents sync recursive ^\\.\\/.*$");
 }();
 /******/ })()
 ;

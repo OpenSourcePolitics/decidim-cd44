@@ -1081,7 +1081,7 @@ a {
 }
 
 a:hover {
-  color: var(--secondary);
+  color: #147dc2;
 }
 
 a:active {
@@ -1173,8 +1173,8 @@ table.button {
 table.button table td {
   text-align: left;
   color: #fefefe;
-  background: #cb3c29;
-  border: 2px solid #cb3c29;
+  background: #CB3C29;
+  border: 2px solid #CB3C29;
 }
 
 table.button table td a {
@@ -1184,8 +1184,9 @@ table.button table td a {
   text-decoration: none;
   display: inline-block;
   padding: 8px 16px;
-  border: 0 solid #cb3c29;
+  border: 0 solid #CB3C29;
   border-radius: 3px;
+  background: #99E6D1;
 }
 
 table.button.radius table td {
@@ -1236,23 +1237,13 @@ table.button.large table a {
 
 table.button.expand,
 table.button.expanded {
-  width: 100%;
-}
-
-table.button.expand > tr > td,
-table.button.expanded > tr > td {
-  text-align: center;
+  width: 100% !important;
 }
 
 table.button.expand table,
 table.button.expanded table {
-  width: 50%;
+  width: 75%;
   margin: auto;
-}
-
-table.button.expand table > tr > td,
-table.button.expanded table > tr > td {
-  text-align: center;
 }
 
 table.button.expand table a,
@@ -1271,7 +1262,7 @@ table.button.expanded center {
 table.button:hover table td,
 table.button:visited table td,
 table.button:active table td {
-  background: #cb3c29;
+  background: #CB3C29;
   color: #fefefe;
 }
 
@@ -1703,7 +1694,7 @@ table.button.small-expanded center {
 table.body th.decidim-bar,
 table.body td.decidim-bar {
   padding: 10px 0;
-  background-color: #1a181d;
+  background-color: #f5f5f5;
 }
 
 table.body {
@@ -1721,7 +1712,7 @@ table.body {
 }
 
 .cityhall-bar {
-  background-color: #2c2930;
+  background-color: #f5f5f5;
 }
 
 .cityhall-logo {

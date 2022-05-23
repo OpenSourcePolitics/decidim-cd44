@@ -13486,6 +13486,7 @@ input {
 
 a {
   color: #3e7f8b;
+  font-weight: normal;
 }
 a:hover {
   color: #356d78;
@@ -13577,6 +13578,7 @@ button:focus {
 
 .heading-small {
   font-size: 1rem;
+  line-height: 1.4;
 }
 
 hr {
@@ -13987,7 +13989,7 @@ ol.no-bullet-indented {
   font-weight: 600;
 }
 .areachart .area {
-  fill: rgba(var(--primary-rgb), 0.05);
+  fill: rgba(203, 60, 41, 0.2);
 }
 .areachart .line {
   fill: none;

@@ -1,14 +1,14 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-budgets/app/packs/images sync recursive ^\\.\\/.*$":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-budgets/app/packs/images sync recursive ^\\.\\/.*$":
 /*!********************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-budgets/app/packs/images/ sync ^\.\/.*$ ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-budgets/app/packs/images/ sync ^\.\/.*$ ***!
   \********************************************************************************************************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 var map = {
-	"./decidim/budgets/decidim_budgets.svg": "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-budgets/app/packs/images/decidim/budgets/decidim_budgets.svg"
+	"./decidim/budgets/decidim_budgets.svg": "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-budgets/app/packs/images/decidim/budgets/decidim_budgets.svg"
 };
 
 
@@ -29,13 +29,116 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-budgets/app/packs/images sync recursive ^\\.\\/.*$";
+webpackContext.id = "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-budgets/app/packs/images sync recursive ^\\.\\/.*$";
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-budgets/app/packs/src/decidim/budgets/progressFixed.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-budgets/app/packs/src/decidim/budgets/exit_handler.js":
+/*!**********************************************************************************************************************************************************!*\
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-budgets/app/packs/src/decidim/budgets/exit_handler.js ***!
+  \**********************************************************************************************************************************************************/
+/***/ (function() {
+
+var currentAllocationZero = function currentAllocationZero() {
+  var $budgetSummary = $(".budget-summary__progressbox");
+  return parseInt($budgetSummary.attr("data-current-allocation"), 10) === 0;
+};
+
+var isSafeUrl = function isSafeUrl(exitUrl) {
+  if (!exitUrl) {
+    return false;
+  }
+
+  var safeUrls = [$(".budget-summary").attr("data-safe-url").split("?")[0], "".concat(location.pathname, "#"), "".concat(location.href, "#"), "#"];
+  var safe = false;
+  safeUrls.forEach(function (url) {
+    if (exitUrl.startsWith(url)) {
+      safe = true;
+    }
+  });
+  return safe;
+};
+
+var allowExitFrom = function allowExitFrom($el) {
+  if (currentAllocationZero()) {
+    return true;
+  } else if ($el.attr("target") === "_blank") {
+    return true;
+  } else if ($el.parents("#loginModal").length > 0) {
+    return true;
+  } else if ($el.parents("#authorizationModal").length > 0) {
+    return true;
+  } else if ($el.attr("id") === "exit-notification-link") {
+    return true;
+  } else if ($el.parents(".voting-wrapper").length > 0) {
+    return true;
+  } else if (isSafeUrl($el.attr("href"))) {
+    return true;
+  }
+
+  return false;
+};
+
+$(function () {
+  var $exitNotification = $("#exit-notification");
+  var $exitLink = $("#exit-notification-link");
+  var defaultExitUrl = $exitLink.attr("href");
+  var defaultExitLinkText = $exitLink.text();
+  var exitLinkText = defaultExitLinkText;
+
+  if ($exitNotification.length < 1) {
+    // Do not apply when not inside the voting pipeline
+    return;
+  }
+
+  var openExitNotification = function openExitNotification(url) {
+    var method = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
+    if (method && method !== "get") {
+      $exitLink.attr("data-method", method);
+    } else {
+      $exitLink.removeAttr("data-method");
+    }
+
+    $exitLink.attr("href", url);
+    $exitLink.html(exitLinkText);
+    $exitNotification.foundation("open");
+  };
+
+  $(document).on("click", "a", function (event) {
+    exitLinkText = defaultExitLinkText;
+    var $link = $(event.currentTarget);
+
+    if (!allowExitFrom($link)) {
+      event.preventDefault();
+      openExitNotification($link.attr("href"), $link.data("method"));
+    }
+  }); // Custom handling for the header sign out so that it won't trigger the
+  // logout form submit and so that it changes the exit link text. This does
+  // not trigger the document link click listener because it has the
+  // data-method attribute to trigger a form submit event.
+
+  $(".header a.sign-out-link").on("click", function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    var $link = $(event.currentTarget);
+    exitLinkText = $link.text();
+    openExitNotification($link.attr("href"), $link.data("method"));
+  }); // Custom handling for the exit link which needs to change the exit link
+  // text to the default text as this is not handled by the document click
+  // listener.
+
+  $("a[data-open='exit-notification']").on("click", function () {
+    exitLinkText = defaultExitLinkText;
+    openExitNotification(defaultExitUrl);
+  });
+});
+
+/***/ }),
+
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-budgets/app/packs/src/decidim/budgets/progressFixed.js":
 /*!***********************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-budgets/app/packs/src/decidim/budgets/progressFixed.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-budgets/app/packs/src/decidim/budgets/progressFixed.js ***!
   \***********************************************************************************************************************************************************/
 /***/ (function() {
 
@@ -65,9 +168,9 @@ $(function () {
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-budgets/app/packs/src/decidim/budgets/projects.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-budgets/app/packs/src/decidim/budgets/projects.js":
 /*!******************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-budgets/app/packs/src/decidim/budgets/projects.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-budgets/app/packs/src/decidim/budgets/projects.js ***!
   \******************************************************************************************************************************************************/
 /***/ (function() {
 
@@ -76,27 +179,26 @@ $(function () {
   var $budgetSummaryTotal = $(".budget-summary__total");
   var $budgetExceedModal = $("#budget-excess");
   var $budgetSummary = $(".budget-summary__progressbox");
+  var $voteButton = $(".budget-vote-button");
   var totalAllocation = parseInt($budgetSummaryTotal.attr("data-total-allocation"), 10);
 
   var cancelEvent = function cancelEvent(event) {
+    $(event.currentTarget).removeClass("loading-spinner");
     event.stopPropagation();
     event.preventDefault();
   };
 
-  var allowExitFrom = function allowExitFrom($el) {
-    if ($el.parents("#loginModal").length > 0) {
-      return true;
-    } else if ($el.parents("#authorizationModal").length > 0) {
-      return true;
-    }
-
-    return false;
-  };
-
+  $voteButton.on("click", "span", function () {
+    $(".budget-list__action").click();
+  });
   $projects.on("click", ".budget-list__action", function (event) {
     var currentAllocation = parseInt($budgetSummary.attr("data-current-allocation"), 10);
     var $currentTarget = $(event.currentTarget);
     var projectAllocation = parseInt($currentTarget.attr("data-allocation"), 10);
+
+    if (!$currentTarget.attr("data-open")) {
+      $currentTarget.addClass("loading-spinner");
+    }
 
     if ($currentTarget.attr("disabled")) {
       cancelEvent(event);
@@ -105,42 +207,13 @@ $(function () {
       cancelEvent(event);
     }
   });
-
-  if ($("#order-progress [data-toggle=budget-confirm]").length > 0) {
-    var safeUrl = $(".budget-summary").attr("data-safe-url").split("?")[0];
-    $(document).on("click", "a", function (event) {
-      if (allowExitFrom($(event.currentTarget))) {
-        window.exitUrl = null;
-      } else {
-        window.exitUrl = event.currentTarget.href;
-      }
-    });
-    $(document).on("submit", "form", function (event) {
-      if (allowExitFrom($(event.currentTarget))) {
-        window.exitUrl = null;
-      } else {
-        window.exitUrl = event.currentTarget.action;
-      }
-    });
-    window.addEventListener("beforeunload", function (event) {
-      var currentAllocation = parseInt($budgetSummary.attr("data-current-allocation"), 10);
-      var exitUrl = window.exitUrl;
-      window.exitUrl = null;
-
-      if (currentAllocation === 0 || exitUrl && exitUrl.startsWith(safeUrl)) {
-        return;
-      }
-
-      event.returnValue = true;
-    });
-  }
 });
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-budgets/app/packs/images/decidim/budgets/decidim_budgets.svg":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-budgets/app/packs/images/decidim/budgets/decidim_budgets.svg":
 /*!*****************************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-budgets/app/packs/images/decidim/budgets/decidim_budgets.svg ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-budgets/app/packs/images/decidim/budgets/decidim_budgets.svg ***!
   \*****************************************************************************************************************************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
@@ -227,17 +300,20 @@ var __webpack_exports__ = {};
 !function() {
 "use strict";
 /*!*****************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-budgets/app/packs/entrypoints/decidim_budgets.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-budgets/app/packs/entrypoints/decidim_budgets.js ***!
   \*****************************************************************************************************************************************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var src_decidim_budgets_projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/decidim/budgets/projects */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-budgets/app/packs/src/decidim/budgets/projects.js");
+/* harmony import */ var src_decidim_budgets_projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/decidim/budgets/projects */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-budgets/app/packs/src/decidim/budgets/projects.js");
 /* harmony import */ var src_decidim_budgets_projects__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(src_decidim_budgets_projects__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var src_decidim_budgets_progressFixed__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/decidim/budgets/progressFixed */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-budgets/app/packs/src/decidim/budgets/progressFixed.js");
+/* harmony import */ var src_decidim_budgets_progressFixed__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/decidim/budgets/progressFixed */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-budgets/app/packs/src/decidim/budgets/progressFixed.js");
 /* harmony import */ var src_decidim_budgets_progressFixed__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(src_decidim_budgets_progressFixed__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var src_decidim_budgets_exit_handler__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/decidim/budgets/exit_handler */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-budgets/app/packs/src/decidim/budgets/exit_handler.js");
+/* harmony import */ var src_decidim_budgets_exit_handler__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(src_decidim_budgets_exit_handler__WEBPACK_IMPORTED_MODULE_2__);
+
 
  // Images
 
-__webpack_require__("../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-budgets/app/packs/images sync recursive ^\\.\\/.*$");
+__webpack_require__("../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-budgets/app/packs/images sync recursive ^\\.\\/.*$");
 }();
 /******/ })()
 ;

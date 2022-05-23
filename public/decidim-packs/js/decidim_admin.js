@@ -1,9 +1,9 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/entrypoints/decidim_admin.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/entrypoints/decidim_admin.js":
 /*!*************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/entrypoints/decidim_admin.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/entrypoints/decidim_admin.js ***!
   \*************************************************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -384,47 +384,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _rails_ujs__WEBPACK_IMPORTED_MODULE_186__ = __webpack_require__(/*! @rails/ujs */ "./node_modules/@rails/ujs/lib/assets/compiled/rails-ujs-exposed.js");
 /* harmony import */ var _rails_ujs__WEBPACK_IMPORTED_MODULE_186___default = /*#__PURE__*/__webpack_require__.n(_rails_ujs__WEBPACK_IMPORTED_MODULE_186__);
 /* harmony import */ var foundation_sites__WEBPACK_IMPORTED_MODULE_187__ = __webpack_require__(/*! foundation-sites */ "./node_modules/foundation-sites/dist/js/foundation.esm.js");
-/* harmony import */ var src_decidim_vendor_foundation_datepicker__WEBPACK_IMPORTED_MODULE_188__ = __webpack_require__(/*! src/decidim/vendor/foundation-datepicker */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-core/app/packs/src/decidim/vendor/foundation-datepicker.js");
+/* harmony import */ var src_decidim_vendor_foundation_datepicker__WEBPACK_IMPORTED_MODULE_188__ = __webpack_require__(/*! src/decidim/vendor/foundation-datepicker */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-core/app/packs/src/decidim/vendor/foundation-datepicker.js");
 /* harmony import */ var src_decidim_vendor_foundation_datepicker__WEBPACK_IMPORTED_MODULE_188___default = /*#__PURE__*/__webpack_require__.n(src_decidim_vendor_foundation_datepicker__WEBPACK_IMPORTED_MODULE_188__);
-/* harmony import */ var src_decidim_foundation_datepicker_locales__WEBPACK_IMPORTED_MODULE_189__ = __webpack_require__(/*! src/decidim/foundation_datepicker_locales */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-core/app/packs/src/decidim/foundation_datepicker_locales.js");
+/* harmony import */ var src_decidim_foundation_datepicker_locales__WEBPACK_IMPORTED_MODULE_189__ = __webpack_require__(/*! src/decidim/foundation_datepicker_locales */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-core/app/packs/src/decidim/foundation_datepicker_locales.js");
 /* harmony import */ var jquery_autocomplete__WEBPACK_IMPORTED_MODULE_190__ = __webpack_require__(/*! jquery.autocomplete */ "./node_modules/jquery.autocomplete/jquery.autocomplete.js");
 /* harmony import */ var jquery_autocomplete__WEBPACK_IMPORTED_MODULE_190___default = /*#__PURE__*/__webpack_require__.n(jquery_autocomplete__WEBPACK_IMPORTED_MODULE_190__);
 /* harmony import */ var jquery_serializejson__WEBPACK_IMPORTED_MODULE_191__ = __webpack_require__(/*! jquery-serializejson */ "./node_modules/jquery-serializejson/jquery.serializejson.js");
 /* harmony import */ var jquery_serializejson__WEBPACK_IMPORTED_MODULE_191___default = /*#__PURE__*/__webpack_require__.n(jquery_serializejson__WEBPACK_IMPORTED_MODULE_191__);
-/* harmony import */ var src_decidim_admin_tab_focus__WEBPACK_IMPORTED_MODULE_192__ = __webpack_require__(/*! src/decidim/admin/tab_focus */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/tab_focus.js");
+/* harmony import */ var src_decidim_admin_tab_focus__WEBPACK_IMPORTED_MODULE_192__ = __webpack_require__(/*! src/decidim/admin/tab_focus */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/tab_focus.js");
 /* harmony import */ var src_decidim_admin_tab_focus__WEBPACK_IMPORTED_MODULE_192___default = /*#__PURE__*/__webpack_require__.n(src_decidim_admin_tab_focus__WEBPACK_IMPORTED_MODULE_192__);
-/* harmony import */ var src_decidim_admin_choose_language__WEBPACK_IMPORTED_MODULE_193__ = __webpack_require__(/*! src/decidim/admin/choose_language */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/choose_language.js");
+/* harmony import */ var src_decidim_admin_choose_language__WEBPACK_IMPORTED_MODULE_193__ = __webpack_require__(/*! src/decidim/admin/choose_language */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/choose_language.js");
 /* harmony import */ var src_decidim_admin_choose_language__WEBPACK_IMPORTED_MODULE_193___default = /*#__PURE__*/__webpack_require__.n(src_decidim_admin_choose_language__WEBPACK_IMPORTED_MODULE_193__);
-/* harmony import */ var src_decidim_admin_application__WEBPACK_IMPORTED_MODULE_194__ = __webpack_require__(/*! src/decidim/admin/application */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/application.js");
-/* harmony import */ var src_decidim_admin_resources_permissions__WEBPACK_IMPORTED_MODULE_195__ = __webpack_require__(/*! src/decidim/admin/resources_permissions */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/resources_permissions.js");
-/* harmony import */ var src_decidim_admin_welcome_notification__WEBPACK_IMPORTED_MODULE_196__ = __webpack_require__(/*! src/decidim/admin/welcome_notification */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/welcome_notification.js");
+/* harmony import */ var src_decidim_admin_application__WEBPACK_IMPORTED_MODULE_194__ = __webpack_require__(/*! src/decidim/admin/application */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/application.js");
+/* harmony import */ var src_decidim_admin_resources_permissions__WEBPACK_IMPORTED_MODULE_195__ = __webpack_require__(/*! src/decidim/admin/resources_permissions */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/resources_permissions.js");
+/* harmony import */ var src_decidim_admin_welcome_notification__WEBPACK_IMPORTED_MODULE_196__ = __webpack_require__(/*! src/decidim/admin/welcome_notification */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/welcome_notification.js");
 /* harmony import */ var src_decidim_admin_welcome_notification__WEBPACK_IMPORTED_MODULE_196___default = /*#__PURE__*/__webpack_require__.n(src_decidim_admin_welcome_notification__WEBPACK_IMPORTED_MODULE_196__);
-/* harmony import */ var src_decidim_admin_newsletters__WEBPACK_IMPORTED_MODULE_197__ = __webpack_require__(/*! src/decidim/admin/newsletters */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/newsletters.js");
+/* harmony import */ var src_decidim_admin_newsletters__WEBPACK_IMPORTED_MODULE_197__ = __webpack_require__(/*! src/decidim/admin/newsletters */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/newsletters.js");
 /* harmony import */ var src_decidim_admin_newsletters__WEBPACK_IMPORTED_MODULE_197___default = /*#__PURE__*/__webpack_require__.n(src_decidim_admin_newsletters__WEBPACK_IMPORTED_MODULE_197__);
-/* harmony import */ var src_decidim_admin_form__WEBPACK_IMPORTED_MODULE_198__ = __webpack_require__(/*! src/decidim/admin/form */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/form.js");
-/* harmony import */ var src_decidim_admin_import_guidance__WEBPACK_IMPORTED_MODULE_199__ = __webpack_require__(/*! src/decidim/admin/import_guidance */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/import_guidance.js");
-/* harmony import */ var src_decidim_admin_import_guidance__WEBPACK_IMPORTED_MODULE_199___default = /*#__PURE__*/__webpack_require__.n(src_decidim_admin_import_guidance__WEBPACK_IMPORTED_MODULE_199__);
-/* harmony import */ var src_decidim_admin_external_domain_whitelist__WEBPACK_IMPORTED_MODULE_200__ = __webpack_require__(/*! src/decidim/admin/external_domain_whitelist */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/external_domain_whitelist.js");
-/* harmony import */ var src_decidim_confirm__WEBPACK_IMPORTED_MODULE_201__ = __webpack_require__(/*! src/decidim/confirm */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-core/app/packs/src/decidim/confirm.js");
-/* harmony import */ var src_decidim_admin_draggable_list__WEBPACK_IMPORTED_MODULE_202__ = __webpack_require__(/*! src/decidim/admin/draggable-list */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/draggable-list.js");
-/* harmony import */ var src_decidim_admin_sortable__WEBPACK_IMPORTED_MODULE_203__ = __webpack_require__(/*! src/decidim/admin/sortable */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/sortable.js");
-/* harmony import */ var src_decidim_gallery__WEBPACK_IMPORTED_MODULE_204__ = __webpack_require__(/*! src/decidim/gallery */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-core/app/packs/src/decidim/gallery.js");
-/* harmony import */ var src_decidim_gallery__WEBPACK_IMPORTED_MODULE_204___default = /*#__PURE__*/__webpack_require__.n(src_decidim_gallery__WEBPACK_IMPORTED_MODULE_204__);
-/* harmony import */ var src_decidim_admin_moderations__WEBPACK_IMPORTED_MODULE_205__ = __webpack_require__(/*! src/decidim/admin/moderations */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/moderations.js");
-/* harmony import */ var src_decidim_admin_moderations__WEBPACK_IMPORTED_MODULE_205___default = /*#__PURE__*/__webpack_require__.n(src_decidim_admin_moderations__WEBPACK_IMPORTED_MODULE_205__);
-/* harmony import */ var src_decidim_input_tags__WEBPACK_IMPORTED_MODULE_206__ = __webpack_require__(/*! src/decidim/input_tags */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-core/app/packs/src/decidim/input_tags.js");
-/* harmony import */ var src_decidim_input_hashtags__WEBPACK_IMPORTED_MODULE_207__ = __webpack_require__(/*! src/decidim/input_hashtags */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-core/app/packs/src/decidim/input_hashtags.js");
-/* harmony import */ var src_decidim_input_mentions__WEBPACK_IMPORTED_MODULE_208__ = __webpack_require__(/*! src/decidim/input_mentions */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-core/app/packs/src/decidim/input_mentions.js");
-/* harmony import */ var src_decidim_vizzs__WEBPACK_IMPORTED_MODULE_209__ = __webpack_require__(/*! src/decidim/vizzs */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-core/app/packs/src/decidim/vizzs.js");
-/* harmony import */ var src_decidim_ajax_modals__WEBPACK_IMPORTED_MODULE_210__ = __webpack_require__(/*! src/decidim/ajax_modals */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-core/app/packs/src/decidim/ajax_modals.js");
-/* harmony import */ var src_decidim_ajax_modals__WEBPACK_IMPORTED_MODULE_210___default = /*#__PURE__*/__webpack_require__.n(src_decidim_ajax_modals__WEBPACK_IMPORTED_MODULE_210__);
-/* harmony import */ var src_decidim_admin_officializations__WEBPACK_IMPORTED_MODULE_211__ = __webpack_require__(/*! src/decidim/admin/officializations */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/officializations.js");
-/* harmony import */ var src_decidim_admin_officializations__WEBPACK_IMPORTED_MODULE_211___default = /*#__PURE__*/__webpack_require__.n(src_decidim_admin_officializations__WEBPACK_IMPORTED_MODULE_211__);
-/* harmony import */ var src_decidim_session_timeouter__WEBPACK_IMPORTED_MODULE_212__ = __webpack_require__(/*! src/decidim/session_timeouter */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-core/app/packs/src/decidim/session_timeouter.js");
-/* harmony import */ var src_decidim_slug_form__WEBPACK_IMPORTED_MODULE_213__ = __webpack_require__(/*! src/decidim/slug_form */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-core/app/packs/src/decidim/slug_form.js");
-/* harmony import */ var src_decidim_slug_form__WEBPACK_IMPORTED_MODULE_213___default = /*#__PURE__*/__webpack_require__.n(src_decidim_slug_form__WEBPACK_IMPORTED_MODULE_213__);
-/* harmony import */ var entrypoints_decidim_admin_scss__WEBPACK_IMPORTED_MODULE_214__ = __webpack_require__(/*! entrypoints/decidim_admin.scss */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/entrypoints/decidim_admin.scss");
-
+/* harmony import */ var src_decidim_admin_form__WEBPACK_IMPORTED_MODULE_198__ = __webpack_require__(/*! src/decidim/admin/form */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/form.js");
+/* harmony import */ var src_decidim_admin_external_domain_whitelist__WEBPACK_IMPORTED_MODULE_199__ = __webpack_require__(/*! src/decidim/admin/external_domain_whitelist */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/external_domain_whitelist.js");
+/* harmony import */ var src_decidim_confirm__WEBPACK_IMPORTED_MODULE_200__ = __webpack_require__(/*! src/decidim/confirm */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-core/app/packs/src/decidim/confirm.js");
+/* harmony import */ var src_decidim_admin_draggable_list__WEBPACK_IMPORTED_MODULE_201__ = __webpack_require__(/*! src/decidim/admin/draggable-list */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/draggable-list.js");
+/* harmony import */ var src_decidim_admin_sortable__WEBPACK_IMPORTED_MODULE_202__ = __webpack_require__(/*! src/decidim/admin/sortable */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/sortable.js");
+/* harmony import */ var src_decidim_gallery__WEBPACK_IMPORTED_MODULE_203__ = __webpack_require__(/*! src/decidim/gallery */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-core/app/packs/src/decidim/gallery.js");
+/* harmony import */ var src_decidim_gallery__WEBPACK_IMPORTED_MODULE_203___default = /*#__PURE__*/__webpack_require__.n(src_decidim_gallery__WEBPACK_IMPORTED_MODULE_203__);
+/* harmony import */ var src_decidim_admin_moderations__WEBPACK_IMPORTED_MODULE_204__ = __webpack_require__(/*! src/decidim/admin/moderations */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/moderations.js");
+/* harmony import */ var src_decidim_admin_moderations__WEBPACK_IMPORTED_MODULE_204___default = /*#__PURE__*/__webpack_require__.n(src_decidim_admin_moderations__WEBPACK_IMPORTED_MODULE_204__);
+/* harmony import */ var src_decidim_input_tags__WEBPACK_IMPORTED_MODULE_205__ = __webpack_require__(/*! src/decidim/input_tags */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-core/app/packs/src/decidim/input_tags.js");
+/* harmony import */ var src_decidim_input_hashtags__WEBPACK_IMPORTED_MODULE_206__ = __webpack_require__(/*! src/decidim/input_hashtags */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-core/app/packs/src/decidim/input_hashtags.js");
+/* harmony import */ var src_decidim_input_mentions__WEBPACK_IMPORTED_MODULE_207__ = __webpack_require__(/*! src/decidim/input_mentions */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-core/app/packs/src/decidim/input_mentions.js");
+/* harmony import */ var src_decidim_vizzs__WEBPACK_IMPORTED_MODULE_208__ = __webpack_require__(/*! src/decidim/vizzs */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-core/app/packs/src/decidim/vizzs.js");
+/* harmony import */ var src_decidim_ajax_modals__WEBPACK_IMPORTED_MODULE_209__ = __webpack_require__(/*! src/decidim/ajax_modals */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-core/app/packs/src/decidim/ajax_modals.js");
+/* harmony import */ var src_decidim_ajax_modals__WEBPACK_IMPORTED_MODULE_209___default = /*#__PURE__*/__webpack_require__.n(src_decidim_ajax_modals__WEBPACK_IMPORTED_MODULE_209__);
+/* harmony import */ var src_decidim_admin_officializations__WEBPACK_IMPORTED_MODULE_210__ = __webpack_require__(/*! src/decidim/admin/officializations */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/officializations.js");
+/* harmony import */ var src_decidim_admin_officializations__WEBPACK_IMPORTED_MODULE_210___default = /*#__PURE__*/__webpack_require__.n(src_decidim_admin_officializations__WEBPACK_IMPORTED_MODULE_210__);
+/* harmony import */ var src_decidim_session_timeouter__WEBPACK_IMPORTED_MODULE_211__ = __webpack_require__(/*! src/decidim/session_timeouter */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-core/app/packs/src/decidim/session_timeouter.js");
+/* harmony import */ var src_decidim_slug_form__WEBPACK_IMPORTED_MODULE_212__ = __webpack_require__(/*! src/decidim/slug_form */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-core/app/packs/src/decidim/slug_form.js");
+/* harmony import */ var src_decidim_slug_form__WEBPACK_IMPORTED_MODULE_212___default = /*#__PURE__*/__webpack_require__.n(src_decidim_slug_form__WEBPACK_IMPORTED_MODULE_212__);
+/* harmony import */ var entrypoints_decidim_admin_scss__WEBPACK_IMPORTED_MODULE_213__ = __webpack_require__(/*! entrypoints/decidim_admin.scss */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/entrypoints/decidim_admin.scss");
 
 
 
@@ -645,9 +642,9 @@ _rails_ujs__WEBPACK_IMPORTED_MODULE_186___default().start();
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/application.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/application.js":
 /*!*****************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/application.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/application.js ***!
   \*****************************************************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -656,16 +653,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index-exposed.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var src_decidim_admin_toggle_nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/decidim/admin/toggle_nav */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/toggle_nav.js");
-/* harmony import */ var src_decidim_admin_sort_list_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/decidim/admin/sort_list.component */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/sort_list.component.js");
-/* harmony import */ var src_decidim_editor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/decidim/editor */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-core/app/packs/src/decidim/editor.js");
-/* harmony import */ var src_decidim_form_datepicker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/decidim/form_datepicker */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-core/app/packs/src/decidim/form_datepicker.js");
-/* harmony import */ var src_decidim_data_picker__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/decidim/data_picker */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-core/app/packs/src/decidim/data_picker.js");
-/* harmony import */ var src_decidim_admin_autocomplete_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/decidim/admin/autocomplete.component */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/autocomplete.component.js");
-/* harmony import */ var src_decidim_form_filter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/decidim/form_filter */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-core/app/packs/src/decidim/form_filter.js");
-/* harmony import */ var src_decidim_configuration__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/decidim/configuration */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-core/app/packs/src/decidim/configuration.js");
-/* harmony import */ var src_decidim_input_character_counter__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/decidim/input_character_counter */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-core/app/packs/src/decidim/input_character_counter.js");
-/* harmony import */ var src_decidim_admin_managed_users__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/decidim/admin/managed_users */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/managed_users.js");
+/* harmony import */ var src_decidim_admin_toggle_nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/decidim/admin/toggle_nav */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/toggle_nav.js");
+/* harmony import */ var src_decidim_admin_sort_list_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/decidim/admin/sort_list.component */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/sort_list.component.js");
+/* harmony import */ var src_decidim_editor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/decidim/editor */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-core/app/packs/src/decidim/editor.js");
+/* harmony import */ var src_decidim_form_datepicker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/decidim/form_datepicker */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-core/app/packs/src/decidim/form_datepicker.js");
+/* harmony import */ var src_decidim_data_picker__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/decidim/data_picker */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-core/app/packs/src/decidim/data_picker.js");
+/* harmony import */ var src_decidim_admin_autocomplete_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/decidim/admin/autocomplete.component */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/autocomplete.component.js");
+/* harmony import */ var src_decidim_form_filter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/decidim/form_filter */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-core/app/packs/src/decidim/form_filter.js");
+/* harmony import */ var src_decidim_configuration__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/decidim/configuration */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-core/app/packs/src/decidim/configuration.js");
+/* harmony import */ var src_decidim_input_character_counter__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/decidim/input_character_counter */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-core/app/packs/src/decidim/input_character_counter.js");
+/* harmony import */ var src_decidim_admin_managed_users__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/decidim/admin/managed_users */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/managed_users.js");
 function ownKeys(object, enumerableOnly) {
   var keys = Object.keys(object);
 
@@ -769,9 +766,9 @@ $(function () {
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/autocomplete.component.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/autocomplete.component.js":
 /*!****************************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/autocomplete.component.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/autocomplete.component.js ***!
   \****************************************************************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -1078,9 +1075,9 @@ Autocomplete.propTypes = {
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/budget_rule_toggler.component.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/budget_rule_toggler.component.js":
 /*!***********************************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/budget_rule_toggler.component.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/budget_rule_toggler.component.js ***!
   \***********************************************************************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -1187,9 +1184,9 @@ var BudgetRuleTogglerComponent = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/choose_language.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/choose_language.js":
 /*!*********************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/choose_language.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/choose_language.js ***!
   \*********************************************************************************************************************************************************/
 /***/ (function() {
 
@@ -1206,9 +1203,9 @@ $(function () {
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/draggable-list.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/draggable-list.js":
 /*!********************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/draggable-list.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/draggable-list.js ***!
   \********************************************************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -1217,7 +1214,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ createSortableList; }
 /* harmony export */ });
-/* harmony import */ var src_decidim_admin_sort_list_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/decidim/admin/sort_list.component */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/sort_list.component.js");
+/* harmony import */ var src_decidim_admin_sort_list_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/decidim/admin/sort_list.component */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/sort_list.component.js");
 function _toConsumableArray(arr) {
   return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
 }
@@ -1283,18 +1280,18 @@ $(function () {
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/external_domain_whitelist.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/external_domain_whitelist.js":
 /*!*******************************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/external_domain_whitelist.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/external_domain_whitelist.js ***!
   \*******************************************************************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var src_decidim_admin_auto_buttons_by_position_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/decidim/admin/auto_buttons_by_position.component */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/auto_buttons_by_position.component.js");
-/* harmony import */ var src_decidim_admin_auto_label_by_position_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/decidim/admin/auto_label_by_position.component */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/auto_label_by_position.component.js");
-/* harmony import */ var src_decidim_admin_dynamic_fields_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/decidim/admin/dynamic_fields.component */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/dynamic_fields.component.js");
-/* harmony import */ var src_decidim_admin_sort_list_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/decidim/admin/sort_list.component */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/sort_list.component.js");
+/* harmony import */ var src_decidim_admin_auto_buttons_by_position_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/decidim/admin/auto_buttons_by_position.component */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/auto_buttons_by_position.component.js");
+/* harmony import */ var src_decidim_admin_auto_label_by_position_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/decidim/admin/auto_label_by_position.component */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/auto_label_by_position.component.js");
+/* harmony import */ var src_decidim_admin_dynamic_fields_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/decidim/admin/dynamic_fields.component */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/dynamic_fields.component.js");
+/* harmony import */ var src_decidim_admin_sort_list_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/decidim/admin/sort_list.component */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/sort_list.component.js");
 
 
 
@@ -1385,19 +1382,19 @@ $(function () {
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/form.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/form.js":
 /*!**********************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/form.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/form.js ***!
   \**********************************************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var src_decidim_admin_scope_picker_enabler_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/decidim/admin/scope_picker_enabler.component */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/scope_picker_enabler.component.js");
+/* harmony import */ var src_decidim_admin_scope_picker_enabler_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/decidim/admin/scope_picker_enabler.component */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/scope_picker_enabler.component.js");
 /* harmony import */ var src_decidim_admin_scope_picker_enabler_component__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(src_decidim_admin_scope_picker_enabler_component__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var src_decidim_admin_proposal_infinite_edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/decidim/admin/proposal_infinite_edit */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/proposal_infinite_edit.js");
+/* harmony import */ var src_decidim_admin_proposal_infinite_edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/decidim/admin/proposal_infinite_edit */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/proposal_infinite_edit.js");
 /* harmony import */ var src_decidim_admin_proposal_infinite_edit__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(src_decidim_admin_proposal_infinite_edit__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var src_decidim_admin_budget_rule_toggler_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/decidim/admin/budget_rule_toggler.component */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/budget_rule_toggler.component.js");
+/* harmony import */ var src_decidim_admin_budget_rule_toggler_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/decidim/admin/budget_rule_toggler.component */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/budget_rule_toggler.component.js");
 
 
  // Checks if the form contains fields with special CSS classes added in
@@ -1439,48 +1436,9 @@ $(function () {
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/import_guidance.js":
-/*!*********************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/import_guidance.js ***!
-  \*********************************************************************************************************************************************************/
-/***/ (function() {
-
-$(function () {
-  var $creatorSelect = $("#import_creator");
-  var $creatorGuidances = $(".creator-guidances").find(".guidance");
-
-  var showGuidance = function showGuidance(text) {
-    var formatted = text.replace(/\s/g, "").toLocaleLowerCase();
-    $.each($creatorGuidances, function (_index, currentValue) {
-      if (currentValue.className.includes(formatted)) {
-        var elem = $(currentValue);
-        elem.show();
-      }
-    });
-  };
-
-  $creatorSelect.on("change", function () {
-    var text = $("#import_creator option:selected").text();
-    $creatorGuidances.hide();
-
-    if (text) {
-      showGuidance(text);
-    }
-  });
-
-  if ($creatorSelect.children("option").length < 2) {
-    $("label[for='import_creator']").hide();
-  }
-
-  $creatorGuidances.hide();
-  $creatorGuidances.first().show();
-});
-
-/***/ }),
-
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/managed_users.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/managed_users.js":
 /*!*******************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/managed_users.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/managed_users.js ***!
   \*******************************************************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -1489,7 +1447,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ managedUsersForm; }
 /* harmony export */ });
-/* harmony import */ var src_decidim_admin_subform_toggler_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/decidim/admin/subform_toggler.component */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/subform_toggler.component.js");
+/* harmony import */ var src_decidim_admin_subform_toggler_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/decidim/admin/subform_toggler.component */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/subform_toggler.component.js");
 /* eslint-disable require-jsdoc */
 
 function managedUsersForm() {
@@ -1503,9 +1461,9 @@ function managedUsersForm() {
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/moderations.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/moderations.js":
 /*!*****************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/moderations.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/moderations.js ***!
   \*****************************************************************************************************************************************************/
 /***/ (function() {
 
@@ -1530,9 +1488,9 @@ $(function () {
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/newsletters.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/newsletters.js":
 /*!*****************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/newsletters.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/newsletters.js ***!
   \*****************************************************************************************************************************************************/
 /***/ (function() {
 
@@ -1621,9 +1579,9 @@ $(function () {
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/officializations.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/officializations.js":
 /*!**********************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/officializations.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/officializations.js ***!
   \**********************************************************************************************************************************************************/
 /***/ (function() {
 
@@ -1648,9 +1606,9 @@ $(function () {
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/proposal_infinite_edit.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/proposal_infinite_edit.js":
 /*!****************************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/proposal_infinite_edit.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/proposal_infinite_edit.js ***!
   \****************************************************************************************************************************************************************/
 /***/ (function() {
 
@@ -1675,15 +1633,15 @@ $(function () {
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/resources_permissions.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/resources_permissions.js":
 /*!***************************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/resources_permissions.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/resources_permissions.js ***!
   \***************************************************************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var src_decidim_admin_subform_multi_toggler_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/decidim/admin/subform_multi_toggler.component */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/subform_multi_toggler.component.js");
+/* harmony import */ var src_decidim_admin_subform_multi_toggler_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/decidim/admin/subform_multi_toggler.component */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/subform_multi_toggler.component.js");
 
 $(function () {
   var subformMultiToggler = new src_decidim_admin_subform_multi_toggler_component__WEBPACK_IMPORTED_MODULE_0__["default"]({
@@ -1696,9 +1654,9 @@ $(function () {
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/scope_picker_enabler.component.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/scope_picker_enabler.component.js":
 /*!************************************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/scope_picker_enabler.component.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/scope_picker_enabler.component.js ***!
   \************************************************************************************************************************************************************************/
 /***/ (function() {
 
@@ -1717,15 +1675,15 @@ $(function () {
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/sortable.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/sortable.js":
 /*!**************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/sortable.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/sortable.js ***!
   \**************************************************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var src_decidim_admin_sort_list_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/decidim/admin/sort_list.component */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/sort_list.component.js");
+/* harmony import */ var src_decidim_admin_sort_list_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/decidim/admin/sort_list.component */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/sort_list.component.js");
 /* eslint-disable no-ternary */
  // Once in DOM
 
@@ -1744,9 +1702,9 @@ $(function () {
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/subform_multi_toggler.component.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/subform_multi_toggler.component.js":
 /*!*************************************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/subform_multi_toggler.component.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/subform_multi_toggler.component.js ***!
   \*************************************************************************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -1839,9 +1797,9 @@ var SubformMultiTogglerComponent = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/subform_toggler.component.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/subform_toggler.component.js":
 /*!*******************************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/subform_toggler.component.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/subform_toggler.component.js ***!
   \*******************************************************************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -1931,9 +1889,9 @@ var SubformTogglerComponent = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/tab_focus.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/tab_focus.js":
 /*!***************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/tab_focus.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/tab_focus.js ***!
   \***************************************************************************************************************************************************/
 /***/ (function() {
 
@@ -1961,9 +1919,9 @@ $(function () {
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/toggle_nav.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/toggle_nav.js":
 /*!****************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/toggle_nav.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/toggle_nav.js ***!
   \****************************************************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -1989,9 +1947,9 @@ function toggleNav() {
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/welcome_notification.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/welcome_notification.js":
 /*!**************************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/src/decidim/admin/welcome_notification.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/src/decidim/admin/welcome_notification.js ***!
   \**************************************************************************************************************************************************************/
 /***/ (function() {
 
@@ -2025,9 +1983,9 @@ $(function () {
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-core/app/packs/src/decidim/slug_form.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-core/app/packs/src/decidim/slug_form.js":
 /*!********************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-core/app/packs/src/decidim/slug_form.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-core/app/packs/src/decidim/slug_form.js ***!
   \********************************************************************************************************************************************/
 /***/ (function() {
 
@@ -2042,9 +2000,9 @@ $(function () {
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/entrypoints/decidim_admin.scss":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/entrypoints/decidim_admin.scss":
 /*!***************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/entrypoints/decidim_admin.scss ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/entrypoints/decidim_admin.scss ***!
   \***************************************************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -2243,7 +2201,7 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["vendors-node_modules_jquery_dist_jquery-exposed_js","vendors-node_modules_bootstrap-tagsinput_dist_bootstrap-tagsinput_js-node_modules_core-js_mod-cb134a","vendors-node_modules_react-dom_index_js","vendors-node_modules_d3_index_js","vendors-node_modules_html5sortable_dist_html5sortable_es_js","vendors-node_modules_foundation-datepicker_js_locales_foundation-datepicker_ar_js-node_module-679306","vendors-node_modules_axios_index_js-node_modules_jquery-serializejson_jquery_serializejson_js-36d27d","_rbenv_versions_2_7_5_lib_ruby_gems_2_7_0_bundler_gems_decidim-5455ffe38454_decidim-core_app_-485538","_rbenv_versions_2_7_5_lib_ruby_gems_2_7_0_bundler_gems_decidim-5455ffe38454_decidim-core_app_-8fd5e5","_rbenv_versions_2_7_5_lib_ruby_gems_2_7_0_bundler_gems_decidim-5455ffe38454_decidim-admin_app-ffb0b3","_rbenv_versions_2_7_5_lib_ruby_gems_2_7_0_bundler_gems_decidim-5455ffe38454_decidim-core_app_-9f1317"], function() { return __webpack_require__("../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-admin/app/packs/entrypoints/decidim_admin.js"); })
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["vendors-node_modules_jquery_dist_jquery-exposed_js","vendors-node_modules_bootstrap-tagsinput_dist_bootstrap-tagsinput_js-node_modules_core-js_mod-cb134a","vendors-node_modules_react-dom_index_js","vendors-node_modules_d3_index_js","vendors-node_modules_html5sortable_dist_html5sortable_es_js","vendors-node_modules_foundation-datepicker_js_locales_foundation-datepicker_ar_js-node_module-679306","vendors-node_modules_axios_index_js-node_modules_jquery-serializejson_jquery_serializejson_js-36d27d","_rbenv_versions_2_7_1_lib_ruby_gems_2_7_0_bundler_gems_decidim-47971368df59_decidim-core_app_-2b93e2","_rbenv_versions_2_7_1_lib_ruby_gems_2_7_0_bundler_gems_decidim-47971368df59_decidim-core_app_-ceebb1","_rbenv_versions_2_7_1_lib_ruby_gems_2_7_0_bundler_gems_decidim-47971368df59_decidim-admin_app-16bb86","_rbenv_versions_2_7_1_lib_ruby_gems_2_7_0_bundler_gems_decidim-47971368df59_decidim-core_app_-90803b"], function() { return __webpack_require__("../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-admin/app/packs/entrypoints/decidim_admin.js"); })
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

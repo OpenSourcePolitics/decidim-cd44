@@ -8456,6 +8456,7 @@ input {
 
 a {
   color: #39747f;
+  font-weight: normal;
 }
 a:hover {
   color: #31646d;
@@ -8547,6 +8548,7 @@ button:focus {
 
 .heading-small {
   font-size: 1rem;
+  line-height: 1.4;
 }
 
 hr {
@@ -9391,7 +9393,7 @@ ol.no-bullet-indented {
 .link {
   cursor: pointer;
   color: var(--secondary);
-  font-weight: 600;
+  font-weight: normal;
 }
 .link:hover {
   color: #31646d;
@@ -9402,6 +9404,7 @@ ol.no-bullet-indented {
 .link-alt {
   cursor: pointer;
   color: #39747f;
+  font-weight: normal;
 }
 .link-alt:hover {
   color: #31646d;
@@ -9455,12 +9458,18 @@ ol.no-bullet-indented {
   text-align: center;
 }
 
-.button--social--mini .button--social__icon {
-  position: relative;
-}
-
 .button--social__text {
   margin-left: 3rem;
+}
+
+.button--social--mini {
+  padding: 0;
+  min-width: 0;
+}
+.button--social--mini .button--social__icon {
+  border: 0;
+  padding: 0.85em 0;
+  margin-right: 0;
 }
 
 .button--twitter {
@@ -9641,12 +9650,16 @@ input[type=radio]:focus {
   position: relative;
 }
 .emoji__trigger {
+  position: relative;
+  top: -1rem;
+}
+.emoji__button {
   position: absolute;
   bottom: 0.5rem;
   right: 1rem;
   cursor: pointer;
 }
-.emoji__trigger svg {
+.emoji__button svg {
   width: 1em;
 }
 
@@ -9822,7 +9835,7 @@ a:hover .icon--action {
 }
 @media print, screen and (min-width: 40em) {
   .wrapper {
-    padding: 5rem 1.5rem 3rem;
+    padding: 3rem 1.5rem;
   }
 }
 @media print, screen and (min-width: 64em) {
@@ -11264,6 +11277,9 @@ a .card__title:hover {
 .card--list__check--disabled {
   pointer-events: none;
 }
+.card--list__check--inline {
+  display: inline-block;
+}
 .card--list__check svg {
   flex-basis: auto;
 }
@@ -11875,6 +11891,7 @@ a .card__title:hover {
   display: flex;
 }
 .comment__header .comment__edited,
+.comment__header .comment__moderated,
 .comment__header .comment__deleted {
   font-style: italic;
   color: #726a70;
@@ -16366,6 +16383,12 @@ form.edit_proposal fieldset {
   margin-bottom: 0;
 }
 
+.ql-reset-decidim {
+  display: inline;
+  padding: 0;
+  white-space: inherit;
+}
+
 .tech-info--text-left {
   text-align: left;
 }
@@ -16430,17 +16453,6 @@ form.edit_proposal fieldset {
 }
 .results-per-page__tab:last-of-type::after {
   border-left: none;
-}
-
-.button--social--mini {
-  padding: 0;
-  display: inline-block;
-  min-width: 0;
-}
-.button--social--mini .button--social__icon {
-  border: 0;
-  padding: 0.85em 0;
-  margin-right: 0;
 }
 
 .social-share-button .ssb-icon {
@@ -16618,7 +16630,7 @@ a.ssb-icon.ssb-whatsapp_app {
   font-weight: 600;
 }
 .areachart .area {
-  fill: rgba(var(--primary-rgb), 0.05);
+  fill: rgba(203, 60, 41, 0.2);
 }
 .areachart .line {
   fill: none;
@@ -18320,7 +18332,6 @@ a.ssb-icon.ssb-whatsapp_app {
 }
 
 .accountability .categories a:hover {
-  background-color: var(--secondary);
   text-decoration: underline;
 }
 .accountability .categories a:focus {
@@ -18378,7 +18389,7 @@ a.ssb-icon.ssb-whatsapp_app {
   color: #aba5b3;
 }
 .accountability .categories .categories--group .card__link .category--line {
-  background-color: var(--secondary);
+  background-color: #f4f4f4;
   border-radius: 4px;
   min-height: 9rem;
   padding: 1rem;
@@ -18587,6 +18598,24 @@ a.ssb-icon.ssb-whatsapp_app {
   border-bottom-right-radius: 4px;
   border-bottom: 1px solid #e8e8e8;
 }
+.budget-list__item-cell {
+  display: grid;
+  grid-template-columns: 1fr 40px;
+}
+.budget-list__item-cell .budget-list__data {
+  grid-column: span 2;
+  background: none;
+}
+@media print, screen and (min-width: 40em) {
+  .budget-list__item-cell {
+    grid-template-columns: 1fr 40px 15em;
+    grid-template-rows: 1fr;
+  }
+  .budget-list__item-cell .budget-list__data {
+    background: #f4f4f4;
+    grid-column: 3;
+  }
+}
 .budget-list__image {
   overflow: hidden;
   width: 3.5em;
@@ -18621,6 +18650,10 @@ a.ssb-icon.ssb-whatsapp_app {
     display: flex;
     align-items: center;
   }
+  .budget-list__text.flex-horizontal {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 .budget-list__text .card__text--status {
   display: block;
@@ -18644,9 +18677,16 @@ a.ssb-icon.ssb-whatsapp_app {
     min-width: 7rem;
     flex-direction: row;
     justify-content: flex-end;
-    flex-basis: 12rem;
+    flex-basis: 14rem;
     padding: 1rem 1.5rem;
   }
+}
+.budget-list__data .loading-spinner {
+  margin: 0 !important;
+  position: relative;
+}
+.budget-list__data .loading-spinner::before {
+  position: absolute;
 }
 .budget-list__data:last-child {
   margin-bottom: 0;
@@ -19130,6 +19170,20 @@ label + .meeting-polls__answer + label {
   font-weight: 600;
   line-height: 1.4;
   margin-bottom: 0.3em;
+}
+.answer-questionnaire .questionnaire-title_and_description {
+  font-size: 2rem;
+  font-weight: 600;
+  padding-left: 1rem;
+  line-height: 1.4;
+  margin-bottom: 0.3em;
+}
+.answer-questionnaire .help-title_and_description {
+  padding-left: 1rem;
+  margin-bottom: 2rem;
+}
+.answer-questionnaire .help-title_and_description .ql-video {
+  margin: 0.5em auto;
 }
 .answer-questionnaire .help-text {
   margin-top: 0.5em;

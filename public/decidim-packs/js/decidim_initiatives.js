@@ -1,15 +1,15 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-initiatives/app/packs/images sync recursive ^\\.\\/.*$":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-initiatives/app/packs/images sync recursive ^\\.\\/.*$":
 /*!************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-initiatives/app/packs/images/ sync ^\.\/.*$ ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-initiatives/app/packs/images/ sync ^\.\/.*$ ***!
   \************************************************************************************************************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 var map = {
-	"./decidim/gamification/badges/decidim_gamification_badges_initiatives.svg": "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-initiatives/app/packs/images/decidim/gamification/badges/decidim_gamification_badges_initiatives.svg",
-	"./decidim/initiatives/decidim_initiatives.svg": "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-initiatives/app/packs/images/decidim/initiatives/decidim_initiatives.svg"
+	"./decidim/gamification/badges/decidim_gamification_badges_initiatives.svg": "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-initiatives/app/packs/images/decidim/gamification/badges/decidim_gamification_badges_initiatives.svg",
+	"./decidim/initiatives/decidim_initiatives.svg": "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-initiatives/app/packs/images/decidim/initiatives/decidim_initiatives.svg"
 };
 
 
@@ -30,43 +30,43 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-initiatives/app/packs/images sync recursive ^\\.\\/.*$";
+webpackContext.id = "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-initiatives/app/packs/images sync recursive ^\\.\\/.*$";
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-initiatives/app/packs/entrypoints/decidim_initiatives.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-initiatives/app/packs/entrypoints/decidim_initiatives.js":
 /*!*************************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-initiatives/app/packs/entrypoints/decidim_initiatives.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-initiatives/app/packs/entrypoints/decidim_initiatives.js ***!
   \*************************************************************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var src_decidim_initiatives_application__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/decidim/initiatives/application */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-initiatives/app/packs/src/decidim/initiatives/application.js");
-/* harmony import */ var src_decidim_initiatives_identity_selector_dialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/decidim/initiatives/identity_selector_dialog */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-initiatives/app/packs/src/decidim/initiatives/identity_selector_dialog.js");
+/* harmony import */ var src_decidim_initiatives_application__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/decidim/initiatives/application */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-initiatives/app/packs/src/decidim/initiatives/application.js");
+/* harmony import */ var src_decidim_initiatives_identity_selector_dialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/decidim/initiatives/identity_selector_dialog */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-initiatives/app/packs/src/decidim/initiatives/identity_selector_dialog.js");
 /* harmony import */ var src_decidim_initiatives_identity_selector_dialog__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(src_decidim_initiatives_identity_selector_dialog__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var src_decidim_initiatives_scoped_type__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/decidim/initiatives/scoped_type */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-initiatives/app/packs/src/decidim/initiatives/scoped_type.js");
+/* harmony import */ var src_decidim_initiatives_scoped_type__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/decidim/initiatives/scoped_type */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-initiatives/app/packs/src/decidim/initiatives/scoped_type.js");
 /* harmony import */ var src_decidim_initiatives_scoped_type__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(src_decidim_initiatives_scoped_type__WEBPACK_IMPORTED_MODULE_2__);
 
 
  // Images
 
-__webpack_require__("../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-initiatives/app/packs/images sync recursive ^\\.\\/.*$");
+__webpack_require__("../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-initiatives/app/packs/images sync recursive ^\\.\\/.*$");
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-initiatives/app/packs/src/decidim/initiatives/application.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-initiatives/app/packs/src/decidim/initiatives/application.js":
 /*!*****************************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-initiatives/app/packs/src/decidim/initiatives/application.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-initiatives/app/packs/src/decidim/initiatives/application.js ***!
   \*****************************************************************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var src_decidim_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/decidim/editor */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-core/app/packs/src/decidim/editor.js");
-/* harmony import */ var src_decidim_initiatives_scoped_type__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/decidim/initiatives/scoped_type */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-initiatives/app/packs/src/decidim/initiatives/scoped_type.js");
+/* harmony import */ var src_decidim_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/decidim/editor */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-core/app/packs/src/decidim/editor.js");
+/* harmony import */ var src_decidim_initiatives_scoped_type__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/decidim/initiatives/scoped_type */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-initiatives/app/packs/src/decidim/initiatives/scoped_type.js");
 /* harmony import */ var src_decidim_initiatives_scoped_type__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(src_decidim_initiatives_scoped_type__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var src_decidim_initiatives_identity_selector_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/decidim/initiatives/identity_selector_dialog */ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-initiatives/app/packs/src/decidim/initiatives/identity_selector_dialog.js");
+/* harmony import */ var src_decidim_initiatives_identity_selector_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/decidim/initiatives/identity_selector_dialog */ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-initiatives/app/packs/src/decidim/initiatives/identity_selector_dialog.js");
 /* harmony import */ var src_decidim_initiatives_identity_selector_dialog__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(src_decidim_initiatives_identity_selector_dialog__WEBPACK_IMPORTED_MODULE_2__);
 
 
@@ -74,9 +74,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-initiatives/app/packs/src/decidim/initiatives/identity_selector_dialog.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-initiatives/app/packs/src/decidim/initiatives/identity_selector_dialog.js":
 /*!******************************************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-initiatives/app/packs/src/decidim/initiatives/identity_selector_dialog.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-initiatives/app/packs/src/decidim/initiatives/identity_selector_dialog.js ***!
   \******************************************************************************************************************************************************************************/
 /***/ (function() {
 
@@ -96,9 +96,9 @@ $(function () {
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-initiatives/app/packs/src/decidim/initiatives/scoped_type.js":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-initiatives/app/packs/src/decidim/initiatives/scoped_type.js":
 /*!*****************************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-initiatives/app/packs/src/decidim/initiatives/scoped_type.js ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-initiatives/app/packs/src/decidim/initiatives/scoped_type.js ***!
   \*****************************************************************************************************************************************************************/
 /***/ (function() {
 
@@ -139,9 +139,9 @@ $(function () {
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-initiatives/app/packs/images/decidim/gamification/badges/decidim_gamification_badges_initiatives.svg":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-initiatives/app/packs/images/decidim/gamification/badges/decidim_gamification_badges_initiatives.svg":
 /*!*********************************************************************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-initiatives/app/packs/images/decidim/gamification/badges/decidim_gamification_badges_initiatives.svg ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-initiatives/app/packs/images/decidim/gamification/badges/decidim_gamification_badges_initiatives.svg ***!
   \*********************************************************************************************************************************************************************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
@@ -150,9 +150,9 @@ module.exports = __webpack_require__.p + "media/images/decidim_gamification_badg
 
 /***/ }),
 
-/***/ "../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-initiatives/app/packs/images/decidim/initiatives/decidim_initiatives.svg":
+/***/ "../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-initiatives/app/packs/images/decidim/initiatives/decidim_initiatives.svg":
 /*!*****************************************************************************************************************************************************************************!*\
-  !*** ../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-initiatives/app/packs/images/decidim/initiatives/decidim_initiatives.svg ***!
+  !*** ../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-initiatives/app/packs/images/decidim/initiatives/decidim_initiatives.svg ***!
   \*****************************************************************************************************************************************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
@@ -175,13 +175,16 @@ module.exports = __webpack_require__.p + "media/images/decidim_initiatives-8822c
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
+/******/ 			id: moduleId,
+/******/ 			loaded: false,
 /******/ 			exports: {}
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -265,6 +268,15 @@ module.exports = __webpack_require__.p + "media/images/decidim_initiatives-8822c
 /******/ 		};
 /******/ 	}();
 /******/ 	
+/******/ 	/* webpack/runtime/node module decorator */
+/******/ 	!function() {
+/******/ 		__webpack_require__.nmd = function(module) {
+/******/ 			module.paths = [];
+/******/ 			if (!module.children) module.children = [];
+/******/ 			return module;
+/******/ 		};
+/******/ 	}();
+/******/ 	
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	!function() {
 /******/ 		__webpack_require__.p = "/decidim-packs/";
@@ -330,7 +342,7 @@ module.exports = __webpack_require__.p + "media/images/decidim_initiatives-8822c
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["_rbenv_versions_2_7_5_lib_ruby_gems_2_7_0_bundler_gems_decidim-5455ffe38454_decidim-core_app_-485538"], function() { return __webpack_require__("../../../.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/bundler/gems/decidim-5455ffe38454/decidim-initiatives/app/packs/entrypoints/decidim_initiatives.js"); })
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["_rbenv_versions_2_7_1_lib_ruby_gems_2_7_0_bundler_gems_decidim-47971368df59_decidim-core_app_-2b93e2"], function() { return __webpack_require__("../../../.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/bundler/gems/decidim-47971368df59/decidim-initiatives/app/packs/entrypoints/decidim_initiatives.js"); })
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
