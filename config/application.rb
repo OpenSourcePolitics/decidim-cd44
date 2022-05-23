@@ -31,7 +31,7 @@ module DevelopmentApp
       end
     end
 
-    config.redirector.silence_sql_logs = true
+    # config.redirector.silence_sql_logs = true
 
     config.after_initialize do
       if Decidim.geocoder.present?
@@ -41,8 +41,6 @@ module DevelopmentApp
         )
       end
     end
-
-    config.redirector.silence_sql_logs = true
 
     config.backup = config_for(:backup).deep_symbolize_keys
 
