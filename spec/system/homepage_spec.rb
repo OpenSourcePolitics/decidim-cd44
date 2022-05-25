@@ -37,6 +37,8 @@ describe "Homepage", type: :system do
         visit decidim.root_path
       end
 
+      it_behaves_like "accessible page"
+
       it "includes the official organization links and images" do
         expect(page).to have_selector("a.logo-cityhall[href='#{official_url}']")
         expect(page).to have_selector("a.main-footer__badge[href='#{official_url}']")

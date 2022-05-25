@@ -16,8 +16,7 @@ describe "Account", type: :system do
     it "shows the account form when clicking on the menu" do
       visit decidim.root_path
 
-      within ".topbar__user__logged" do
-        find("a", text: user.name).click
+      within_user_menu do
         find("a", text: "Profile").click
       end
 
@@ -30,9 +29,35 @@ describe "Account", type: :system do
       visit decidim.account_path
     end
 
+    it_behaves_like "accessible page"
+
+    describe "update avatar" do
+      it "can update avatar" do
+        attach_file :user_avatar, Decidim::Dev.asset("avatar.jpg")
+
+        within "form.edit_user" do
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_css(".flash.success")
+      end
+
+      it "shows error when image is too big" do
+        attach_file :user_avatar, Decidim::Dev.asset("5000x5000.png")
+
+        within "form.edit_user" do
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("The image is too big", count: 1)
+        expect(page).to have_css(".flash.alert")
+      end
+    end
+
     describe "updating personal data" do
       it "updates the user's data" do
         within "form.edit_user" do
+          select "Français", from: :user_locale
           fill_in :user_name, with: "Nikola Tesla"
           find("*[type=submit]").click
         end
@@ -44,15 +69,6 @@ describe "Account", type: :system do
         within ".title-bar" do
           expect(page).to have_content("Nikola Tesla")
         end
-
-        user.reload
-
-        within_user_menu do
-          find("a", text: user.name).hover
-          find("a", text: "My public profile").click
-        end
-
-        expect(page).to have_content("(External link)")
       end
     end
 
@@ -146,7 +162,7 @@ describe "Account", type: :system do
           expect(page).to have_content("successfully")
         end
 
-        first(".sign-in-link").click
+        find(".sign-in-link").click
 
         within ".new_user" do
           fill_in :session_user_email, with: user.email
