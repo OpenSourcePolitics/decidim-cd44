@@ -96,7 +96,7 @@ module Decidim
       end
 
       def author_id
-        proposal.decidim_author_id || "Official"
+        proposal.creator_identity.is_a?(Decidim::Organization) ? "Official" : proposal.creator_identity&.id
       end
     end
   end
