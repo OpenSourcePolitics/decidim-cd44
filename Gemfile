@@ -17,7 +17,7 @@ gem "decidim-initiatives", git: "https://github.com/decidim/decidim.git", branch
 
 gem "decidim-decidim_awesome", "~> 0.8.3"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: "master"
-gem "decidim-simple_proposal", git: "https://github.com/Quentinchampenois/decidim-module-simple_proposal.git", branch: "fix/0.26-proposal-form"
+gem "decidim-simple_proposal", git: "https://github.com/OpenSourcePolitics/decidim-module-simple_proposal.git", branch: "fix/0.26-proposal-form"
 
 gem "dotenv-rails"
 

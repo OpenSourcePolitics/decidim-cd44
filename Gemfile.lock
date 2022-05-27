@@ -1,5 +1,5 @@
 GIT
-  remote: https://github.com/Quentinchampenois/decidim-module-simple_proposal.git
+  remote: https://github.com/OpenSourcePolitics/decidim-module-simple_proposal.git
   revision: 9221be314577dda7fb468a7425c15697337b39ed
   branch: fix/0.26-proposal-form
   specs:
