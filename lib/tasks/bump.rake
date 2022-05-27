@@ -22,6 +22,12 @@ namespace :bump do
       logger.debug(tcustomizer_migrations)
     end
 
+    if defined?(Decidim::SimpleProposal)
+      logger.info("Updating Decidim SimpleProposal...")
+      simple_proposal_migrations = `bundle exec rake decidim_simple_proposal:install:migrations`
+      logger.debug(simple_proposal_migrations)
+    end
+
     logger.info("Installing yarn dependencies...")
     yarn = `yarn install`
     logger.info("Precompiling assets...")

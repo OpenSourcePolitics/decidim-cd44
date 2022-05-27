@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/Quentinchampenois/decidim-module-simple_proposal.git
+  revision: 9221be314577dda7fb468a7425c15697337b39ed
+  branch: fix/0.26-proposal-form
+  specs:
+    decidim-simple_proposal (0.26.0)
+      decidim-core (~> 0.26.0)
+      decidim-proposals (~> 0.26.0)
+
+GIT
   remote: https://github.com/decidim/decidim.git
   revision: 47971368df591ec7eb638b43dc98131515c5fd92
   branch: release/0.26-stable
@@ -859,6 +868,7 @@ DEPENDENCIES
   decidim-decidim_awesome (~> 0.8.3)
   decidim-dev!
   decidim-initiatives!
+  decidim-simple_proposal!
   decidim-term_customizer!
   dotenv-rails
   faker (~> 2.14)
