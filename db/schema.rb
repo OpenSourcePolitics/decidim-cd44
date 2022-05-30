@@ -796,6 +796,7 @@ ActiveRecord::Schema.define(version: 2022_05_27_102203) do
     t.boolean "custom_signature_end_date_enabled", default: false, null: false
     t.boolean "attachments_enabled", default: false, null: false
     t.boolean "area_enabled", default: false, null: false
+    t.boolean "comments_enabled", default: true, null: false
     t.index ["decidim_organization_id"], name: "index_decidim_initiative_types_on_decidim_organization_id"
   end
 
