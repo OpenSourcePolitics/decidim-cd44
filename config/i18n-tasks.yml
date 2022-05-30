@@ -89,30 +89,30 @@ ignore_missing:
  - decidim.proposals.proposals.votes_count.most_popular_proposal
  - decidim.proposals.proposals.votes_count.need_more_votes
  - layouts.decidim.participatory_processes.promoted_process_group.more_info
-   - decidim.proposals.proposals.preview.update_position
-   - decidim.meetings.withdraw.success
-   - decidim.meetings.withdraw.error
-   - decidim.account.show.available_locales_helper
-   - decidim.initiatives.admin.initiatives_types.form.title
-   - decidim.initiatives.admin.initiatives_types.form.options
-   - decidim.initiatives.admin.initiatives_types.form.child_scope_threshold_enabled_help
-   - decidim.initiatives.admin.initiatives_types.form.only_global_scope_enabled_help
-   - decidim.initiatives.admin.initiatives_types.form.authorizations
-   - decidim.initiatives.initiatives.show.any_vote_method
-   - decidim.initiatives.initiatives.show.offline_method
-   - decidim.initiatives.initiatives.show.edit
-   - decidim.initiatives.initiatives.show.send_to_technical_validation
-   - decidim.initiatives.initiatives.show.confirm
-   - decidim.initiatives.initiatives.show.print
-   - decidim.initiatives.initiatives.show.follow_description
-   - layouts.decidim.footer.cc_by_license
-   - layouts.decidim.footer.decidim_logo
-   - layouts.decidim.social_media_links.twitter
-   - layouts.decidim.social_media_links.facebook
-   - layouts.decidim.social_media_links.instagram
-   - layouts.decidim.social_media_links.youtube
-   - layouts.decidim.social_media_links.github
-   - layouts.decidim.header.user_menu
+ - decidim.proposals.proposals.preview.update_position
+ - decidim.meetings.withdraw.success
+ - decidim.meetings.withdraw.error
+ - decidim.account.show.available_locales_helper
+ - decidim.initiatives.admin.initiatives_types.form.title
+ - decidim.initiatives.admin.initiatives_types.form.options
+ - decidim.initiatives.admin.initiatives_types.form.child_scope_threshold_enabled_help
+ - decidim.initiatives.admin.initiatives_types.form.only_global_scope_enabled_help
+ - decidim.initiatives.admin.initiatives_types.form.authorizations
+ - decidim.initiatives.initiatives.show.any_vote_method
+ - decidim.initiatives.initiatives.show.offline_method
+ - decidim.initiatives.initiatives.show.edit
+ - decidim.initiatives.initiatives.show.send_to_technical_validation
+ - decidim.initiatives.initiatives.show.confirm
+ - decidim.initiatives.initiatives.show.print
+ - decidim.initiatives.initiatives.show.follow_description
+ - layouts.decidim.footer.cc_by_license
+ - layouts.decidim.footer.decidim_logo
+ - layouts.decidim.social_media_links.twitter
+ - layouts.decidim.social_media_links.facebook
+ - layouts.decidim.social_media_links.instagram
+ - layouts.decidim.social_media_links.youtube
+ - layouts.decidim.social_media_links.github
+ - layouts.decidim.header.user_menu
 
 # Consider these keys used:
 ignore_unused:
@@ -133,5 +133,5 @@ ignore_unused:
   - layouts.decidim.user_menu.account
   - activemodel.attributes.initiatives_type.comments_enabled
   - decidim.newsletter_mailer.newsletter.{note,unsubscribe}
-
+  - decidim.proposals.proposals.preview.update_position
 
