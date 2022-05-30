@@ -59,8 +59,8 @@ module Decidim
              dependent: :destroy,
              as: :participatory_space
 
-    enum signature_type: [:online, :offline, :any], _suffix: true
-    enum state: [:created, :validating, :discarded, :published, :rejected, :accepted]
+    enum signature_type: { online: 0, offline: 1, any: 2 }, _suffix: true
+    enum state: { created: 0, validating: 1, discarded: 2, published: 3, rejected: 4, accepted: 5 }
 
     validates :title, :description, :state, :signature_type, presence: true
     validates :hashtag,
@@ -106,9 +106,9 @@ module Decidim
     scope :future_spaces, -> { none }
     scope :past_spaces, -> { closed }
 
+    after_create :notify_creation
     before_update :set_offline_votes_total
     after_commit :notify_state_change
-    after_create :notify_creation
 
     searchable_fields({
                         participatory_space: :itself,

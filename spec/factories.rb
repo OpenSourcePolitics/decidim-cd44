@@ -9,7 +9,6 @@ require "decidim/system/test/factories"
 require "decidim/participatory_processes/test/factories"
 require "decidim/initiatives/test/factories"
 
-
 FactoryBot.modify do
   factory :initiatives_type, class: "Decidim::InitiativesType" do
     title { generate_localized_title }

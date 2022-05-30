@@ -98,7 +98,6 @@ describe "Initiative", type: :system do
 
       it_behaves_like "has attachments"
 
-
       it "displays comments section" do
         expect(page).to have_css(".comments")
         expect(page).to have_content("0 Comments")
