@@ -25,6 +25,9 @@ describe "Initiative", type: :system do
 
     it_behaves_like "editable content for admins" do
       let(:target_path) { decidim_initiatives.initiative_path(initiative) }
+      before do
+        allow(Decidim::Initiatives).to receive(:print_enabled).and_return(true)
+      end
     end
 
     context "when requesting the initiative path" do
