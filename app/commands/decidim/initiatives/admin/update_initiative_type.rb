@@ -10,10 +10,12 @@ module Decidim
         #
         # initiative_type: Decidim::InitiativesType
         # form - A form object with the params.
+        # rubocop:disable Lint/MissingSuper
         def initialize(initiative_type, form)
           @form = form
           @initiative_type = initiative_type
         end
+        # rubocop:enable Lint/MissingSuper
 
         # Executes the command. Broadcasts these events:
         #
