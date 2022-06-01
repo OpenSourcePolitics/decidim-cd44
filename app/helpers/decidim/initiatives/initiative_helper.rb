@@ -41,14 +41,14 @@ module Decidim
       end
 
       def popularity_tag(initiative)
-        content_tag(:div, class: "extra__popularity popularity #{popularity_class(initiative)}".strip) do
+        tag.div(class: "extra__popularity popularity #{popularity_class(initiative)}".strip) do
           5.times do
-            concat(content_tag(:span, class: "popularity__item") do
+            concat(tag.span(class: "popularity__item") do
               # empty block
             end)
           end
 
-          concat(content_tag(:span, class: "popularity__desc") do
+          concat(tag.span(class: "popularity__desc") do
             I18n.t("decidim.initiatives.initiatives.vote_cabin.supports_required",
                    total_supports: initiative.scoped_type.supports_required)
           end)
@@ -137,4 +137,3 @@ module Decidim
     end
   end
 end
-
