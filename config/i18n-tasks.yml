@@ -108,3 +108,5 @@ ignore_unused:
   - forms.length_validator.minimum.*
   - decidim.events.budgets.pending_order.*
   - layouts.decidim.user_menu.account
+  - decidim.initiatives.create_initiative.select_initiative_type.*
+

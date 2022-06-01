@@ -51,6 +51,19 @@ en:
           email_outro: You have received this notification because you are participating in "%{participatory_space_title}"
           email_subject: Your vote is still pending in %{participatory_space_title}
           notification_title: The vote on budget <a href="%{resource_path}">%{resource_title}</a> is still waiting for your confirmation in %{participatory_space_title}
+    initiatives:
+      create_initiative:
+        select_initiative_type:
+          not_authorized:
+            authorizations_page: View authorizations
+            close: Close
+            explanation: You need to be verified in order to create a new initiative.
+            title: Authorization required
+          verification_required: Verify your account to promote this initiative
+    resources:
+      initiatives_type:
+        actions:
+          create: Create
     meetings:
       directory:
         meetings:
