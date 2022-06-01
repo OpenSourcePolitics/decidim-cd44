@@ -19,7 +19,7 @@ module Decidim
           enforce_permission_to :update, :initiatives_settings, initiatives_settings: current_initiatives_settings
 
           @form = initiatives_settings_form
-                    .from_params(params, initiatives_settings: current_initiatives_settings)
+                  .from_params(params, initiatives_settings: current_initiatives_settings)
 
           UpdateInitiativesSettings.call(current_initiatives_settings, @form) do
             on(:ok) do

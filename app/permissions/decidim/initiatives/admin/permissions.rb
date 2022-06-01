@@ -52,15 +52,15 @@ module Decidim
 
         def user_can_read_participatory_space?
           return unless permission_action.action == :read &&
-            permission_action.subject == :participatory_space
+                        permission_action.subject == :participatory_space
 
           toggle_allow(user.admin? || initiative.has_authorship?(user))
         end
 
         def user_can_enter_space_area?
           return unless permission_action.action == :enter &&
-            permission_action.subject == :space_area &&
-            context.fetch(:space_name, nil) == :initiatives
+                        permission_action.subject == :space_area &&
+                        context.fetch(:space_name, nil) == :initiatives
 
           toggle_allow(user.admin? || has_initiatives?)
         end
@@ -146,13 +146,13 @@ module Decidim
             toggle_allow(initiative.offline_signature_type? || initiative.any_signature_type?)
           when :accept
             allowed = initiative.published? &&
-              initiative.signature_end_date < Date.current &&
-              initiative.supports_goal_reached?
+                      initiative.signature_end_date < Date.current &&
+                      initiative.supports_goal_reached?
             toggle_allow(allowed)
           when :reject
             allowed = initiative.published? &&
-              initiative.signature_end_date < Date.current &&
-              !initiative.supports_goal_reached?
+                      initiative.signature_end_date < Date.current &&
+                      !initiative.supports_goal_reached?
             toggle_allow(allowed)
           when :send_to_technical_validation
             toggle_allow(allowed_to_send_to_technical_validation?)
@@ -167,7 +167,7 @@ module Decidim
 
         def initiatives_settings_action?
           return unless permission_action.action == :update &&
-            permission_action.subject == :initiatives_settings
+                        permission_action.subject == :initiatives_settings
 
           toggle_allow(user.admin?)
         end
@@ -180,7 +180,7 @@ module Decidim
 
         def read_initiative_list_action?
           return unless permission_action.subject == :initiative &&
-            permission_action.action == :list
+                        permission_action.action == :list
 
           allow!
         end
