@@ -55,11 +55,11 @@ fr:
       create_initiative:
         select_initiative_type:
           not_authorized:
-            authorizations_page: View authorizations
-            close: Close
-            explanation: You need to be verified in order to create a new initiative.
-            title: Authorization required
-          verification_required: Verify your account to promote this initiative
+            authorizations_page: Voir les autorisations
+            close: Fermer
+            explanation: Vous devez être autorisé pour créer cette initiative
+            title: Autorisation requise
+          verification_required: Verifier votre compte pour créer cette initiative
     resources:
       initiatives_type:
         actions:
