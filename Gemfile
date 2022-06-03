@@ -14,7 +14,7 @@ gem "decidim-initiatives", git: "https://github.com/decidim/decidim.git", branch
 # gem "decidim-question_captcha", git: "https://github.com/OpenSourcePolitics/decidim-module-question_captcha.git", branch: "release/0.24-stable"
 gem "decidim-decidim_awesome", "~> 0.8.3"
 gem "decidim-simple_proposal", git: "https://github.com/OpenSourcePolitics/decidim-module-simple_proposal.git", branch: "fix/0.26-proposal-form"
-gem "decidim-spam_detection", git: "https://github.com/OpenSourcePolitics/decidim-spam_detection.git"
+gem "decidim-spam_detection"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: "master"
 
 gem "dotenv-rails"
