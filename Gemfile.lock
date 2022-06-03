@@ -8,13 +8,6 @@ GIT
       decidim-proposals (~> 0.26.0)
 
 GIT
-  remote: https://github.com/OpenSourcePolitics/decidim-spam_detection.git
-  revision: 8a3609077cded8a9d2f87e4c537f1321aba777b3
-  specs:
-    decidim-spam_detection (2.0.0)
-      decidim-core (~> 0.26)
-
-GIT
   remote: https://github.com/decidim/decidim.git
   revision: 47971368df591ec7eb638b43dc98131515c5fd92
   branch: release/0.26-stable
@@ -374,6 +367,8 @@ GEM
       decidim-admin (>= 0.25.0, < 0.27)
       decidim-core (>= 0.25.0, < 0.27)
       sassc (~> 2.3)
+    decidim-spam_detection (2.0.0)
+      decidim-core (~> 0.26)
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
@@ -876,7 +871,7 @@ DEPENDENCIES
   decidim-dev!
   decidim-initiatives!
   decidim-simple_proposal!
-  decidim-spam_detection!
+  decidim-spam_detection
   decidim-term_customizer!
   dotenv-rails
   faker (~> 2.14)
