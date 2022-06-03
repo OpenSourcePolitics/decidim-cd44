@@ -72,6 +72,8 @@ en:
       admin_log:
         initiatives_settings:
           update: "%{user_name} updated the initiatives settings"
+      signature_interval:
+        title: Signature collection period
     meetings:
       directory:
         meetings:
