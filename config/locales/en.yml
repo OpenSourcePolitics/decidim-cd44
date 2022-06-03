@@ -64,6 +64,8 @@ en:
       initiatives_type:
         actions:
           create: Create
+      signature_interval:
+        title: Signature collection period
     meetings:
       directory:
         meetings:

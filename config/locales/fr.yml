@@ -64,6 +64,8 @@ fr:
       initiatives_type:
         actions:
           create: Create
+      signature_interval:
+        title: Période de signature
     meetings:
       directory:
         meetings:
@@ -84,6 +86,8 @@ fr:
         unsubscribe: Pour ne plus recevoir ce type d'email, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
     proposals:
       proposals:
+        preview:
+          update_position: Mettre à jour les coordonnées
         form_view:
           cancel: Annuler
     verifications:
