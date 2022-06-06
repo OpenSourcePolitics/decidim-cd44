@@ -33,10 +33,10 @@ if defined?(Decidim::Initiatives)
     # timestamped and respond to a timestamp method
     config.timestamp_service = "Decidim::Initiatives::UtcTimestamp"
 
-    config.creation_enabled=true
-    config.similarity_threshold=100
-    config.similarity_limit=0
-    config.face_to_face_voting_allowed=true
-    config.online_voting_allowed=true
+    config.creation_enabled = true
+    config.similarity_threshold = 100
+    config.similarity_limit = 0
+    config.face_to_face_voting_allowed = true
+    config.online_voting_allowed = true
   end
 end
