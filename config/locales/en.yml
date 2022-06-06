@@ -2,6 +2,8 @@
 en:
   activemodel:
     attributes:
+      initiatives_type:
+        comments_enabled: Enable comments
       osp_authorization_handler:
         birthday: Date de naissance
         document_number: Numéro unique
