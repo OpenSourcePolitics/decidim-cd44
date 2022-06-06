@@ -134,4 +134,5 @@ ignore_unused:
   - activemodel.attributes.initiatives_type.comments_enabled
   - decidim.newsletter_mailer.newsletter.{note,unsubscribe}
   - decidim.proposals.proposals.preview.update_position
+  - decidim.initiatives.create_initiative.select_initiative_type.*
 
