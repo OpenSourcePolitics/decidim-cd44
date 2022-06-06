@@ -72,6 +72,8 @@ en:
             publication_date: Publication date
           edit:
             update: Update
+          update:
+            settings: There was a problem updating this setting.
       create_initiative:
         select_initiative_type:
           not_authorized:

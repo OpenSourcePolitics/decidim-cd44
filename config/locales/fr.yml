@@ -68,6 +68,8 @@ fr:
             publication_date: Plus récemment publié
           edit:
             update: Mettre à jour
+          update:
+            success: Il y a eu une erreur lors de la mise à jour du paramètre.
       create_initiative:
         select_initiative_type:
           not_authorized:
