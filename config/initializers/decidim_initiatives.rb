@@ -4,11 +4,11 @@ if defined?(Decidim::Initiatives)
   Decidim::Initiatives.configure do |config|
     # Public Setting that defines the similarity minimum value to consider two
     # initiatives similar. Defaults to 0.25.
-    # config.similarity_threshold = 0.25
+    config.similarity_threshold = 100
     config.do_not_require_authorization = true
     # Public Setting that defines how many similar initiatives will be shown.
     # Defaults to 5.
-    # config.similarity_limit = 5
+    config.similarity_limit = 0
 
     # Minimum number of committee members required to pass the initiative to
     # technical validation phase. Only applies to initiatives created by
@@ -34,8 +34,6 @@ if defined?(Decidim::Initiatives)
     config.timestamp_service = "Decidim::Initiatives::UtcTimestamp"
 
     config.creation_enabled = true
-    config.similarity_threshold = 100
-    config.similarity_limit = 0
     config.face_to_face_voting_allowed = true
     config.online_voting_allowed = true
   end
