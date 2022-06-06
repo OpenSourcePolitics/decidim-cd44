@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_27_102203) do
+ActiveRecord::Schema.define(version: 2022_05_27_130640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -764,6 +764,12 @@ ActiveRecord::Schema.define(version: 2022_05_27_102203) do
     t.index ["decidim_initiatives_id"], name: "index_decidim_committee_members_initiative"
     t.index ["decidim_users_id"], name: "index_decidim_committee_members_user"
     t.index ["state"], name: "index_decidim_initiatives_committee_members_on_state"
+  end
+
+  create_table "decidim_initiatives_settings", force: :cascade do |t|
+    t.string "initiatives_order", default: "random"
+    t.bigint "decidim_organization_id"
+    t.index ["decidim_organization_id"], name: "index_decidim_initiatives_settings_on_decidim_organization_id"
   end
 
   create_table "decidim_initiatives_type_scopes", force: :cascade do |t|
@@ -1823,6 +1829,7 @@ ActiveRecord::Schema.define(version: 2022_05_27_102203) do
   add_foreign_key "decidim_editor_images", "decidim_organizations"
   add_foreign_key "decidim_editor_images", "decidim_users", column: "decidim_author_id"
   add_foreign_key "decidim_identities", "decidim_organizations"
+  add_foreign_key "decidim_initiatives_settings", "decidim_organizations"
   add_foreign_key "decidim_newsletters", "decidim_users", column: "author_id"
   add_foreign_key "decidim_participatory_process_steps", "decidim_participatory_processes"
   add_foreign_key "decidim_participatory_processes", "decidim_organizations"
