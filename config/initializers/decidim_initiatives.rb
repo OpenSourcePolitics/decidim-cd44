@@ -17,7 +17,7 @@ if defined?(Decidim::Initiatives)
 
     # Number of days available to collect supports after an initiative has been
     # published.
-    config.default_signature_time_period_length = 6.months
+    config.default_signature_time_period_length = 12.months
 
     # Components enabled for a new initiative
     config.default_components = []
@@ -32,5 +32,11 @@ if defined?(Decidim::Initiatives)
     # initialized with a string containing the data to be
     # timestamped and respond to a timestamp method
     config.timestamp_service = "Decidim::Initiatives::UtcTimestamp"
+
+    config.creation_enabled=true
+    config.similarity_threshold=100
+    config.similarity_limit=0
+    config.face_to_face_voting_allowed=true
+    config.online_voting_allowed=true
   end
 end
