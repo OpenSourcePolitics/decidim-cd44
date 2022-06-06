@@ -44,6 +44,7 @@ if defined?(Decidim::Initiatives)
         get :authorization_create_modal, to: "authorization_create_modals#show"
       end
     end
+  end
 
   Decidim::Initiatives::AdminEngine.routes do
     resources :initiatives_settings, only: [:edit, :update], controller: "initiatives_settings"
