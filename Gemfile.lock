@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/OpenSourcePolitics/decidim-module-extended_socio_demographic_authorization_handler
+  revision: e2ef300ed2851c73a3dcb97ac6d6ab1c5b24a3ab
+  specs:
+    decidim-extended_socio_demographic_authorization_handler (0.26.1)
+      decidim-core (= 0.26.1)
+
+GIT
   remote: https://github.com/OpenSourcePolitics/decidim-module-simple_proposal.git
   revision: 9221be314577dda7fb468a7425c15697337b39ed
   branch: fix/0.26-proposal-form
@@ -867,6 +874,7 @@ DEPENDENCIES
   decidim!
   decidim-decidim_awesome (~> 0.8.3)
   decidim-dev!
+  decidim-extended_socio_demographic_authorization_handler!
   decidim-initiatives!
   decidim-simple_proposal!
   decidim-term_customizer!
@@ -896,4 +904,4 @@ RUBY VERSION
    ruby 2.7.1p83
 
 BUNDLED WITH
-   2.3.10
+   2.3.14
