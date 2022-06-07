@@ -2,6 +2,8 @@
 fr:
   activemodel:
     attributes:
+      initiatives_type:
+        comments_enabled: Activer les commentaires
       osp_authorization_handler:
         birthday: Date de naissance
         document_number: Numéro unique
@@ -51,6 +53,21 @@ fr:
           email_outro: You have received this notification because you are participating in "%{participatory_space_title}"
           email_subject: Your vote is still pending in %{participatory_space_title}
           notification_title: The vote on budget <a href="%{resource_path}">%{resource_title}</a> is still waiting for your confirmation in %{participatory_space_title}
+    initiatives:
+      create_initiative:
+        select_initiative_type:
+          not_authorized:
+            authorizations_page: Voir les autorisations
+            close: Fermer
+            explanation: Vous devez être autorisé pour créer cette initiative
+            title: Autorisation requise
+          verification_required: Verifier votre compte pour créer cette initiative
+    resources:
+      initiatives_type:
+        actions:
+          create: Create
+      signature_interval:
+        title: Période de signature
     meetings:
       directory:
         meetings:
@@ -71,10 +88,10 @@ fr:
         unsubscribe: Pour ne plus recevoir ce type d'email, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
     proposals:
       proposals:
-        preview:
-          update_position: Mettre à jour les coordonnées
         form_view:
           cancel: Annuler
+        preview:
+          update_position: Mettre à jour les coordonnées
     verifications:
       authorizations:
         first_login:
