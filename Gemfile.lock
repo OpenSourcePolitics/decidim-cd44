@@ -377,6 +377,8 @@ GEM
       decidim-admin (>= 0.25.0, < 0.27)
       decidim-core (>= 0.25.0, < 0.27)
       sassc (~> 2.3)
+    decidim-spam_detection (2.0.0)
+      decidim-core (~> 0.26)
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
@@ -881,6 +883,7 @@ DEPENDENCIES
   decidim-initiatives!
   decidim-question_captcha!
   decidim-simple_proposal!
+  decidim-spam_detection
   decidim-term_customizer!
   dotenv-rails
   faker (~> 2.14)
@@ -908,4 +911,4 @@ RUBY VERSION
    ruby 2.7.1p83
 
 BUNDLED WITH
-   2.3.9
+   2.3.11
