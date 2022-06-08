@@ -55,6 +55,6 @@ group :production do
   gem "sentry-rails"
   gem "sentry-ruby"
   gem "sentry-sidekiq"
-  gem "sidekiq"
+  gem "sidekiq", "6.4.2"
   gem "sidekiq-scheduler"
 end
