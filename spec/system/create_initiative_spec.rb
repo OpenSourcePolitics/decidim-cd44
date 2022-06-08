@@ -337,6 +337,15 @@ describe "Initiative", type: :system do
             end
           end
 
+          context "when mixed signature collection are available" do
+            let(:initiative_type) { create(:initiatives_type, organization: organization, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: "any") }
+
+            it "hides and automatically selects the values" do
+              expect(page).not_to have_content("Signature collection type")
+              expect(find(:xpath, "//input[@id='initiative_signature_type']", visible: :all).value).to eq("any")
+            end
+          end
+
           context "when the scope isn't selected" do
             it "shows an error" do
               select("Online", from: "Signature collection type")
