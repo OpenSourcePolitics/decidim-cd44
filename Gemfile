@@ -11,6 +11,7 @@ gem "decidim-initiatives", git: "https://github.com/decidim/decidim.git", branch
 
 gem "acts_as_textcaptcha", "~> 4.5.1"
 gem "decidim-decidim_awesome", "~> 0.8.3"
+gem "decidim-extended_socio_demographic_authorization_handler", git: "https://github.com/OpenSourcePolitics/decidim-module-extended_socio_demographic_authorization_handler"
 gem "decidim-question_captcha", git: "https://github.com/OpenSourcePolitics/decidim-module-question_captcha.git", branch: DECIDIM_VERSION
 gem "decidim-simple_proposal", git: "https://github.com/OpenSourcePolitics/decidim-module-simple_proposal.git", branch: "fix/0.26-proposal-form"
 gem "decidim-spam_detection"
@@ -54,6 +55,6 @@ group :production do
   gem "sentry-rails"
   gem "sentry-ruby"
   gem "sentry-sidekiq"
-  gem "sidekiq"
+  gem "sidekiq", "6.4.2"
   gem "sidekiq-scheduler"
 end

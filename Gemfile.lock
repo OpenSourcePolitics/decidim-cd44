@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/OpenSourcePolitics/decidim-module-extended_socio_demographic_authorization_handler
+  revision: e2ef300ed2851c73a3dcb97ac6d6ab1c5b24a3ab
+  specs:
+    decidim-extended_socio_demographic_authorization_handler (0.26.1)
+      decidim-core (= 0.26.1)
+
+GIT
   remote: https://github.com/OpenSourcePolitics/decidim-module-question_captcha.git
   revision: d4d28af116a93ae3621a0c97f915c6f60cccfe5e
   branch: release/0.26-stable
@@ -18,7 +25,7 @@ GIT
 
 GIT
   remote: https://github.com/decidim/decidim.git
-  revision: 47971368df591ec7eb638b43dc98131515c5fd92
+  revision: 47f5586696494a45a543150fb7aecd9405e0b0c0
   branch: release/0.26-stable
   specs:
     decidim (0.26.1)
@@ -311,7 +318,7 @@ GEM
       parser (>= 2.4)
       smart_properties
     bindex (0.8.1)
-    bootsnap (1.11.1)
+    bootsnap (1.12.0)
       msgpack (~> 1.2)
     brakeman (5.2.3)
     browser (2.7.1)
@@ -492,7 +499,7 @@ GEM
     invisible_captcha (0.13.0)
       rails (>= 3.2.0)
     json (2.6.2)
-    jwt (2.3.0)
+    jwt (2.4.1)
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.2)
@@ -551,11 +558,11 @@ GEM
       tomlrb
     mixlib-shellout (3.2.7)
       chef-utils
-    msgpack (1.5.1)
+    msgpack (1.5.2)
     multi_json (1.15.0)
     multi_xml (0.6.0)
     mustache (1.1.1)
-    newrelic_rpm (8.7.0)
+    newrelic_rpm (8.8.0)
     nio4r (2.5.8)
     nokogiri (1.13.6)
       mini_portile2 (~> 2.8.0)
@@ -616,11 +623,11 @@ GEM
       actionmailer (>= 3)
       premailer (~> 1.7, >= 1.7.9)
     public_suffix (4.0.7)
-    puma (5.5.2)
+    puma (5.6.4)
       nio4r (~> 2.0)
     raabro (1.4.0)
     racc (1.6.0)
-    rack (2.2.3)
+    rack (2.2.3.1)
     rack-attack (6.6.1)
       rack (>= 1.0, < 3)
     rack-cors (1.1.1)
@@ -683,7 +690,7 @@ GEM
     redis (4.6.0)
     redlock (1.2.2)
       redis (>= 3.0.0, < 5.0)
-    regexp_parser (2.4.0)
+    regexp_parser (2.5.0)
     request_store (1.5.1)
       rack (>= 1.4)
     responders (3.0.1)
@@ -813,7 +820,7 @@ GEM
     thor (1.2.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
-    tomlrb (2.0.1)
+    tomlrb (2.0.3)
     tzinfo (1.2.9)
       thread_safe (~> 0.1)
     uber (0.1.0)
@@ -868,7 +875,7 @@ GEM
 
 PLATFORMS
   ruby
-  x86_64-darwin-19
+  x86_64-darwin-20
 
 DEPENDENCIES
   activejob-uniqueness
@@ -880,6 +887,7 @@ DEPENDENCIES
   decidim!
   decidim-decidim_awesome (~> 0.8.3)
   decidim-dev!
+  decidim-extended_socio_demographic_authorization_handler!
   decidim-initiatives!
   decidim-question_captcha!
   decidim-simple_proposal!
@@ -900,7 +908,7 @@ DEPENDENCIES
   sentry-rails
   sentry-ruby
   sentry-sidekiq
-  sidekiq
+  sidekiq (= 6.4.2)
   sidekiq-scheduler
   spring (~> 2.0)
   spring-watcher-listen (~> 2.0)
