@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/OpenSourcePolitics/decidim-module-question_captcha.git
+  revision: d4d28af116a93ae3621a0c97f915c6f60cccfe5e
+  branch: release/0.26-stable
+  specs:
+    decidim-question_captcha (0.26.1)
+      acts_as_textcaptcha (~> 4.5.1)
+      decidim-core (= 0.26.1)
+
+GIT
   remote: https://github.com/OpenSourcePolitics/decidim-module-simple_proposal.git
   revision: 9221be314577dda7fb468a7425c15697337b39ed
   branch: fix/0.26-proposal-form
@@ -276,6 +285,7 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     acts_as_list (0.9.19)
       activerecord (>= 3.0)
+    acts_as_textcaptcha (4.5.2)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.2)
@@ -862,6 +872,7 @@ PLATFORMS
 
 DEPENDENCIES
   activejob-uniqueness
+  acts_as_textcaptcha (~> 4.5.1)
   bootsnap (~> 1.4)
   brakeman (~> 5.1)
   byebug (~> 11.0)
@@ -870,6 +881,7 @@ DEPENDENCIES
   decidim-decidim_awesome (~> 0.8.3)
   decidim-dev!
   decidim-initiatives!
+  decidim-question_captcha!
   decidim-simple_proposal!
   decidim-spam_detection
   decidim-term_customizer!
