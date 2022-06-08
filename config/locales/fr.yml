@@ -18,6 +18,8 @@ fr:
         change_password: Modifier mon mot de passe
         update_account: Mettre à jour mon compte
     admin:
+      menu:
+        initiatives_settings: Paramètres
       participatory_space_private_users:
         create:
           error: L'utilisateur privé a été créé avec succès.
@@ -54,6 +56,20 @@ fr:
           email_subject: Your vote is still pending in %{participatory_space_title}
           notification_title: The vote on budget <a href="%{resource_path}">%{resource_title}</a> is still waiting for your confirmation in %{participatory_space_title}
     initiatives:
+      admin:
+        initiatives_settings:
+          form:
+            name: Ordre des initiatives par défaut
+            title: Paramètres des initiatives
+            random: Aléatoire
+            date: Les plus récentes
+            signatures: Les plus soutenues
+            comments: Les plus commentées
+            publication_date: Plus récemment publié
+          edit:
+            update: Mettre à jour
+          update:
+            success: Il y a eu une erreur lors de la mise à jour du paramètre.
       create_initiative:
         select_initiative_type:
           not_authorized:
