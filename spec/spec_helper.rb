@@ -22,7 +22,7 @@ RSpec.configure do |config|
     Decidim.enable_html_header_snippets = false
     Decidim.unconfirmed_access_for = 0.days
     SocialShareButton.configure do |social_share_button|
-      social_share_button.allow_sites = %w(twitter facebook whatsapp_app whatsapp_web telegram)
+      social_share_button.allow_sites = %w(twitter google facebook whatsapp_app whatsapp_web telegram)
     end
   end
 end
