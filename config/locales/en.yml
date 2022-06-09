@@ -83,7 +83,7 @@ en:
             title: Authorization required
           verification_required: Verify your account to promote this initiative
       signature_interval:
-        title: Signature dates
+        title: Signature collection period
     meetings:
       directory:
         meetings:
