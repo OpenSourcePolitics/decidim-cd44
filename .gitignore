@@ -86,3 +86,4 @@ git-status.txt
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+public/decidim-packs
