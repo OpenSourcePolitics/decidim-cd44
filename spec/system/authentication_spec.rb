@@ -284,41 +284,6 @@ describe "Authentication", type: :system do
       end
     end
 
-    context "when using google" do
-      let(:omniauth_hash) do
-        OmniAuth::AuthHash.new(
-          provider: "google_oauth2",
-          uid: "123545",
-          info: {
-            name: "Google User",
-            email: "user@from-google.com"
-          }
-        )
-      end
-
-      before do
-        OmniAuth.config.test_mode = true
-        OmniAuth.config.mock_auth[:google_oauth2] = omniauth_hash
-
-        OmniAuth.config.add_camelization "google_oauth2", "GoogleOauth"
-        OmniAuth.config.request_validation_phase = ->(env) {} if OmniAuth.config.respond_to?(:request_validation_phase)
-      end
-
-      after do
-        OmniAuth.config.test_mode = false
-        OmniAuth.config.mock_auth[:google_oauth2] = nil
-        OmniAuth.config.camelizations.delete("google_oauth2")
-      end
-
-      it "creates a new User" do
-        find(".sign-up-link").click
-
-        click_link "Sign in with Google"
-
-        expect_user_logged
-      end
-    end
-
     context "when sign up is disabled" do
       let(:organization) { create(:organization, users_registration_mode: :existing) }
 
