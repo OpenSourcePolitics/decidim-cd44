@@ -1,14 +1,5 @@
 name: Tests
-on:
-  push:
-    branches:
-      - develop
-      - master
-      - release/*
-      - "*-stable"
-  pull_request:
-    branches-ignore:
-      - "chore/l10n*"
+on: [push]
 
 env:
   CI: "true"
@@ -54,6 +45,8 @@ jobs:
         run: |
           bundle exec rails db:create
           bundle exec rails db:migrate
+      - run: bundle exec rake assets:precompile
+        name: Precompile Webpacker assets
       - run: mkdir -p ./spec/tmp/screenshots
         name: Create the screenshots folder
       - uses: nanasess/setup-chromedriver@v1.0.1
