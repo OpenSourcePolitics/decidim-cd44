@@ -62,16 +62,16 @@ en:
     initiatives:
       admin:
         initiatives_settings:
-          form:
-            name: Default initiatives order
-            title: Initiatives settings
-            random: Random
-            date: Creation date
-            signatures: Signatures
-            comments: Comments
-            publication_date: Publication date
           edit:
             update: Update
+          form:
+            comments: Comments
+            date: Creation date
+            name: Default initiatives order
+            publication_date: Publication date
+            random: Random
+            signatures: Signatures
+            title: Initiatives settings
           update:
             settings: There was a problem updating this setting.
       create_initiative:
@@ -82,26 +82,8 @@ en:
             explanation: You need to be verified in order to create a new initiative.
             title: Authorization required
           verification_required: Verify your account to promote this initiative
-    resources:
-      initiatives_type:
-        actions:
-          create: Create
-      admin:
-        initiatives_settings:
-          edit:
-            update: Update
-          form:
-            comments: Most commented
-            date: Most recent
-            publication_date: Most recently published
-            random: Random
-            signatures: Most signed
-            title: Settings for initiatives
-      admin_log:
-        initiatives_settings:
-          update: "%{user_name} updated the initiatives settings"
       signature_interval:
-        title: Signature collection period
+        title: Signature dates
     meetings:
       directory:
         meetings:
@@ -124,6 +106,26 @@ en:
       proposals:
         form_view:
           cancel: Annuler
+    resources:
+      admin:
+        initiatives_settings:
+          edit:
+            update: Update
+          form:
+            comments: Most commented
+            date: Most recent
+            publication_date: Most recently published
+            random: Random
+            signatures: Most signed
+            title: Settings for initiatives
+      admin_log:
+        initiatives_settings:
+          update: "%{user_name} updated the initiatives settings"
+      initiatives_type:
+        actions:
+          create: Create
+      signature_interval:
+        title: Signature collection period
     verifications:
       authorizations:
         first_login:

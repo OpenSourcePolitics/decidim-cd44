@@ -58,16 +58,16 @@ fr:
     initiatives:
       admin:
         initiatives_settings:
-          form:
-            name: Ordre des initiatives par défaut
-            title: Paramètres des initiatives
-            random: Aléatoire
-            date: Les plus récentes
-            signatures: Les plus soutenues
-            comments: Les plus commentées
-            publication_date: Plus récemment publié
           edit:
             update: Mettre à jour
+          form:
+            comments: Les plus commentées
+            date: Les plus récentes
+            name: Ordre des initiatives par défaut
+            publication_date: Plus récemment publié
+            random: Aléatoire
+            signatures: Les plus soutenues
+            title: Paramètres des initiatives
           update:
             success: Il y a eu une erreur lors de la mise à jour du paramètre.
       create_initiative:
@@ -78,12 +78,8 @@ fr:
             explanation: Vous devez être autorisé pour créer cette initiative
             title: Autorisation requise
           verification_required: Verifier votre compte pour créer cette initiative
-    resources:
-      initiatives_type:
-        actions:
-          create: Create
       signature_interval:
-        title: Période de signature
+        title: Dates de signature
     meetings:
       directory:
         meetings:
@@ -108,6 +104,12 @@ fr:
           cancel: Annuler
         preview:
           update_position: Mettre à jour les coordonnées
+    resources:
+      initiatives_type:
+        actions:
+          create: Create
+      signature_interval:
+        title: Période de signature
     verifications:
       authorizations:
         first_login:
