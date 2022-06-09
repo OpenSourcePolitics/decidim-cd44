@@ -23,6 +23,7 @@ describe "Authentication", type: :system do
   let(:cache_store) { :memory_store }
 
   before do
+    allow(Rails.application.secrets.question_captcha).to receive(:[]).with(:host).and_return("captcha.api")
     stub_captcha("en")
     stub_captcha("fr")
     allow(Rails).to receive(:cache).and_return(ActiveSupport::Cache.lookup_store(cache_store))
@@ -772,14 +773,15 @@ describe "Authentication", type: :system do
   end
 
   def stub_captcha(locale)
-    stub_request(:get, "https://testm1obgqmc-decidimcaptchaapi.functions.fnc.fr-par.scw.cloud/?locale=#{locale}").
-      with(
+    stub_request(:get, "https://testm1obgqmc-decidimcaptchaapi.functions.fnc.fr-par.scw.cloud/?locale=#{locale}")
+      .with(
         headers: {
-          'Accept'=>'*/*',
-          'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-          'Host'=>'testm1obgqmc-decidimcaptchaapi.functions.fnc.fr-par.scw.cloud',
-          'User-Agent'=>'Ruby'
-        }).
-      to_return(status: 200, body: "", headers: {})
+          "Accept" => "*/*",
+          "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+          "Host" => "testm1obgqmc-decidimcaptchaapi.functions.fnc.fr-par.scw.cloud",
+          "User-Agent" => "Ruby"
+        }
+      )
+      .to_return(status: 200, body: "", headers: {})
   end
 end
