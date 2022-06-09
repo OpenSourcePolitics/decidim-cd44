@@ -81,9 +81,9 @@ git-status.txt
 .rspec-failures
 
 /public/packs
+/public/decidim-packs/
 /public/packs-test
 /node_modules
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
-public/decidim-packs
