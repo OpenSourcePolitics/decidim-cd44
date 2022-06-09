@@ -25,7 +25,7 @@ GIT
 
 GIT
   remote: https://github.com/decidim/decidim.git
-  revision: 47f5586696494a45a543150fb7aecd9405e0b0c0
+  revision: 4d3f1ffb66722dea4daeaeae1ec4079050345560
   branch: release/0.26-stable
   specs:
     decidim (0.26.1)
@@ -554,7 +554,7 @@ GEM
     mini_portile2 (2.8.0)
     minitest (5.15.0)
     mixlib-cli (2.1.8)
-    mixlib-config (3.0.9)
+    mixlib-config (3.0.27)
       tomlrb
     mixlib-shellout (3.2.7)
       chef-utils
@@ -784,7 +784,7 @@ GEM
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
-    sidekiq-scheduler (4.0.0)
+    sidekiq-scheduler (4.0.1)
       redis (>= 4.2.0)
       rufus-scheduler (~> 3.2)
       sidekiq (>= 4)
@@ -919,4 +919,4 @@ RUBY VERSION
    ruby 2.7.1p83
 
 BUNDLED WITH
-   2.3.11
+   2.3.10

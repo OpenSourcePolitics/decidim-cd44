@@ -23,6 +23,9 @@ describe "Authentication", type: :system do
   let(:cache_store) { :memory_store }
 
   before do
+    allow(Rails.application.secrets.question_captcha).to receive(:[]).with(:host).and_return("captcha.api")
+    stub_captcha("en")
+    stub_captcha("fr")
     allow(Rails).to receive(:cache).and_return(ActiveSupport::Cache.lookup_store(cache_store))
     Rails.cache.clear
     allow(Decidim::QuestionCaptcha.config).to receive(:questions).and_return(app_questions)
@@ -278,41 +281,6 @@ describe "Authentication", type: :system do
 
           expect_user_logged
         end
-      end
-    end
-
-    context "when using google" do
-      let(:omniauth_hash) do
-        OmniAuth::AuthHash.new(
-          provider: "google_oauth2",
-          uid: "123545",
-          info: {
-            name: "Google User",
-            email: "user@from-google.com"
-          }
-        )
-      end
-
-      before do
-        OmniAuth.config.test_mode = true
-        OmniAuth.config.mock_auth[:google_oauth2] = omniauth_hash
-
-        OmniAuth.config.add_camelization "google_oauth2", "GoogleOauth"
-        OmniAuth.config.request_validation_phase = ->(env) {} if OmniAuth.config.respond_to?(:request_validation_phase)
-      end
-
-      after do
-        OmniAuth.config.test_mode = false
-        OmniAuth.config.mock_auth[:google_oauth2] = nil
-        OmniAuth.config.camelizations.delete("google_oauth2")
-      end
-
-      it "creates a new User" do
-        find(".sign-up-link").click
-
-        click_link "Sign in with Google"
-
-        expect_user_logged
       end
     end
 
@@ -767,5 +735,18 @@ describe "Authentication", type: :system do
       check :registration_user_newsletter
       find("*[type=submit]").click
     end
+  end
+
+  def stub_captcha(locale)
+    stub_request(:get, "https://testm1obgqmc-decidimcaptchaapi.functions.fnc.fr-par.scw.cloud/?locale=#{locale}")
+      .with(
+        headers: {
+          "Accept" => "*/*",
+          "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+          "Host" => "testm1obgqmc-decidimcaptchaapi.functions.fnc.fr-par.scw.cloud",
+          "User-Agent" => "Ruby"
+        }
+      )
+      .to_return(status: 200, body: "", headers: {})
   end
 end
