@@ -1,14 +1,5 @@
 name: Tests
-on:
-  push:
-    branches:
-      - develop
-      - master
-      - release/*
-      - "*-stable"
-  pull_request:
-    branches-ignore:
-      - "chore/l10n*"
+on: ["push"]
 
 env:
   CI: "true"
@@ -57,8 +48,10 @@ jobs:
       - run: mkdir -p ./spec/tmp/screenshots
         name: Create the screenshots folder
       - uses: nanasess/setup-chromedriver@v1.0.1
-      - run: bundle exec rspec
-        name: RSpec
+      - name: RSpec
+        run: |
+          bundle exec rspec
+          echo "Exited with '$?'"
       - run: ./.github/upload_coverage.sh $DECIDIM_MODULE $GITHUB_EVENT_PATH
         name: Upload coverage
       - uses: actions/upload-artifact@v2-preview
