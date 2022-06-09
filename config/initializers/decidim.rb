@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Decidim.configure do |config|
-  config.allow_unconfirmed_access_for = 2.days
+  config.unconfirmed_access_for = 2.days
   config.skip_first_login_authorization = ENV["SKIP_FIRST_LOGIN_AUTHORIZATION"] ? ActiveRecord::Type::Boolean.new.cast(ENV["SKIP_FIRST_LOGIN_AUTHORIZATION"]) : true
   config.application_name = "Loire Atlantique"
   config.mailer_sender = "Loire Atlantique <ne-pas-repondre@opensourcepolitics.eu>"
