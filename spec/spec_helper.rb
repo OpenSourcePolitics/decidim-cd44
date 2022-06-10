@@ -8,8 +8,6 @@ DEFAULT_LOCALE = :en
 AVAILABLE_LOCALES = [:en, :fr].freeze
 
 RSpec.configure do |config|
-  config.failure_exit_code = 48
-
   config.before do
     # I18n configuration
     I18n.available_locales = AVAILABLE_LOCALES
