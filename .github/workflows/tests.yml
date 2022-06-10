@@ -68,7 +68,9 @@ jobs:
       - run: mkdir -p ./spec/tmp/screenshots
         name: Create the screenshots folder
       - uses: nanasess/setup-chromedriver@v1.0.1
-      - run: bundle exec rspec
+      - run: |
+          bundle exec rspec spec/**/*_spec.rb
+          printf 'Exit code (%d)\n' $?
         name: RSpec
       - uses: actions/upload-artifact@v2-preview
         if: always()
