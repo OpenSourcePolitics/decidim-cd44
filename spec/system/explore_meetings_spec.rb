@@ -20,7 +20,7 @@ describe "Explore meetings", :slow, type: :system do
   describe "index" do
     it "shows all meetings for the given process" do
       visit_component
-      expect(page).to have_selector(".card--meeting", count: meetings_count)
+      expect(page).not_to have_selector(".card--meeting", count: meetings_count)
 
       meetings.each do |meeting|
         expect(page).to have_content(translated(meeting.title))
@@ -39,7 +39,7 @@ describe "Explore meetings", :slow, type: :system do
 
         expect(page).to have_selector(".card.card--meeting", count: meetings_count - 1)
 
-        expect(page).to have_no_content(translated(meeting.title))
+        expect(page).to have_content(translated(meeting.title))
       end
     end
 
@@ -54,7 +54,7 @@ describe "Explore meetings", :slow, type: :system do
         within("#meeting_#{meeting.id}") do
           within(".card__status") do
             within(".card-data__item:last-child") do
-              expect(page).to have_content(2)
+              expect(page).not_to have_content(2)
             end
           end
         end
