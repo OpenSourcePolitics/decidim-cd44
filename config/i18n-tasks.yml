@@ -113,6 +113,25 @@ ignore_missing:
  - layouts.decidim.social_media_links.youtube
  - layouts.decidim.social_media_links.github
  - layouts.decidim.header.user_menu
+ - decidim.admin.initiatives_settings.update.success
+ - decidim.admin.initiatives_settings.update.error
+ - decidim.initiatives.admin.initiatives.edit.success
+ - decidim.initiatives.admin.initiatives_settings.update.settings
+ - decidim.initiatives.update.success
+ - decidim.initiatives.update.error
+ - decidim.initiatives.initiatives.vote_cabin.supports_required
+ - decidim.initiatives.initiatives.index_header.new_initiative
+ - decidim.initiatives.initiatives.index_header.not_authorized.{title,close,explanation,authorizations_page}
+ - decidim.initiatives.create_initiative.fill_data.{back,fill_data_help,more_information,initiative_type,select_scope,select_area,continue}
+ - decidim.initiatives.create_initiative.select_initiative_type.{back,select_initiative_type_help,more_information,choose_html.select}
+ - decidim.initiatives.form.attachment_legend
+ - decidim.initiatives.form.add_attachments
+ - decidim.resources.admin.initiatives_settings.edit.update
+ - decidim.resources.admin.initiatives_settings.form.{comments,date,publication_date,random,signatures,title}
+ - decidim.resources.admin_log.initiatives_settings.update
+ - decidim.initiatives.admin.initiatives_settings.update.success
+ - decidim.initiatives.create_initiative.select_initiative_type.{choose_html,select}
+
 
 # Consider these keys used:
 ignore_unused:
@@ -135,4 +154,11 @@ ignore_unused:
   - decidim.newsletter_mailer.newsletter.{note,unsubscribe}
   - decidim.proposals.proposals.preview.update_position
   - decidim.initiatives.create_initiative.select_initiative_type.*
-
+  - decidim.admin.menu.initiatives_settings
+  - decidim.initiatives.admin.initiatives_settings.update.settings
+  - decidim.resources.admin.initiatives_settings.edit.update
+  - decidim.resources.admin.initiatives_settings.form.*
+  - decidim.resources.admin_log.initiatives_settings.update
+  - decidim.resources.initiatives_type.actions.create
+  - decidim.resources.signature_interval.title
+  - decidim.initiatives.admin.initiatives_settings.update.success
