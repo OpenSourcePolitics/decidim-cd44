@@ -74,6 +74,9 @@ en:
             title: Initiatives settings
           update:
             settings: There was a problem updating this setting.
+      admin_log:
+        initiatives_settings:
+          update: "%{user_name} updated the initiatives settings"
       create_initiative:
         select_initiative_type:
           not_authorized:
