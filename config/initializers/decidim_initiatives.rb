@@ -38,18 +38,6 @@ if defined?(Decidim::Initiatives)
     config.online_voting_allowed = true
   end
 
-  Decidim.resource_registry.find(:initiatives_type).actions += ["create"]
-
-  Decidim::Initiatives::Engine.routes do
-    resources :initiatives, param: :slug, only: [:index, :show, :edit, :update], path: "initiatives" do
-      resources :initiative_signatures
-
-      member do
-        get :authorization_create_modal, to: "authorization_create_modals#show"
-      end
-    end
-  end
-
   Decidim::Initiatives::AdminEngine.routes do
     resources :initiatives_settings, only: [:edit, :update], controller: "initiatives_settings"
   end

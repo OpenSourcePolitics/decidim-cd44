@@ -131,7 +131,7 @@ describe "Authentication", type: :system do
           end
         end
 
-        it "falbacks to app questions" do
+        it "fallbacks to app questions" do
           sign_up_user(captcha_answer: "3")
 
           expect(page).to have_content("lien de confirmation")
