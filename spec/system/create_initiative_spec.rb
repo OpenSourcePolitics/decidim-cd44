@@ -53,13 +53,12 @@ describe "Initiative", type: :system do
         end
 
         context "and they need to be verified" do
-
           before do
             initiative_type.create_resource_permission(
               permissions: {
                 "create" => {
                   "authorization_handlers" => {
-                    "dummy_authorization_handler" => { "options" => {} },
+                    "dummy_authorization_handler" => { "options" => {} }
                   }
                 }
               }
@@ -108,7 +107,7 @@ describe "Initiative", type: :system do
               permissions: {
                 "create" => {
                   "authorization_handlers" => {
-                    "dummy_authorization_handler" => { "options" => {} },
+                    "dummy_authorization_handler" => { "options" => {} }
                   }
                 }
               }
@@ -143,7 +142,7 @@ describe "Initiative", type: :system do
               permissions: {
                 "create" => {
                   "authorization_handlers" => {
-                    "dummy_authorization_handler" => { "options" => {} },
+                    "dummy_authorization_handler" => { "options" => {} }
                   }
                 }
               }
@@ -193,7 +192,7 @@ describe "Initiative", type: :system do
               permissions: {
                 "create" => {
                   "authorization_handlers" => {
-                    "dummy_authorization_handler" => { "options" => {} },
+                    "dummy_authorization_handler" => { "options" => {} }
                   }
                 }
               }
