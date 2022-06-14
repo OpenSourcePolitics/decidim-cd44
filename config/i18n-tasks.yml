@@ -131,6 +131,11 @@ ignore_missing:
  - decidim.resources.admin_log.initiatives_settings.update
  - decidim.initiatives.admin.initiatives_settings.update.success
  - decidim.initiatives.create_initiative.select_initiative_type.{choose_html,select}
+ - decidim.initiatives.admin.initiatives_settings.form.*
+ - decidim.initiatives.admin.initiatives_settings.edit.update
+ - decidim.initiatives.signature_interval.title
+ - decidim.initiatives.admin_log.initiatives_settings.update
+
 
 
 # Consider these keys used:

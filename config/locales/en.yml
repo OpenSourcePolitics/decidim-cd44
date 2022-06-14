@@ -68,37 +68,6 @@ en:
             explanation: You need to be verified in order to create a new initiative.
             title: Authorization required
           verification_required: Verify your account to promote this initiative
-    resources:
-      initiatives_type:
-        actions:
-          create: Create
-      admin:
-        initiatives_settings:
-          edit:
-            update: Update
-          form:
-            comments: Comments
-            date: Creation date
-            name: Default initiatives order
-            publication_date: Publication date
-            random: Random
-            signatures: Signatures
-            title: Initiatives settings
-          update:
-            settings: There was a problem updating this setting.
-      admin_log:
-        initiatives_settings:
-          update: "%{user_name} updated the initiatives settings"
-      create_initiative:
-        select_initiative_type:
-          not_authorized:
-            authorizations_page: View authorizations
-            close: Close
-            explanation: You need to be verified in order to create a new initiative.
-            title: Authorization required
-          verification_required: Verify your account to promote this initiative
-      signature_interval:
-        title: Signature collection period
     meetings:
       directory:
         meetings:
