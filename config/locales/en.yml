@@ -60,6 +60,9 @@ en:
           email_subject: Your vote is still pending in %{participatory_space_title}
           notification_title: The vote on budget <a href="%{resource_path}">%{resource_title}</a> is still waiting for your confirmation in %{participatory_space_title}
     initiatives:
+      admin_log:
+        initiatives_settings:
+          update: "%{user_name} updated the initiatives settings"
       create_initiative:
         select_initiative_type:
           not_authorized:
@@ -68,6 +71,8 @@ en:
             explanation: You need to be verified in order to create a new initiative.
             title: Authorization required
           verification_required: Verify your account to promote this initiative
+      signature_interval:
+        title: Signature collection period
     meetings:
       directory:
         meetings:
@@ -102,14 +107,9 @@ en:
             random: Random
             signatures: Most signed
             title: Settings for initiatives
-      admin_log:
-        initiatives_settings:
-          update: "%{user_name} updated the initiatives settings"
       initiatives_type:
         actions:
           create: Create
-      signature_interval:
-        title: Signature collection period
     verifications:
       authorizations:
         first_login:
