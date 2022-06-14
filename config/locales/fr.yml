@@ -111,8 +111,6 @@ fr:
       initiatives_type:
         actions:
           create: Create
-      signature_interval:
-        title: Période de signature
     verifications:
       authorizations:
         first_login:

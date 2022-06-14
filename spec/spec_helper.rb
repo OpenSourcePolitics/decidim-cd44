@@ -18,6 +18,11 @@ RSpec.configure do |config|
     Decidim.available_locales = AVAILABLE_LOCALES
     Decidim.default_locale = DEFAULT_LOCALE
 
+    Decidim::Verifications.register_workflow(:dummy_authorization_handler) do |workflow|
+      workflow.form = "DummyAuthorizationHandler"
+      workflow.action_authorizer = "DummyAuthorizationHandler::DummyActionAuthorizer"
+    end
+
     # Initializers configs
     Decidim.enable_html_header_snippets = false
     SocialShareButton.configure do |social_share_button|
