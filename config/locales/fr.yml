@@ -81,6 +81,10 @@ fr:
             explanation: Vous devez être autorisé pour créer cette initiative
             title: Autorisation requise
           verification_required: Verifier votre compte pour créer cette initiative
+        fill_data:
+          select_area: Sélectionnez une catégorie
+        fields:
+          area: Catégorie
       signature_interval:
         title: Dates de signature
     meetings:

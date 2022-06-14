@@ -71,6 +71,10 @@ en:
             explanation: You need to be verified in order to create a new initiative.
             title: Authorization required
           verification_required: Verify your account to promote this initiative
+        fill_data:
+          select_area: Select area
+        fields:
+          area: Catégorie
       signature_interval:
         title: Signature collection period
     meetings:
