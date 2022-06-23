@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/OpenSourcePolitics/decidim-module-extended_socio_demographic_authorization_handler
-  revision: e77e9846d6c94b3ced2948889fc5afc27818549b
+  revision: 1e993111986db0944d5858725398208faa4e7761
   specs:
     decidim-extended_socio_demographic_authorization_handler (0.26.1)
       decidim-core (= 0.26.1)
@@ -403,7 +403,7 @@ GEM
       actionmailer (>= 5.0)
       devise (>= 4.6)
     diff-lcs (1.5.0)
-    diffy (3.4.0)
+    diffy (3.4.2)
     doc2text (0.4.5)
       nokogiri (>= 1.13.2, < 1.14.0)
       rubyzip (~> 2.3.0)
@@ -552,7 +552,7 @@ GEM
     mini_magick (4.11.0)
     mini_mime (1.1.2)
     mini_portile2 (2.8.0)
-    minitest (5.15.0)
+    minitest (5.16.1)
     mixlib-cli (2.1.8)
     mixlib-config (3.0.27)
       tomlrb
@@ -590,8 +590,8 @@ GEM
     omniauth-oauth (1.2.0)
       oauth
       omniauth (>= 1.0, < 3)
-    omniauth-oauth2 (1.7.2)
-      oauth2 (~> 1.4)
+    omniauth-oauth2 (1.7.3)
+      oauth2 (>= 1.4, < 3)
       omniauth (>= 1.9, < 3)
     omniauth-rails_csrf_protection (1.0.1)
       actionpack (>= 4.2)
@@ -660,7 +660,7 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.4.2)
+    rails-html-sanitizer (1.4.3)
       loofah (~> 2.3)
     rails-i18n (6.0.0)
       i18n (>= 0.7, < 2)
@@ -871,7 +871,7 @@ GEM
     wkhtmltopdf-binary (0.12.6.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.5.4)
+    zeitwerk (2.6.0)
 
 PLATFORMS
   ruby
@@ -916,7 +916,7 @@ DEPENDENCIES
   web-console (= 4.0.4)
 
 RUBY VERSION
-   ruby 2.7.1p83
+   ruby 3.0.2p107
 
 BUNDLED WITH
    2.3.10
