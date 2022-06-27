@@ -34,6 +34,8 @@
                       "data-signature-types-search-url": decidim_initiatives.initiative_type_signature_types_search_url
                     } %>
   </div>
+<% else %>
+  <%= form.hidden_field :type_id, value: current_organization_initiatives_type.first.id %>
 <% end %>
 
 <div class="field">
