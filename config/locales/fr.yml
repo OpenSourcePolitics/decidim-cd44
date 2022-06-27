@@ -2,6 +2,8 @@
 fr:
   activemodel:
     attributes:
+      initiative:
+        area_id: Catégorie
       initiatives_type:
         comments_enabled: Activer les commentaires
       osp_authorization_handler:
