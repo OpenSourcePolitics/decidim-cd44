@@ -2,6 +2,8 @@
 fr:
   activemodel:
     attributes:
+      initiative:
+        area_id: Catégorie
       initiatives_type:
         comments_enabled: Activer les commentaires
       osp_authorization_handler:
@@ -74,10 +76,6 @@ fr:
         initiatives_settings:
           update: "%{user_name} a mis à jour les paramètres d'initiatives"
       create_initiative:
-        fields:
-          area: Catégorie
-        fill_data:
-          select_area: Sélectionnez une catégorie
         select_initiative_type:
           not_authorized:
             authorizations_page: Voir les autorisations
@@ -142,8 +140,6 @@ fr:
           processes:
             one: "%{count} projet"
             other: "%{count} projets"
-  fields:
-    area: Area
   forms:
     length_validator:
       minimum:

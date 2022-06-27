@@ -63,7 +63,7 @@
 
             <% if initiative_type.area_enabled? %>
               <div class="field">
-                <%= f.areas_select :area_id, areas_for_select(current_organization), prompt: t(".select_area"), label: t("fields.area") %>
+                <%= f.areas_select :area_id, areas_for_select(current_organization), prompt: t(".select_area") %>
               </div>
             <% end %>
 

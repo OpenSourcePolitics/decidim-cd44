@@ -2,6 +2,8 @@
 en:
   activemodel:
     attributes:
+      initiative:
+        area_id: Area
       initiatives_type:
         comments_enabled: Enable comments
       osp_authorization_handler:
@@ -64,10 +66,6 @@ en:
         initiatives_settings:
           update: "%{user_name} updated the initiatives settings"
       create_initiative:
-        fields:
-          area: Area
-        fill_data:
-          select_area: Select area
         select_initiative_type:
           not_authorized:
             authorizations_page: View authorizations
@@ -120,8 +118,6 @@ en:
           actions:
             osp_authorization_handler: Vérifier avec le formulaire de vérification de l'identité
             osp_authorization_workflow: Vérifier avec le formulaire de vérification de l'identité
-  fields:
-    area: Area
   forms:
     length_validator:
       minimum:
