@@ -2,6 +2,10 @@
 fr:
   activemodel:
     attributes:
+      initiative:
+        area_id: Catégorie
+      initiatives_type:
+        comments_enabled: Activer les commentaires
       osp_authorization_handler:
         birthday: Date de naissance
         document_number: Numéro unique
@@ -16,6 +20,8 @@ fr:
         change_password: Modifier mon mot de passe
         update_account: Mettre à jour mon compte
     admin:
+      menu:
+        initiatives_settings: Paramètres
       participatory_space_private_users:
         create:
           error: L'utilisateur privé a été créé avec succès.
@@ -51,6 +57,34 @@ fr:
           email_outro: You have received this notification because you are participating in "%{participatory_space_title}"
           email_subject: Your vote is still pending in %{participatory_space_title}
           notification_title: The vote on budget <a href="%{resource_path}">%{resource_title}</a> is still waiting for your confirmation in %{participatory_space_title}
+    initiatives:
+      admin:
+        initiatives_settings:
+          edit:
+            update: Mettre à jour
+          form:
+            comments: Les plus commentées
+            date: Les plus récentes
+            name: Ordre des initiatives par défaut
+            publication_date: Plus récemment publié
+            random: Aléatoire
+            signatures: Les plus soutenues
+            title: Paramètres des initiatives
+          update:
+            success: Il y a eu une erreur lors de la mise à jour du paramètre.
+      admin_log:
+        initiatives_settings:
+          update: "%{user_name} a mis à jour les paramètres d'initiatives"
+      create_initiative:
+        select_initiative_type:
+          not_authorized:
+            authorizations_page: Voir les autorisations
+            close: Fermer
+            explanation: Vous devez être autorisé pour créer cette initiative
+            title: Autorisation requise
+          verification_required: Verifier votre compte pour créer cette initiative
+      signature_interval:
+        title: Dates de signature
     meetings:
       directory:
         meetings:
@@ -73,6 +107,12 @@ fr:
       proposals:
         form_view:
           cancel: Annuler
+        preview:
+          update_position: Mettre à jour les coordonnées
+    resources:
+      initiatives_type:
+        actions:
+          create: Create
     verifications:
       authorizations:
         first_login:

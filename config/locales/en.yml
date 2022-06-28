@@ -2,6 +2,10 @@
 en:
   activemodel:
     attributes:
+      initiative:
+        area_id: Area
+      initiatives_type:
+        comments_enabled: Enable comments
       osp_authorization_handler:
         birthday: Date de naissance
         document_number: Numéro unique
@@ -16,6 +20,12 @@ en:
         change_password: Change password
         update_account: Update account
     admin:
+      initiatives_settings:
+        update:
+          error: An error has occured
+          success: The initiatives settings have been successfully updated
+      menu:
+        initiatives_settings: Settings
       participatory_space_private_users:
         create:
           error: Error
@@ -51,6 +61,20 @@ en:
           email_outro: You have received this notification because you are participating in "%{participatory_space_title}"
           email_subject: Your vote is still pending in %{participatory_space_title}
           notification_title: The vote on budget <a href="%{resource_path}">%{resource_title}</a> is still waiting for your confirmation in %{participatory_space_title}
+    initiatives:
+      admin_log:
+        initiatives_settings:
+          update: "%{user_name} updated the initiatives settings"
+      create_initiative:
+        select_initiative_type:
+          not_authorized:
+            authorizations_page: View authorizations
+            close: Close
+            explanation: You need to be verified in order to create a new initiative.
+            title: Authorization required
+          verification_required: Verify your account to promote this initiative
+      signature_interval:
+        title: Signature collection period
     meetings:
       directory:
         meetings:
@@ -73,6 +97,21 @@ en:
       proposals:
         form_view:
           cancel: Annuler
+    resources:
+      admin:
+        initiatives_settings:
+          edit:
+            update: Update
+          form:
+            comments: Most commented
+            date: Most recent
+            publication_date: Most recently published
+            random: Random
+            signatures: Most signed
+            title: Settings for initiatives
+      initiatives_type:
+        actions:
+          create: Create
     verifications:
       authorizations:
         first_login:

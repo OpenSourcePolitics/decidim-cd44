@@ -5,7 +5,7 @@ Decidim::Dev.dummy_app_path = File.expand_path(Rails.root.to_s)
 require "decidim/dev/test/base_spec_helper"
 
 DEFAULT_LOCALE = :en
-AVAILABLE_LOCALES = [:en, :ca, :es].freeze
+AVAILABLE_LOCALES = [:en, :fr].freeze
 
 RSpec.configure do |config|
   config.before do
@@ -17,6 +17,11 @@ RSpec.configure do |config|
     # Decidim configurations
     Decidim.available_locales = AVAILABLE_LOCALES
     Decidim.default_locale = DEFAULT_LOCALE
+
+    Decidim::Verifications.register_workflow(:dummy_authorization_handler) do |workflow|
+      workflow.form = "DummyAuthorizationHandler"
+      workflow.action_authorizer = "DummyAuthorizationHandler::DummyActionAuthorizer"
+    end
 
     # Initializers configs
     Decidim.enable_html_header_snippets = false

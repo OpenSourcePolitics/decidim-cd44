@@ -1091,6 +1091,7 @@ Metrics/CyclomaticComplexity:
   Max: 9
   Exclude:
     - "**/*/permissions.rb"
+    - "app/services/dummy_authorization_handler.rb"
 
 Layout/LineLength:
   Max: 180
@@ -1119,6 +1120,7 @@ Metrics/PerceivedComplexity:
   Max: 10
   Exclude:
     - "**/*/permissions.rb"
+    - "app/services/dummy_authorization_handler.rb"
 
 ##################### Lint ##################################
 

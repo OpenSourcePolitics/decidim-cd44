@@ -3,6 +3,7 @@ require: rubocop-rails
 Lint/MissingSuper:
   Exclude:
     - lib/decidim/proposals/proposal_serializer.rb
+    - app/commands/decidim/initiatives/admin/update_initiatives_settings.rb
 
 Rails:
   Enabled: true

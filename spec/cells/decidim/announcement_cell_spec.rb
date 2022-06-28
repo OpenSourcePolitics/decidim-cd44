@@ -43,14 +43,5 @@ module Decidim
         expect(html).to have_text("My announcement")
       end
     end
-
-    context "when passing empty html tags" do
-      let(:announcement) { { en: "<p><br></p>" } }
-
-      it "does not render the card" do
-        html = cell("decidim/announcement", announcement).call
-        expect(html).to render_nothing
-      end
-    end
   end
 end
