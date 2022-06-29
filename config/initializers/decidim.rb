@@ -3,6 +3,11 @@
 Decidim.configure do |config|
   config.unconfirmed_access_for = 2.days unless Rails.env.test?
   config.skip_first_login_authorization = ENV["SKIP_FIRST_LOGIN_AUTHORIZATION"] ? ActiveRecord::Type::Boolean.new.cast(ENV["SKIP_FIRST_LOGIN_AUTHORIZATION"]) : true
+
+  if Rails.application.secrets.decidim[:session_timeout_interval].present?
+    config.session_timeout_interval = Rails.application.secrets.decidim[:session_timeout_interval].to_i.seconds
+  end
+
   config.application_name = "Loire Atlantique"
   config.mailer_sender = "Loire Atlantique <ne-pas-repondre@opensourcepolitics.eu>"
   # config.mailer_sender = "Loire Atlantique <participation.citoyenne@loire-atlantique.fr>"
