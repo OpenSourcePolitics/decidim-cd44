@@ -1,71 +1,38 @@
 # frozen_string_literal: true
 
 namespace :decidim do
-  namespace :repare do
-    desc "Check for nicknames that doesn't respect valid format and update them"
-    task nickname: :environment do
+  namespace :duplicates do
+    desc "Merge all authorization encrypted metadata to decrypted metadata in user extended data"
+    task metadata: :environment do
       logger = Logger.new($stdout)
-      logger.info("[data:repare:nickname] :: Checking all nicknames...")
-      invalid_users = Decidim::User.where.not("nickname ~* ?", "^[\\w-]+$")
+      logger.info(logger_output("Retrieving all extended socio demographic authorizations"))
 
-      if invalid_users.blank?
-        logger.info("[data:repare:nickname] :: All nicknames seems to be valid")
-        logger.info("[data:repare:nickname] :: Operation terminated")
-        exit 0
-      end
-
-      logger.info("[data:repare:nickname] :: Found #{invalid_users.count} invalids nicknames")
-      logger.info("[data:repare:nickname] :: Invalid user IDs : [#{invalid_users.map(&:id).join(", ")}]")
-
-      updated_users = []
-      invalid_users.each do |user|
-        chars = []
-
-        user.nickname.codepoints.each do |ascii_code|
-          char = ascii_to_valid_char(ascii_code)
-          chars << char if char.present?
+      authorizations = Decidim::Authorization.where(name: "extended_socio_demographic_authorization_handler")
+      updated = []
+      authorizations.each do |auth|
+        if auth.user.blank? || !auth.user.respond_to?(:extended_data)
+          logger.error(logger_output "Undefined user for authorization ID/#{auth.id}")
+          next
         end
+        next if auth.user.extended_data.include?("socio_postal_code") || auth.user.extended_data.include?("socio_city") || auth.user.extended_data.include?("socio_email") || auth.user.extended_data.include?("socio_phone_number")
 
-        new_nickname = chars.join.downcase
-        logger.info("[data:repare:nickname] :: User (##{user.id}) renaming nickname from '#{user.nickname}' to '#{new_nickname}'")
-        user.nickname = new_nickname
+        extended_data = auth.metadata.deep_transform_keys { |key| "socio_#{key}" }
 
-        updated_users << user
-      end
-
-      if ask_for_permission(updated_users.count)
-        logger.info("[data:repare:nickname] :: Updating users...")
-        updated_users.each do |user|
-          user.save!
-          logger.info("[data:repare:nickname] :: User (##{user.id}) successfully updated")
-        rescue StandardError => e
-          logger.error("[data:repare:nickname] :: User (##{user.id}) an error occured")
-          logger.error("[data:repare:nickname] :: #{e}")
+        if auth.user.update_column(:extended_data, auth.user.extended_data.merge(extended_data))
+          logger.info(logger_output "Updating user (ID/#{auth.user.id})")
+          updated << auth.user.id
+        else
+          logger.error(logger_output "Errors happened while updating user (ID/#{auth.user.id})")
         end
-      else
-        logger.info("[data:repare:nickname] :: Operation terminated")
       end
-      logger.close
+      logger.info(logger_output "Found #{authorizations.count} extended socio demographic authorizations")
+      logger.info(logger_output "Updated #{updated.count} users : #{updated.count.positive? ? updated : "None"}")
 
       exit 0
     end
   end
 end
 
-def ask_for_permission(users_count)
-  $stdout.puts "Do you want to update these #{users_count} users ? [y/n]"
-  answer = $stdin.gets.chomp
-
-  %w(y Y yes YES).include?(answer)
-end
-
-def ascii_to_valid_char(id)
-  letters = ("A".."Z").to_a.join("").codepoints
-  letters += ("a".."z").to_a.join("").codepoints
-  digits = ("0".."9").to_a.join("").codepoints
-  special_chars = %w(- _).join("").codepoints
-
-  valid_ascii_code = letters + digits + special_chars
-
-  valid_ascii_code.include?(id) ? id.chr : ""
+def logger_output(msg ="", task_name = "decidim:duplicates:metadata")
+  "[#{task_name}] :: #{msg}"
 end
