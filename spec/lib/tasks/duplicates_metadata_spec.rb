@@ -10,8 +10,8 @@ describe "rake decidim:duplicates:metadata", type: :task do
   let(:authorization) { create(:authorization, user: user, metadata: metadata) }
   let!(:user2) { create(:user, organization: organization) }
   let(:authorization_user2) { create(:authorization, user: user2, metadata: metadata_user2) }
-  let(:metadata) { {email: user.email} }
-  let(:metadata_user2) { {email: user2.email} }
+  let(:metadata) { { email: user.email } }
+  let(:metadata_user2) { { email: user2.email } }
 
   context "when executing task" do
     it "exits with 0 code" do
@@ -30,6 +30,5 @@ describe "rake decidim:duplicates:metadata", type: :task do
       expect(user.extended_data).to eq(metadata)
       expect(user2.extended_data).to eq(metadata_user2)
     end
-
   end
 end

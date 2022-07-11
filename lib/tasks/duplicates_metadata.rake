@@ -11,28 +11,31 @@ namespace :decidim do
       updated = []
       authorizations.each do |auth|
         if auth.user.blank? || !auth.user.respond_to?(:extended_data)
-          logger.error(logger_output "Undefined user for authorization ID/#{auth.id}")
+          logger.error(logger_output("Undefined user for authorization ID/#{auth.id}"))
           next
         end
-        next if auth.user.extended_data.include?("socio_postal_code") || auth.user.extended_data.include?("socio_city") || auth.user.extended_data.include?("socio_email") || auth.user.extended_data.include?("socio_phone_number")
+        next if auth.user.extended_data.include?("socio_postal_code")
+        next if auth.user.extended_data.include?("socio_city")
+        next if auth.user.extended_data.include?("socio_email")
+        next if auth.user.extended_data.include?("socio_phone_number")
 
         extended_data = auth.metadata.deep_transform_keys { |key| "socio_#{key}" }
 
-        if auth.user.update_column(:extended_data, auth.user.extended_data.merge(extended_data))
-          logger.info(logger_output "Updating user (ID/#{auth.user.id})")
+        if auth.user.update(extended_data: auth.user.extended_data.merge(extended_data))
+          logger.info(logger_output("Updating user (ID/#{auth.user.id})"))
           updated << auth.user.id
         else
-          logger.error(logger_output "Errors happened while updating user (ID/#{auth.user.id})")
+          logger.error(logger_output("Errors happened while updating user (ID/#{auth.user.id})"))
         end
       end
-      logger.info(logger_output "Found #{authorizations.count} extended socio demographic authorizations")
-      logger.info(logger_output "Updated #{updated.count} users : #{updated.count.positive? ? updated : "None"}")
+      logger.info(logger_output("Found #{authorizations.count} extended socio demographic authorizations"))
+      logger.info(logger_output("Updated #{updated.count} users : #{updated.count.positive? ? updated : "None"}"))
 
       exit 0
     end
   end
 end
 
-def logger_output(msg ="", task_name = "decidim:duplicates:metadata")
+def logger_output(msg = "", task_name = "decidim:duplicates:metadata")
   "[#{task_name}] :: #{msg}"
 end

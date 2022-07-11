@@ -32,7 +32,6 @@ Decidim.configure do |config|
     static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
   }
 
-
   # Custom resource reference generator method
   # config.resource_reference_generator = lambda do |resource, feature|
   #   # Implement your custom method to generate resources references
