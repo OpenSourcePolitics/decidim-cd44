@@ -7,10 +7,12 @@ module Decidim
       # Public: Initializes the command.
       #
       # handler - An AuthorizationHandler object.
+      # rubocop:disable Lint/MissingSuper
       def initialize(handler, organization)
         @handler = handler
         @organization = organization
       end
+      # rubocop:enable Lint/MissingSuper
 
       # Executes the command. Broadcasts these events:
       #
@@ -60,6 +62,8 @@ module Decidim
       end
 
       def duplicates_metadata_in_user!(handler)
+        return unless handler.is_a? Decidim::ExtendedSocioDemographicAuthorizationHandler
+
         handler_extended_data = handler.metadata.deep_transform_keys { |k| "socio_#{k}" }
         handler.user.update!(extended_data: handler_extended_data)
       end

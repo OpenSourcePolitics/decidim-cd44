@@ -45,10 +45,22 @@ module Decidim::Verifications
         expect(authorizations.first).to be_granted
       end
 
-      it "duplicates metadata in user extended data" do
+      it "doesn't duplicates metadata in user extended data" do
         subject.call
 
-        expect(user.extended_data).to include("socio_document_number" => document_number)
+        expect(user.extended_data).not_to include("socio_document_number" => document_number)
+      end
+
+      context "when authorization is a ExtendedSocioDemographic" do
+        before do
+          allow(handler).to receive(:is_a?).with(Decidim::ExtendedSocioDemographicAuthorizationHandler).and_return(true)
+        end
+
+        it "duplicates metadata in user extended data" do
+          subject.call
+
+          expect(user.extended_data).to include("socio_document_number" => document_number)
+        end
       end
     end
 
