@@ -65,7 +65,7 @@ module Decidim
         return unless handler.class.name == "ExtendedSocioDemographicAuthorizationHandler"
 
         handler_extended_data = handler.metadata.deep_transform_keys { |k| "socio_#{k}" }
-        handler.user.update!(extended_data: handler_extended_data)
+        handler.user.update!(extended_data: handler.user.extended_data.merge(handler_extended_data))
       end
     end
   end
