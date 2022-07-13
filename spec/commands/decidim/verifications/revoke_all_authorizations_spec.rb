@@ -38,16 +38,17 @@ module Decidim::Verifications
       {
         "extra_data" => "Extra data",
         "socio_work_area" => "Work area",
-        "socio_residential_area" => "Residential area",
+        "socio_residential_area" => "Residential area"
       }
     end
     let(:metadata) do
       {
         "socio_work_area" => "Work area",
-        "socio_residential_area" => "Residential area",
+        "socio_residential_area" => "Residential area"
       }
     end
     # With 6 authorizations, 3 granted, 2 pending, only 1 granted & managed
+
     before do
       create(:authorization, created_at: prev_week, granted_at: prev_week, name: "extended_socio_demographic_authorization_handler", user: user0)
       create(:authorization, created_at: prev_week, granted_at: prev_week, name: "extended_socio_demographic_authorization_handler", user: user1)

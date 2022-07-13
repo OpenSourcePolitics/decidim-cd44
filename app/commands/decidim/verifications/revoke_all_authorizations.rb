@@ -8,10 +8,12 @@ module Decidim
       #
       # organization - Organization object.
       # current_user - The current user.
+      # rubocop:disable Lint/MissingSuper
       def initialize(organization, current_user)
         @organization = organization
         @current_user = current_user
       end
+      # rubocop:enable Lint/MissingSuper
 
       # Executes the command. Broadcasts these events:
       #

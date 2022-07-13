@@ -11,13 +11,13 @@ module Decidim::Verifications
       {
         "extra_data" => "Extra data",
         "socio_work_area" => "Work area",
-        "socio_residential_area" => "Residential area",
+        "socio_residential_area" => "Residential area"
       }
     end
     let(:metadata) do
       {
         "socio_work_area" => "Work area",
-        "socio_residential_area" => "Residential area",
+        "socio_residential_area" => "Residential area"
       }
     end
     let(:authorizations) { Authorizations.new(organization: user.organization, user: user, granted: true) }
