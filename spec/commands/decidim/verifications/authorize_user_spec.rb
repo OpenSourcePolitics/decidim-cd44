@@ -53,7 +53,7 @@ module Decidim::Verifications
 
       context "when authorization is a ExtendedSocioDemographic" do
         before do
-          allow(handler).to receive(:is_a?).with(Decidim::ExtendedSocioDemographicAuthorizationHandler).and_return(true)
+          allow(handler.class).to receive(:name).and_return("ExtendedSocioDemographicAuthorizationHandler")
         end
 
         it "duplicates metadata in user extended data" do
