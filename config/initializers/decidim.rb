@@ -6,7 +6,9 @@ Decidim.configure do |config|
 
   config.expire_session_after = Rails.application.secrets.decidim[:expire_session_after].to_i.seconds if Rails.application.secrets.decidim[:expire_session_after].present?
 
-  config.session_timeout_interval = Rails.application.secrets.decidim[:session_timeout_interval].to_i.seconds if Rails.application.secrets.decidim[:session_timeout_interval].present?
+  if Rails.application.secrets.decidim[:session_timeout_interval].present?
+    config.session_timeout_interval = Rails.application.secrets.decidim[:session_timeout_interval].to_i.seconds
+  end
 
   config.application_name = "Loire Atlantique"
   config.mailer_sender = "Loire Atlantique <ne-pas-repondre@opensourcepolitics.eu>"
