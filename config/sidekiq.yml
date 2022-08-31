@@ -1,14 +1,16 @@
 :concurrency: 5
 :queues:
-- default
-- backups
-- metrics
-- mailers
-- newsletter
-- events
-- user_report
-- block_user
-- scheduled
+  - mailers
+  - default
+  - backups
+  - events
+  - newsletter
+  - exports
+  - user_report
+  - block_user
+  - translation
+  - scheduled
+  - metrics
 
 :schedule:
   CalculateAllMetrics:
