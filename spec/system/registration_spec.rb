@@ -8,14 +8,22 @@ def fill_registration_form
   fill_in :registration_user_email, with: "nikola.tesla@example.org"
   fill_in :registration_user_password, with: "sekritpass123"
   fill_in :registration_user_password_confirmation, with: "sekritpass123"
+  fill_in :registration_user_textcaptcha_answer, with: "2"
 end
 
 describe "Registration", type: :system do
   let(:organization) { create(:organization) }
   let!(:terms_and_conditions_page) { Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization) }
+  let(:app_questions) do
+    {
+      en: [{ "question" => "1+1", "answers" => "2" }],
+      fr: [{ "question" => "2+1", "answers" => "3" }]
+    }
+  end
 
   before do
     switch_to_host(organization.host)
+    allow(Decidim::QuestionCaptcha.config).to receive(:questions).and_return(app_questions)
     visit decidim.new_user_registration_path
   end
 
@@ -33,13 +41,33 @@ describe "Registration", type: :system do
     end
 
     context "when signing up too fast" do
+      before do
+        allow(Decidim.config).to receive(:minimum_time_to_sign_up).and_return(10)
+      end
       it "show an error modal" do
         fill_registration_form
+        page.check("registration_user_newsletter")
+        check :registration_user_tos_agreement
         within "form.new_user" do
           find("*[type=submit]").click
         end
-        expect(page).to have_current_path decidim.new_user_registration_path
         expect(page).to have_content("You have completed the sign up form too fast")
+      end
+    end
+
+    context "when signing up slowly enough" do
+      before do
+        allow(Decidim.config).to receive(:minimum_time_to_sign_up).and_return(0)
+      end
+
+      it "signs you up" do
+        fill_registration_form
+        page.check("registration_user_newsletter")
+        check :registration_user_tos_agreement
+        within "form.new_user" do
+          find("*[type=submit]").click
+        end
+        expect(page).to have_content("A message with a confirmation link")
       end
     end
   end

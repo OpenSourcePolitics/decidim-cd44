@@ -1,4 +1,5 @@
 <div class="reveal" id="too-fast-modal" data-reveal>
+  <input type=hidden name="minimum_time_to_sign_up" value="<%= Decidim.config.minimum_time_to_sign_up %>"/>
   <div class="reveal__header">
     <h2 class="reveal__title"><%= t(".title") %></h2>
     <button class="close-button" data-close aria-label="<%= t(".buttons.close_modal") %>"
