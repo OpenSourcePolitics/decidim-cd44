@@ -21,7 +21,7 @@ module Decidim
         @form.textcaptcha
 
         cookies[:anti_bot] = {
-          value: Decidim::AttributeEncryptor.encrypt(Time.now),
+          value: Decidim::AttributeEncryptor.encrypt(Time.zone.now),
           expires: 1.year.from_now,
           domain: current_organization.host
         }
@@ -72,7 +72,7 @@ module Decidim
       end
 
       def answered_too_fast?
-        Decidim::AttributeEncryptor.decrypt(cookies[:anti_bot]) > Time.now - Decidim.config.minimum_time_to_sign_up.seconds
+        Decidim::AttributeEncryptor.decrypt(cookies[:anti_bot]) > Time.zone.now - Decidim.config.minimum_time_to_sign_up.seconds
       end
     end
   end

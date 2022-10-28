@@ -44,6 +44,7 @@ describe "Registration", type: :system do
       before do
         allow(Decidim.config).to receive(:minimum_time_to_sign_up).and_return(10)
       end
+
       it "show an error modal" do
         fill_registration_form
         page.check("registration_user_newsletter")
