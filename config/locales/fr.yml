@@ -50,6 +50,14 @@ fr:
             proposal_edit_time_choices:
               infinite: Autoriser l'édition des propositions pour une durée infinie
               limited: Autoriser l'édition des propositions durant un délai spécifique
+    devise:
+      registrations:
+        too_fast_modal:
+          buttons:
+            close_modal: Fermer
+          notice: |-
+            Vous avez complété le formulaire d'inscription trop vite. Vous devez rééssayer.
+          title: Erreur d'inscription
     events:
       budgets:
         pending_order:

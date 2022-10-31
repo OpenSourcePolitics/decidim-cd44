@@ -31,6 +31,7 @@ describe "Authentication", type: :system do
     allow(Decidim::QuestionCaptcha.config).to receive(:questions).and_return(app_questions)
     switch_to_host(organization.host)
     visit decidim.root_path
+    allow(Decidim.config).to receive(:minimum_time_to_sign_up).and_return(0)
   end
 
   describe "Sign Up" do

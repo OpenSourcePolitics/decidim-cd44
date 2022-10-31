@@ -99,6 +99,8 @@ Decidim.configure do |config|
   end
 
   config.base_uploads_path = "#{ENV["HEROKU_APP_NAME"]}/" if ENV["HEROKU_APP_NAME"].present?
+
+  config.minimum_time_to_sign_up = 1
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales
