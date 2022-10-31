@@ -6,6 +6,14 @@ GIT
       decidim-core (= 0.26.1)
 
 GIT
+  remote: https://github.com/OpenSourcePolitics/decidim-module-friendly_signup.git
+  revision: fbf147b5aae425130976807b5ed38f76393439aa
+  branch: main
+  specs:
+    decidim-friendly_signup (0.4.2)
+      decidim-core (~> 0.26.0)
+
+GIT
   remote: https://github.com/OpenSourcePolitics/decidim-module-question_captcha.git
   revision: d4d28af116a93ae3621a0c97f915c6f60cccfe5e
   branch: release/0.26-stable
@@ -888,6 +896,7 @@ DEPENDENCIES
   decidim-decidim_awesome (~> 0.8.3)
   decidim-dev!
   decidim-extended_socio_demographic_authorization_handler!
+  decidim-friendly_signup!
   decidim-initiatives!
   decidim-question_captcha!
   decidim-simple_proposal!
