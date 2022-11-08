@@ -7,12 +7,12 @@ GIT
 
 GIT
   remote: https://github.com/OpenSourcePolitics/decidim-module-question_captcha.git
-  revision: d4d28af116a93ae3621a0c97f915c6f60cccfe5e
-  branch: release/0.26-stable
+  revision: 239207187b101bfd5d98cd97700e2a82e7f291f8
+  branch: add_compatibility_signup
   specs:
-    decidim-question_captcha (0.26.1)
+    decidim-question_captcha (2.0)
       acts_as_textcaptcha (~> 4.5.1)
-      decidim-core (= 0.26.1)
+      decidim-core (~> 0.26)
 
 GIT
   remote: https://github.com/OpenSourcePolitics/decidim-module-simple_proposal.git
@@ -384,11 +384,19 @@ GEM
       decidim-admin (>= 0.25.0, < 0.27)
       decidim-core (>= 0.25.0, < 0.27)
       sassc (~> 2.3)
+    decidim-friendly_signup (0.4.2)
+      decidim-core (~> 0.26.0)
     decidim-spam_detection (2.0.0)
       decidim-core (~> 0.26)
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
+    deface (1.9.0)
+      actionview (>= 5.2)
+      nokogiri (>= 1.6)
+      polyglot
+      railties (>= 5.2)
+      rainbow (>= 2.1.0)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     devise (4.8.1)
@@ -615,6 +623,7 @@ GEM
     pg_search (2.3.6)
       activerecord (>= 5.2)
       activesupport (>= 5.2)
+    polyglot (0.3.5)
     premailer (1.16.0)
       addressable
       css_parser (>= 1.6.0)
@@ -888,11 +897,13 @@ DEPENDENCIES
   decidim-decidim_awesome (~> 0.8.3)
   decidim-dev!
   decidim-extended_socio_demographic_authorization_handler!
+  decidim-friendly_signup
   decidim-initiatives!
   decidim-question_captcha!
   decidim-simple_proposal!
   decidim-spam_detection
   decidim-term_customizer!
+  deface
   dotenv-rails
   faker (~> 2.14)
   fog-aws
