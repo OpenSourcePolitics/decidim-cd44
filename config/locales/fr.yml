@@ -13,6 +13,16 @@ fr:
       participatory_process:
         private_space: Espace privé
   decidim:
+    budgets:
+      admin:
+        imports:
+          help:
+            paper_ballot_results: Analyse des imports des bulletins de vote papier
+          label:
+            paper_ballot_results: Importer des bulletins papier
+        budgets:
+          index:
+            paper_ballots: Bulletins papier
     accessibility:
       skip_button: Skip button
     account:
