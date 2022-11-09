@@ -1,0 +1,16 @@
+<%= form.hidden_field :handler_name %>
+<div class="field">
+  <%= form.text_field :firstname, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.firstname'), placeholder: I18n.t('decidim.authorization_handlers.data_authorization_handler.placeholder.firstname') %>
+</div>
+<div class="field">
+  <%= form.text_field :lastname, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.lastname'), placeholder: I18n.t('decidim.authorization_handlers.data_authorization_handler.placeholder.lastname')%>
+</div>
+<div class="field">
+  <%= form.text_field :phone, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.phone'), placeholder: I18n.t('decidim.authorization_handlers.data_authorization_handler.placeholder.phone')%>
+</div>
+<div class="field">
+  <%= form.text_field :structure, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.structure'), placeholder: I18n.t('decidim.authorization_handlers.data_authorization_handler.placeholder.structure') %>
+</div>
+<div class="field">
+  <%= form.check_box :gdpr, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.gdpr') %>
+</div>
