@@ -7,8 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/OpenSourcePolitics/decidim-module-question_captcha.git
-  revision: 239207187b101bfd5d98cd97700e2a82e7f291f8
-  branch: add_compatibility_signup
+  revision: 463113f53a4a4836de203140e90adabaec889fd4
   specs:
     decidim-question_captcha (2.0)
       acts_as_textcaptcha (~> 4.5.1)
