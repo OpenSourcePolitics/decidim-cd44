@@ -35,10 +35,37 @@ describe "Data authorization", type: :system do
       click_button "Send"
     end
 
+    shared_examples_for "is a valid phone number" do |phone|
+      it "is a valid phone number: #{phone}" do
+        expect(page).to have_content("successfully")
+      end
+    end
+
+    context "when the phone number is equal to 0601010101" do
+      let(:phone) { "0601010101" }
+
+      it_behaves_like "is a valid phone number", "0601010101"
+    end
+
+    context "when the phone number is equal to 06 12 34 56 78" do
+      let(:phone) { "06 12 34 56 78" }
+
+      it_behaves_like "is a valid phone number", "06 12 34 56 78"
+    end
+
+    context "when the phone number is equal to 0033650065422" do
+      let(:phone) { "0033650065422" }
+
+      it_behaves_like "is a valid phone number", "0033650065422"
+    end
+
+    context "when the phone number is equal to +33650065422" do
+      let(:phone) { "+33650065422" }
+
+      it_behaves_like "is a valid phone number", "+33650065422"
+    end
+
     it "authorizes the user" do
-      # Check if 0605040302 match /\A0[1-9]\d{8}\z/
-      puts "AAAAAA"
-      puts phone.match(/\A0[1-9]\d{8}\z/)
       expect(page).to have_content("successfully")
     end
   end
@@ -49,10 +76,18 @@ describe "Data authorization", type: :system do
       fill_in :authorization_handler_lastname, with: lastname
       fill_in :authorization_handler_phone, with: phone
       fill_in :authorization_handler_structure, with: structure
+      check :authorization_handler_gdpr
+    end
+
+    shared_examples_for "is not a valid phone number" do |phone|
+      it "is a valid phone number: #{phone}" do
+        expect(page).to have_content("Your phone must contain 10 digits.")
+      end
     end
 
     describe "when the gdpr checkbox is not checked" do
       before do
+        uncheck :authorization_handler_gdpr
         click_button "Send"
       end
 
@@ -61,82 +96,30 @@ describe "Data authorization", type: :system do
       end
     end
 
-    describe "when the phone number is not valid" do
+    context "when the phone number is equal to 0012345678" do
+      let(:phone) { "0012345678" }
+
       before do
-        fill_in :authorization_handler_phone, with: "123"
-        check :authorization_handler_gdpr
         click_button "Send"
       end
 
-      it "does not authorize the user" do
-        expect(page).to have_content("Your phone must contain 10 digits and match 0601010101.")
-      end
+      it_behaves_like "is not a valid phone number", "0012345678"
     end
 
-    describe "when the phone number starts with 00" do
+    context "when the phone number is equal to 123456789a" do
+      let(:phone) { "123456789a" }
+
       before do
-        fill_in :authorization_handler_phone, with: "0012345678"
-        check :authorization_handler_gdpr
         click_button "Send"
       end
 
-      it "authorizes the user" do
-        expect(page).to have_content("Your phone must contain 10 digits and match 0601010101.")
-      end
-    end
-
-    describe "when the phone number contains spaces" do
-      before do
-        fill_in :authorization_handler_phone, with: "06 12 34 56 78"
-        check :authorization_handler_gdpr
-        click_button "Send"
-      end
-
-      it "authorizes the user" do
-        expect(page).to have_content("successfully")
-      end
-    end
-
-    describe "when the phone numbers starts with 0033" do
-      before do
-        fill_in :authorization_handler_phone, with: "0033650065422"
-        check :authorization_handler_gdpr
-        click_button "Send"
-      end
-
-      it "does not authorize the user" do
-        expect(page).to have_content("successfully")
-      end
-    end
-
-    describe "when the phone numbers starts with +33" do
-      before do
-        fill_in :authorization_handler_phone, with: "+33650065422"
-        check :authorization_handler_gdpr
-        click_button "Send"
-      end
-
-      it "authorizes the user" do
-        expect(page).to have_content("successfully")
-      end
-    end
-
-    describe "when the phone number contains letters" do
-      before do
-        fill_in :authorization_handler_phone, with: "123456789a"
-        check :authorization_handler_gdpr
-        click_button "Send"
-      end
-
-      it "does not authorize the user" do
-        expect(page).to have_content("Your phone must contain 10 digits and match 0601010101.")
-      end
+      it_behaves_like "is not a valid phone number", "123456789a"
     end
 
     describe "when the name is empty" do
+      let(:lastname) { "" }
+
       before do
-        fill_in :authorization_handler_lastname, with: ""
-        check :authorization_handler_gdpr
         click_button "Send"
       end
 
@@ -146,9 +129,9 @@ describe "Data authorization", type: :system do
     end
 
     describe "when the firstname is empty" do
+      let(:firstname) { "" }
+
       before do
-        fill_in :authorization_handler_firstname, with: ""
-        check :authorization_handler_gdpr
         click_button "Send"
       end
 
