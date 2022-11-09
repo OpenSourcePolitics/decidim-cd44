@@ -39,7 +39,7 @@ en:
     authorization_handlers:
       data_authorization_handler:
         errors:
-          phone_invalid: Your phone must contain 10 digits and match 0601010101.
+          phone_invalid: Your phone must contain 10 digits.
         fields:
           firstname: Firstname
           gdpr: I accept that my data be used for the creation of a proposal

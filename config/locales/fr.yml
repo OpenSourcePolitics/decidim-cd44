@@ -35,7 +35,7 @@ fr:
     authorization_handlers:
       data_authorization_handler:
         errors:
-          phone_invalid: Votre téléphone doit contenir 10 chiffres et ressembler à 0601010101.
+          phone_invalid: Votre téléphone doit contenir 10 chiffres.
         explanation: Vérifier votre identité
         fields:
           firstname: Prénom
