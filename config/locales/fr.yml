@@ -13,16 +13,6 @@ fr:
       participatory_process:
         private_space: Espace privé
   decidim:
-    budgets:
-      admin:
-        imports:
-          help:
-            paper_ballot_results: Analyse des imports des bulletins de vote papier
-          label:
-            paper_ballot_results: Importer des bulletins papier
-        budgets:
-          index:
-            paper_ballots: Bulletins papier
     accessibility:
       skip_button: Skip button
     account:
@@ -52,6 +42,16 @@ fr:
         name: Formulaire de vérification d'identité
       osp_authorization_workflow:
         name: Procédure d'autorisation
+    budgets:
+      admin:
+        budgets:
+          index:
+            paper_ballots: Bulletins papier
+        imports:
+          help:
+            paper_ballot_results: Analyse des imports des bulletins de vote papier
+          label:
+            paper_ballot_results: Importer des bulletins papier
     components:
       proposals:
         settings:
@@ -65,8 +65,7 @@ fr:
         too_fast_modal:
           buttons:
             close_modal: Fermer
-          notice: |-
-            Vous avez complété le formulaire d'inscription trop vite. Vous devez rééssayer.
+          notice: Vous avez complété le formulaire d'inscription trop vite. Vous devez rééssayer.
           title: Erreur d'inscription
     events:
       budgets:
