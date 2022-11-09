@@ -37,6 +37,21 @@ en:
             Cet amendement pour le %{amendable_type} %{proposal_link}
             est en cours d’évaluation.
     authorization_handlers:
+      data_authorization_handler:
+        errors:
+          phone_invalid: Your phone must contain 10 digits and match 0601010101.
+        fields:
+          firstname: Firstname
+          gdpr: I accept that my data be used for the creation of a proposal
+          lastname: Lastname
+          phone: Phone
+          structure: Structure
+        name: Data Sharing Process
+        placeholder:
+          firstname: Insert your firstname..
+          lastname: Insert your lastname..
+          phone: 0601010101..
+          structure: Insert your structure..
       osp_authorization_handler:
         explanation: Vérifier votre identité en saisissant un numéro unique
         fields:
@@ -59,8 +74,7 @@ en:
         too_fast_modal:
           buttons:
             close_modal: Close modal
-          notice: |-
-            You have completed the sign up form too fast. Please try again.
+          notice: You have completed the sign up form too fast. Please try again.
           title: Registration error
     events:
       budgets:

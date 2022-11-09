@@ -33,6 +33,22 @@ fr:
             Cet amendement pour le %{amendable_type} %{proposal_link}
             est en cours d’évaluation.
     authorization_handlers:
+      data_authorization_handler:
+        errors:
+          phone_invalid: Votre téléphone doit contenir 10 chiffres et ressembler à 0601010101.
+        explanation: Vérifier votre identité
+        fields:
+          firstname: Prénom
+          gdpr: J'accepte que mes données soient utilisées pour la création d'une proposition
+          lastname: Nom
+          phone: Téléphone
+          structure: Structure
+        name: Procédure de partage de données
+        placeholder:
+          firstname: Insérez votre prénom..
+          lastname: Insérez votre nom..
+          phone: 0601010101..
+          structure: Insérez votre structure..
       osp_authorization_handler:
         explanation: Vérifier votre identité en saisissant un numéro unique
         fields:
@@ -55,8 +71,7 @@ fr:
         too_fast_modal:
           buttons:
             close_modal: Fermer
-          notice: |-
-            Vous avez complété le formulaire d'inscription trop vite. Vous devez rééssayer.
+          notice: Vous avez complété le formulaire d'inscription trop vite. Vous devez rééssayer.
           title: Erreur d'inscription
     events:
       budgets:
