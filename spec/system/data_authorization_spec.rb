@@ -80,8 +80,44 @@ describe "Data authorization", type: :system do
         click_button "Send"
       end
 
-      it "does not authorize the user" do
+      it "authorizes the user" do
         expect(page).to have_content("Your phone must contain 10 digits and match 0601010101.")
+      end
+    end
+
+    describe "when the phone number contains spaces" do
+      before do
+        fill_in :authorization_handler_phone, with: "06 12 34 56 78"
+        check :authorization_handler_gdpr
+        click_button "Send"
+      end
+
+      it "authorizes the user" do
+        expect(page).to have_content("successfully")
+      end
+    end
+
+    describe "when the phone numbers starts with 0033" do
+      before do
+        fill_in :authorization_handler_phone, with: "0033650065422"
+        check :authorization_handler_gdpr
+        click_button "Send"
+      end
+
+      it "does not authorize the user" do
+        expect(page).to have_content("successfully")
+      end
+    end
+
+    describe "when the phone numbers starts with +33" do
+      before do
+        fill_in :authorization_handler_phone, with: "+33650065422"
+        check :authorization_handler_gdpr
+        click_button "Send"
+      end
+
+      it "authorizes the user" do
+        expect(page).to have_content("successfully")
       end
     end
 
@@ -99,7 +135,7 @@ describe "Data authorization", type: :system do
 
     describe "when the name is empty" do
       before do
-        fill_in :authorization_handler_firstname, with: ""
+        fill_in :authorization_handler_lastname, with: ""
         check :authorization_handler_gdpr
         click_button "Send"
       end
