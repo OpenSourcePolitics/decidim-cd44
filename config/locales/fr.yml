@@ -55,8 +55,7 @@ fr:
         too_fast_modal:
           buttons:
             close_modal: Fermer
-          notice: |-
-            Vous avez complété le formulaire d'inscription trop vite. Vous devez rééssayer.
+          notice: Vous avez complété le formulaire d'inscription trop vite. Vous devez rééssayer.
           title: Erreur d'inscription
     events:
       budgets:

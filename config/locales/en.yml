@@ -59,8 +59,7 @@ en:
         too_fast_modal:
           buttons:
             close_modal: Close modal
-          notice: |-
-            You have completed the sign up form too fast. Please try again.
+          notice: You have completed the sign up form too fast. Please try again.
           title: Registration error
     events:
       budgets:

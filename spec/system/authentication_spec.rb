@@ -5,12 +5,7 @@ require "spec_helper"
 describe "Authentication", type: :system do
   let(:organization) { create(:organization) }
   let(:last_user) { Decidim::User.last }
-  let(:app_questions) do
-    {
-      en: [{ "question" => "1+1", "answers" => "2" }],
-      fr: [{ "question" => "2+1", "answers" => "3" }]
-    }
-  end
+
   let(:api_questions) { nil }
   let(:api_endpoint) { nil }
   let(:en_api_questions) do
@@ -28,7 +23,6 @@ describe "Authentication", type: :system do
     stub_captcha("fr")
     allow(Rails).to receive(:cache).and_return(ActiveSupport::Cache.lookup_store(cache_store))
     Rails.cache.clear
-    allow(Decidim::QuestionCaptcha.config).to receive(:questions).and_return(app_questions)
     switch_to_host(organization.host)
     visit decidim.root_path
     allow(Decidim.config).to receive(:minimum_time_to_sign_up).and_return(0)
@@ -38,9 +32,9 @@ describe "Authentication", type: :system do
     context "when using app provided questions" do
       context "when using email and password" do
         it "creates a new User" do
-          sign_up_user(captcha_answer: "2")
+          sign_up_user(captcha_answer: "100")
 
-          expect(page).to have_content("A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.")
+          expect(page).to have_content("A message with a code")
         end
       end
 
@@ -52,18 +46,18 @@ describe "Authentication", type: :system do
         end
 
         it "keeps the locale settings" do
-          sign_up_user(captcha_answer: "3")
+          sign_up_user(captcha_answer: "100")
 
-          expect(page).to have_content("lien de confirmation")
+          expect(page).to have_content("code à 4 chiffres")
           expect(last_user.locale).to eq("fr")
         end
       end
 
       context "when being a robot" do
         it "denies the sign up" do
-          sign_up_user(captcha_answer: "2", robot: true)
+          sign_up_user(captcha_answer: "50", robot: true)
 
-          expect(page).not_to have_content("A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.")
+          expect(page).not_to have_content("A message with a code")
         end
       end
 
@@ -71,7 +65,7 @@ describe "Authentication", type: :system do
         it "denies the sign up" do
           sign_up_user(captcha_answer: "wrong")
 
-          expect(page).not_to have_content("A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.")
+          expect(page).not_to have_content("A message with a code")
         end
       end
 
@@ -102,7 +96,7 @@ describe "Authentication", type: :system do
         it "creates a new User" do
           sign_up_user(captcha_answer: "white")
 
-          expect(page).to have_content("A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.")
+          expect(page).to have_content("A message with a code")
         end
       end
 
@@ -118,7 +112,7 @@ describe "Authentication", type: :system do
         it "keeps the locale settings" do
           sign_up_user(captcha_answer: "gris")
 
-          expect(page).to have_content("lien de confirmation")
+          expect(page).to have_content("code à 4 chiffres")
           expect(last_user.locale).to eq("fr")
         end
       end
@@ -133,9 +127,9 @@ describe "Authentication", type: :system do
         end
 
         it "fallbacks to app questions" do
-          sign_up_user(captcha_answer: "3")
+          sign_up_user(captcha_answer: "100")
 
-          expect(page).to have_content("lien de confirmation")
+          expect(page).to have_content("code à 4 chiffres")
           expect(last_user.locale).to eq("fr")
         end
       end
@@ -146,7 +140,7 @@ describe "Authentication", type: :system do
         it "denies the sign up" do
           sign_up_user(captcha_answer: "white", robot: true)
 
-          expect(page).not_to have_content("A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.")
+          expect(page).not_to have_content("A message with a code")
         end
       end
 
@@ -156,7 +150,7 @@ describe "Authentication", type: :system do
         it "denies the sign up" do
           sign_up_user(captcha_answer: "wrong")
 
-          expect(page).not_to have_content("A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.")
+          expect(page).not_to have_content("A message with a code")
         end
       end
 
@@ -300,17 +294,6 @@ describe "Authentication", type: :system do
     end
   end
 
-  describe "Confirm email" do
-    it "confirms the user" do
-      perform_enqueued_jobs { create(:user, organization: organization) }
-
-      visit last_email_link
-
-      expect(page).to have_content("successfully confirmed")
-      expect(last_user).to be_confirmed
-    end
-  end
-
   context "when confirming the account" do
     let!(:user) { create(:user, email_on_notification: true, organization: organization) }
 
@@ -347,7 +330,7 @@ describe "Authentication", type: :system do
       end
 
       expect(emails.count).to eq(2)
-      expect(page).to have_content("receive an email with instructions")
+      expect(page).to have_content("receive a 4 digit code")
     end
   end
 
@@ -415,7 +398,6 @@ describe "Authentication", type: :system do
 
         within ".new_user" do
           fill_in :password_user_password, with: "DfyvHn425mYAy2HL"
-          fill_in :password_user_password_confirmation, with: "DfyvHn425mYAy2HL"
           find("*[type=submit]").click
         end
 
@@ -428,7 +410,6 @@ describe "Authentication", type: :system do
 
         within ".new_user" do
           fill_in :password_user_password, with: "example"
-          fill_in :password_user_password_confirmation, with: "example"
           find("*[type=submit]").click
         end
 
@@ -639,16 +620,14 @@ describe "Authentication", type: :system do
           within ".new_user" do
             fill_in :registration_user_email, with: user.email
             fill_in :registration_user_name, with: "Responsible Citizen"
-            fill_in :registration_user_nickname, with: "responsible"
             fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
-            fill_in :registration_user_password_confirmation, with: "DfyvHn425mYAy2HL"
-            fill_in :registration_user_textcaptcha_answer, with: "2"
+            fill_in :registration_user_textcaptcha_answer, with: "100"
             check :registration_user_tos_agreement
             check :registration_user_newsletter
             find("*[type=submit]").click
           end
 
-          expect(page).to have_content("confirmation link")
+          expect(page).to have_content("4 digit code")
         end
       end
     end
@@ -728,9 +707,7 @@ describe "Authentication", type: :system do
       page.execute_script("$($('.new_user > div > input')[0]).val('Ima robot :D')") if robot
       fill_in :registration_user_email, with: "user@example.org"
       fill_in :registration_user_name, with: "Responsible Citizen"
-      fill_in :registration_user_nickname, with: "responsible"
       fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
-      fill_in :registration_user_password_confirmation, with: "DfyvHn425mYAy2HL"
       fill_in :registration_user_textcaptcha_answer, with: captcha_answer
       check :registration_user_tos_agreement
       check :registration_user_newsletter
