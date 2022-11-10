@@ -7,11 +7,9 @@ module Decidim
     attribute :lastname, String
     attribute :phone, String
     attribute :structure, String
-    attribute :gdpr, Boolean
 
-    validates :gdpr, acceptance: true
-    validates :lastname, presence: true
-    validates :firstname, presence: true
+    validates :lastname, presence: true, length: { minimum: 1 }
+    validates :firstname, presence: true, length: { minimum: 1 }
     validates :phone, presence: true,
                       format: { with: /\A(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})\z/,
                                 message: I18n.t("decidim.authorization_handlers.data_authorization_handler.errors.phone_invalid") }
