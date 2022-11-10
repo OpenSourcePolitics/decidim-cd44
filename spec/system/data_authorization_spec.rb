@@ -31,7 +31,6 @@ describe "Data authorization", type: :system do
       fill_in :authorization_handler_lastname, with: lastname
       fill_in :authorization_handler_phone, with: phone
       fill_in :authorization_handler_structure, with: structure
-      check :authorization_handler_gdpr
       click_button "Send"
     end
 
@@ -76,23 +75,11 @@ describe "Data authorization", type: :system do
       fill_in :authorization_handler_lastname, with: lastname
       fill_in :authorization_handler_phone, with: phone
       fill_in :authorization_handler_structure, with: structure
-      check :authorization_handler_gdpr
     end
 
     shared_examples_for "is not a valid phone number" do |phone|
       it "is a valid phone number: #{phone}" do
         expect(page).to have_content("Your phone must contain 10 digits.")
-      end
-    end
-
-    describe "when the gdpr checkbox is not checked" do
-      before do
-        uncheck :authorization_handler_gdpr
-        click_button "Send"
-      end
-
-      it "does not authorize the user" do
-        expect(page).to have_content("must be accepted")
       end
     end
 
