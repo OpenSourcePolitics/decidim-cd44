@@ -39,10 +39,15 @@ fr:
         explanation: Vérifier votre identité
         fields:
           firstname: Prénom
-          gdpr: J'accepte que mes données soient utilisées pour la création d'une proposition
           lastname: Nom
           phone: Téléphone
           structure: Structure
+        help_text:
+          firstname: au moins 1 caractère.
+          lastname: au moins 1 caractère.
+          phone: 10 chiffres et correspondre à un format correct.
+          required_fields: Les champs obligatoires sont marqués d'un astérisque
+          structure: au moins 1 caractère.
         name: Procédure de partage de données
         placeholder:
           firstname: Insérez votre prénom..
