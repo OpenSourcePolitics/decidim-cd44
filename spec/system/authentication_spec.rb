@@ -129,7 +129,7 @@ describe "Authentication", type: :system do
         it "fallbacks to app questions" do
           sign_up_user(captcha_answer: "100")
 
-          expect(page).to have_content("code à 4 chiffres")
+          expect(page).to have_content(" lien de confirmation")
           expect(last_user.locale).to eq("fr")
         end
       end
