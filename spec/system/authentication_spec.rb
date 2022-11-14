@@ -34,7 +34,7 @@ describe "Authentication", type: :system do
         it "creates a new User" do
           sign_up_user(captcha_answer: "100")
 
-          expect(page).to have_content("A message with a code")
+          expect(page).to have_content("A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.")
         end
       end
 
@@ -48,7 +48,7 @@ describe "Authentication", type: :system do
         it "keeps the locale settings" do
           sign_up_user(captcha_answer: "100")
 
-          expect(page).to have_content("code à 4 chiffres")
+          expect(page).to have_content("lien de confirmation")
           expect(last_user.locale).to eq("fr")
         end
       end
@@ -96,7 +96,7 @@ describe "Authentication", type: :system do
         it "creates a new User" do
           sign_up_user(captcha_answer: "white")
 
-          expect(page).to have_content("A message with a code")
+          expect(page).to have_content("A message with a confirmation")
         end
       end
 
@@ -112,7 +112,7 @@ describe "Authentication", type: :system do
         it "keeps the locale settings" do
           sign_up_user(captcha_answer: "gris")
 
-          expect(page).to have_content("code à 4 chiffres")
+          expect(page).to have_content("lien de confirmation")
           expect(last_user.locale).to eq("fr")
         end
       end
@@ -330,7 +330,7 @@ describe "Authentication", type: :system do
       end
 
       expect(emails.count).to eq(2)
-      expect(page).to have_content("receive a 4 digit code")
+      expect(page).to have_content("receive an email with instructions")
     end
   end
 
@@ -627,7 +627,7 @@ describe "Authentication", type: :system do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_content("4 digit code")
+          expect(page).to have_content("confirmation link")
         end
       end
     end
