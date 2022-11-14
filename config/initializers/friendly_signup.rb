@@ -1,4 +1,4 @@
-# config/initializers/friendly_signup.rb
+# frozen_string_literal: true
 
 Decidim::FriendlySignup.configure do |config|
   # Override password views or leave the originals (default is true):
