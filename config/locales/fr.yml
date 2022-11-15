@@ -35,18 +35,17 @@ fr:
     authorization_handlers:
       data_authorization_handler:
         errors:
-          duplicated_number: Ce numéro de téléphone a déjà été utilisé
           error_message: Ce champ contient une erreur
         explanation: Vérifier votre identité
         fields:
           firstname: Prénom
           lastname: Nom
-          phone: Téléphone
+          phone: Numéro de téléphone
           structure: Structure
         help_text:
           firstname: Votre prénom doit comporter au moins 1 caractère et n'être composé que de lettres, d'espaces et de caractères spéciaux tels que - et '.
           lastname: Votre nom doit comporter au moins 1 caractère et n'être composé que de lettres, d'espaces et de caractères spéciaux tels que - et '.
-          phone: Insérez votre numéro de téléphone
+          phone: Entrez votre numéro de téléphone
           required_fields: Les champs obligatoires sont marqués d'un astérisque
           structure: Votre structure doit comporter au moins 1 caractère
         name: Procédure de partage de données

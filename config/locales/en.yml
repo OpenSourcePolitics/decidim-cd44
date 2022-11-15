@@ -43,7 +43,7 @@ en:
         fields:
           firstname: Firstname
           lastname: Lastname
-          phone: Phone
+          phone: Phone number
           structure: Structure
         help_text:
           firstname: Your firstname must contain at least 1 character and be composed only of letters, spaces and special characters such as - and '.
