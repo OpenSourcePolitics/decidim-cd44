@@ -34,34 +34,64 @@ describe "Data authorization", type: :system do
       click_button "Send"
     end
 
-    shared_examples_for "is a valid phone number" do |phone|
-      it "is a valid phone number: #{phone}" do
+    shared_examples_for "is a valid firstname" do
+      it "is valid" do
         expect(page).to have_content("successfully")
       end
     end
 
-    context "when the phone number is equal to 0601010101" do
-      let(:phone) { "0601010101" }
+    context "when the firstname is valid" do
+      let(:firstname) { "John" }
 
-      it_behaves_like "is a valid phone number", "0601010101"
+      it_behaves_like "is a valid firstname"
     end
 
-    context "when the phone number is equal to 06 12 34 56 78" do
-      let(:phone) { "06 12 34 56 78" }
+    context "when the firstname contains ' or -" do
+      let(:firstname) { "Jo-hn's" }
 
-      it_behaves_like "is a valid phone number", "06 12 34 56 78"
+      it_behaves_like "is a valid firstname"
     end
 
-    context "when the phone number is equal to 0033650065422" do
-      let(:phone) { "0033650065422" }
+    context "when the firstname contains a space" do
+      let(:firstname) { "John Doe" }
 
-      it_behaves_like "is a valid phone number", "0033650065422"
+      it_behaves_like "is a valid firstname"
     end
 
-    context "when the phone number is equal to +33650065422" do
-      let(:phone) { "+33650065422" }
+    context "when the firstname contains an accent" do
+      let(:firstname) { "Jöhn Tâylot" }
 
-      it_behaves_like "is a valid phone number", "+33650065422"
+      it_behaves_like "is a valid firstname"
+    end
+
+    shared_examples_for "is a valid lastname" do
+      it "is valid" do
+        expect(page).to have_content("successfully")
+      end
+    end
+
+    context "when the lastname is valid" do
+      let(:lastname) { "Doe" }
+
+      it_behaves_like "is a valid lastname"
+    end
+
+    context "when the lastname contains ' or -" do
+      let(:lastname) { "Do-e's" }
+
+      it_behaves_like "is a valid lastname"
+    end
+
+    context "when the lastname contains a space" do
+      let(:lastname) { "Doe John" }
+
+      it_behaves_like "is a valid lastname"
+    end
+
+    context "when the lastname contains accents" do
+      let(:lastname) { "Maël-Taylôr" }
+
+      it_behaves_like "is a valid lastname"
     end
 
     it "authorizes the user" do
@@ -77,30 +107,56 @@ describe "Data authorization", type: :system do
       fill_in :authorization_handler_structure, with: structure
     end
 
-    shared_examples_for "is not a valid phone number" do |phone|
-      it "is a valid phone number: #{phone}" do
-        expect(page).to have_content("Your phone must contain 10 digits.")
+    shared_examples_for "is an invalid firstname" do
+      it "is invalid" do
+        expect(page).to have_content("contains an error")
       end
     end
 
-    context "when the phone number is equal to 0012345678" do
-      let(:phone) { "0012345678" }
+    context "when the firstname contains number" do
+      let(:firstname) { "John1" }
 
       before do
         click_button "Send"
       end
 
-      it_behaves_like "is not a valid phone number", "0012345678"
+      it_behaves_like "is an invalid firstname"
     end
 
-    context "when the phone number is equal to 123456789a" do
-      let(:phone) { "123456789a" }
+    context "when the firstname contains special characters" do
+      let(:firstname) { "John@" }
 
       before do
         click_button "Send"
       end
 
-      it_behaves_like "is not a valid phone number", "123456789a"
+      it_behaves_like "is an invalid firstname"
+    end
+
+    shared_examples_for "is an invalid lastname" do
+      it "is invalid" do
+        expect(page).to have_content("contains an error")
+      end
+    end
+
+    context "when the lastname contains number" do
+      let(:lastname) { "Doe1" }
+
+      before do
+        click_button "Send"
+      end
+
+      it_behaves_like "is an invalid lastname"
+    end
+
+    context "when the lastname contains special characters" do
+      let(:lastname) { "Doe@" }
+
+      before do
+        click_button "Send"
+      end
+
+      it_behaves_like "is an invalid lastname"
     end
 
     describe "when the name is empty" do

@@ -35,7 +35,8 @@ fr:
     authorization_handlers:
       data_authorization_handler:
         errors:
-          phone_invalid: Votre téléphone doit contenir 10 chiffres.
+          duplicated_number: Ce numéro de téléphone a déjà été utilisé
+          error_message: Ce champ contient une erreur
         explanation: Vérifier votre identité
         fields:
           firstname: Prénom
@@ -43,17 +44,12 @@ fr:
           phone: Téléphone
           structure: Structure
         help_text:
-          firstname: au moins 1 caractère.
-          lastname: au moins 1 caractère.
-          phone: 10 chiffres et correspondre à un format correct.
+          firstname: Votre prénom doit comporter au moins 1 caractère et n'être composé que de lettres, d'espaces et de caractères spéciaux tels que - et '.
+          lastname: Votre nom doit comporter au moins 1 caractère et n'être composé que de lettres, d'espaces et de caractères spéciaux tels que - et '.
+          phone: Insérez votre numéro de téléphone
           required_fields: Les champs obligatoires sont marqués d'un astérisque
-          structure: au moins 1 caractère.
+          structure: Votre structure doit comporter au moins 1 caractère
         name: Procédure de partage de données
-        placeholder:
-          firstname: Insérez votre prénom..
-          lastname: Insérez votre nom..
-          phone: 0601010101..
-          structure: Insérez votre structure..
       osp_authorization_handler:
         explanation: Vérifier votre identité en saisissant un numéro unique
         fields:

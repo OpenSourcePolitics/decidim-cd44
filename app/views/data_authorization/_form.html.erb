@@ -2,19 +2,19 @@
 <div class="help-text help-text-form-required-fields">
   * <%= t('decidim.authorization_handlers.data_authorization_handler.help_text.required_fields') %>
 </div>
-<div class="field firstname_field">
-  <%= form.text_field :firstname, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.firstname'), placeholder: I18n.t('decidim.authorization_handlers.data_authorization_handler.placeholder.firstname') %>
-  <p class="help-text"><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.firstname') %></p>
-</div>
 <div class="field lastname_field">
-  <%= form.text_field :lastname, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.lastname'), placeholder: I18n.t('decidim.authorization_handlers.data_authorization_handler.placeholder.lastname')%>
+  <%= form.text_field :lastname, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.lastname')%>
   <p class="help-text"><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.lastname') %></p>
 </div>
-<div class="field phone_field">
-  <%= form.text_field :phone, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.phone'), placeholder: I18n.t('decidim.authorization_handlers.data_authorization_handler.placeholder.phone')%>
-  <p class="help-text"><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.phone') %></p>
+<div class="field firstname_field">
+  <%= form.text_field :firstname, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.firstname')%>
+  <p class="help-text"><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.firstname') %></p>
 </div>
 <div class="field structure_field">
-  <%= form.text_field :structure, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.structure'), placeholder: I18n.t('decidim.authorization_handlers.data_authorization_handler.placeholder.structure') %>
+  <%= form.text_field :structure, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.structure')%>
   <p class="help-text"><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.structure') %></p>
+</div>
+<div class="field phone_field">
+  <%= form.text_field :phone, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.phone')%>
+  <p class="help-text"><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.phone') %></p>
 </div>
