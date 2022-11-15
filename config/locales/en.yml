@@ -48,7 +48,7 @@ en:
         help_text:
           firstname: Your firstname must contain at least 1 character and be composed only of letters, spaces and special characters such as - and '.
           lastname: Your lastname must contain at least 1 character and be composed only of letters, spaces and special characters such as - and '.
-          phone: Your phone number must contain at least 1 character
+          phone: Enter your phone number
           required_fields: Required fields are marked with an asterisk
           structure: Your structure must contain at least 1 character
         name: Data Sharing Process
