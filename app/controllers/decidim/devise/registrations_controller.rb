@@ -18,7 +18,6 @@ module Decidim
         @form = form(RegistrationForm).from_params(
           user: { sign_up_as: "user" }
         )
-        @form.textcaptcha
 
         cookies[:anti_bot] = {
           value: Decidim::AttributeEncryptor.encrypt(Time.zone.now),
