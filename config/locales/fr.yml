@@ -33,6 +33,22 @@ fr:
             Cet amendement pour le %{amendable_type} %{proposal_link}
             est en cours d’évaluation.
     authorization_handlers:
+      data_authorization_handler:
+        errors:
+          error_message: Ce champ contient une erreur
+        explanation: Vérifier votre identité
+        fields:
+          firstname: Prénom
+          lastname: Nom
+          phone: Numéro de téléphone
+          structure: Structure
+        help_text:
+          firstname: Votre prénom doit comporter au moins 1 caractère et n'être composé que de lettres, d'espaces et de caractères spéciaux tels que - et '.
+          lastname: Votre nom doit comporter au moins 1 caractère et n'être composé que de lettres, d'espaces et de caractères spéciaux tels que - et '.
+          phone: Entrez votre numéro de téléphone
+          required_fields: Les champs obligatoires sont marqués d'un astérisque
+          structure: Votre structure doit comporter au moins 1 caractère
+        name: Procédure de partage de données
       osp_authorization_handler:
         explanation: Vérifier votre identité en saisissant un numéro unique
         fields:
