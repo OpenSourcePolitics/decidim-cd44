@@ -73,6 +73,10 @@ module Decidim
       def answered_too_fast?
         Decidim::AttributeEncryptor.decrypt(cookies[:anti_bot]) > Time.zone.now - Decidim.config.minimum_time_to_sign_up.seconds
       end
+
+      def devise_mapping
+        ::Devise.mappings[:user]
+      end
     end
   end
 end

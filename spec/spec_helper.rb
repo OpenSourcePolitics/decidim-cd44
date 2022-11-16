@@ -23,6 +23,11 @@ RSpec.configure do |config|
       workflow.action_authorizer = "DummyAuthorizationHandler::DummyActionAuthorizer"
     end
 
+    Decidim::Verifications.register_workflow(:another_dummy_authorization_handler) do |workflow|
+      workflow.form = "AnotherDummyAuthorizationHandler"
+      workflow.action_authorizer = "DummyAuthorizationHandler::DummyActionAuthorizer"
+    end
+
     # Initializers configs
     Decidim.enable_html_header_snippets = false
     SocialShareButton.configure do |social_share_button|
