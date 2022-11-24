@@ -39,18 +39,26 @@ en:
     authorization_handlers:
       data_authorization_handler:
         errors:
+          acceptance_error: You must check this box to continue
           error_message: This field contains an error
+          no_zipcode_result: No result found for this postal code
         fields:
+          city: City
           firstname: Firstname
+          gdpr: I accept that my data will be used to verify my identity
           lastname: Lastname
+          minimum_age: I confirm that I am over 16 years old
           phone: Phone number
-          structure: Structure
         help_text:
+          city: Your city depends on your postal code, please select your city from the dropdown list
           firstname: Your firstname must contain at least 1 character and be composed only of letters, spaces and special characters such as - and '.
+          gdpr: Your data will be used to verify your identity.
+          global_help: It is necessary to complete this form to submit a proposal in the participatory budget.
           lastname: Your lastname must contain at least 1 character and be composed only of letters, spaces and special characters such as - and '.
+          minimum_age: You must be over 16 years old to register.
           phone: Enter your phone number
           required_fields: Required fields are marked with an asterisk
-          structure: Your structure must contain at least 1 character
+          zipcode: Your postal code must be composed of 5 digits
         name: Data Sharing Process
       osp_authorization_handler:
         explanation: Vérifier votre identité en saisissant un numéro unique

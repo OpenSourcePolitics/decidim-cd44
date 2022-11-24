@@ -35,19 +35,28 @@ fr:
     authorization_handlers:
       data_authorization_handler:
         errors:
+          acceptance_error: Vous devez cocher cette case pour continuer
           error_message: Ce champ contient une erreur
+          no_zipcode_result: Aucun résultat trouvé pour ce code postal
         explanation: Vérifier votre identité
         fields:
+          city: Ville
           firstname: Prénom
+          gdpr: J'accepte que mes données soient utilisées pour la vérification de mon identité
           lastname: Nom
+          minimum_age: Je confirme avoir plus de 16 ans
           phone: Numéro de téléphone
-          structure: Structure
+          zipcode: Code postal
         help_text:
+          city: Votre ville dépend de votre code postal, veuillez sélectionner votre ville dans la liste déroulante
           firstname: Votre prénom doit comporter au moins 1 caractère et n'être composé que de lettres, d'espaces et de caractères spéciaux tels que - et '.
+          gdpr: Vos données seront utilisées pour la vérification de votre identité.
+          global_help: Il est nécessaire de compléter ce formulaire pour déposer une proposition dans le budget participatif.
           lastname: Votre nom doit comporter au moins 1 caractère et n'être composé que de lettres, d'espaces et de caractères spéciaux tels que - et '.
+          minimum_age: Vous devez avoir plus de 16 ans pour pouvoir vous inscrire.
           phone: Entrez votre numéro de téléphone
           required_fields: Les champs obligatoires sont marqués d'un astérisque
-          structure: Votre structure doit comporter au moins 1 caractère
+          zipcode: Votre code postal doit être composé de 5 chiffres
         name: Procédure de partage de données
       osp_authorization_handler:
         explanation: Vérifier votre identité en saisissant un numéro unique
