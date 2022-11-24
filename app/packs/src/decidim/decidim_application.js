@@ -5,3 +5,4 @@
 require.context("../../images", true)
 
 import "./timer"
+import "./address"
