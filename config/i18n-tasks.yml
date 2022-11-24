@@ -135,6 +135,7 @@ ignore_missing:
  - decidim.initiatives.admin.initiatives_settings.edit.update
  - decidim.initiatives.signature_interval.title
  - decidim.initiatives.admin_log.initiatives_settings.update
+ - decidim.initiatives.form.delete_attachment
 
 
 
@@ -168,3 +169,4 @@ ignore_unused:
   - decidim.resources.signature_interval.title
   - decidim.initiatives.admin.initiatives_settings.update.success
   - decidim.initiatives.admin_log.initiatives_settings.update
+  - activemodel.attributes.initiative.area_id

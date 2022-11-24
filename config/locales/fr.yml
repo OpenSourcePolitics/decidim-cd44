@@ -67,6 +67,16 @@ fr:
         name: Formulaire de vérification d'identité
       osp_authorization_workflow:
         name: Procédure d'autorisation
+    budgets:
+      admin:
+        budgets:
+          index:
+            paper_ballots: Bulletins papier
+        imports:
+          help:
+            paper_ballot_results: Analyse des imports des bulletins de vote papier
+          label:
+            paper_ballot_results: Importer des bulletins papier
     components:
       proposals:
         settings:

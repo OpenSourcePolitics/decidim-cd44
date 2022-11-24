@@ -11,6 +11,7 @@ module Decidim
     attribute :zipcode, String
     attribute :city, String
 
+
     validates :firstname, presence: true, format: { with: /\A[a-zA-ZÀ-ÿ'\-\s]+\z/,
                                                     message: I18n.t("decidim.authorization_handlers.data_authorization_handler.errors.error_message") }
     validates :lastname, presence: true, format: { with: /\A[a-zA-ZÀ-ÿ'\-\s]+\z/,

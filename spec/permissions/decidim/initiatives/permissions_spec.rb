@@ -212,24 +212,24 @@ describe Decidim::Initiatives::Permissions do
           .and_return(true)
       end
 
-      it { is_expected.to be false }
+      it { is_expected.to be true }
 
-      context "when authorizations are not required" do
+      context "when authorizations are required" do
         before do
           allow(Decidim::Initiatives)
             .to receive(:do_not_require_authorization)
-            .and_return(true)
+            .and_return(false)
         end
 
-        it { is_expected.to be true }
-      end
+        it { is_expected.to be false }
 
-      context "when user is authorized" do
-        before do
-          create :authorization, :granted, user: user
+        context "when user is authorized" do
+          before do
+            create :authorization, :granted, user: user
+          end
+
+          it { is_expected.to be true }
         end
-
-        it { is_expected.to be true }
       end
 
       context "when user belongs to a verified user group" do

@@ -4,26 +4,17 @@ require "spec_helper"
 
 def fill_registration_form
   fill_in :registration_user_name, with: "Nikola Tesla"
-  fill_in :registration_user_nickname, with: "the-greatest-genius-in-history"
   fill_in :registration_user_email, with: "nikola.tesla@example.org"
   fill_in :registration_user_password, with: "sekritpass123"
-  fill_in :registration_user_password_confirmation, with: "sekritpass123"
-  fill_in :registration_user_textcaptcha_answer, with: "2"
+  fill_in :registration_user_textcaptcha_answer, with: "100"
 end
 
 describe "Registration", type: :system do
   let(:organization) { create(:organization) }
   let!(:terms_and_conditions_page) { Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization) }
-  let(:app_questions) do
-    {
-      en: [{ "question" => "1+1", "answers" => "2" }],
-      fr: [{ "question" => "2+1", "answers" => "3" }]
-    }
-  end
 
   before do
     switch_to_host(organization.host)
-    allow(Decidim::QuestionCaptcha.config).to receive(:questions).and_return(app_questions)
     visit decidim.new_user_registration_path
   end
 
@@ -32,10 +23,8 @@ describe "Registration", type: :system do
       it "shows fields empty" do
         expect(page).to have_content("Sign up to participate")
         expect(page).to have_field("registration_user_name", with: "")
-        expect(page).to have_field("registration_user_nickname", with: "")
         expect(page).to have_field("registration_user_email", with: "")
         expect(page).to have_field("registration_user_password", with: "")
-        expect(page).to have_field("registration_user_password_confirmation", with: "")
         expect(page).to have_field("registration_user_newsletter", checked: false)
       end
     end
@@ -87,7 +76,6 @@ describe "Registration", type: :system do
         find("*[type=submit]").click
       end
       click_button "Check and continue"
-      expect(page).to have_current_path decidim.new_user_registration_path
       expect(page).to have_css("#sign-up-newsletter-modal", visible: :all)
       expect(page).to have_field("registration_user_newsletter", checked: true)
     end

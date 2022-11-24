@@ -11,7 +11,7 @@ describe "Data authorization", type: :system do
   let(:zipcode) { "75001" }
   let(:gdpr) { true }
   let(:minimum_age) { true }
-
+  
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
