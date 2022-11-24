@@ -10,11 +10,26 @@
   <%= form.text_field :firstname, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.firstname')%>
   <p class="help-text"><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.firstname') %></p>
 </div>
-<div class="field structure_field">
-  <%= form.text_field :structure, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.structure')%>
-  <p class="help-text"><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.structure') %></p>
-</div>
 <div class="field phone_field">
   <%= form.text_field :phone, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.phone')%>
   <p class="help-text"><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.phone') %></p>
 </div>
+<div class="field zipcode_field">
+  <%= form.text_field :zipcode, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.zipcode'), maxlength: 5, pattern: "[0-9]{5}" %>
+  <p class="help-text"><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.zipcode') %></p>
+</div>
+<div class="field city_field">
+  <%= form.select :city, [], {}, disabled: "disabled", label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.city') %>
+  <p class="help-text"><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.city') %></p>
+</div>
+<div class="field gdpr_field">
+  <%= form.check_box :gdpr, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.gdpr') %>
+  <p class="help-text"><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.gdpr') %></p>
+</div>
+<div class="field minimum_age_field">
+  <%= form.check_box :minimum_age, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.minimum_age') %>
+  <p class="help-text"><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.minimum_age') %></p>
+</div>
+
+<p><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.global_help')%></p>
+
