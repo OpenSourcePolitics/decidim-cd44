@@ -6,7 +6,10 @@ module Decidim
     attribute :firstname, String
     attribute :lastname, String
     attribute :phone, String
-    attribute :structure, String
+    attribute :gdpr, Boolean
+    attribute :minimum_age, Boolean
+    attribute :zipcode, String
+    attribute :city, String
 
     validates :firstname, presence: true, format: { with: /\A[a-zA-ZÀ-ÿ'\-\s]+\z/,
                                                     message: I18n.t("decidim.authorization_handlers.data_authorization_handler.errors.error_message") }
@@ -14,8 +17,17 @@ module Decidim
                                                    message: I18n.t("decidim.authorization_handlers.data_authorization_handler.errors.error_message") }
     validates :phone, presence: true
 
+    validates :gdpr, acceptance: true, presence: { message: "" }
+
+    validates :minimum_age, acceptance: true, presence: { message: "" }
+
+    validates :zipcode, presence: true, format: { with: /\A[0-9]{5}\z/,
+                                                  message: I18n.t("decidim.authorization_handlers.data_authorization_handler.errors.error_message") }
+
+    validates :city, presence: { message: I18n.t("decidim.authorization_handlers.data_authorization_handler.errors.no_zipcode_result") }
+
     def metadata
-      super.merge(firstname: firstname, lastname: lastname, phone: phone, structure: structure)
+      super.merge(firstname: firstname, lastname: lastname, phone: phone, zipcode: zipcode, city: city, gdpr: gdpr, minimum_age: minimum_age)
     end
   end
 end

@@ -8,7 +8,9 @@ describe "Data authorization", type: :system do
   let(:firstname) { "John" }
   let(:lastname) { "Doe" }
   let(:phone) { "0605040302" }
-  let(:structure) { "My company" }
+  let(:zipcode) { "75001" }
+  let(:gdpr) { true }
+  let(:minimum_age) { true }
 
   before do
     switch_to_host(organization.host)
@@ -30,7 +32,9 @@ describe "Data authorization", type: :system do
       fill_in :authorization_handler_firstname, with: firstname
       fill_in :authorization_handler_lastname, with: lastname
       fill_in :authorization_handler_phone, with: phone
-      fill_in :authorization_handler_structure, with: structure
+      fill_in :authorization_handler_zipcode, with: zipcode
+      check :authorization_handler_gdpr
+      check :authorization_handler_minimum_age
       click_button "Send"
     end
 
@@ -104,7 +108,9 @@ describe "Data authorization", type: :system do
       fill_in :authorization_handler_firstname, with: firstname
       fill_in :authorization_handler_lastname, with: lastname
       fill_in :authorization_handler_phone, with: phone
-      fill_in :authorization_handler_structure, with: structure
+      fill_in :authorization_handler_zipcode, with: zipcode
+      check :authorization_handler_gdpr
+      check :authorization_handler_minimum_age
     end
 
     shared_examples_for "is an invalid firstname" do
@@ -180,6 +186,84 @@ describe "Data authorization", type: :system do
 
       it "does not authorize the user" do
         expect(page).to have_content("error")
+      end
+    end
+
+    describe "when the phone number is empty" do
+      let(:phone) { "" }
+
+      before do
+        click_button "Send"
+      end
+
+      it "does not authorize the user" do
+        expect(page).to have_content("error")
+      end
+    end
+
+    describe "when no zipcode is entered" do
+      let(:zipcode) { "" }
+
+      before do
+        click_button "Send"
+      end
+
+      it "does not authorize the user" do
+        expect(page).to have_content("error")
+      end
+    end
+
+    describe "when the zipcode is invalid" do
+      let(:zipcode) { "1234" }
+
+      before do
+        click_button "Send"
+      end
+
+      it "does not authorize the user" do
+        expect(page).to have_content("error")
+      end
+    end
+
+    describe "when the zipcode corresponds to nothing" do
+      let(:zipcode) { "12345" }
+
+      it "shows no result for cities" do
+        expect(find("#authorization_handler_city").text).to eq("")
+      end
+    end
+
+    describe "when the zipcode corresponds to nothing and is sent" do
+      let(:zipcode) { "12345" }
+
+      before do
+        click_button "Send"
+      end
+
+      it "does not authorize the user" do
+        expect(page).to have_content("No result found for this postal code")
+      end
+    end
+
+    describe "when gdpr is not checked" do
+      before do
+        uncheck :authorization_handler_gdpr
+        click_button "Send"
+      end
+
+      it "does not authorize the user" do
+        expect(page).to have_content("must be accepted")
+      end
+    end
+
+    describe "when minimum age is not checked" do
+      before do
+        uncheck :authorization_handler_minimum_age
+        click_button "Send"
+      end
+
+      it "does not authorize the user" do
+        expect(page).to have_content("must be accepted")
       end
     end
   end
