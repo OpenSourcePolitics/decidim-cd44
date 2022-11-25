@@ -11,7 +11,7 @@ describe "Data authorization", type: :system do
   let(:zipcode) { "75001" }
   let(:gdpr) { true }
   let(:minimum_age) { true }
-  
+
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
@@ -252,7 +252,7 @@ describe "Data authorization", type: :system do
       end
 
       it "does not authorize the user" do
-        expect(page).to have_content("You must check this box to continue")
+        expect(page).to have_content("must be accepted")
       end
     end
 
@@ -263,7 +263,7 @@ describe "Data authorization", type: :system do
       end
 
       it "does not authorize the user" do
-        expect(page).to have_content("You must check this box to continue")
+        expect(page).to have_content("must be accepted")
       end
     end
   end
