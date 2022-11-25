@@ -2,34 +2,48 @@
 <div class="help-text help-text-form-required-fields">
   * <%= t('decidim.authorization_handlers.data_authorization_handler.help_text.required_fields') %>
 </div>
-<div class="field lastname_field">
-  <%= form.text_field :lastname, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.lastname')%>
-  <p class="help-text"><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.lastname') %></p>
+<div class="row">
+  <div class="columns medium-6">
+    <div class="field lastname_field">
+      <%= form.text_field :lastname, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.lastname')%>
+      <p class="help-text"><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.lastname') %></p>
+    </div>
+  </div>
+  <div class="columns medium-6">
+    <div class="field firstname_field">
+      <%= form.text_field :firstname, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.firstname')%>
+      <p class="help-text"><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.firstname') %></p>
+    </div>
+  </div>
 </div>
-<div class="field firstname_field">
-  <%= form.text_field :firstname, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.firstname')%>
-  <p class="help-text"><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.firstname') %></p>
+<div class="row">
+  <div class="columns medium-4">
+    <div class="field zipcode_field">
+      <%= form.text_field :zipcode, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.zipcode'), maxlength: 5, pattern: "[0-9]{5}" %>
+      <p class="help-text"><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.zipcode') %></p>
+    </div>
+  </div>
+  <div class="columns medium-8">
+    <div class="field city_field">
+      <%= form.select :city, [], {}, disabled: "disabled", label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.city') %>
+      <p class="help-text"><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.city') %></p>
+    </div>
+  </div>
 </div>
-<div class="field phone_field">
-  <%= form.text_field :phone, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.phone')%>
-  <p class="help-text"><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.phone') %></p>
-</div>
-<div class="field zipcode_field">
-  <%= form.text_field :zipcode, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.zipcode'), maxlength: 5, pattern: "[0-9]{5}" %>
-  <p class="help-text"><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.zipcode') %></p>
-</div>
-<div class="field city_field">
-  <%= form.select :city, [], {}, disabled: "disabled", label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.city') %>
-  <p class="help-text"><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.city') %></p>
-</div>
+<fieldset class="fieldset">
+  <legend class="legend"><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.legend') %></legend>
+  <div class="row">
+    <div class="field phone_field columns medium-12">
+      <%= form.text_field :phone, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.phone') %>
+    </div>
+  </div>
+</fieldset>
 <div class="field gdpr_field">
   <%= form.check_box :gdpr, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.gdpr') %>
-  <p class="help-text"><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.gdpr') %></p>
 </div>
 <div class="field minimum_age_field">
   <%= form.check_box :minimum_age, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.minimum_age') %>
-  <p class="help-text"><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.minimum_age') %></p>
 </div>
-
-<p><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.global_help')%></p>
-
+<div class="padding-2">
+  <strong><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.global_help')%></strong>
+</div>
