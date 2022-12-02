@@ -37,8 +37,8 @@ class AhApi {
             results = this.sessionStorageManager.get(postalCode);
         } else {
             let records = this.fetchFromApi(postalCode);
-            records = records.responseJSON.records.map(item => item.fields);
-            results = Array.from(new Set(records.map(record => record.nom_de_la_commune)));
+            records = records.responseJSON.features.map(item => item.properties);
+            results = Array.from(new Set(records.map(record => record.name)));
 
             this.sessionStorageManager.store(postalCode, results);
         }
@@ -62,7 +62,7 @@ class AhApi {
 
     // returns the API Url for the given postal code
     builtApiUrl(postalCode) {
-        return `https://datanova.laposte.fr/api/records/1.0/search/?dataset=laposte_hexasmal&q=${postalCode}&facet=code_postal&facet=ligne_10`
+        return `https://api-adresse.data.gouv.fr/search/?q=${postalCode}&type=municipality`;
     }
 }
 
