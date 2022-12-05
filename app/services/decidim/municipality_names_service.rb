@@ -13,10 +13,13 @@ module Decidim
     end
 
     def call
+      # When the api doesn't return a valid response, we return an empty array
+      # Therefore we don't want to cache this response
+      # We also don't want to cache the response when the postal code is invalid or empty
       return Rails.cache.read(cache_key) if Rails.cache.read(cache_key).present?
 
       Rails.cache.fetch(cache_key, expires_in: 1.months) do
-        JSON.dump(request)
+        JSON.dump(parsed_response(request))
       end
     end
 
@@ -27,16 +30,19 @@ module Decidim
       https.use_ssl = true
       request = Net::HTTP::Get.new(url)
       response = https.request(request)
-
-      features = JSON.parse(response.read_body).fetch("features", [])
-      features.map do |feature|
-        feature.fetch("properties", {}).fetch("name", nil)
-      end
+      response.read_body
 
     rescue StandardError => e
-      logger.warn("Error while fetching municipality names for postal code #{@postal_code}. Response code: #{response.code} with error #{e}")
+      Rails.logger.warn("Error while fetching municipality names for postal code #{@postal_code} with error #{e}")
 
-      []
+      "{}"
+    end
+
+    def parsed_response(body)
+      features = JSON.parse(body).fetch("features", [])
+      features.map do |feature|
+        feature.fetch("properties", {}).fetch("name", nil)
+      end.compact
     end
 
     def cache_key
