@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Decidim
   class AddressAutocompleteApiController < DecidimController
     def postal_code_autocomplete

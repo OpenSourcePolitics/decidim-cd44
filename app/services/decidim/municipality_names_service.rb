@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require "uri"
 require "net/http"
-require 'json'
+require "json"
 
 module Decidim
   class MunicipalityNamesService
@@ -18,7 +20,7 @@ module Decidim
       # We also don't want to cache the response when the postal code is invalid or empty
       return Rails.cache.read(cache_key) if Rails.cache.read(cache_key).present?
 
-      Rails.cache.fetch(cache_key, expires_in: 1.months) do
+      Rails.cache.fetch(cache_key, expires_in: 1.month) do
         JSON.dump(parsed_response(request))
       end
     end
@@ -31,7 +33,6 @@ module Decidim
       request = Net::HTTP::Get.new(url)
       response = https.request(request)
       response.read_body
-
     rescue StandardError => e
       Rails.logger.warn("Error while fetching municipality names for postal code #{@postal_code} with error #{e}")
 

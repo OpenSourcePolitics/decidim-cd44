@@ -33,18 +33,19 @@ module Decidim
     let(:stubbed_request) do
       stub_request(:get, "https://api-adresse.data.gouv.fr/search/?q=#{postal_code}&type=municipality").with(
         headers: {
-          'Accept' => '*/*',
-          'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-          'Host' => 'api-adresse.data.gouv.fr',
-          'User-Agent' => 'Ruby'
-        })
+          "Accept" => "*/*",
+          "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+          "Host" => "api-adresse.data.gouv.fr",
+          "User-Agent" => "Ruby"
+        }
+      )
     end
 
     before do
       Rails.cache.clear
     end
 
-    context ".for" do
+    describe ".for" do
       context "when postal code is valid" do
         before do
           stubbed_request.to_return(status: 200, body: response_body, headers: {})
