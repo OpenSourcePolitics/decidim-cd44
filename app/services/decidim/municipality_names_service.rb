@@ -16,7 +16,7 @@ module Decidim
       return Rails.cache.read(cache_key) if Rails.cache.read(cache_key).present?
 
       Rails.cache.fetch(cache_key, expires_in: 1.months) do
-        request
+        JSON.dump(request)
       end
     end
 
