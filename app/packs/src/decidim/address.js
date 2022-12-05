@@ -36,9 +36,7 @@ class AhApi {
         if (this.sessionStorageManager.exists(postalCode)) {
             results = this.sessionStorageManager.get(postalCode);
         } else {
-            let records = this.fetchFromApi(postalCode);
-            records = records.responseJSON.features.map(item => item.properties);
-            results = Array.from(new Set(records.map(record => record.name)));
+            results = this.fetchFromApi(postalCode).responseJSON;
 
             this.sessionStorageManager.store(postalCode, results);
         }
@@ -48,9 +46,11 @@ class AhApi {
 
     // Fetch cities for a given postal code against defined Api
     fetchFromApi(postalCode) {
-        return $.ajax({async: false, crossDomain: true, url: this.builtApiUrl(postalCode), method: "GET", headers: {
+        return $.ajax({
+            async: false, crossDomain: true, url: this.builtApiUrl(postalCode), method: "GET", headers: {
                 "accept": "application/json",
-            }}).done((data) => {
+            }
+        }).done((data) => {
             return data.records;
         });
     }
@@ -62,7 +62,7 @@ class AhApi {
 
     // returns the API Url for the given postal code
     builtApiUrl(postalCode) {
-        return `https://api-adresse.data.gouv.fr/search/?q=${postalCode}&type=municipality`;
+        return `/postal-code-autocomplete/${postalCode}`;
     }
 }
 
