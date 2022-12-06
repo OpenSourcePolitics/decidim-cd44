@@ -24,12 +24,13 @@ describe "Data authorization", type: :system do
   end
   let(:stubbed_request) do
     stub_request(:get, "https://api-adresse.data.gouv.fr/search/?q=#{zipcode}&type=municipality").with(
-        headers: {
-          'Accept' => '*/*',
-          'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-          'Host' => 'api-adresse.data.gouv.fr',
-          'User-Agent' => 'Ruby'
-        }).to_return(status: 200, body: response_body, headers: {})
+      headers: {
+        "Accept" => "*/*",
+        "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+        "Host" => "api-adresse.data.gouv.fr",
+        "User-Agent" => "Ruby"
+      }
+    ).to_return(status: 200, body: response_body, headers: {})
   end
 
   before do
