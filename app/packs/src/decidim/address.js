@@ -12,7 +12,7 @@ class SessionStorageManager {
     }
 
     exists(postalCode) {
-        return (postalCode in sessionStorage);
+        return (postalCode in sessionStorage) && sessionStorage.getItem(postalCode) !== 'undefined';
     }
 }
 
