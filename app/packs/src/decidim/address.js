@@ -118,7 +118,7 @@ $(document).ready(() => {
     const ahApi = new AhApi(sessionStorageManager);
     const ahFormHTML = new AhFormHTML($citiesElement);
 
-    if ($postalCode.val() !== "") {
+    if ($postalCode.val() !== "" && $postalCode.val() !== undefined) {
         let cities = ahApi.citiesFor($postalCode.val());
         if (cities.length > 0) {
             ahFormHTML.clearCities();
