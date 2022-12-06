@@ -28,7 +28,7 @@ describe "Organizations", type: :system do
 
       it_behaves_like "form hiding advanced settings"
 
-      it "creates a new organization" do
+      it "creates a new organization" do :slow
         fill_in "Name", with: "Citizen Corp"
         fill_in "Host", with: "www.citizen.corp"
         fill_in "Secondary hosts", with: "foo.citizen.corp\n\rbar.citizen.corp"
@@ -45,7 +45,7 @@ describe "Organizations", type: :system do
       end
 
       context "with invalid data" do
-        it "doesn't create an organization" do
+        it "doesn't create an organization" do :slow
           fill_in "Name", with: "Bad"
           click_button "Create organization & invite admin"
 
@@ -84,7 +84,7 @@ describe "Organizations", type: :system do
 
       it_behaves_like "form hiding advanced settings"
 
-      it "edits the data" do
+      it "edits the data" do :slow
         fill_in "Name", with: "Citizens Rule!"
         fill_in "Host", with: "www.foo.org"
         fill_in "Secondary hosts", with: "foobar.citizen.corp\n\rbar.citizen.corp"
