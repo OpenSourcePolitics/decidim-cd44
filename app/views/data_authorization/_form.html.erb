@@ -25,7 +25,7 @@
   </div>
   <div class="columns medium-8">
     <div class="field city_field">
-      <%= form.select :city, [], {}, disabled: "disabled", label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.city') %>
+      <%= form.select :city, [], {label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.city')}, disabled: "disabled" %>
       <p class="help-text"><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.city') %></p>
     </div>
   </div>
