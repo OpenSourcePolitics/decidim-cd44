@@ -1018,10 +1018,10 @@
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
 "@decidim/browserslist-config@file:packages/browserslist-config":
-  version "0.26.1"
+  version "0.26.4"
 
 "@decidim/core@file:packages/core":
-  version "0.26.1"
+  version "0.26.4"
   dependencies:
     "@joeattardi/emoji-button" "^4.6.0"
     "@zeitiger/appendaround" "^1.0.0"
@@ -1074,22 +1074,22 @@
     webpack-cli "^4.2.0"
 
 "@decidim/dev@file:packages/dev":
-  version "0.26.1"
+  version "0.26.4"
   dependencies:
     axe-core "^4.1.4"
 
 "@decidim/elections@file:packages/elections":
-  version "0.26.1"
+  version "0.26.4"
   dependencies:
     "@decidim/decidim-bulletin_board" "0.22.3"
     "@decidim/voting_schemes-dummy" "0.22.3"
     "@decidim/voting_schemes-electionguard" "0.22.3"
 
 "@decidim/eslint-config@file:packages/eslint-config":
-  version "0.26.1"
+  version "0.26.4"
 
 "@decidim/stylelint-config@file:packages/stylelint-config":
-  version "0.26.1"
+  version "0.26.4"
 
 "@decidim/voting_schemes-dummy@0.22.3":
   version "0.22.3"
@@ -1102,7 +1102,7 @@
   integrity sha512-RZn/1GO5PM6a2SuN8h/SoS4EeLYnHPWw6/tl2M26ms/Xzf1ewJIgBSiByxk4qHoqvE892rccH4+G56h6iVrIqg==
 
 "@decidim/webpacker@file:packages/webpacker":
-  version "0.26.1"
+  version "0.26.4"
   dependencies:
     "@babel/core" "^7.13.13"
     "@babel/eslint-parser" "^7.13.14"
@@ -4315,6 +4315,11 @@ graphql-tag@^2.12.6:
   dependencies:
     tslib "^2.1.0"
 
+graphql-ws@^5.11.2:
+  version "5.11.2"
+  resolved "https://registry.yarnpkg.com/graphql-ws/-/graphql-ws-5.11.2.tgz#d5e0acae8b4d4a4cf7be410a24135cfcefd7ddc0"
+  integrity sha512-4EiZ3/UXYcjm+xFGP544/yW1+DVI8ZpKASFbzrV5EDTFWJp0ZvLl4Dy2fSZAzz9imKp5pZMIcjB0x/H69Pv/6w==
+
 graphql@^15.4.0:
   version "15.8.0"
   resolved "https://registry.npmjs.org/graphql/-/graphql-15.8.0.tgz"
@@ -6871,10 +6876,17 @@ q@^1.1.2:
   resolved "https://registry.npmjs.org/q/-/q-1.5.1.tgz"
   integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
 
-qs@6.10.3, qs@^6.5.2:
+qs@6.10.3:
   version "6.10.3"
   resolved "https://registry.npmjs.org/qs/-/qs-6.10.3.tgz"
   integrity sha512-wr7M2E0OFRfIfJZjKGieI8lBKb7fRCH4Fv5KNPEs7gJ8jadvotdsS08PzOKR7opXhZ/Xkjtt3WF9g38drmyRqQ==
+  dependencies:
+    side-channel "^1.0.4"
+
+qs@^6.5.2:
+  version "6.11.0"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.11.0.tgz#fd0d963446f7a65e1367e01abd85429453f0c37a"
+  integrity sha512-MvjoMCJwEarSbUYk5O+nmoSzSutSsTwF85zcHPQ9OrlFoZOYIjaqBAJIqIXjptyD5vThxGq52Xu/MaJzRkIk4Q==
   dependencies:
     side-channel "^1.0.4"
 
