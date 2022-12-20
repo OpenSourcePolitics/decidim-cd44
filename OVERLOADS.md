@@ -30,7 +30,7 @@
 * `app/controllers/concerns/decidim/initiatives/orderable.rb`
 * `app/views/decidim/initiatives/admin/initiatives_settings/edit.html.erb`
 
-### 5f03b4a - BACKPORT create initiative and signature type (#46), 2022-06-14
+### 5f03b4a - BACKPORT create initiative and signature type (PR 9309, not released yet) (#46), 2022-06-14
 * `app/permissions/decidim/initiatives/admin/permissions.rb`
 * `app/controllers/decidim/initiatives/create_initiative_controller.rb`
 * `app/controllers/decidim/initiatives/authorization_create_modals_controller.rb`
@@ -45,7 +45,7 @@
 * `app/controllers/concerns/decidim/initiatives/single_initiative_type.rb`
 * `app/views/decidim/initiatives/initiatives/_form.html.erb`
 
-### 0a8fdb7 - BACKPORT add initiative signature collection period (#33), 2022-06-03
+### 0a8fdb7 - BACKPORT add initiative signature collection period (PR 9314, released in 0.27) (#33), 2022-06-03
 * `app/views/layouts/decidim/_initiative_header_steps.html.erb`
 
 ### 3138b97 - Fix translations (#35), 2022-06-08
