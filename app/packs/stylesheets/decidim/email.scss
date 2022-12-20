@@ -1089,7 +1089,7 @@ a{
 }
 
 a:hover{
-  color: #147dc2;
+  color: var(--secondary);
 }
 
 a:active{
@@ -1181,8 +1181,8 @@ table.button{
 table.button table td{
   text-align: left;
   color: #fefefe;
-  background: #CB3C29;
-  border: 2px solid #CB3C29;
+  background: $primary;
+  border: 2px solid $primary;
 }
 
 table.button table td a{
@@ -1192,9 +1192,8 @@ table.button table td a{
   text-decoration: none;
   display: inline-block;
   padding: 8px 16px;
-  border: 0 solid #CB3C29;
+  border: 0 solid $primary;
   border-radius: 3px;
-  background: #99E6D1;
 }
 
 table.button.radius table td{
@@ -1245,13 +1244,25 @@ table.button.large table a{
 
 table.button.expand,
 table.button.expanded{
-  width: 100% !important;
+  width: 100%;
+}
+
+// Fix for Outlook to center the button
+table.button.expand > tr > td,
+table.button.expanded > tr > td{
+  text-align: center;
 }
 
 table.button.expand table,
 table.button.expanded table{
-  width: 75%;
+  width: 50%;
   margin: auto;
+}
+
+// Fix for Outlook to center the button link text
+table.button.expand table > tr > td,
+table.button.expanded table > tr > td{
+  text-align: center;
 }
 
 table.button.expand table a,
@@ -1270,7 +1281,7 @@ table.button.expanded center{
 table.button:hover table td,
 table.button:visited table td,
 table.button:active table td{
-  background: #CB3C29;
+  background: $primary;
   color: #fefefe;
 }
 
@@ -1704,7 +1715,7 @@ body.outlook p{
 table.body th.decidim-bar,
 table.body td.decidim-bar{
   padding: 10px 0;
-  background-color: #f5f5f5;
+  background-color: #1a181d;
 }
 
 table.body{
@@ -1722,7 +1733,7 @@ table.body{
 }
 
 .cityhall-bar{
-  background-color: #f5f5f5;
+  background-color: #2c2930;
 }
 
 .cityhall-logo{
