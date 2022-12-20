@@ -1,10 +1,6 @@
 # Overrides
 ## Fixes
 
-### Fix meetings orders in indexes
-* `app/controllers/decidim/meetings/meetings_controller.rb`
-* `app/controllers/decidim/meetings/directory/meetings_controller.rb`
-
 ### 28c8d74 - Add basic tests to reference package (#1), 2021-07-26
 * `lib/extends/commands/decidim/admin/create_participatory_space_private_user_extends.rb`
 * `lib/extends/commands/decidim/admin/impersonate_user_extends.rb`
@@ -25,7 +21,7 @@
 * `app/views/decidim/initiatives/admin/initiatives_types/_form.html.erb`
 * `app/views/decidim/initiatives/initiatives/show.html.erb`
 
-### 31f13bb - BACKPORT add order for initiatives (#32), 2022-06-06
+### 31f13bb - BACKPORT add order for initiatives (PR 9377, released in 0.27) (#32), 2022-06-06
 * `app/models/decidim/initiatives_settings.rb`
 * `app/models/decidim/initiative.rb`
 * `app/presenters/decidim/initiatives/admin_log/initiatives_settings_presenter.rb`
