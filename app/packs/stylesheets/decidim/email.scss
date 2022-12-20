@@ -1181,8 +1181,8 @@ table.button{
 table.button table td{
   text-align: left;
   color: #fefefe;
-  background: $primary;
-  border: 2px solid $primary;
+  background: #000000;
+  border: 2px solid #000000;
 }
 
 table.button table td a{
@@ -1192,7 +1192,7 @@ table.button table td a{
   text-decoration: none;
   display: inline-block;
   padding: 8px 16px;
-  border: 0 solid $primary;
+  border: 0 solid #000000;
   border-radius: 3px;
 }
 
@@ -1281,7 +1281,7 @@ table.button.expanded center{
 table.button:hover table td,
 table.button:visited table td,
 table.button:active table td{
-  background: $primary;
+  background: #000000;
   color: #fefefe;
 }
 
