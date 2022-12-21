@@ -11,34 +11,12 @@ describe "Data authorization", type: :system do
   let(:zipcode) { "75001" }
   let(:gdpr) { true }
   let(:minimum_age) { true }
-  let(:response_body) do
-    JSON.dump({
-                "features": [
-                  {
-                    "properties": {
-                      "name": "Paris"
-                    }
-                  }
-                ]
-              })
-  end
-  let(:stubbed_request) do
-    stub_request(:get, "https://api-adresse.data.gouv.fr/search/?q=#{zipcode}&type=municipality").with(
-      headers: {
-        "Accept" => "*/*",
-        "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-        "Host" => "api-adresse.data.gouv.fr",
-        "User-Agent" => "Ruby"
-      }
-    ).to_return(status: 200, body: response_body, headers: {})
-  end
 
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_verifications.authorizations_path
     click_link("Data Sharing Process")
-    stubbed_request
   end
 
   it "can be authorized" do
@@ -47,6 +25,10 @@ describe "Data authorization", type: :system do
 
   context "when the form is filled in correctly" do
     before do
+      switch_to_host(organization.host)
+      login_as user, scope: :user
+      visit decidim_verifications.authorizations_path
+      click_link("Data Sharing Process")
       fill_in :authorization_handler_firstname, with: firstname
       fill_in :authorization_handler_lastname, with: lastname
       fill_in :authorization_handler_phone, with: phone
@@ -245,7 +227,6 @@ describe "Data authorization", type: :system do
 
     describe "when the zipcode corresponds to nothing" do
       let(:zipcode) { "12345" }
-      let(:response_body) { JSON.dump({}) }
 
       it "shows no result for cities" do
         expect(find("#authorization_handler_city").text).to eq("")
@@ -254,7 +235,6 @@ describe "Data authorization", type: :system do
 
     describe "when the zipcode corresponds to nothing and is sent" do
       let(:zipcode) { "12345" }
-      let(:response_body) { JSON.dump({}) }
 
       before do
         click_button "Send"
