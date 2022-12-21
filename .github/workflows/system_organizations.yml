@@ -10,8 +10,8 @@ env:
   RUBYOPT: '-W:no-deprecated'
 
 jobs:
-  system_tests:
-    name: System tests
+  system_organization_tests:
+    name: System Organization Tests
     runs-on: ubuntu-latest
     services:
       postgres:
