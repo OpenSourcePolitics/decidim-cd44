@@ -12,7 +12,7 @@ class SessionStorageManager {
     }
 
     exists(postalCode) {
-        return (postalCode in sessionStorage);
+        return (postalCode in sessionStorage) && sessionStorage.getItem(postalCode) !== 'undefined';
     }
 }
 
@@ -36,9 +36,7 @@ class AhApi {
         if (this.sessionStorageManager.exists(postalCode)) {
             results = this.sessionStorageManager.get(postalCode);
         } else {
-            let records = this.fetchFromApi(postalCode);
-            records = records.responseJSON.records.map(item => item.fields);
-            results = Array.from(new Set(records.map(record => record.nom_de_la_commune)));
+            results = this.fetchFromApi(postalCode).responseJSON;
 
             this.sessionStorageManager.store(postalCode, results);
         }
@@ -48,9 +46,11 @@ class AhApi {
 
     // Fetch cities for a given postal code against defined Api
     fetchFromApi(postalCode) {
-        return $.ajax({async: false, crossDomain: true, url: this.builtApiUrl(postalCode), method: "GET", headers: {
+        return $.ajax({
+            async: false, crossDomain: true, url: this.builtApiUrl(postalCode), method: "GET", headers: {
                 "accept": "application/json",
-            }}).done((data) => {
+            }
+        }).done((data) => {
             return data.records;
         });
     }
@@ -62,7 +62,7 @@ class AhApi {
 
     // returns the API Url for the given postal code
     builtApiUrl(postalCode) {
-        return `https://datanova.laposte.fr/api/records/1.0/search/?dataset=laposte_hexasmal&q=${postalCode}&facet=code_postal&facet=ligne_10`
+        return `/postal-code-autocomplete/${postalCode}`;
     }
 }
 
@@ -118,7 +118,7 @@ $(document).ready(() => {
     const ahApi = new AhApi(sessionStorageManager);
     const ahFormHTML = new AhFormHTML($citiesElement);
 
-    if ($postalCode.val() !== "") {
+    if ($postalCode.val() !== "" && $postalCode.val() !== undefined) {
         let cities = ahApi.citiesFor($postalCode.val());
         if (cities.length > 0) {
             ahFormHTML.clearCities();
