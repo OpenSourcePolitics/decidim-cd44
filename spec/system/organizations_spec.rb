@@ -38,7 +38,10 @@ describe "Organizations", type: :system do
         check "organization_available_locales_en"
         choose "organization_default_locale_en"
         choose "Allow participants to register and login"
+
+        puts ":: Creating organization ::"
         click_button "Create organization & invite admin"
+        puts ":: Organization created ::"
 
         expect(page).to have_css("div.flash.success")
         expect(page).to have_content("Citizen Corp")
