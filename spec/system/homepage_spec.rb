@@ -168,18 +168,14 @@ describe "Homepage", type: :system do
           expect(page).to have_i18n_content(static_page_1.content)
         end
 
-        it "includes the footer sub_hero with the current organization name" do
-          expect(page).to have_css(".footer__subhero")
-
-          within ".footer__subhero" do
-            expect(page).to have_content(organization.name)
-          end
+        it "does not include the footer sub_hero with the current organization name" do
+          expect(page).to have_no_selector(".main-footer__sub-hero")
         end
       end
 
       describe "includes statistics" do
         let!(:users) { create_list(:user, 4, :confirmed, organization: organization) }
-        let!(:participatory_process) do
+        let!(:participatory_processes) do
           create_list(
             :participatory_process,
             2,
