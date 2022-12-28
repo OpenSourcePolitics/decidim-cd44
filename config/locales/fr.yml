@@ -1,208 +1,207 @@
 ---
-    fr:
-      activemodel:
-        attributes:
-          initiative:
-            area_id: Catégorie
-          initiatives_type:
-            comments_enabled: Activer les commentaires
-          osp_authorization_handler:
-            birthday: Date de naissance
-            document_number: Numéro unique
-            postal_code: Code postal
-          participatory_process:
-            private_space: Espace privé
-      decidim:
-        accessibility:
-          skip_button: Skip button
-        account:
-          show:
-            change_password: Modifier mon mot de passe
-            update_account: Mettre à jour mon compte
-        admin:
-          menu:
-            initiatives_settings: Paramètres
-          participatory_space_private_users:
-            create:
-              error: L'utilisateur privé a été créé avec succès.
-              success: Il y a eu un problème lors de la création de l'utilisateur privé.
-        amendments:
-          emendation:
-            announcement:
-              evaluating: |-
-                Cet amendement pour le %{amendable_type} %{proposal_link}
-                est en cours d’évaluation.
-        authorization_handlers:
-          data_authorization_handler:
-            errors:
-              error_message: Ce champ contient une erreur
-              no_zipcode_result: Aucun résultat trouvé pour ce code postal
-            explanation: Vérifier votre identité
-            fields:
-              city: Ville
-              firstname: Prénom
-              gdpr: J'accepte la collecte de mes données personnelles pour l'instruction de mes propositions au budget participatif ou encore à des fins statistiques. Voir le détail du traitement réalisé sur les données à caractères personnelles dans le cadre du budget participatif
-              lastname: Nom
-              minimum_age: J'atteste avoir plus de 16 ans et résider, travailler ou étudier dans le département de Loire-Atlantique en complétant ce formulaire.
-              phone: Numéro de téléphone
-              zipcode: Code postal
-            help_text:
-              city: Votre ville dépend de votre code postal, veuillez sélectionner votre ville dans la liste déroulante
-              firstname: Votre prénom doit comporter au moins 1 caractère et n'être composé que de lettres, d'espaces et de caractères spéciaux tels que - et '
-              gdpr: Vos données seront utilisées pour la vérification de votre identité
-              global_help: Il est nécessaire de compléter ce formulaire pour déposer une proposition dans le budget participatif
-              lastname: Votre nom doit comporter au moins 1 caractère et n'être composé que de lettres, d'espaces et de caractères spéciaux tels que - et '
-              minimum_age: Vous devez avoir plus de 16 ans pour pouvoir vous inscrire.
-              phone: Entrez votre numéro de téléphone
-              required_fields: Les champs obligatoires sont marqués d'un astérisque
-              terms_and_conditions: Mentions légales
-              zipcode: Votre code postal doit être composé de 5 chiffres
-            legend: Informations de contact
-            name: Procédure de partage de données
-          osp_authorization_handler:
-            explanation: Vérifier votre identité en saisissant un numéro unique
-            fields:
-              birthday: Date de naissance
-              document_number: Numéro unique
-              postal_code: Code postal
-            name: Formulaire de vérification d'identité
-          osp_authorization_workflow:
-            name: Procédure d'autorisation
+fr:
+  activemodel:
+    attributes:
+      initiative:
+        area_id: Catégorie
+      initiatives_type:
+        comments_enabled: Activer les commentaires
+      osp_authorization_handler:
+        birthday: Date de naissance
+        document_number: Numéro unique
+        postal_code: Code postal
+      participatory_process:
+        private_space: Espace privé
+  decidim:
+    accessibility:
+      skip_button: Skip button
+    account:
+      show:
+        change_password: Modifier mon mot de passe
+        update_account: Mettre à jour mon compte
+    admin:
+      menu:
+        initiatives_settings: Paramètres
+      participatory_space_private_users:
+        create:
+          error: L'utilisateur privé a été créé avec succès.
+          success: Il y a eu un problème lors de la création de l'utilisateur privé.
+    amendments:
+      emendation:
+        announcement:
+          evaluating: |-
+            Cet amendement pour le %{amendable_type} %{proposal_link}
+            est en cours d’évaluation.
+    authorization_handlers:
+      data_authorization_handler:
+        errors:
+          error_message: Ce champ contient une erreur
+          no_zipcode_result: Aucun résultat trouvé pour ce code postal
+        explanation: Vérifier votre identité
+        fields:
+          city: Ville
+          firstname: Prénom
+          gdpr: J'accepte la collecte de mes données personnelles pour l'instruction de mes propositions au budget participatif ou encore à des fins statistiques. Voir le détail du traitement réalisé sur les données à caractères personnelles dans le cadre du budget participatif
+          lastname: Nom
+          minimum_age: J'atteste avoir plus de 16 ans et résider, travailler ou étudier dans le département de Loire-Atlantique en complétant ce formulaire.
+          phone: Numéro de téléphone
+          zipcode: Code postal
+        help_text:
+          city: Votre ville dépend de votre code postal, veuillez sélectionner votre ville dans la liste déroulante
+          firstname: Votre prénom doit comporter au moins 1 caractère et n'être composé que de lettres, d'espaces et de caractères spéciaux tels que - et '
+          gdpr: Vos données seront utilisées pour la vérification de votre identité
+          global_help: Il est nécessaire de compléter ce formulaire pour déposer une proposition dans le budget participatif
+          lastname: Votre nom doit comporter au moins 1 caractère et n'être composé que de lettres, d'espaces et de caractères spéciaux tels que - et '
+          minimum_age: Vous devez avoir plus de 16 ans pour pouvoir vous inscrire.
+          phone: Entrez votre numéro de téléphone
+          required_fields: Les champs obligatoires sont marqués d'un astérisque
+          terms_and_conditions: Mentions légales
+          zipcode: Votre code postal doit être composé de 5 chiffres
+        legend: Informations de contact
+        name: Procédure de partage de données
+      osp_authorization_handler:
+        explanation: Vérifier votre identité en saisissant un numéro unique
+        fields:
+          birthday: Date de naissance
+          document_number: Numéro unique
+          postal_code: Code postal
+        name: Formulaire de vérification d'identité
+      osp_authorization_workflow:
+        name: Procédure d'autorisation
+    budgets:
+      admin:
         budgets:
-          admin:
-            budgets:
-              index:
-                paper_ballots: Bulletins de vote
-            imports:
-              help:
-                paper_ballot_results: Le document d'importation doit contenir les colonnes suivantes 'id' (avec l'identifiant du projet) et 'paper_ballots_to_import' (avec le nombre de nouveaux votes pour le projet qui doit être importé). Vous pouvez simplement réutiliser une exportation de tous les projets et ajouter une colonne nommée 'paper_ballots_to_import'.
-              label: 
-                paper_ballot_results: Importer des votes papiers
-              title:
-                paper_ballot_results: Importer des votes des bulletins papiers
-        components:
-          proposals:
-            settings:
-              global:
-                proposal_edit_time: Durée d'édition des propositions
-                proposal_edit_time_choices:
-                  infinite: Autoriser l'édition des propositions pour une durée infinie
-                  limited: Autoriser l'édition des propositions durant un délai spécifique
-        devise:
-          registrations:
-            too_fast_modal:
-              buttons:
-                close_modal: Fermer
-              notice: Vous avez complété le formulaire d'inscription trop vite. Vous devez rééssayer.
-              title: Erreur d'inscription
-        events:
-          budgets:
-            pending_order:
-              email_intro: The vote on budget "%{resource_title}" is not confirmed yet in "%{participatory_space_title}".
-              email_outro: You have received this notification because you are participating in "%{participatory_space_title}"
-              email_subject: Your vote is still pending in %{participatory_space_title}
-              notification_title: The vote on budget <a href="%{resource_path}">%{resource_title}</a> is still waiting for your confirmation in %{participatory_space_title}
-        initiatives:
-          admin:
-            initiatives_settings:
-              edit:
-                update: Mettre à jour
-              form:
-                comments: Les plus commentées
-                date: Les plus récentes
-                name: Ordre des initiatives par défaut
-                publication_date: Plus récemment publié
-                random: Aléatoire
-                signatures: Les plus soutenues
-                title: Paramètres des initiatives
-              update:
-                success: Il y a eu une erreur lors de la mise à jour du paramètre.
-          admin_log:
-            initiatives_settings:
-              update: "%{user_name} a mis à jour les paramètres d'initiatives"
-          create_initiative:
-            select_initiative_type:
-              not_authorized:
-                authorizations_page: Voir les autorisations
-                close: Fermer
-                explanation: Vous devez être autorisé pour créer cette initiative
-                title: Autorisation requise
-              verification_required: Verifier votre compte pour créer cette initiative
-          signature_interval:
-            title: Dates de signature
+          index:
+            paper_ballots: Bulletins de vote
+        imports:
+          help:
+            paper_ballot_results: Le document d'importation doit contenir les colonnes suivantes 'id' (avec l'identifiant du projet) et 'paper_ballots_to_import' (avec le nombre de nouveaux votes pour le projet qui doit être importé). Vous pouvez simplement réutiliser une exportation de tous les projets et ajouter une colonne nommée 'paper_ballots_to_import'.
+          label:
+            paper_ballot_results: Importer des votes papiers
+          title:
+            paper_ballot_results: Importer des votes des bulletins papiers
+    components:
+      proposals:
+        settings:
+          global:
+            proposal_edit_time: Durée d'édition des propositions
+            proposal_edit_time_choices:
+              infinite: Autoriser l'édition des propositions pour une durée infinie
+              limited: Autoriser l'édition des propositions durant un délai spécifique
+    devise:
+      registrations:
+        too_fast_modal:
+          buttons:
+            close_modal: Fermer
+          notice: Vous avez complété le formulaire d'inscription trop vite. Vous devez rééssayer.
+          title: Erreur d'inscription
+    events:
+      budgets:
+        pending_order:
+          email_intro: The vote on budget "%{resource_title}" is not confirmed yet in "%{participatory_space_title}".
+          email_outro: You have received this notification because you are participating in "%{participatory_space_title}"
+          email_subject: Your vote is still pending in %{participatory_space_title}
+          notification_title: The vote on budget <a href="%{resource_path}">%{resource_title}</a> is still waiting for your confirmation in %{participatory_space_title}
+    initiatives:
+      admin:
+        initiatives_settings:
+          edit:
+            update: Mettre à jour
+          form:
+            comments: Les plus commentées
+            date: Les plus récentes
+            name: Ordre des initiatives par défaut
+            publication_date: Plus récemment publié
+            random: Aléatoire
+            signatures: Les plus soutenues
+            title: Paramètres des initiatives
+          update:
+            success: Il y a eu une erreur lors de la mise à jour du paramètre.
+      admin_log:
+        initiatives_settings:
+          update: "%{user_name} a mis à jour les paramètres d'initiatives"
+      create_initiative:
+        select_initiative_type:
+          not_authorized:
+            authorizations_page: Voir les autorisations
+            close: Fermer
+            explanation: Vous devez être autorisé pour créer cette initiative
+            title: Autorisation requise
+          verification_required: Verifier votre compte pour créer cette initiative
+      signature_interval:
+        title: Dates de signature
+    meetings:
+      directory:
         meetings:
-          directory:
-            meetings:
-              index:
-                all: All
-          meeting:
-            not_allowed: You are not allowed to view this meeting
-          meetings:
-            create:
-              invalid: There was a problem creating this meeting.
-              success: You have created the meeting successfully.
-            update:
-              invalid: There was a problem updating the meeting.
-              success: You have updated the meeting successfully.
-        newsletter_mailer:
-          newsletter:
-            note: Vous avez reçu cet email parce que vous êtes abonné aux newsletters de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
-            unsubscribe: Pour ne plus recevoir ce type d'email, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
-        proposals:
-          proposals:
-            form_view:
-              cancel: Annuler
-            preview:
-              update_position: Mettre à jour les coordonnées
-        resources:
-          initiatives_type:
-            actions:
-              create: Create
-        verifications:
-          authorizations:
-            first_login:
-              actions:
-                osp_authorization_handler: Vérifier avec le formulaire de vérification de l'identité
-                osp_authorization_workflow: Vérifier avec le formulaire de vérification de l'identité
-      faker:
-        address:
-          country_code:
-          - FR
-          - FR0
-          - FR1
-          - FR2
-          - FR3
-          - FR4
-          - FR5
-          - FR6
-          - FR7
-          - FR8
-          - FR9
-          participatory_processes:
-            index:
-              promoted_processes: A la une
-            order_by_processes:
-              processes:
-                one: "%{count} projet"
-                other: "%{count} projets"
-      forms:
-        length_validator:
-          minimum:
-            one: Au moins %{count} caractère
-            other: Au moins %{count} caractères
-      layouts:
-        decidim:
-          footer:
-            download_open_data: Données ouvertes
-            made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
-          header:
-            close_menu: Fermer le menu
-            navigation: Navigation
-            sign_in: S'identifier
-            sign_up: S'inscrire
-          user_menu:
-            account: Account
-            conversations: Conversations
-            notifications: Notifications
-            profile: Profil
-    
+          index:
+            all: All
+      meeting:
+        not_allowed: You are not allowed to view this meeting
+      meetings:
+        create:
+          invalid: There was a problem creating this meeting.
+          success: You have created the meeting successfully.
+        update:
+          invalid: There was a problem updating the meeting.
+          success: You have updated the meeting successfully.
+    newsletter_mailer:
+      newsletter:
+        note: Vous avez reçu cet email parce que vous êtes abonné aux newsletters de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
+        unsubscribe: Pour ne plus recevoir ce type d'email, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
+    proposals:
+      proposals:
+        form_view:
+          cancel: Annuler
+        preview:
+          update_position: Mettre à jour les coordonnées
+    resources:
+      initiatives_type:
+        actions:
+          create: Create
+    verifications:
+      authorizations:
+        first_login:
+          actions:
+            osp_authorization_handler: Vérifier avec le formulaire de vérification de l'identité
+            osp_authorization_workflow: Vérifier avec le formulaire de vérification de l'identité
+  faker:
+    address:
+      country_code:
+        - FR
+        - FR0
+        - FR1
+        - FR2
+        - FR3
+        - FR4
+        - FR5
+        - FR6
+        - FR7
+        - FR8
+        - FR9
+      participatory_processes:
+        index:
+          promoted_processes: A la une
+        order_by_processes:
+          processes:
+            one: "%{count} projet"
+            other: "%{count} projets"
+  forms:
+    length_validator:
+      minimum:
+        one: Au moins %{count} caractère
+        other: Au moins %{count} caractères
+  layouts:
+    decidim:
+      footer:
+        download_open_data: Données ouvertes
+        made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
+      header:
+        close_menu: Fermer le menu
+        navigation: Navigation
+        sign_in: S'identifier
+        sign_up: S'inscrire
+      user_menu:
+        account: Account
+        conversations: Conversations
+        notifications: Notifications
+        profile: Profil
