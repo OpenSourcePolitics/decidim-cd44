@@ -68,6 +68,18 @@ fr:
         name: Formulaire de vérification d'identité
       osp_authorization_workflow:
         name: Procédure d'autorisation
+    budgets:
+      admin:
+        budgets:
+          index:
+            paper_ballots: Bulletins de vote
+        imports:
+          help:
+            paper_ballot_results: Le document d'importation doit contenir les colonnes suivantes 'id' (avec l'identifiant du projet) et 'paper_ballots_to_import' (avec le nombre de nouveaux votes pour le projet qui doit être importé). Vous pouvez simplement réutiliser une exportation de tous les projets et ajouter une colonne nommée 'paper_ballots_to_import'.
+          label:
+            paper_ballot_results: Importer des votes papiers
+          title:
+            paper_ballot_results: Importer des votes des bulletins papiers
     components:
       proposals:
         settings:
@@ -155,17 +167,17 @@ fr:
   faker:
     address:
       country_code:
-      - FR
-      - FR0
-      - FR1
-      - FR2
-      - FR3
-      - FR4
-      - FR5
-      - FR6
-      - FR7
-      - FR8
-      - FR9
+        - FR
+        - FR0
+        - FR1
+        - FR2
+        - FR3
+        - FR4
+        - FR5
+        - FR6
+        - FR7
+        - FR8
+        - FR9
       participatory_processes:
         index:
           promoted_processes: A la une
