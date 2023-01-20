@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/OpenSourcePolitics/decidim-module-budgets_importer.git
+  revision: ffa1da25e9daf060c4452def4002baf22c965087
+  specs:
+    decidim-budgets_importer (0.26.4)
+      decidim-core (= 0.26.4)
+
+GIT
   remote: https://github.com/OpenSourcePolitics/decidim-module-extended_socio_demographic_authorization_handler
   revision: f721a25af6d3f3452cb9528fe7f56fceb213594b
   specs:
@@ -921,6 +928,7 @@ DEPENDENCIES
   byebug (~> 11.0)
   dalli
   decidim!
+  decidim-budgets_importer!
   decidim-budgets_paper_ballots!
   decidim-decidim_awesome (~> 0.8.3)
   decidim-dev!
