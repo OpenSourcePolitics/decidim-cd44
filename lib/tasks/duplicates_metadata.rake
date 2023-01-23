@@ -44,7 +44,7 @@ def update_socio_authorized_users(socio_authorizations)
       }
       auth.user.update!(extended_data: auth.user.extended_data.reject { |key| key.start_with?("socio_") })
     end
-    if auth.user.update(extended_data: {"extended_socio_demographic_authorization_handler" => auth.user.extended_data.merge(metadata || auth.metadata)})
+    if auth.user.update(extended_data: { "extended_socio_demographic_authorization_handler" => auth.user.extended_data.merge(metadata || auth.metadata) })
       logger.info(logger_output("Updating user (ID/#{auth.user.id})"))
       updated << auth.user.id
     else
@@ -64,7 +64,7 @@ def update_data_authorized_users(data_authorizations)
 
     next if auth.user.extended_data.include?("data_authorization_handler")
 
-    if auth.user.update(extended_data: {"data_authorization_handler" => auth.user.extended_data.merge(auth.metadata)})
+    if auth.user.update(extended_data: { "data_authorization_handler" => auth.user.extended_data.merge(auth.metadata) })
       logger.info(logger_output("Updating user (ID/#{auth.user.id})"))
       updated << auth.user.id
     else
