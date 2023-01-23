@@ -47,7 +47,6 @@ describe "rake decidim:duplicates:metadata", type: :task do
       user.update!(extended_data: { "extended_socio_demographic_authorization_handler" => socio_metadata })
       user2.update!(extended_data: { "data_authorization_handler" => data_metadata_user2 })
       Rake::Task[task_cmd].invoke
-      expect(true).to eq(false)
       user.reload!
       user2.reload!
       expect(user.extended_data["extended_socio_demographic_authorization_handler"]).to eq(socio_metadata)
@@ -60,11 +59,11 @@ describe "rake decidim:duplicates:metadata", type: :task do
   context "when user has already metadata for socio but the old format" do
     it "remove the old format and add the new one" do
       user.update!(extended_data: {
-        "socio_email" => socio_metadata["email"],
-        "socio_postal_code" => socio_metadata["postal_code"],
-        "socio_city" => socio_metadata["city"],
-        "socio_phone_number" => socio_metadata["phone_number"]
-      })
+                     "socio_email" => socio_metadata["email"],
+                     "socio_postal_code" => socio_metadata["postal_code"],
+                     "socio_city" => socio_metadata["city"],
+                     "socio_phone_number" => socio_metadata["phone_number"]
+                   })
 
       Rake::Task[task_cmd].invoke
 
