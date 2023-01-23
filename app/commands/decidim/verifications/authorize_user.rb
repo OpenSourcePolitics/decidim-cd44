@@ -62,10 +62,9 @@ module Decidim
       end
 
       def duplicates_metadata_in_user!(handler)
-        return unless handler.class.name == "ExtendedSocioDemographicAuthorizationHandler"
+        return unless handler.instance_of?(::ExtendedSocioDemographicAuthorizationHandler) || handler.instance_of?(Decidim::DataAuthorizationHandler)
 
-        handler_extended_data = handler.metadata.deep_transform_keys { |k| "socio_#{k}" }
-        handler.user.update!(extended_data: handler.user.extended_data.merge(handler_extended_data))
+        handler.user.update!(extended_data: { handler.class.name.demodulize.underscore => handler.user.extended_data.merge(handler.metadata) })
       end
     end
   end

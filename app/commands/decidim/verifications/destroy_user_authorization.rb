@@ -22,9 +22,9 @@ module Decidim
       private
 
       def remove_user_extended_data!(auth)
-        return unless auth.name == "extended_socio_demographic_authorization_handler"
+        return unless auth.name == "extended_socio_demographic_authorization_handler" || auth.name == "data_authorization_handler"
 
-        extended_data = auth.user.extended_data.reject { |key| key.start_with?("socio_") }
+        extended_data = auth.user.extended_data.except(auth.name)
         auth.user.update!(extended_data: extended_data)
       end
 

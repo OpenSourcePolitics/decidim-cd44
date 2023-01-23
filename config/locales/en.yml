@@ -41,6 +41,7 @@ en:
         errors:
           error_message: This field contains an error
           no_zipcode_result: No result found for this postal code
+        explanation: Verify your identity
         fields:
           city: City
           firstname: Firstname
@@ -48,6 +49,7 @@ en:
           lastname: Lastname
           minimum_age: I confirm that I am over 16 years old
           phone: Phone number
+          zipcode: Zip code
         help_text:
           city: Your city depends on your postal code, please select your city from the dropdown list
           firstname: Your firstname must contain at least 1 character and be composed only of letters, spaces and special characters such as - and '

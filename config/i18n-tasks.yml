@@ -136,6 +136,10 @@ ignore_missing:
  - decidim.initiatives.signature_interval.title
  - decidim.initiatives.admin_log.initiatives_settings.update
  - decidim.initiatives.form.delete_attachment
+ - decidim.budgets.admin.budgets.index.paper_ballots
+ - decidim.budgets.admin.imports.help.paper_ballot_results
+ - decidim.budgets.admin.imports.label.paper_ballot_results
+ - decidim.budgets.admin.imports.title.paper_ballot_results
 
 
 
@@ -170,3 +174,12 @@ ignore_unused:
   - decidim.initiatives.admin.initiatives_settings.update.success
   - decidim.initiatives.admin_log.initiatives_settings.update
   - activemodel.attributes.initiative.area_id
+  - decidim.authorization_handlers.data_authorization_handler.*
+  - decidim.meetings.directory.meetings.index.all
+  - decidim.meetings.meeting.not_allowed
+  - decidim.meetings.meetings.create.*
+  - decidim.meetings.meetings.update.*
+  - decidim.budgets.admin.budgets.index.paper_ballots
+  - decidim.budgets.admin.imports.help.paper_ballot_results
+  - decidim.budgets.admin.imports.label.paper_ballot_results
+  - decidim.budgets.admin.imports.title.paper_ballot_results
