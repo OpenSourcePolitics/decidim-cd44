@@ -8,10 +8,10 @@ module Decidim
 
     let(:response_body) do
       JSON.dump({
-                  "features": [
+                  features: [
                     {
-                      "properties": {
-                        "name": "Barcelona"
+                      properties: {
+                        name: "Barcelona"
                       }
                     }
                   ]
@@ -20,10 +20,10 @@ module Decidim
 
     let(:unparseable_response_body) do
       JSON.dump({
-                  "features": [
+                  features: [
                     {
-                      "properties": {
-                        "missLabeled": "Barcelona"
+                      properties: {
+                        missLabeled: "Barcelona"
                       }
                     }
                   ]

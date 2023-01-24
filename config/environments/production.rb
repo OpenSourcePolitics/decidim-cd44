@@ -57,7 +57,7 @@ Rails.application.configure do
   # Use a different cache store in production.
   config.cache_store = if ENV["MEMCACHEDCLOUD_SERVERS"].present?
                          [:dalli_store, ENV["MEMCACHEDCLOUD_SERVERS"].split(","), {
-                           username: ENV["MEMCACHEDCLOUD_USERNAME"], password: ENV["MEMCACHEDCLOUD_PASSWORD"]
+                           username: ENV.fetch("MEMCACHEDCLOUD_USERNAME", nil), password: ENV.fetch("MEMCACHEDCLOUD_PASSWORD", nil)
                          }]
                        else
                          :mem_cache_store
@@ -108,7 +108,7 @@ Rails.application.configure do
   end
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
-  config.log_formatter = ::Logger::Formatter.new
+  config.log_formatter = Logger::Formatter.new
 
   config.lograge.enabled = true
   config.lograge.formatter = Lograge::Formatters::Json.new

@@ -8,22 +8,22 @@ describe "Data authorization", type: :system do
   let(:firstname) { "John" }
   let(:lastname) { "Doe" }
   let(:phone) { "0605040302" }
-  let(:zipcode) { "75001" }
+  let(:postal_code) { "75001" }
   let(:gdpr) { true }
   let(:minimum_age) { true }
   let(:response_body) do
     JSON.dump({
-                "features": [
+                features: [
                   {
-                    "properties": {
-                      "name": "Paris"
+                    properties: {
+                      name: "Paris"
                     }
                   }
                 ]
               })
   end
   let(:stubbed_request) do
-    stub_request(:get, "https://api-adresse.data.gouv.fr/search/?q=#{zipcode}&type=municipality").with(
+    stub_request(:get, "https://api-adresse.data.gouv.fr/search/?q=#{postal_code}&type=municipality").with(
       headers: {
         "Accept" => "*/*",
         "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
@@ -50,7 +50,7 @@ describe "Data authorization", type: :system do
       fill_in :authorization_handler_firstname, with: firstname
       fill_in :authorization_handler_lastname, with: lastname
       fill_in :authorization_handler_phone, with: phone
-      fill_in :authorization_handler_zipcode, with: zipcode
+      fill_in :authorization_handler_postal_code, with: postal_code
       check :authorization_handler_gdpr
       check :authorization_handler_minimum_age
       click_button "Send"
@@ -126,7 +126,7 @@ describe "Data authorization", type: :system do
       fill_in :authorization_handler_firstname, with: firstname
       fill_in :authorization_handler_lastname, with: lastname
       fill_in :authorization_handler_phone, with: phone
-      fill_in :authorization_handler_zipcode, with: zipcode
+      fill_in :authorization_handler_postal_code, with: postal_code
       check :authorization_handler_gdpr
       check :authorization_handler_minimum_age
     end
@@ -219,8 +219,8 @@ describe "Data authorization", type: :system do
       end
     end
 
-    describe "when no zipcode is entered" do
-      let(:zipcode) { "" }
+    describe "when no postal code is entered" do
+      let(:postal_code) { "" }
 
       before do
         click_button "Send"
@@ -231,8 +231,8 @@ describe "Data authorization", type: :system do
       end
     end
 
-    describe "when the zipcode is invalid" do
-      let(:zipcode) { "1234" }
+    describe "when the postal_code is invalid" do
+      let(:postal_code) { "1234" }
 
       before do
         click_button "Send"
@@ -243,17 +243,17 @@ describe "Data authorization", type: :system do
       end
     end
 
-    describe "when the zipcode corresponds to nothing" do
-      let(:zipcode) { "12345" }
+    describe "when the postal_code corresponds to nothing" do
+      let(:postal_code) { "12345" }
       let(:response_body) { JSON.dump({}) }
 
       it "shows no result for cities" do
-        expect(find("#authorization_handler_city").text).to eq("")
+        expect(find_by_id("authorization_handler_city").text).to eq("")
       end
     end
 
-    describe "when the zipcode corresponds to nothing and is sent" do
-      let(:zipcode) { "12345" }
+    describe "when the postal code corresponds to nothing and is sent" do
+      let(:postal_code) { "12345" }
       let(:response_body) { JSON.dump({}) }
 
       before do

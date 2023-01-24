@@ -120,7 +120,7 @@ module Decidim
       if File.exist?(".git")
         git_delta = `git status -s`.split("\n")
                                    .map(&:split)
-                                   .map { |array| array[1] }
+                                   .pluck(1)
 
         file_list = %w(.git/HEAD .git/ORIG_HEAD).concat(git_delta)
                                                 .select { |file| File.exist? file }

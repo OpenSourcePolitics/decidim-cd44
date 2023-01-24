@@ -18,9 +18,9 @@
 </div>
 <div class="row">
   <div class="columns medium-4">
-    <div class="field zipcode_field">
-      <%= form.text_field :zipcode, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.zipcode'), maxlength: 5, pattern: "[0-9]{5}" %>
-      <p class="help-text"><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.zipcode') %></p>
+    <div class="field postal_code_field">
+      <%= form.text_field :postal_code, label: I18n.t('decidim.authorization_handlers.data_authorization_handler.fields.postal_code'), maxlength: 5, pattern: "[0-9]{5}" %>
+      <p class="help-text"><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.postal_code') %></p>
     </div>
   </div>
   <div class="columns medium-8">
@@ -47,3 +47,6 @@
 <div class="padding-2">
   <strong><%= I18n.t('decidim.authorization_handlers.data_authorization_handler.help_text.global_help')%></strong>
 </div>
+
+<%= javascript_pack_tag "extended_socio_demographic_authorization_handler" %>
+
