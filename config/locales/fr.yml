@@ -36,7 +36,7 @@ fr:
       data_authorization_handler:
         errors:
           error_message: Ce champ contient une erreur
-          no_zipcode_result: Aucun résultat trouvé pour ce code postal
+          no_postal_code_result: Aucun résultat trouvé pour ce code postal
         explanation: Vérifier votre identité
         fields:
           city: Ville
@@ -45,7 +45,7 @@ fr:
           lastname: Nom
           minimum_age: J'atteste avoir plus de 16 ans et résider, travailler ou étudier dans le département de Loire-Atlantique en complétant ce formulaire.
           phone: Numéro de téléphone
-          zipcode: Code postal
+          postal_code: Code postal
         help_text:
           city: Votre ville dépend de votre code postal, veuillez sélectionner votre ville dans la liste déroulante
           firstname: Votre prénom doit comporter au moins 1 caractère et n'être composé que de lettres, d'espaces et de caractères spéciaux tels que - et '
@@ -56,7 +56,7 @@ fr:
           phone: Entrez votre numéro de téléphone
           required_fields: Les champs obligatoires sont marqués d'un astérisque
           terms_and_conditions: Mentions légales
-          zipcode: Votre code postal doit être composé de 5 chiffres
+          postal_code: Votre code postal doit être composé de 5 chiffres
         legend: Informations de contact
         name: Procédure de partage de données
       osp_authorization_handler:
