@@ -31,7 +31,7 @@ describe Decidim::Initiatives::Permissions do
     end
 
     context "when user belongs to another organization" do
-      let(:user) { create(:user) }
+      let(:user) { create :user }
 
       it { is_expected.to be false }
     end
@@ -46,7 +46,7 @@ describe Decidim::Initiatives::Permissions do
 
     context "when user has verified user groups" do
       before do
-        create(:user_group, :verified, users: [user], organization: user.organization)
+        create :user_group, :verified, users: [user], organization: user.organization
       end
 
       it { is_expected.to be true }
@@ -125,7 +125,7 @@ describe Decidim::Initiatives::Permissions do
     end
 
     context "when user is admin" do
-      let(:user) { create(:user, :admin, organization: organization) }
+      let(:user) { create :user, :admin, organization: organization }
 
       it { is_expected.to be true }
     end
@@ -225,7 +225,7 @@ describe Decidim::Initiatives::Permissions do
 
         context "when user is authorized" do
           before do
-            create(:authorization, :granted, user: user)
+            create :authorization, :granted, user: user
           end
 
           it { is_expected.to be true }
@@ -234,7 +234,7 @@ describe Decidim::Initiatives::Permissions do
 
       context "when user belongs to a verified user group" do
         before do
-          create(:user_group, :verified, users: [user], organization: user.organization)
+          create :user_group, :verified, users: [user], organization: user.organization
         end
 
         it { is_expected.to be true }
@@ -315,7 +315,7 @@ describe Decidim::Initiatives::Permissions do
       end
 
       context "when user is admin" do
-        let(:user) { create(:user, :admin, organization: organization) }
+        let(:user) { create :user, :admin, organization: organization }
         let(:initiative) { create(:initiative, :created, author: user, organization: organization) }
 
         it { is_expected.to be true }
@@ -354,7 +354,7 @@ describe Decidim::Initiatives::Permissions do
       end
 
       context "when user is admin" do
-        let(:user) { create(:user, :admin, organization: organization) }
+        let(:user) { create :user, :admin, organization: organization }
         let(:initiative) { create(:initiative, :created, author: user, organization: organization) }
 
         it { is_expected.to be true }
@@ -401,7 +401,7 @@ describe Decidim::Initiatives::Permissions do
 
         context "when user is authorized" do
           before do
-            create(:authorization, :granted, user: user)
+            create :authorization, :granted, user: user
           end
 
           it { is_expected.to be true }
@@ -409,7 +409,7 @@ describe Decidim::Initiatives::Permissions do
 
         context "when user belongs to a verified user group" do
           before do
-            create(:user_group, :verified, users: [user], organization: user.organization)
+            create :user_group, :verified, users: [user], organization: user.organization
           end
 
           it { is_expected.to be true }
@@ -462,7 +462,7 @@ describe Decidim::Initiatives::Permissions do
 
       context "when user has verified user groups" do
         before do
-          create(:user_group, :verified, users: [user], organization: user.organization)
+          create :user_group, :verified, users: [user], organization: user.organization
         end
 
         it { is_expected.to be false }
@@ -523,7 +523,7 @@ describe Decidim::Initiatives::Permissions do
     end
 
     context "when user belongs to another organization" do
-      let(:user) { create(:user) }
+      let(:user) { create :user }
 
       it { is_expected.to be false }
     end
@@ -534,7 +534,7 @@ describe Decidim::Initiatives::Permissions do
 
     context "when user has verified user groups" do
       before do
-        create(:user_group, :verified, users: [user], organization: user.organization)
+        create :user_group, :verified, users: [user], organization: user.organization
         create(:initiative_user_vote, initiative: initiative, author: user)
       end
 

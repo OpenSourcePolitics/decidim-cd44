@@ -115,28 +115,28 @@ describe Decidim::Meetings::MeetingsController, type: :controller do
       before { sign_in user }
 
       context "when user is admin" do
-        let!(:user) { create(:user, :admin, :confirmed, organization: organization) }
+        let!(:user) { create :user, :admin, :confirmed, organization: organization }
 
         it_behaves_like "having meeting access visibility applied"
       end
 
       context "when user is process admin" do
-        let!(:user) { create(:user, :confirmed, organization: organization) }
-        let!(:participatory_process_user_role) { create(:participatory_process_user_role, user: user, participatory_process: participatory_process) }
+        let!(:user) { create :user, :confirmed, organization: organization }
+        let!(:participatory_process_user_role) { create :participatory_process_user_role, user: user, participatory_process: participatory_process }
 
         it_behaves_like "having meeting access visibility applied"
       end
 
       context "when user is private user" do
-        let!(:user) { create(:user, :confirmed, organization: organization) }
-        let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: user, privatable_to: participatory_process) }
+        let!(:user) { create :user, :confirmed, organization: organization }
+        let!(:participatory_space_private_user) { create :participatory_space_private_user, user: user, privatable_to: participatory_process }
 
         it_behaves_like "having meeting access visibility applied"
       end
 
       context "when user has registered to the meeting" do
-        let!(:user) { create(:user, :confirmed, organization: organization) }
-        let!(:registration) { create(:registration, user: user, meeting: meeting) }
+        let!(:user) { create :user, :confirmed, organization: organization }
+        let!(:registration) { create :registration, user: user, meeting: meeting }
 
         it_behaves_like "having meeting access visibility applied"
       end
