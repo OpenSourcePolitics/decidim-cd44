@@ -13,10 +13,10 @@ describe "Data authorization", type: :system do
   let(:minimum_age) { true }
   let(:response_body) do
     JSON.dump({
-                features: [
+                "features": [
                   {
-                    properties: {
-                      name: "Paris"
+                    "properties": {
+                      "name": "Paris"
                     }
                   }
                 ]
@@ -248,7 +248,7 @@ describe "Data authorization", type: :system do
       let(:response_body) { JSON.dump({}) }
 
       it "shows no result for cities" do
-        expect(find_by_id("authorization_handler_city").text).to eq("")
+        expect(find("#authorization_handler_city").text).to eq("")
       end
     end
 

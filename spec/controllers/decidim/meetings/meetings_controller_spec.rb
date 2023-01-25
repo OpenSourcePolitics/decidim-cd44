@@ -6,9 +6,9 @@ describe Decidim::Meetings::MeetingsController, type: :controller do
   routes { Decidim::Meetings::Engine.routes }
 
   let(:organization) { create(:organization) }
-  let(:participatory_process) { create(:participatory_process, organization: organization) }
+  let(:participatory_process) { create :participatory_process, organization: organization }
   let(:meeting_component) { create(:meeting_component, :with_creation_enabled, participatory_space: participatory_process) }
-  let(:meeting) { create(:meeting, :published, component: meeting_component) }
+  let(:meeting) { create :meeting, :published, component: meeting_component }
 
   before do
     request.env["decidim.current_organization"] = organization

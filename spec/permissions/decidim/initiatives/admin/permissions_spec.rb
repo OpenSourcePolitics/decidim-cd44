@@ -5,12 +5,12 @@ require "spec_helper"
 describe Decidim::Initiatives::Admin::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create(:user, organization: organization) }
-  let(:organization) { create(:organization) }
-  let(:initiative) { create(:initiative, organization: organization) }
+  let(:user) { create :user, organization: organization }
+  let(:organization) { create :organization }
+  let(:initiative) { create :initiative, organization: organization }
   let(:context) { { initiative: initiative } }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
-  let(:initiatives_settings) { create(:initiatives_settings, organization: organization) }
+  let(:initiatives_settings) { create :initiatives_settings, organization: organization }
   let(:action) do
     { scope: :admin, action: action_name, subject: action_subject }
   end
@@ -19,7 +19,7 @@ describe Decidim::Initiatives::Admin::Permissions do
     let(:action_name) { name }
 
     context "when initiative is #{valid_trait}" do
-      let(:initiative) { create(:initiative, valid_trait, organization: organization) }
+      let(:initiative) { create :initiative, valid_trait, organization: organization }
 
       it { is_expected.to be true }
     end

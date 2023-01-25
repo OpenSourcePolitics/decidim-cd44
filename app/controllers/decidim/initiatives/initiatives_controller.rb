@@ -59,7 +59,8 @@ module Decidim
           on(:ok) do
             redirect_to EngineRouter.main_proxy(current_initiative).initiatives_path(initiative_slug: nil), flash: {
               notice: I18n.t(
-                "decidim.initiatives.admin.initiatives.edit.success"
+                "success",
+                scope: %w(decidim initiatives admin initiatives edit)
               )
             }
           end
