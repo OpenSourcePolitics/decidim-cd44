@@ -7,10 +7,7 @@ namespace :decidim do
       logger = Logger.new($stdout)
       logger.info(logger_output("Retrieving all extended socio demographic and data authorizations"))
 
-      socio_authorizations = Decidim::Authorization.where(name: "extended_socio_demographic_authorization_handler")
-      data_authorizations = Decidim::Authorization.where(name: "data_authorization_handler")
-
-      updated = update_socio_authorized_users(socio_authorizations) + update_data_authorized_users(data_authorizations)
+      updated = update_authorized_users(Decidim::Authorization.where(name: %w[extended_socio_demographic_authorization_handler data_authorization_handler]))
 
       logger.info(logger_output("Found #{socio_authorizations.count} extended socio demographic authorizations"))
       logger.info(logger_output("Found #{data_authorizations.count} data authorizations"))
@@ -25,46 +22,28 @@ def logger_output(msg = "", task_name = "decidim:duplicates:metadata")
   "[#{task_name}] :: #{msg}"
 end
 
-def update_socio_authorized_users(socio_authorizations)
+def update_authorized_users(authorizations)
   updated = []
-  socio_authorizations.each do |auth|
+  authorizations.each do |auth|
     if auth.user.blank? || !auth.user.respond_to?(:extended_data)
       logger.error(logger_output("Undefined user for authorization ID/#{auth.id}"))
       next
     end
 
-    next if auth.user.extended_data.include?("extended_socio_demographic_authorization_handler")
+    next if auth.user.extended_data.include?(auth.name)
 
-    if auth.user.extended_data.include?("socio_postal_code")
-      metadata = {
-        "postal_code" => auth.user.extended_data["socio_postal_code"],
-        "city" => auth.user.extended_data["socio_city"],
-        "email" => auth.user.extended_data["socio_email"],
-        "phone_number" => auth.user.extended_data["socio_phone_number"]
-      }
-      auth.user.update!(extended_data: auth.user.extended_data.reject { |key| key.start_with?("socio_") })
+    if auth.name = "extended_socio_demographic_authorization_handler"
+      if auth.user.extended_data.include?("socio_postal_code")
+        metadata = {
+          "postal_code" => auth.user.extended_data["socio_postal_code"],
+          "city" => auth.user.extended_data["socio_city"],
+          "email" => auth.user.extended_data["socio_email"],
+          "phone_number" => auth.user.extended_data["socio_phone_number"]
+        }
+        auth.user.update!(extended_data: auth.user.extended_data.reject { |key| key.start_with?("socio_") })
+      end
     end
-    if auth.user.update(extended_data: { "extended_socio_demographic_authorization_handler" => auth.user.extended_data.merge(metadata || auth.metadata) })
-      logger.info(logger_output("Updating user (ID/#{auth.user.id})"))
-      updated << auth.user.id
-    else
-      logger.error(logger_output("Errors happened while updating user (ID/#{auth.user.id})"))
-    end
-  end
-  updated
-end
-
-def update_data_authorized_users(data_authorizations)
-  updated = []
-  data_authorizations.each do |auth|
-    if auth.user.blank? || !auth.user.respond_to?(:extended_data)
-      logger.error(logger_output("Undefined user for authorization ID/#{auth.id}"))
-      next
-    end
-
-    next if auth.user.extended_data.include?("data_authorization_handler")
-
-    if auth.user.update(extended_data: { "data_authorization_handler" => auth.user.extended_data.merge(auth.metadata) })
+    if auth.user.update(extended_data: { auth.name => auth.user.extended_data.merge(metadata || auth.metadata) })
       logger.info(logger_output("Updating user (ID/#{auth.user.id})"))
       updated << auth.user.id
     else
