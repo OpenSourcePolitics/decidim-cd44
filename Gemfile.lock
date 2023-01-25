@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/OpenSourcePolitics/decidim-module-budgets_importer.git
-  revision: 92fcefbc9b8d1cee50506c300818292d939d5f39
+  revision: 922581c47e17dc0e4dae3ad57b1745ccc6c3b32c
   specs:
     decidim-budgets_importer (0.26.4)
       decidim-core (= 0.26.4)
