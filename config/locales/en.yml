@@ -41,6 +41,7 @@ en:
         errors:
           error_message: This field contains an error
           no_postal_code_result: No result found for this postal code
+        explanation: Verify your identity
         fields:
           city: City
           firstname: Firstname
