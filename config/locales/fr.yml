@@ -13,6 +13,9 @@ fr:
       participatory_process:
         private_space: Espace privé
   decidim:
+    budgets_importer:
+      actions:
+        import: Importer des projets
     accessibility:
       skip_button: Skip button
     account:
@@ -70,6 +73,9 @@ fr:
         name: Procédure d'autorisation
     budgets:
       admin:
+        projects:
+          index:
+            paper_ballots: Vote papier
         budgets:
           index:
             paper_ballots: Bulletins de vote
