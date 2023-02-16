@@ -12,7 +12,7 @@ module Decidim::Verifications
     let(:handler) do
       DummyAuthorizationHandler.new(
         document_number: document_number,
-        user: user,
+        user: user
       )
     end
 
