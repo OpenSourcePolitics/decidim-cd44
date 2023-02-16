@@ -140,10 +140,17 @@ ignore_missing:
  - decidim.budgets.admin.imports.help.paper_ballot_results
  - decidim.budgets.admin.imports.label.paper_ballot_results
  - decidim.budgets.admin.imports.title.paper_ballot_results
- - decidim.editor_images.create.error
- - decidim.editor_images.create.success
-
-
+ - decidim.editor_images.create.*
+ - decidim.admin.actions.import
+ - decidim.budgets.admin.projects.index.*
+ - decidim.budgets.admin.models.project.name
+ - decidim.budgets.admin.imports.resources.paper_ballot_results
+ - decidim.budgets.actions.*
+ - decidim.budgets.actions.confirm_destroy
+ - decidim.budgets.models.project.fields.*
+ - decidim.budgets_importer.actions.import
+ - index.confirmed_orders_count
+ - activemodel.errors.models.user.attributes.password.password_blank
 
 # Consider these keys used:
 ignore_unused:
@@ -185,3 +192,5 @@ ignore_unused:
   - decidim.budgets.admin.imports.help.paper_ballot_results
   - decidim.budgets.admin.imports.label.paper_ballot_results
   - decidim.budgets.admin.imports.title.paper_ballot_results
+  - decidim.budgets.admin.imports.resources.paper_ballot_results
+  - activemodel.errors.models.user.attributes.password.password_blank
