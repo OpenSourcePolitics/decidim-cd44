@@ -12,6 +12,12 @@ fr:
         postal_code: Code postal
       participatory_process:
         private_space: Espace privé
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              password_blank: doit être rempli
   decidim:
     budgets_importer:
       actions:
@@ -84,6 +90,8 @@ fr:
             paper_ballot_results: Le document d'importation doit contenir les colonnes suivantes 'id' (avec l'identifiant du projet) et 'paper_ballots_to_import' (avec le nombre de nouveaux votes pour le projet qui doit être importé). Vous pouvez simplement réutiliser une exportation de tous les projets et ajouter une colonne nommée 'paper_ballots_to_import'.
           label:
             paper_ballot_results: Importer des votes papiers
+          resources:
+            paper_ballot_results: Résultats de bulletins de vote
           title:
             paper_ballot_results: Importer des votes des bulletins papiers
     components:
