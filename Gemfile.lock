@@ -937,7 +937,7 @@ DEPENDENCIES
   decidim-initiatives!
   decidim-question_captcha!
   decidim-simple_proposal!
-  decidim-spam_detection
+  decidim-spam_detection (= 2.0.0)
   decidim-term_customizer!
   deface
   dotenv-rails
