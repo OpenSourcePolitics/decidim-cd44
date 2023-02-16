@@ -12,7 +12,7 @@ module Decidim::Verifications
     let(:handler) do
       DummyAuthorizationHandler.new(
         document_number: document_number,
-        user: user
+        user: user,
       )
     end
 
@@ -85,7 +85,7 @@ module Decidim::Verifications
         end
       end
 
-      context "when authorization is a Data" do
+      context "when authorization is a DataAuthorizationHandler" do
         let(:handler) do
           Decidim::DataAuthorizationHandler.new(
             firstname: "John",
@@ -93,9 +93,9 @@ module Decidim::Verifications
             phone: "0123456789",
             gdpr: true,
             minimum_age: true,
-            zipcode: "12345",
             city: "Barcelona",
-            user: user
+            user: user,
+            postal_code: "75018"
           )
         end
 
@@ -108,8 +108,8 @@ module Decidim::Verifications
                                                   "firstname" => "John",
                                                   "lastname" => "Doe",
                                                   "phone" => "0123456789",
-                                                  "zipcode" => "12345",
-                                                  "city" => "Barcelona"
+                                                  "city" => "Barcelona",
+                                                  "postal_code" => "75018"
                                                 })
         end
       end
