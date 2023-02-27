@@ -13,13 +13,25 @@ module Decidim
     def update_authorized_users
       return if @authorizations.blank?
 
-      @authorizations.each do |auth|
-        if auth.user.blank? || !auth.user.respond_to?(:extended_data)
+      authorizations_with_metadata = update_metadata
+
+      authorizations_with_metadata.each do |auth, metadata|
+        user = auth.user
+
+        if user.blank? || !user.respond_to?(:extended_data)
           logger.error(logger_output("Undefined user for authorization ID/#{auth.id}"))
           next
         end
 
-        next if auth.user.extended_data.include?(auth.name)
+        next if user.extended_data.include?(auth.name)
+
+        update_user_metadata(auth, metadata)
+      end
+    end
+
+    def update_metadata
+      @authorizations.map do |auth|
+        metadata = auth.metadata
 
         if auth.name == "extended_socio_demographic_authorization_handler" && auth.user.extended_data.include?("socio_postal_code")
           metadata = {
@@ -31,7 +43,7 @@ module Decidim
           auth.user.update!(extended_data: auth.user.extended_data.reject { |key| key.start_with?("socio_") })
         end
 
-        update_user_metadata(auth, metadata || auth.metadata)
+        [auth, metadata]
       end
     end
 
