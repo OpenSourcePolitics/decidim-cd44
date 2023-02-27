@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'decidim/duplicates_metadata'
+require "decidim/duplicates_metadata"
 
 namespace :decidim do
   namespace :duplicates do
