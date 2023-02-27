@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/duplicates_metadata"
 
 describe Decidim::DuplicatesMetadata do
   subject { described_class.new }
