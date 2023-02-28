@@ -124,5 +124,20 @@ describe Decidim::DuplicatesMetadata do
         end
       end
     end
+
+    context "when there is no authorizations" do
+      before do
+        Decidim::Authorization.destroy_all
+      end
+
+      it "does not update user" do
+        expect do
+          subject.perform
+          user.reload
+        end.not_to change(user, :extended_data)
+
+        expect(subject.authorizations.count).to eq(0)
+      end
+    end
   end
 end
