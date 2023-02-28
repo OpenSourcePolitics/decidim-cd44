@@ -33,6 +33,7 @@ gem "faker", "~> 2.14"
 gem "activejob-uniqueness", require: "active_job/uniqueness/sidekiq_patch"
 gem "fog-aws"
 gem "sys-filesystem"
+gem "rack-attack", "~> 6.6"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
