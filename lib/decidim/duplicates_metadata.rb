@@ -2,62 +2,44 @@
 
 module Decidim
   class DuplicatesMetadata
-    def initialize
-      @authorizations = Decidim::Authorization.where(name: %w(data_authorization_handler extended_socio_demographic_authorization_handler))
+    attr_reader :authorizations
+
+    AUTHORIZATION_NAMES = %w(extended_socio_demographic_authorization_handler data_authorization_handler).freeze
+
+    def initialize(names = nil)
+      @authorizations = Decidim::Authorization.where(name: names.presence || AUTHORIZATION_NAMES)
     end
 
     def perform
+      return if @authorizations.blank?
+
       update_authorized_users
     end
 
     def update_authorized_users
-      return if @authorizations.blank?
+      @authorizations.each do |auth|
+        next if auth.user.blank? || !auth.user.respond_to?(:extended_data)
+        next if auth.user.extended_data.include?(auth.name)
 
-      # If an authorization follow the format "socio_{metadata}" we need to update the format of the authorization to {metadata}
-      authorizations_with_metadata = update_metadata_format
-
-      authorizations_with_metadata.each do |auth, metadata|
-        user = auth.user
-
-        if user.blank? || !user.respond_to?(:extended_data)
-          logger.error(logger_output("Undefined user for authorization ID/#{auth.id}"))
-          next
-        end
-
-        next if user.extended_data.include?(auth.name)
-
-        update_user_metadata(auth, metadata)
-      end
-    end
-
-    def update_metadata_format
-      @authorizations.map do |auth|
-        metadata = auth.metadata
-
-        if auth.name == "extended_socio_demographic_authorization_handler" && auth.user.extended_data.include?("socio_postal_code")
-          metadata = {
-            "postal_code" => auth.user.extended_data["socio_postal_code"],
-            "city" => auth.user.extended_data["socio_city"],
-            "email" => auth.user.extended_data["socio_email"],
-            "phone_number" => auth.user.extended_data["socio_phone_number"]
-          }
-          auth.user.update!(extended_data: auth.user.extended_data.reject { |key| key.start_with?("socio_") })
-        end
-
-        [auth, metadata]
+        Rails.logger.debug "[DuplicatesMetadata] - Updating metadata for user (ID/#{auth.user.id})"
+        auth.user.update!(
+          extended_data: auth.user.extended_data.merge(auth.name => auth.metadata)
+        )
+        clear_legacy_metadata_for_user!(auth)
       end
     end
 
     private
 
-    attr_reader :authorizations
+    # LEGACY: Users can have old format of metadata in extended_data column.
+    # If a user has keys like `socio_{attr_name}` in extended_data
+    # Then it removes these keys from Hash
+    def clear_legacy_metadata_for_user!(auth)
+      return unless auth.name == "extended_socio_demographic_authorization_handler"
+      return unless auth.user.extended_data.select { |key| key.start_with?("socio_") }.any?
 
-    def update_user_metadata(auth, metadata)
-      auth.user.update!(extended_data: auth.user.extended_data.merge(auth.name => metadata))
-    end
-
-    def logger_output(msg = "", task_name = "decidim:duplicates:metadata")
-      "[#{task_name}] :: #{msg}"
+      Rails.logger.debug "[DuplicatesMetadata] - Clear legacy metadata for user (ID/#{auth.user.id})"
+      auth.user.update!(extended_data: auth.user.extended_data.reject { |key| key.start_with?("socio_") })
     end
   end
 end
