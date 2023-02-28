@@ -13,7 +13,8 @@ module Decidim
     def update_authorized_users
       return if @authorizations.blank?
 
-      authorizations_with_metadata = update_metadata
+      # If an authorization follow the format "socio_{metadata}" we need to update the format of the authorization to {metadata}
+      authorizations_with_metadata = update_metadata_format
 
       authorizations_with_metadata.each do |auth, metadata|
         user = auth.user
@@ -29,7 +30,7 @@ module Decidim
       end
     end
 
-    def update_metadata
+    def update_metadata_format
       @authorizations.map do |auth|
         metadata = auth.metadata
 

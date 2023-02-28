@@ -37,11 +37,8 @@ describe Decidim::DuplicatesMetadata do
            name: "data_authorization_handler")
   end
 
-  context "when user has no metadata" do
+  shared_examples "has duplicated encrypted metadata to user registration_metadata" do
     before do
-      expect(user.extended_data).not_to include("extended_socio_demographic_authorization_handler", "data_authorization_handler")
-      expect(user2.extended_data).not_to include("extended_socio_demographic_authorization_handler", "data_authorization_handler")
-
       subject.perform
       user.reload
       user2.reload
@@ -60,6 +57,15 @@ describe Decidim::DuplicatesMetadata do
     end
   end
 
+  context "when user has no metadata" do
+    before do
+      expect(user.extended_data).not_to include("extended_socio_demographic_authorization_handler", "data_authorization_handler")
+      expect(user2.extended_data).not_to include("extended_socio_demographic_authorization_handler", "data_authorization_handler")
+    end
+
+    it_behaves_like "has duplicated encrypted metadata to user registration_metadata"
+  end
+
   context "when user has metadata" do
     let!(:user) { create(:user, organization: organization) }
     let(:user_extended_data) do
@@ -73,15 +79,9 @@ describe Decidim::DuplicatesMetadata do
 
       expect(user.extended_data["extended_socio_demographic_authorization_handler"]).to eq(user_extended_data["extended_socio_demographic_authorization_handler"])
       expect(user.extended_data["data_authorization_handler"]).to be_nil
-
-      subject.perform
-      user.reload
     end
 
-    it "duplicates encrypted metadata to user registration_metadata" do
-      expect(user.extended_data["extended_socio_demographic_authorization_handler"]).to eq(user_extended_data["extended_socio_demographic_authorization_handler"])
-      expect(user.extended_data["data_authorization_handler"]).to eq(data_authorization.metadata)
-    end
+    it_behaves_like "has duplicated encrypted metadata to user registration_metadata"
   end
 
   context "when user has already metadata for socio but the old format" do
@@ -94,15 +94,9 @@ describe Decidim::DuplicatesMetadata do
                      "socio_city" => socio_authorization.metadata["city"],
                      "socio_phone_number" => socio_authorization.metadata["phone_number"]
                    })
-
-      subject.perform
-      user.reload
     end
 
-    it "duplicates encrypted metadata to user registration_metadata" do
-      expect(user.extended_data["extended_socio_demographic_authorization_handler"]).to eq(socio_authorization.metadata)
-      expect(user.extended_data["data_authorization_handler"]).to eq(data_authorization.metadata)
-    end
+    it_behaves_like "has duplicated encrypted metadata to user registration_metadata"
   end
 
   context "when user has already metadata for socio and data" do
@@ -113,14 +107,8 @@ describe Decidim::DuplicatesMetadata do
                      "extended_socio_demographic_authorization_handler" => socio_authorization.metadata,
                      "data_authorization_handler" => data_authorization.metadata
                    })
-
-      subject.perform
-      user.reload
     end
 
-    it "duplicates encrypted metadata to user registration_metadata" do
-      expect(user.extended_data["extended_socio_demographic_authorization_handler"]).to eq(socio_authorization.metadata)
-      expect(user.extended_data["data_authorization_handler"]).to eq(data_authorization.metadata)
-    end
+    it_behaves_like "has duplicated encrypted metadata to user registration_metadata"
   end
 end
