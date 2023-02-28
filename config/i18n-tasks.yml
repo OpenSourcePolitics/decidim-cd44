@@ -140,8 +140,6 @@ ignore_missing:
  - decidim.budgets.admin.imports.help.paper_ballot_results
  - decidim.budgets.admin.imports.label.paper_ballot_results
  - decidim.budgets.admin.imports.title.paper_ballot_results
- - decidim.editor_images.create.error
- - decidim.editor_images.create.success
 
 
 
