@@ -1,11 +1,5 @@
 ---
 fr:
-  rack_attack:
-    too_many_requests:
-      message: Il semblerait que vous fassiez trop de requetes sur notre serveur, votre connexion a ete ralentie.
-      time: 'Vous pourrez naviguer de nouveau sur notre plateforme dans :'
-      time_unit: secondes
-      title: Merci pour votre participation sur %{organization_name}
   activemodel:
     attributes:
       initiative:
@@ -25,9 +19,6 @@ fr:
             password:
               password_blank: doit être rempli
   decidim:
-    budgets_importer:
-      actions:
-        import: Importer des projets
     accessibility:
       skip_button: Skip button
     account:
@@ -69,9 +60,9 @@ fr:
           lastname: Votre nom doit comporter au moins 1 caractère et n'être composé que de lettres, d'espaces et de caractères spéciaux tels que - et '
           minimum_age: Vous devez avoir plus de 16 ans pour pouvoir vous inscrire.
           phone: Entrez votre numéro de téléphone
+          postal_code: Votre code postal doit être composé de 5 chiffres
           required_fields: Les champs obligatoires sont marqués d'un astérisque
           terms_and_conditions: Mentions légales
-          postal_code: Votre code postal doit être composé de 5 chiffres
         legend: Informations de contact
         name: Procédure de partage de données
       osp_authorization_handler:
@@ -85,9 +76,6 @@ fr:
         name: Procédure d'autorisation
     budgets:
       admin:
-        projects:
-          index:
-            paper_ballots: Vote papier
         budgets:
           index:
             paper_ballots: Bulletins de vote
@@ -100,6 +88,12 @@ fr:
             paper_ballot_results: Résultats de bulletins de vote
           title:
             paper_ballot_results: Importer des votes des bulletins papiers
+        projects:
+          index:
+            paper_ballots: Vote papier
+    budgets_importer:
+      actions:
+        import: Importer des projets
     components:
       proposals:
         settings:
@@ -225,3 +219,9 @@ fr:
         conversations: Conversations
         notifications: Notifications
         profile: Profil
+  rack_attack:
+    too_many_requests:
+      message: Il semblerait que vous fassiez trop de requetes sur notre serveur, votre connexion a ete ralentie.
+      time: 'Vous pourrez naviguer de nouveau sur notre plateforme dans :'
+      time_unit: secondes
+      title: Merci pour votre participation sur %{organization_name}

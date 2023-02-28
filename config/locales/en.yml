@@ -1,11 +1,5 @@
 ---
 en:
-  rack_attack:
-    too_many_requests:
-      message: Your connection has been slowed because server received too many requests.
-      time: 'You will be able to navigate on our website in :'
-      time_unit: seconds
-      title: Thank you for your participation on %{organization_name}
   activemodel:
     attributes:
       initiative:
@@ -18,6 +12,12 @@ en:
         postal_code: Code postal
       participatory_process:
         private_space: Espace privé
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              password_blank: can't be blank
   decidim:
     accessibility:
       skip_button: Skip button
@@ -64,9 +64,9 @@ en:
           lastname: Your lastname must contain at least 1 character and be composed only of letters, spaces and special characters such as - and '
           minimum_age: You must be over 16 years old to register
           phone: Enter your phone number
+          postal_code: Your postal code must be composed of 5 digits
           required_fields: Required fields are marked with an asterisk
           terms_and_conditions: Terms and conditions
-          postal_code: Your postal code must be composed of 5 digits
         legend: Contact information
         name: Data Sharing Process
       osp_authorization_handler:
@@ -177,3 +177,9 @@ en:
         conversations: Conversations
         notifications: Notifications
         profile: Profile
+  rack_attack:
+    too_many_requests:
+      message: Your connection has been slowed because server received too many requests.
+      time: 'You will be able to navigate on our website in :'
+      time_unit: seconds
+      title: Thank you for your participation on %{organization_name}
