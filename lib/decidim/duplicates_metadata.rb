@@ -21,7 +21,7 @@ module Decidim
         next if auth.user.blank? || !auth.user.respond_to?(:extended_data)
         next if auth.user.extended_data.include?(auth.name)
 
-        puts "[DuplicatesMetadata] - Updating metadata for user (ID/#{auth.user.id})"
+        Rails.logger.debug "[DuplicatesMetadata] - Updating metadata for user (ID/#{auth.user.id})"
         auth.user.update!(
           extended_data: auth.user.extended_data.merge(auth.name => auth.metadata)
         )
@@ -38,7 +38,7 @@ module Decidim
       return unless auth.name == "extended_socio_demographic_authorization_handler"
       return unless auth.user.extended_data.select { |key| key.start_with?("socio_") }.any?
 
-      puts "[DuplicatesMetadata] - Clear legacy metadata for user (ID/#{auth.user.id})"
+      Rails.logger.debug "[DuplicatesMetadata] - Clear legacy metadata for user (ID/#{auth.user.id})"
       auth.user.update!(extended_data: auth.user.extended_data.reject { |key| key.start_with?("socio_") })
     end
   end
