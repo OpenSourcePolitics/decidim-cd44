@@ -192,5 +192,6 @@ ignore_unused:
   - decidim.budgets.admin.imports.help.paper_ballot_results
   - decidim.budgets.admin.imports.label.paper_ballot_results
   - decidim.budgets.admin.imports.title.paper_ballot_results
-  - decidim.budgets.admin.imports.resources.paper_ballot_results
   - activemodel.errors.models.user.attributes.password.password_blank
+  - rack_attack.too_many_requests.{message,time,time_unit,title}
+  - decidim.budgets.admin.imports.resources.paper_ballot_results

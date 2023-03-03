@@ -12,6 +12,12 @@ en:
         postal_code: Code postal
       participatory_process:
         private_space: Espace privé
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              password_blank: can't be blank
   decidim:
     accessibility:
       skip_button: Skip button
@@ -171,3 +177,9 @@ en:
         conversations: Conversations
         notifications: Notifications
         profile: Profile
+  rack_attack:
+    too_many_requests:
+      message: Your connection has been slowed because server received too many requests.
+      time: 'You will be able to navigate on our website in :'
+      time_unit: seconds
+      title: Thank you for your participation on %{organization_name}
