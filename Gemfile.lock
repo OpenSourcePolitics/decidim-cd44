@@ -950,6 +950,7 @@ DEPENDENCIES
   newrelic_rpm
   passenger
   puma (>= 5.5.1)
+  rack-attack (~> 6.6)
   rubocop-faker
   sendgrid-ruby
   sentry-rails
