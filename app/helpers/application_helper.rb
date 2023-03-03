@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-  include Decidim::LayoutHelper
-
   def render_helpscout_beacon(side)
     return if helpscout_beacon_id(side).blank?
 
