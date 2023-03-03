@@ -151,6 +151,8 @@ ignore_missing:
  - decidim.budgets_importer.actions.import
  - index.confirmed_orders_count
  - activemodel.errors.models.user.attributes.password.password_blank
+ - decidim.editor_images.create.error
+ - decidim.editor_images.create.success
 
 # Consider these keys used:
 ignore_unused:
