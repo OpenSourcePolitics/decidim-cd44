@@ -254,8 +254,24 @@ describe Decidim::Initiatives::Permissions do
           )
         end
 
-        context "when user is not verified" do
+        context "when authorization is required and user is not verified" do
+          before do
+            allow(Decidim::Initiatives)
+              .to receive(:do_not_require_authorization)
+              .and_return(false)
+          end
+
           it { is_expected.to be false }
+        end
+
+        context "when authorization is not required and user is not verified" do
+          before do
+            allow(Decidim::Initiatives)
+              .to receive(:do_not_require_authorization)
+              .and_return(true)
+          end
+
+          it { is_expected.to be true }
         end
 
         context "when user is fully verified" do
@@ -387,7 +403,15 @@ describe Decidim::Initiatives::Permissions do
       context "when user is not a member" do
         let(:initiative) { create(:initiative, :discarded, organization: organization) }
 
-        it { is_expected.to be false }
+        context "when authorizations are required" do
+          before do
+            allow(Decidim::Initiatives)
+              .to receive(:do_not_require_authorization)
+              .and_return(false)
+          end
+
+          it { is_expected.to be false }
+        end
 
         context "when authorizations are not required" do
           before do
