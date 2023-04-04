@@ -20,7 +20,7 @@ module Decidim::Verifications
 
     context "when the form is not authorized" do
       before do
-        expect(handler).to receive(:valid?).and_return(false)
+        allow(handler).to receive(:valid?).and_return(false)
       end
 
       it "is not valid" do
@@ -48,18 +48,69 @@ module Decidim::Verifications
       it "doesn't duplicates metadata in user extended data" do
         subject.call
 
-        expect(user.extended_data).not_to include("socio_document_number" => document_number)
+        expect(user.extended_data).not_to include("extended_socio_demographic_authorization_handler" => { "document_number" => document_number })
+        expect(user.extended_data).not_to include("data_authorization_handler" => { "gdpr" => true })
       end
 
       context "when authorization is a ExtendedSocioDemographic" do
-        before do
-          allow(handler.class).to receive(:name).and_return("ExtendedSocioDemographicAuthorizationHandler")
+        let(:handler) do
+          ::ExtendedSocioDemographicAuthorizationHandler.new(
+            phone_number: "0123456789",
+            last_name: "Doe",
+            postal_code: "12345",
+            first_name: "John",
+            address: "Carrer de la Ciutat de Granada, 1",
+            city: "Barcelona",
+            email: "johndoe@barcelona.es",
+            resident: true,
+            rgpd: true,
+            user: user
+          )
         end
 
         it "duplicates metadata in user extended data" do
           subject.call
 
-          expect(user.extended_data).to include("socio_document_number" => document_number)
+          expect(user.extended_data).to include("extended_socio_demographic_authorization_handler" => {
+                                                  "phone_number" => "0123456789",
+                                                  "last_name" => "Doe",
+                                                  "postal_code" => "12345",
+                                                  "first_name" => "John",
+                                                  "address" => "Carrer de la Ciutat de Granada, 1",
+                                                  "city" => "Barcelona",
+                                                  "email" => "johndoe@barcelona.es",
+                                                  "resident" => true,
+                                                  "rgpd" => true
+                                                })
+        end
+      end
+
+      context "when authorization is a DataAuthorizationHandler" do
+        let(:handler) do
+          Decidim::DataAuthorizationHandler.new(
+            firstname: "John",
+            lastname: "Doe",
+            phone: "0123456789",
+            gdpr: true,
+            minimum_age: true,
+            city: "Barcelona",
+            user: user,
+            postal_code: "75018"
+          )
+        end
+
+        it "duplicates metadata in user extended data" do
+          subject.call
+
+          expect(user.extended_data).to include("data_authorization_handler" => {
+                                                  "gdpr" => true,
+                                                  "minimum_age" => true,
+                                                  "firstname" => "John",
+                                                  "lastname" => "Doe",
+                                                  "phone" => "0123456789",
+                                                  "city" => "Barcelona",
+                                                  "postal_code" => "75018"
+                                                })
         end
       end
     end
@@ -84,7 +135,7 @@ module Decidim::Verifications
         end
 
         it "is invalid if there's another authorization with the same id" do
-          expect { subject.call }.to change(authorizations, :count).by(0)
+          expect { subject.call }.not_to change(authorizations, :count)
         end
       end
     end

@@ -10,14 +10,26 @@ module Decidim::Verifications
     let(:extended_data) do
       {
         "extra_data" => "Extra data",
-        "socio_work_area" => "Work area",
-        "socio_residential_area" => "Residential area"
+        "extended_socio_demographic_authorization_handler" => {
+          "work_area" => "Work area",
+          "residential_area" => "Residential area"
+        },
+        "data_authorization_handler" => {
+          "minimum_age" => true,
+          "gdpr" => true
+        }
       }
     end
-    let(:metadata) do
+    let(:metadata_socio) do
       {
-        "socio_work_area" => "Work area",
-        "socio_residential_area" => "Residential area"
+        "work_area" => "Work area",
+        "residential_area" => "Residential area"
+      }
+    end
+    let(:metadata_data) do
+      {
+        "minimum_age" => true,
+        "gdpr" => true
       }
     end
     let(:authorizations) { Authorizations.new(organization: user.organization, user: user, granted: true) }
@@ -31,19 +43,36 @@ module Decidim::Verifications
     end
 
     context "when everything is ok" do
-      let!(:authorization) { create(:authorization, :granted, name: "extended_socio_demographic_authorization_handler", user: user, metadata: metadata) }
+      context "when authoriziation is a ExtendedSocioDemographic" do
+        let!(:authorization) { create(:authorization, :granted, name: "extended_socio_demographic_authorization_handler", user: user, metadata: metadata_socio) }
 
-      it "destroys the authorization for the user" do
-        expect { subject.call }.to change(authorizations, :count).by(-1)
+        it "destroys the authorization for the user" do
+          expect { subject.call }.to change(authorizations, :count).by(-1)
+        end
+
+        it "removes metadata in user extended data" do
+          expect(user.extended_data).to eq(extended_data)
+          subject.call
+
+          expect(user.extended_data).to include("extra_data")
+          expect(user.extended_data).not_to include("extended_socio_demographic_authorization_handler")
+        end
       end
 
-      it "removes metadata in user extended data" do
-        expect(user.extended_data).to eq(extended_data)
-        subject.call
+      context "when authoriziation is a Data" do
+        let!(:authorization) { create(:authorization, :granted, name: "data_authorization_handler", user: user, metadata: metadata_data) }
 
-        expect(user.extended_data).to include("extra_data")
-        expect(user.extended_data).not_to include("socio_residential_area")
-        expect(user.extended_data).not_to include("socio_residential_area")
+        it "destroys the authorization for the user" do
+          expect { subject.call }.to change(authorizations, :count).by(-1)
+        end
+
+        it "removes metadata in user extended data" do
+          expect(user.extended_data).to eq(extended_data)
+          subject.call
+
+          expect(user.extended_data).to include("extra_data")
+          expect(user.extended_data).not_to include("data_authorization_handler")
+        end
       end
 
       context "when authorization is not a ExtendedSocioDemographicAuthorizationHandler" do

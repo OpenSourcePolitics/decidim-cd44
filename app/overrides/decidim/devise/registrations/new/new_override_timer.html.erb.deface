@@ -1,0 +1,4 @@
+<!-- insert_after 'div.wrapper' -->
+
+<%= render "decidim/devise/registrations/too_fast_modal" %>
+

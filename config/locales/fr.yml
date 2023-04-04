@@ -12,6 +12,12 @@ fr:
         postal_code: Code postal
       participatory_process:
         private_space: Espace privé
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              password_blank: doit être rempli
   decidim:
     accessibility:
       skip_button: Skip button
@@ -33,6 +39,32 @@ fr:
             Cet amendement pour le %{amendable_type} %{proposal_link}
             est en cours d’évaluation.
     authorization_handlers:
+      data_authorization_handler:
+        errors:
+          error_message: Ce champ contient une erreur
+          no_postal_code_result: Aucun résultat trouvé pour ce code postal
+        explanation: Vérifier votre identité
+        fields:
+          city: Ville
+          firstname: Prénom
+          gdpr: J'accepte la collecte de mes données personnelles pour l'instruction de mes propositions au budget participatif ou encore à des fins statistiques. Voir le détail du traitement réalisé sur les données à caractères personnelles dans le cadre du budget participatif
+          lastname: Nom
+          minimum_age: J'atteste avoir plus de 16 ans et résider, travailler ou étudier dans le département de Loire-Atlantique en complétant ce formulaire.
+          phone: Numéro de téléphone
+          postal_code: Code postal
+        help_text:
+          city: Votre ville dépend de votre code postal, veuillez sélectionner votre ville dans la liste déroulante
+          firstname: Votre prénom doit comporter au moins 1 caractère et n'être composé que de lettres, d'espaces et de caractères spéciaux tels que - et '
+          gdpr: Vos données seront utilisées pour la vérification de votre identité
+          global_help: Il est nécessaire de compléter ce formulaire pour déposer une proposition dans le budget participatif
+          lastname: Votre nom doit comporter au moins 1 caractère et n'être composé que de lettres, d'espaces et de caractères spéciaux tels que - et '
+          minimum_age: Vous devez avoir plus de 16 ans pour pouvoir vous inscrire.
+          phone: Entrez votre numéro de téléphone
+          postal_code: Votre code postal doit être composé de 5 chiffres
+          required_fields: Les champs obligatoires sont marqués d'un astérisque
+          terms_and_conditions: Mentions légales
+        legend: Informations de contact
+        name: Procédure de partage de données
       osp_authorization_handler:
         explanation: Vérifier votre identité en saisissant un numéro unique
         fields:
@@ -42,6 +74,26 @@ fr:
         name: Formulaire de vérification d'identité
       osp_authorization_workflow:
         name: Procédure d'autorisation
+    budgets:
+      admin:
+        budgets:
+          index:
+            paper_ballots: Bulletins de vote
+        imports:
+          help:
+            paper_ballot_results: Le document d'importation doit contenir les colonnes suivantes 'id' (avec l'identifiant du projet) et 'paper_ballots_to_import' (avec le nombre de nouveaux votes pour le projet qui doit être importé). Vous pouvez simplement réutiliser une exportation de tous les projets et ajouter une colonne nommée 'paper_ballots_to_import'.
+          label:
+            paper_ballot_results: Importer des votes papiers
+          resources:
+            paper_ballot_results: Résultats de bulletins de vote
+          title:
+            paper_ballot_results: Importer des votes des bulletins papiers
+        projects:
+          index:
+            paper_ballots: Vote papier
+    budgets_importer:
+      actions:
+        import: Importer des projets
     components:
       proposals:
         settings:
@@ -50,6 +102,13 @@ fr:
             proposal_edit_time_choices:
               infinite: Autoriser l'édition des propositions pour une durée infinie
               limited: Autoriser l'édition des propositions durant un délai spécifique
+    devise:
+      registrations:
+        too_fast_modal:
+          buttons:
+            close_modal: Fermer
+          notice: Vous avez complété le formulaire d'inscription trop vite. Vous devez rééssayer.
+          title: Erreur d'inscription
     events:
       budgets:
         pending_order:
@@ -160,3 +219,9 @@ fr:
         conversations: Conversations
         notifications: Notifications
         profile: Profil
+  rack_attack:
+    too_many_requests:
+      message: Il semblerait que vous fassiez trop de requetes sur notre serveur, votre connexion a ete ralentie.
+      time: 'Vous pourrez naviguer de nouveau sur notre plateforme dans :'
+      time_unit: secondes
+      title: Merci pour votre participation sur %{organization_name}

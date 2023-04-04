@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Overload of commentable method (afffe82 - Enable or disable comments on initiative type (PR 9318) (#27), 2022-06-06)
+
 module Decidim
   # This cell renders the author of a resource. It is intended to be used
   # below resource titles to indicate its authorship & such, and is intended

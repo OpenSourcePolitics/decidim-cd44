@@ -20,19 +20,22 @@ Decidim.configure do |config|
 
   config.maximum_attachment_height_or_width = 6000
 
-  # Geocoder configuration
-  if Rails.application.secrets.geocoder[:here_api_key].present?
-    config.geocoder = {
-      static_map_url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview",
-      here_api_key: Rails.application.secrets.geocoder[:here_api_key]
+  # maps configuration
+  # Use Here.com by default but fallback to nominatim for geocoding
+  if Rails.application.secrets.maps[:api_key].present?
+    config.maps = {
+      provider: :here,
+      api_key: Rails.application.secrets.maps[:api_key],
+      static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" },
+      geocoding: {
+        host: "nominatim.openstreetmap.org",
+        use_https: true
+      },
+      autocomplete: {
+        address_format: [%w(houseNumber street), "city", "country"]
+      }
     }
   end
-
-  config.maps = {
-    provider: :here,
-    api_key: Rails.application.secrets.maps[:api_key],
-    static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
-  }
 
   # Custom resource reference generator method
   # config.resource_reference_generator = lambda do |resource, feature|
@@ -99,6 +102,8 @@ Decidim.configure do |config|
   end
 
   config.base_uploads_path = "#{ENV["HEROKU_APP_NAME"]}/" if ENV["HEROKU_APP_NAME"].present?
+
+  config.minimum_time_to_sign_up = 1
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales
