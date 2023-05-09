@@ -3,7 +3,7 @@ FROM ruby:2.7.5
 ENV RAILS_ENV=production \
     SECRET_KEY_BASE=dummy
 
-WORKDIR .
+WORKDIR /app
 
 # Install NodeJS
 RUN --mount=type=cache,target=/var/cache/apt \
@@ -26,7 +26,7 @@ RUN yarn install
 
 COPY . .
 
-RUN bundle exec bootsnap precompile --gemfile app/ lib/ config/ bin/ db/ && bundle exec rake assets:precompile
+RUN bundle exec rake deface:precompile && bundle exec bootsnap precompile --gemfile app/ lib/ config/ bin/ db/ && bundle exec rake assets:precompile
 
 # Configure endpoint.
 COPY ./entrypoint.sh /usr/bin/
