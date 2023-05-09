@@ -3,7 +3,7 @@ FROM ruby:2.7.5
 ENV RAILS_ENV=production \
     SECRET_KEY_BASE=dummy
 
-WORKDIR /app
+WORKDIR .
 
 # Install NodeJS
 RUN --mount=type=cache,target=/var/cache/apt \
