@@ -23,7 +23,6 @@ gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-te
 gem "dotenv-rails"
 
 gem "bootsnap", "~> 1.4"
-gem "deface"
 gem "foundation_rails_helper", git: "https://github.com/sgruhier/foundation_rails_helper.git"
 
 gem "puma", ">= 5.5.1"
