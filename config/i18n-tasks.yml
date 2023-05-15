@@ -199,3 +199,4 @@ ignore_unused:
   - activemodel.errors.models.user.attributes.password.password_blank
   - rack_attack.too_many_requests.{message,time,time_unit,title}
   - decidim.budgets.admin.imports.resources.paper_ballot_results
+  - decidim.admin.participatory_space_private_users.create.*
