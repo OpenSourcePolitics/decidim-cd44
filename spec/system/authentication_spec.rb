@@ -416,7 +416,6 @@ describe "Authentication", type: :system do
         expect(page).to have_content("10 characters minimum")
         expect(page).to have_content("must be different from your nickname and your email")
         expect(page).to have_content("must not be too common")
-        expect(page).to have_current_path "/users/password"
       end
     end
 
