@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Initiative", type: :system do
-  let(:organization) { create(:organization, available_authorizations: authorizations) }
+  let(:organization) { create(:organization, available_authorizations: authorizations, default_locale: :en, available_locales: ["en"]) }
   let(:authorizations) { %w(dummy_authorization_handler) }
   let!(:authorized_user) { create(:user, :confirmed, organization: organization) }
   let(:login) { true }
@@ -94,7 +94,7 @@ describe "Initiative", type: :system do
           it "they are redirected to the initiative form after log in" do
             click_button "New initiative"
             fill_in "Email", with: authorized_user.email
-            fill_in "Password", with: "decidim123456"
+            fill_in "Password", with: "decidim123456789"
             click_button "Log in"
 
             expect(page).to have_content("What does the initiative consist of")
@@ -102,6 +102,7 @@ describe "Initiative", type: :system do
         end
 
         context "when they need to be verified" do
+          let(:user) { create(:user, :confirmed, organization: organization) }
           before do
             initiative_type.create_resource_permission(
               permissions: {
@@ -117,8 +118,8 @@ describe "Initiative", type: :system do
 
           it "they are shown an error" do
             click_button "New initiative"
-            fill_in "Email", with: authorized_user.email
-            fill_in "Password", with: "decidim123456"
+            fill_in "Email", with: user.email
+            fill_in "Password", with: "decidim123456789"
             click_button "Log in"
 
             expect(page).to have_content("You are not authorized to perform this action")
@@ -178,7 +179,7 @@ describe "Initiative", type: :system do
           it "they are redirected to the initiative form after log in" do
             click_button "New initiative"
             fill_in "Email", with: authorized_user.email
-            fill_in "Password", with: "decidim123456"
+            fill_in "Password", with: "decidim123456789"
             click_button "Log in"
 
             expect(page).to have_content("Which initiative do you want to launch")
@@ -203,7 +204,7 @@ describe "Initiative", type: :system do
           it "they are redirected to the initiative form after log in an error" do
             click_button "New initiative"
             fill_in "Email", with: authorized_user.email
-            fill_in "Password", with: "decidim123456"
+            fill_in "Password", with: "decidim123456789"
             click_button "Log in"
 
             expect(page).to have_content("Which initiative do you want to launch")

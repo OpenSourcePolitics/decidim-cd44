@@ -6,162 +6,74 @@ describe "Authentication", type: :system do
   let(:organization) { create(:organization) }
   let(:last_user) { Decidim::User.last }
 
-  let(:api_questions) { nil }
-  let(:api_endpoint) { nil }
-  let(:en_api_questions) do
-    { "q" => "What is the color of the white horse", "a" => [Digest::MD5.hexdigest("white")] }
-  end
-  let(:fr_api_questions) do
-    { "q" => "Quelle est la couleur du cheval gris ?", "a" => [Digest::MD5.hexdigest("gris")] }
-  end
-
-  let(:cache_store) { :memory_store }
-
   before do
-    allow(Rails.application.secrets.question_captcha).to receive(:[]).with(:host).and_return("captcha.api")
-    stub_captcha("en")
-    stub_captcha("fr")
-    allow(Rails).to receive(:cache).and_return(ActiveSupport::Cache.lookup_store(cache_store))
-    Rails.cache.clear
     switch_to_host(organization.host)
     visit decidim.root_path
-    allow(Decidim.config).to receive(:minimum_time_to_sign_up).and_return(0)
   end
 
   describe "Sign Up" do
-    context "when using app provided questions" do
-      context "when using email and password" do
-        it "creates a new User" do
-          sign_up_user(captcha_answer: "100")
+    context "when using email and password" do
+      it "creates a new User" do
+        find(".sign-up-link").click
 
-          expect(page).to have_content("A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.")
+        within ".new_user" do
+          fill_in :registration_user_email, with: "user@example.org"
+          fill_in :registration_user_name, with: "Responsible Citizen"
+          fill_in :registration_user_nickname, with: "responsible"
+          fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
+          fill_in :registration_user_password_confirmation, with: "DfyvHn425mYAy2HL"
+          check :registration_user_tos_agreement
+          check :registration_user_newsletter
+          find("*[type=submit]").click
         end
-      end
 
-      context "when using another language" do
-        before do
-          within_language_menu do
-            click_link "Français"
-          end
-        end
-
-        it "keeps the locale settings" do
-          sign_up_user(captcha_answer: "100")
-
-          expect(page).to have_content("lien de confirmation")
-          expect(last_user.locale).to eq("fr")
-        end
-      end
-
-      context "when being a robot" do
-        it "denies the sign up" do
-          sign_up_user(captcha_answer: "50", robot: true)
-
-          expect(page).not_to have_content("A message with a code")
-        end
-      end
-
-      context "when captcha is wrong" do
-        it "denies the sign up" do
-          sign_up_user(captcha_answer: "wrong")
-
-          expect(page).not_to have_content("A message with a code")
-        end
-      end
-
-      context "when using :null_store" do
-        let(:cache_store) { :null_store }
-
-        it "doesn't display a captcha field" do
-          find(".sign-up-link").click
-
-          expect(page).not_to have_field(:user_textcaptcha_answer)
-        end
+        expect(page).to have_content("confirmation link")
       end
     end
 
-    context "when using api provided questions" do
-      let(:api_endpoint) { "https:://mock-api.org" }
-
+    context "when using another langage" do
       before do
-        # rubocop:disable RSpec/AnyInstance
-        allow_any_instance_of(Decidim::RegistrationForm).to receive(:fetch_q_and_a).and_return(api_questions)
-        # rubocop:enable RSpec/AnyInstance
-        allow(Decidim::QuestionCaptcha.config).to receive(:api_endpoint).and_return(api_endpoint)
-      end
-
-      context "when using email and password" do
-        let(:api_questions) { en_api_questions }
-
-        it "creates a new User" do
-          sign_up_user(captcha_answer: "white")
-
-          expect(page).to have_content("A message with a confirmation")
+        within_language_menu do
+          click_link "Castellano"
         end
       end
 
-      context "when using another language" do
-        let(:api_questions) { fr_api_questions }
+      it "keeps the locale settings" do
+        find(".sign-up-link").click
 
-        before do
-          within_language_menu do
-            click_link "Français"
-          end
+        within ".new_user" do
+          fill_in :registration_user_email, with: "user@example.org"
+          fill_in :registration_user_name, with: "Responsible Citizen"
+          fill_in :registration_user_nickname, with: "responsible"
+          fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
+          fill_in :registration_user_password_confirmation, with: "DfyvHn425mYAy2HL"
+          check :registration_user_tos_agreement
+          check :registration_user_newsletter
+          find("*[type=submit]").click
         end
 
-        it "keeps the locale settings" do
-          sign_up_user(captcha_answer: "gris")
-
-          expect(page).to have_content("lien de confirmation")
-          expect(last_user.locale).to eq("fr")
-        end
+        expect(page).to have_content("Se ha enviado un mensaje con un enlace de confirmación")
+        expect(last_user.locale).to eq("es")
       end
+    end
 
-      context "when api response returns no question" do
-        let(:api_questions) { nil }
+    context "when being a robot" do
+      it "denies the sign up" do
+        find(".sign-up-link").click
 
-        before do
-          within_language_menu do
-            click_link "Français"
-          end
+        within ".new_user" do
+          page.execute_script("$($('.new_user > div > input')[0]).val('Ima robot :D')")
+          fill_in :registration_user_email, with: "user@example.org"
+          fill_in :registration_user_name, with: "Responsible Citizen"
+          fill_in :registration_user_nickname, with: "responsible"
+          fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
+          fill_in :registration_user_password_confirmation, with: "DfyvHn425mYAy2HL"
+          check :registration_user_tos_agreement
+          check :registration_user_newsletter
+          find("*[type=submit]").click
         end
 
-        it "fallbacks to app questions" do
-          sign_up_user(captcha_answer: "100")
-
-          expect(page).to have_content(" lien de confirmation")
-          expect(last_user.locale).to eq("fr")
-        end
-      end
-
-      context "when being a robot" do
-        let(:api_questions) { en_api_questions }
-
-        it "denies the sign up" do
-          sign_up_user(captcha_answer: "white", robot: true)
-
-          expect(page).not_to have_content("A message with a code")
-        end
-      end
-
-      context "when captcha is wrong" do
-        let(:api_questions) { en_api_questions }
-
-        it "denies the sign up" do
-          sign_up_user(captcha_answer: "wrong")
-
-          expect(page).not_to have_content("A message with a code")
-        end
-      end
-
-      context "when using :null_store" do
-        let(:cache_store) { :null_store }
-
-        it "doesn't display a captcha field" do
-          find(".sign-up-link").click
-
-          expect(page).not_to have_field(:user_textcaptcha_answer)
-        end
+        expect(page).not_to have_content("confirmation link")
       end
     end
 
@@ -279,6 +191,62 @@ describe "Authentication", type: :system do
       end
     end
 
+    context "when using google" do
+      let(:omniauth_hash) do
+        OmniAuth::AuthHash.new(
+          provider: "google_oauth2",
+          uid: "123545",
+          info: {
+            name: "Google User",
+            email: "user@from-google.com"
+          }
+        )
+      end
+
+      before do
+        OmniAuth.config.test_mode = true
+        OmniAuth.config.mock_auth[:google_oauth2] = omniauth_hash
+
+        OmniAuth.config.add_camelization "google_oauth2", "GoogleOauth"
+        OmniAuth.config.request_validation_phase = ->(env) {} if OmniAuth.config.respond_to?(:request_validation_phase)
+      end
+
+      after do
+        OmniAuth.config.test_mode = false
+        OmniAuth.config.mock_auth[:google_oauth2] = nil
+        OmniAuth.config.camelizations.delete("google_oauth2")
+      end
+
+      it "creates a new User" do
+        find(".sign-up-link").click
+
+        click_link "Sign in with Google"
+
+        expect_user_logged
+      end
+    end
+
+    context "when nickname is not unique case insensitively" do
+      let!(:user) { create(:user, nickname: "Nick", organization: organization) }
+
+      it "show an error message" do
+        find(".sign-up-link").click
+
+        within ".new_user" do
+          fill_in :registration_user_email, with: "user@example.org"
+          fill_in :registration_user_name, with: "Responsible Citizen"
+          fill_in :registration_user_nickname, with: "NiCk"
+          fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
+          fill_in :registration_user_password_confirmation, with: "DfyvHn425mYAy2HL"
+          check :registration_user_tos_agreement
+          check :registration_user_newsletter
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("has already been taken")
+      end
+    end
+
     context "when sign up is disabled" do
       let(:organization) { create(:organization, users_registration_mode: :existing) }
 
@@ -294,8 +262,19 @@ describe "Authentication", type: :system do
     end
   end
 
+  describe "Confirm email" do
+    it "confirms the user" do
+      perform_enqueued_jobs { create(:user, organization: organization) }
+
+      visit last_email_link
+
+      expect(page).to have_content("successfully confirmed")
+      expect(last_user).to be_confirmed
+    end
+  end
+
   context "when confirming the account" do
-    let!(:user) { create(:user, email_on_notification: true, organization: organization) }
+    let!(:user) { create(:user, organization: organization) }
 
     before do
       perform_enqueued_jobs { user.confirm }
@@ -356,10 +335,10 @@ describe "Authentication", type: :system do
         expect(page).to have_content("Sign in with Facebook")
 
         within_language_menu do
-          click_link "Français"
+          click_link "Català"
         end
 
-        expect(page).to have_content("S'identifier avec Facebook")
+        expect(page).to have_content("Inicia sessió amb Facebook")
       end
     end
 
@@ -398,6 +377,7 @@ describe "Authentication", type: :system do
 
         within ".new_user" do
           fill_in :password_user_password, with: "DfyvHn425mYAy2HL"
+          fill_in :password_user_password_confirmation, with: "DfyvHn425mYAy2HL"
           find("*[type=submit]").click
         end
 
@@ -409,13 +389,28 @@ describe "Authentication", type: :system do
         visit last_email_link
 
         within ".new_user" do
-          fill_in :password_user_password, with: "example"
+          fill_in :password_user_password, with: "whatislove"
+          fill_in :password_user_password_confirmation, with: "whatislove"
           find("*[type=submit]").click
         end
 
         expect(page).to have_content("10 characters minimum")
         expect(page).to have_content("must be different from your nickname and your email")
         expect(page).to have_content("must not be too common")
+        expect(page).to have_current_path "/users/password"
+      end
+
+      it "enforces the minimum length for the password in the front-end" do
+        visit last_email_link
+
+        within ".new_user" do
+          fill_in :password_user_password, with: "example"
+          fill_in :password_user_password_confirmation, with: "example"
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("The password is too short.")
+        expect(page).to have_content("Password confirmation must match the password.")
       end
     end
 
@@ -604,6 +599,20 @@ describe "Authentication", type: :system do
           expect(page).to have_content("Successfully")
           expect(page).to have_content(user.name)
         end
+
+        context "when admin password is expired" do
+          let(:user) { create(:user, :confirmed, :admin, password_updated_at: 91.days.ago, organization: organization) }
+
+          before do
+            allow(Decidim.config).to receive(:admin_password_expiration_days).and_return(90)
+          end
+
+          it "can log in without being prompted to change the password" do
+            find(".sign-in-link").click
+            click_link "Sign in with Facebook"
+            expect(page).to have_content("Successfully")
+          end
+        end
       end
     end
   end
@@ -619,8 +628,9 @@ describe "Authentication", type: :system do
           within ".new_user" do
             fill_in :registration_user_email, with: user.email
             fill_in :registration_user_name, with: "Responsible Citizen"
+            fill_in :registration_user_nickname, with: "responsible"
             fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
-            fill_in :registration_user_textcaptcha_answer, with: "100"
+            fill_in :registration_user_password_confirmation, with: "DfyvHn425mYAy2HL"
             check :registration_user_tos_agreement
             check :registration_user_newsletter
             find("*[type=submit]").click
@@ -695,35 +705,5 @@ describe "Authentication", type: :system do
         expect(page).to have_content("Right user")
       end
     end
-  end
-
-  private
-
-  def sign_up_user(captcha_answer: nil, robot: false)
-    find(".sign-up-link").click
-
-    within ".new_user" do
-      page.execute_script("$($('.new_user > div > input')[0]).val('Ima robot :D')") if robot
-      fill_in :registration_user_email, with: "user@example.org"
-      fill_in :registration_user_name, with: "Responsible Citizen"
-      fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
-      fill_in :registration_user_textcaptcha_answer, with: captcha_answer
-      check :registration_user_tos_agreement
-      check :registration_user_newsletter
-      find("*[type=submit]").click
-    end
-  end
-
-  def stub_captcha(locale)
-    stub_request(:get, "https://testm1obgqmc-decidimcaptchaapi.functions.fnc.fr-par.scw.cloud/?locale=#{locale}")
-      .with(
-        headers: {
-          "Accept" => "*/*",
-          "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-          "Host" => "testm1obgqmc-decidimcaptchaapi.functions.fnc.fr-par.scw.cloud",
-          "User-Agent" => "Ruby"
-        }
-      )
-      .to_return(status: 200, body: "", headers: {})
   end
 end

@@ -3,9 +3,9 @@
 require "spec_helper"
 
 describe "Account", type: :system do
-  let(:user) { create(:user, :confirmed, password: password, password_confirmation: password) }
   let(:password) { "dqCFgjfDbC7dPbrv" }
-  let(:organization) { user.organization }
+  let(:organization) { create(:organization, available_locales: %w[en fr], default_locale: "en") }
+  let(:user) { create(:user, :confirmed, password: password, password_confirmation: password, organization: organization) }
 
   before do
     switch_to_host(organization.host)
@@ -29,9 +29,11 @@ describe "Account", type: :system do
       visit decidim.account_path
     end
 
+    it_behaves_like "accessible page"
+
     describe "update avatar" do
       it "can update avatar" do
-        attach_file :user_avatar, Decidim::Dev.asset("avatar.jpg")
+        dynamically_attach_file(:user_avatar, Decidim::Dev.asset("avatar.jpg"), remove_before: true)
 
         within "form.edit_user" do
           find("*[type=submit]").click
@@ -41,14 +43,16 @@ describe "Account", type: :system do
       end
 
       it "shows error when image is too big" do
-        attach_file :user_avatar, Decidim::Dev.asset("5000x5000.png")
+        find("#user_avatar_button").click
 
-        within "form.edit_user" do
-          find("*[type=submit]").click
+        within ".upload-modal" do
+          find(".remove-upload-item").click
+          input_element = find("input[type='file']", visible: :all)
+          input_element.attach_file(Decidim::Dev.asset("5000x5000.png"))
+
+          expect(page).to have_content("File resolution is too large", count: 1)
+          expect(page).to have_css(".upload-errors .form-error", count: 1)
         end
-
-        expect(page).to have_content("The image is too big", count: 1)
-        expect(page).to have_css(".flash.alert")
       end
     end
 
@@ -77,6 +81,7 @@ describe "Account", type: :system do
             page.find(".change-password").click
 
             fill_in :user_password, with: "sekritpass123"
+            fill_in :user_password_confirmation, with: "sekritpass123"
 
             find("*[type=submit]").click
           end
