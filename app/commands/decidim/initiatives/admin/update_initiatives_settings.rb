@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when updating initiatives
       # settings in admin area.
-      class UpdateInitiativesSettings < Rectify::Command
+      class UpdateInitiativesSettings < Decidim::Command
         # Public: Initializes the command.
         #
         # initiatives_settings - A initiatives settings object to update.
