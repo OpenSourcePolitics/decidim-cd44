@@ -77,7 +77,7 @@ jobs:
         uses: OpenSourcePolitics/rspec-action@master
         with:
           prepare_command: 'bundle exec rails db:create db:migrate'
-          command: 'bundle exec rspec ./spec/system/**/*_spec.rb'
+          command: 'bundle exec rspec spec/system/**/*_spec.rb'
   test_build:
     name: Test build docker image
     runs-on: ubuntu-latest
