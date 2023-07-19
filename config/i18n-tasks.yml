@@ -163,3 +163,4 @@ ignore_unused:
   - decidim.resources.signature_interval.title
   - decidim.initiatives.admin.initiatives_settings.update.success
   - decidim.initiatives.admin_log.initiatives_settings.update
+  - rack_attack.*

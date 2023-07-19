@@ -2,6 +2,8 @@
 fr:
   activemodel:
     attributes:
+      initiatives_type:
+        comments_enabled: Activer les commentaires
       osp_authorization_handler:
         birthday: Date de naissance
         document_number: Numéro unique
@@ -16,17 +18,42 @@ fr:
         change_password: Modifier mon mot de passe
         update_account: Mettre à jour mon compte
     admin:
-      participatory_space_private_users:
-        create:
-          error: L'utilisateur privé a été créé avec succès.
-          success: Il y a eu un problème lors de la création de l'utilisateur privé.
+      actions:
+        import: Import
+      menu:
+        initiatives_settings: Paramètres
     amendments:
       emendation:
         announcement:
           evaluating: |-
             Cet amendement pour le %{amendable_type} %{proposal_link}
             est en cours d’évaluation.
+    application:
+      geocoding:
+        geocoded_address: Geocoded address
     authorization_handlers:
+      data_authorization_handler:
+        errors:
+          error_message: Ce champ contient une erreur
+          gdpr: Gdpr
+          minimum_age: Minimum age
+          no_postal_code_result: Aucun résultat trouvé pour ce code postal
+        fields:
+          city: Ville
+          firstname: Prénom
+          gdpr: J'accepte la collecte de mes données personnelles pour l'instruction de mes propositions au budget participatif ou encore à des fins statistiques. Voir le détail du traitement réalisé sur les données à caractères personnelles dans le cadre du budget participatif
+          lastname: Nom
+          minimum_age: J'atteste avoir plus de 16 ans et résider, travailler ou étudier dans le département de Loire-Atlantique en complétant ce formulaire.
+          phone: Numéro de téléphone
+          postal_code: Code postal
+        help_text:
+          city: Votre ville dépend de votre code postal, veuillez sélectionner votre ville dans la liste déroulante
+          firstname: Votre prénom doit comporter au moins 1 caractère et n'être composé que de lettres, d'espaces et de caractères spéciaux tels que - et '
+          global_help: Il est nécessaire de compléter ce formulaire pour déposer une proposition dans le budget participatif
+          lastname: Votre nom doit comporter au moins 1 caractère et n'être composé que de lettres, d'espaces et de caractères spéciaux tels que - et '
+          postal_code: Votre code postal doit être composé de 5 chiffres
+          required_fields: Les champs obligatoires sont marqués d'un astérisque
+        legend: Informations de contact
       osp_authorization_handler:
         explanation: Vérifier votre identité en saisissant un numéro unique
         fields:
@@ -36,6 +63,37 @@ fr:
         name: Formulaire de vérification d'identité
       osp_authorization_workflow:
         name: Procédure d'autorisation
+    budgets:
+      actions:
+        attachment_collections: Attachment collections
+        attachments: Attachments
+        confirm_destroy: Confirm destroy
+        destroy: Destroy
+        edit: Edit
+        import: Import
+        new: New
+        preview: Preview
+        title: Title
+      admin:
+        models:
+          project:
+            name: Name
+        projects:
+          index:
+            finished_orders: Finished orders
+            paper_ballots: Vote papier
+            pending_orders: Pending orders
+            selected: Selected
+            title: Title
+      models:
+        project:
+          fields:
+            category: Category
+            id: Id
+            title: Title
+    budgets_importer:
+      actions:
+        import: Importer des projets
     components:
       proposals:
         settings:
@@ -44,6 +102,17 @@ fr:
             proposal_edit_time_choices:
               infinite: Autoriser l'édition des propositions pour une durée infinie
               limited: Autoriser l'édition des propositions durant un délai spécifique
+    devise:
+      registrations:
+        too_fast_modal:
+          buttons:
+            close_modal: Fermer
+          notice: Vous avez complété le formulaire d'inscription trop vite. Vous devez rééssayer.
+          title: Erreur d'inscription
+    editor_images:
+      create:
+        error: Error
+        success: Success
     events:
       budgets:
         pending_order:
@@ -51,30 +120,40 @@ fr:
           email_outro: You have received this notification because you are participating in "%{participatory_space_title}"
           email_subject: Your vote is still pending in %{participatory_space_title}
           notification_title: The vote on budget <a href="%{resource_path}">%{resource_title}</a> is still waiting for your confirmation in %{participatory_space_title}
-    meetings:
-      directory:
-        meetings:
-          index:
-            all: All
-      meeting:
-        not_allowed: You are not allowed to view this meeting
-      meetings:
-        create:
-          invalid: There was a problem creating this meeting.
-          success: You have created the meeting successfully.
-        update:
-          invalid: There was a problem updating the meeting.
-          success: You have updated the meeting successfully.
+    initiatives:
+      admin:
+        initiatives_settings:
+          update:
+            success: Il y a eu une erreur lors de la mise à jour du paramètre.
+      admin_log:
+        initiatives_settings:
+          update: "%{user_name} a mis à jour les paramètres d'initiatives"
+      create_initiative:
+        select_initiative_type:
+          not_authorized:
+            authorizations_page: Voir les autorisations
+            close: Fermer
+            explanation: Vous devez être autorisé pour créer cette initiative
+            title: Autorisation requise
+          verification_required: Verifier votre compte pour créer cette initiative
+      form:
+        delete_attachment: Delete attachment
     newsletter_mailer:
       newsletter:
         note: Vous avez reçu cet email parce que vous êtes abonné aux newsletters de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
         unsubscribe: Pour ne plus recevoir ce type d'email, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
     proposals:
       proposals:
-        preview:
-          update_position: Mettre à jour les coordonnées
         form_view:
           cancel: Annuler
+        preview:
+          modify: Modify
+          publish: Publish
+          update_position: Mettre à jour les coordonnées
+    resources:
+      initiatives_type:
+        actions:
+          create: Create
     verifications:
       authorizations:
         first_login:
@@ -107,6 +186,8 @@ fr:
       minimum:
         one: Au moins %{count} caractère
         other: Au moins %{count} caractères
+  index:
+    confirmed_orders_count: Confirmed orders count
   layouts:
     decidim:
       footer:
@@ -122,3 +203,9 @@ fr:
         conversations: Conversations
         notifications: Notifications
         profile: Profil
+  rack_attack:
+    too_many_requests:
+      message: Il semblerait que vous fassiez trop de requetes sur notre serveur, votre connexion a ete ralentie.
+      time: 'Vous pourrez naviguer de nouveau sur notre plateforme dans :'
+      time_unit: secondes
+      title: Merci pour votre participation sur %{organization_name}

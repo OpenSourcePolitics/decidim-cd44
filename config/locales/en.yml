@@ -2,6 +2,8 @@
 en:
   activemodel:
     attributes:
+      initiatives_type:
+        comments_enabled: Enable comments
       osp_authorization_handler:
         birthday: Date de naissance
         document_number: Numéro unique
@@ -16,17 +18,42 @@ en:
         change_password: Change password
         update_account: Update account
     admin:
-      participatory_space_private_users:
-        create:
-          error: Error
-          success: Success
+      actions:
+        import: Import
+      menu:
+        initiatives_settings: Settings
     amendments:
       emendation:
         announcement:
           evaluating: |-
             Cet amendement pour le %{amendable_type} %{proposal_link}
             est en cours d’évaluation.
+    application:
+      geocoding:
+        geocoded_address: Geocoded address
     authorization_handlers:
+      data_authorization_handler:
+        errors:
+          error_message: This field contains an error
+          gdpr: Gdpr
+          minimum_age: Minimum age
+          no_postal_code_result: No result found for this postal code
+        fields:
+          city: City
+          firstname: Firstname
+          gdpr: I accept that my data will be used to verify my identity
+          lastname: Lastname
+          minimum_age: I confirm that I am over 16 years old
+          phone: Phone number
+          postal_code: Zip code
+        help_text:
+          city: Your city depends on your postal code, please select your city from the dropdown list
+          firstname: Your firstname must contain at least 1 character and be composed only of letters, spaces and special characters such as - and '
+          global_help: It is necessary to complete this form to submit a proposal in the participatory budget.
+          lastname: Your lastname must contain at least 1 character and be composed only of letters, spaces and special characters such as - and '
+          postal_code: Your postal code must be composed of 5 digits
+          required_fields: Required fields are marked with an asterisk
+        legend: Contact information
       osp_authorization_handler:
         explanation: Vérifier votre identité en saisissant un numéro unique
         fields:
@@ -36,6 +63,37 @@ en:
         name: Formulaire de vérification d'identité
       osp_authorization_workflow:
         name: Authorization procedure
+    budgets:
+      actions:
+        attachment_collections: Attachment collections
+        attachments: Attachments
+        confirm_destroy: Confirm destroy
+        destroy: Destroy
+        edit: Edit
+        import: Import
+        new: New
+        preview: Preview
+        title: Title
+      admin:
+        models:
+          project:
+            name: Name
+        projects:
+          index:
+            finished_orders: Finished orders
+            paper_ballots: Vote papier
+            pending_orders: Pending orders
+            selected: Selected
+            title: Title
+      models:
+        project:
+          fields:
+            category: Category
+            id: Id
+            title: Title
+    budgets_importer:
+      actions:
+        import: Importer des projets
     components:
       proposals:
         settings:
@@ -44,6 +102,17 @@ en:
             proposal_edit_time_choices:
               infinite: Autoriser l'édition des propositions pour une durée infinie
               limited: Autoriser l'édition des propositions durant un délai spécifique
+    devise:
+      registrations:
+        too_fast_modal:
+          buttons:
+            close_modal: Close modal
+          notice: You have completed the sign up form too fast. Please try again.
+          title: Registration error
+    editor_images:
+      create:
+        error: Error
+        success: Success
     events:
       budgets:
         pending_order:
@@ -51,20 +120,20 @@ en:
           email_outro: You have received this notification because you are participating in "%{participatory_space_title}"
           email_subject: Your vote is still pending in %{participatory_space_title}
           notification_title: The vote on budget <a href="%{resource_path}">%{resource_title}</a> is still waiting for your confirmation in %{participatory_space_title}
-    meetings:
-      directory:
-        meetings:
-          index:
-            all: All
-      meeting:
-        not_allowed: You are not allowed to view this meeting
-      meetings:
-        create:
-          invalid: There was a problem creating this meeting.
-          success: You have created the meeting successfully.
-        update:
-          invalid: There was a problem updating the meeting.
-          success: You have updated the meeting successfully.
+    initiatives:
+      admin_log:
+        initiatives_settings:
+          update: "%{user_name} updated the initiatives settings"
+      create_initiative:
+        select_initiative_type:
+          not_authorized:
+            authorizations_page: View authorizations
+            close: Close
+            explanation: You need to be verified in order to create a new initiative.
+            title: Authorization required
+          verification_required: Verify your account to promote this initiative
+      form:
+        delete_attachment: Delete attachment
     newsletter_mailer:
       newsletter:
         note: Vous avez reçu cet email parce que vous êtes abonné aux newsletters de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
@@ -73,6 +142,24 @@ en:
       proposals:
         form_view:
           cancel: Annuler
+        preview:
+          modify: Modify
+          publish: Publish
+    resources:
+      admin:
+        initiatives_settings:
+          edit:
+            update: Update
+          form:
+            comments: Most commented
+            date: Most recent
+            publication_date: Most recently published
+            random: Random
+            signatures: Most signed
+            title: Settings for initiatives
+      initiatives_type:
+        actions:
+          create: Create
     verifications:
       authorizations:
         first_login:
@@ -84,6 +171,8 @@ en:
       minimum:
         one: Au moins %{count} caractère
         other: Au moins %{count} caractères
+  index:
+    confirmed_orders_count: Confirmed orders count
   layouts:
     decidim:
       footer:
@@ -99,3 +188,9 @@ en:
         conversations: Conversations
         notifications: Notifications
         profile: Profile
+  rack_attack:
+    too_many_requests:
+      message: Your connection has been slowed because server received too many requests.
+      time: 'You will be able to navigate on our website in :'
+      time_unit: seconds
+      title: Thank you for your participation on %{organization_name}
