@@ -4,11 +4,9 @@ module Decidim
   module Verifications
     # A command to Destroy the Authorization of a user.
     class DestroyUserAuthorization < Decidim::Command
-      # rubocop:disable Lint/MissingSuper
       def initialize(authorization)
         @authorization = authorization
       end
-      # rubocop:enable Lint/MissingSuper
 
       def call
         return broadcast(:invalid) unless authorization

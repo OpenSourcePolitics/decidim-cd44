@@ -8,10 +8,10 @@ module Decidim
 
     let(:response_body) do
       JSON.dump({
-                  "features": [
+                  features: [
                     {
-                      "properties": {
-                        "name": "Barcelona"
+                      properties: {
+                        name: "Barcelona"
                       }
                     }
                   ]
@@ -20,10 +20,10 @@ module Decidim
 
     let(:unparseable_response_body) do
       JSON.dump({
-                  "features": [
+                  features: [
                     {
-                      "properties": {
-                        "missLabeled": "Barcelona"
+                      properties: {
+                        missLabeled: "Barcelona"
                       }
                     }
                   ]
@@ -57,7 +57,7 @@ module Decidim
 
         context "when called twice" do
           it "returns the cache entry" do
-            expect(Rails.cache.read(postal_code)).to eq(nil)
+            expect(Rails.cache.read(postal_code)).to be_nil
             described_class.for(postal_code)
             expect(Rails.cache.read("postal_code_autocomplete/#{postal_code}")).to eq("[\"Barcelona\"]")
           end

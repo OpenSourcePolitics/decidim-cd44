@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Account", type: :system do
   let(:password) { "dqCFgjfDbC7dPbrv" }
-  let(:organization) { create(:organization, available_locales: %w[en fr], default_locale: "en") }
+  let(:organization) { create(:organization, available_locales: %w(en fr), default_locale: "en") }
   let(:user) { create(:user, :confirmed, password: password, password_confirmation: password, organization: organization) }
 
   before do
@@ -90,7 +90,7 @@ describe "Account", type: :system do
             expect(page).to have_content("successfully")
           end
 
-          expect(user.reload.valid_password?("sekritpass123")).to eq(true)
+          expect(user.reload.valid_password?("sekritpass123")).to be(true)
         end
       end
 

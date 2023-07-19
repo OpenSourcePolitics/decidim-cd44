@@ -103,6 +103,7 @@ describe "Initiative", type: :system do
 
         context "when they need to be verified" do
           let(:user) { create(:user, :confirmed, organization: organization) }
+
           before do
             initiative_type.create_resource_permission(
               permissions: {

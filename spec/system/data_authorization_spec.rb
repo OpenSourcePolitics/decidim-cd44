@@ -13,10 +13,10 @@ describe "Data authorization", type: :system do
   let(:minimum_age) { true }
   let(:response_body) do
     JSON.dump({
-                "features": [
+                features: [
                   {
-                    "properties": {
-                      "name": "Paris"
+                    properties: {
+                      name: "Paris"
                     }
                   }
                 ]

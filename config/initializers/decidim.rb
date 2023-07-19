@@ -2,7 +2,7 @@
 
 Decidim.configure do |config|
   config.unconfirmed_access_for = 2.days unless Rails.env.test?
-  config.skip_first_login_authorization = ENV["SKIP_FIRST_LOGIN_AUTHORIZATION"] ? ActiveRecord::Type::Boolean.new.cast(ENV["SKIP_FIRST_LOGIN_AUTHORIZATION"]) : true
+  config.skip_first_login_authorization = ENV["SKIP_FIRST_LOGIN_AUTHORIZATION"] ? ActiveRecord::Type::Boolean.new.cast(ENV.fetch("SKIP_FIRST_LOGIN_AUTHORIZATION", nil)) : true
 
   config.expire_session_after = Rails.application.secrets.decidim[:expire_session_after].to_i.seconds if Rails.application.secrets.decidim[:expire_session_after].present?
 
@@ -101,7 +101,7 @@ Decidim.configure do |config|
     }
   end
 
-  config.base_uploads_path = "#{ENV["HEROKU_APP_NAME"]}/" if ENV["HEROKU_APP_NAME"].present?
+  config.base_uploads_path = "#{ENV.fetch("HEROKU_APP_NAME", nil)}/" if ENV["HEROKU_APP_NAME"].present?
 
   config.minimum_time_to_sign_up = 1
 end

@@ -134,7 +134,6 @@ module Decidim
       )
     }
 
-
     scope :order_by_most_recent, -> { order(created_at: :desc) }
     scope :order_by_supports, -> { order(Arel.sql("(coalesce((online_votes->>'total')::int,0) + coalesce((offline_votes->>'total')::int,0)) DESC")) }
     scope :order_by_most_recently_published, -> { order(published_at: :desc) }
@@ -265,7 +264,7 @@ module Decidim
         published_at: Time.current,
         state: "published",
         signature_start_date: Date.current,
-        signature_end_date: signature_end_date || Date.current + Decidim::Initiatives.default_signature_time_period_length
+        signature_end_date: signature_end_date || (Date.current + Decidim::Initiatives.default_signature_time_period_length)
       )
     end
 
@@ -473,7 +472,6 @@ module Decidim
     def self.ransack(params = {}, options = {})
       Initiatives::InitiativeSearch.new(self, params, options)
     end
-
 
     private
 
