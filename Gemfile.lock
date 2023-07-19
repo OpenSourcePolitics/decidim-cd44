@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/OpenSourcePolitics/decidim-module-friendly_signup
+  revision: ae96439a7db7158c3fdaa83de29793aefdc1c34a
+  branch: release/0.27-stable
+  specs:
+    decidim-friendly_signup (0.4.4)
+      decidim-core (~> 0.27)
+
+GIT
   remote: https://github.com/decidim/decidim.git
   revision: 42a2296a9d695b9ff415e82562e4dc6469c5d577
   branch: release/0.27-stable
@@ -911,6 +919,7 @@ GEM
     zeitwerk (2.6.8)
 
 PLATFORMS
+  arm64-darwin-21
   arm64-darwin-22
 
 DEPENDENCIES
@@ -924,6 +933,7 @@ DEPENDENCIES
   decidim!
   decidim-decidim_awesome (~> 0.9.1)
   decidim-dev!
+  decidim-friendly_signup!
   decidim-initiatives!
   decidim-simple_proposal!
   decidim-spam_detection (= 4.0.0)
