@@ -29,9 +29,9 @@ namespace :bump do
     end
 
     logger.info("Installing yarn dependencies...")
-    `yarn install`
+    yarn = `yarn install`
     logger.info("Precompiling assets...")
-    `bundle exec rake assets:precompile`
+    precompile = `bundle exec rake assets:precompile`
     migrate = `bundle exec rake db:migrate`
     logger.debug(migrate)
   end
