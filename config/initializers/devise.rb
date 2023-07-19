@@ -3,5 +3,5 @@
 # config/initializers/devise.rb
 
 Devise.setup do |config|
-  config.confirm_within = 12.hours
+  config.confirm_within = 2.days
 end
