@@ -25,9 +25,6 @@ describe "Initiative", type: :system do
 
     it_behaves_like "editable content for admins" do
       let(:target_path) { decidim_initiatives.initiative_path(initiative) }
-      before do
-        allow(Decidim::Initiatives).to receive(:print_enabled).and_return(true)
-      end
     end
 
     context "when requesting the initiative path" do
@@ -118,30 +115,6 @@ describe "Initiative", type: :system do
       end
 
       it_behaves_like "has attachments"
-
-      it "displays comments section" do
-        expect(page).to have_css(".comments")
-        expect(page).to have_content("0 Comments")
-      end
-
-      context "when comments are disabled" do
-        let(:base_initiative) do
-          create(:initiative, organization: organization, state: state, scoped_type: scoped_type)
-        end
-
-        let(:scoped_type) do
-          create(:initiatives_type_scope,
-                 type: create(:initiatives_type,
-                              :with_comments_disabled,
-                              organization: organization,
-                              signature_type: "online"))
-        end
-
-        it "does not have comments" do
-          expect(page).not_to have_css(".comments")
-          expect(page).not_to have_content("0 Comments")
-        end
-      end
     end
   end
 end

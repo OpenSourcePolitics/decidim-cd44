@@ -2,22 +2,12 @@
 en:
   activemodel:
     attributes:
-      initiative:
-        area_id: Area
-      initiatives_type:
-        comments_enabled: Enable comments
       osp_authorization_handler:
         birthday: Date de naissance
         document_number: Numéro unique
         postal_code: Code postal
       participatory_process:
         private_space: Espace privé
-    errors:
-      models:
-        user:
-          attributes:
-            password:
-              password_blank: can't be blank
   decidim:
     accessibility:
       skip_button: Skip button
@@ -43,32 +33,6 @@ en:
             Cet amendement pour le %{amendable_type} %{proposal_link}
             est en cours d’évaluation.
     authorization_handlers:
-      data_authorization_handler:
-        errors:
-          error_message: This field contains an error
-          no_postal_code_result: No result found for this postal code
-        explanation: Verify your identity
-        fields:
-          city: City
-          firstname: Firstname
-          gdpr: I accept that my data will be used to verify my identity
-          lastname: Lastname
-          minimum_age: I confirm that I am over 16 years old
-          phone: Phone number
-          postal_code: Zip code
-        help_text:
-          city: Your city depends on your postal code, please select your city from the dropdown list
-          firstname: Your firstname must contain at least 1 character and be composed only of letters, spaces and special characters such as - and '
-          gdpr: Your data will be used to verify your identity.
-          global_help: It is necessary to complete this form to submit a proposal in the participatory budget.
-          lastname: Your lastname must contain at least 1 character and be composed only of letters, spaces and special characters such as - and '
-          minimum_age: You must be over 16 years old to register
-          phone: Enter your phone number
-          postal_code: Your postal code must be composed of 5 digits
-          required_fields: Required fields are marked with an asterisk
-          terms_and_conditions: Terms and conditions
-        legend: Contact information
-        name: Data Sharing Process
       osp_authorization_handler:
         explanation: Vérifier votre identité en saisissant un numéro unique
         fields:
@@ -86,13 +50,6 @@ en:
             proposal_edit_time_choices:
               infinite: Autoriser l'édition des propositions pour une durée infinie
               limited: Autoriser l'édition des propositions durant un délai spécifique
-    devise:
-      registrations:
-        too_fast_modal:
-          buttons:
-            close_modal: Close modal
-          notice: You have completed the sign up form too fast. Please try again.
-          title: Registration error
     events:
       budgets:
         pending_order:
@@ -101,9 +58,6 @@ en:
           email_subject: Your vote is still pending in %{participatory_space_title}
           notification_title: The vote on budget <a href="%{resource_path}">%{resource_title}</a> is still waiting for your confirmation in %{participatory_space_title}
     initiatives:
-      admin_log:
-        initiatives_settings:
-          update: "%{user_name} updated the initiatives settings"
       create_initiative:
         select_initiative_type:
           not_authorized:
@@ -112,6 +66,24 @@ en:
             explanation: You need to be verified in order to create a new initiative.
             title: Authorization required
           verification_required: Verify your account to promote this initiative
+    resources:
+      initiatives_type:
+        actions:
+          create: Create
+      admin:
+        initiatives_settings:
+          edit:
+            update: Update
+          form:
+            comments: Most commented
+            date: Most recent
+            publication_date: Most recently published
+            random: Random
+            signatures: Most signed
+            title: Settings for initiatives
+      admin_log:
+        initiatives_settings:
+          update: "%{user_name} updated the initiatives settings"
       signature_interval:
         title: Signature collection period
     meetings:
@@ -136,21 +108,6 @@ en:
       proposals:
         form_view:
           cancel: Annuler
-    resources:
-      admin:
-        initiatives_settings:
-          edit:
-            update: Update
-          form:
-            comments: Most commented
-            date: Most recent
-            publication_date: Most recently published
-            random: Random
-            signatures: Most signed
-            title: Settings for initiatives
-      initiatives_type:
-        actions:
-          create: Create
     verifications:
       authorizations:
         first_login:
@@ -177,9 +134,3 @@ en:
         conversations: Conversations
         notifications: Notifications
         profile: Profile
-  rack_attack:
-    too_many_requests:
-      message: Your connection has been slowed because server received too many requests.
-      time: 'You will be able to navigate on our website in :'
-      time_unit: seconds
-      title: Thank you for your participation on %{organization_name}

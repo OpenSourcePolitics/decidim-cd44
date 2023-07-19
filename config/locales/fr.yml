@@ -2,22 +2,12 @@
 fr:
   activemodel:
     attributes:
-      initiative:
-        area_id: Catégorie
-      initiatives_type:
-        comments_enabled: Activer les commentaires
       osp_authorization_handler:
         birthday: Date de naissance
         document_number: Numéro unique
         postal_code: Code postal
       participatory_process:
         private_space: Espace privé
-    errors:
-      models:
-        user:
-          attributes:
-            password:
-              password_blank: doit être rempli
   decidim:
     accessibility:
       skip_button: Skip button
@@ -26,8 +16,6 @@ fr:
         change_password: Modifier mon mot de passe
         update_account: Mettre à jour mon compte
     admin:
-      menu:
-        initiatives_settings: Paramètres
       participatory_space_private_users:
         create:
           error: L'utilisateur privé a été créé avec succès.
@@ -39,32 +27,6 @@ fr:
             Cet amendement pour le %{amendable_type} %{proposal_link}
             est en cours d’évaluation.
     authorization_handlers:
-      data_authorization_handler:
-        errors:
-          error_message: Ce champ contient une erreur
-          no_postal_code_result: Aucun résultat trouvé pour ce code postal
-        explanation: Vérifier votre identité
-        fields:
-          city: Ville
-          firstname: Prénom
-          gdpr: J'accepte la collecte de mes données personnelles pour l'instruction de mes propositions au budget participatif ou encore à des fins statistiques. Voir le détail du traitement réalisé sur les données à caractères personnelles dans le cadre du budget participatif
-          lastname: Nom
-          minimum_age: J'atteste avoir plus de 16 ans et résider, travailler ou étudier dans le département de Loire-Atlantique en complétant ce formulaire.
-          phone: Numéro de téléphone
-          postal_code: Code postal
-        help_text:
-          city: Votre ville dépend de votre code postal, veuillez sélectionner votre ville dans la liste déroulante
-          firstname: Votre prénom doit comporter au moins 1 caractère et n'être composé que de lettres, d'espaces et de caractères spéciaux tels que - et '
-          gdpr: Vos données seront utilisées pour la vérification de votre identité
-          global_help: Il est nécessaire de compléter ce formulaire pour déposer une proposition dans le budget participatif
-          lastname: Votre nom doit comporter au moins 1 caractère et n'être composé que de lettres, d'espaces et de caractères spéciaux tels que - et '
-          minimum_age: Vous devez avoir plus de 16 ans pour pouvoir vous inscrire.
-          phone: Entrez votre numéro de téléphone
-          postal_code: Votre code postal doit être composé de 5 chiffres
-          required_fields: Les champs obligatoires sont marqués d'un astérisque
-          terms_and_conditions: Mentions légales
-        legend: Informations de contact
-        name: Procédure de partage de données
       osp_authorization_handler:
         explanation: Vérifier votre identité en saisissant un numéro unique
         fields:
@@ -74,26 +36,6 @@ fr:
         name: Formulaire de vérification d'identité
       osp_authorization_workflow:
         name: Procédure d'autorisation
-    budgets:
-      admin:
-        budgets:
-          index:
-            paper_ballots: Bulletins de vote
-        imports:
-          help:
-            paper_ballot_results: Le document d'importation doit contenir les colonnes suivantes 'id' (avec l'identifiant du projet) et 'paper_ballots_to_import' (avec le nombre de nouveaux votes pour le projet qui doit être importé). Vous pouvez simplement réutiliser une exportation de tous les projets et ajouter une colonne nommée 'paper_ballots_to_import'.
-          label:
-            paper_ballot_results: Importer des votes papiers
-          resources:
-            paper_ballot_results: Résultats de bulletins de vote
-          title:
-            paper_ballot_results: Importer des votes des bulletins papiers
-        projects:
-          index:
-            paper_ballots: Vote papier
-    budgets_importer:
-      actions:
-        import: Importer des projets
     components:
       proposals:
         settings:
@@ -102,13 +44,6 @@ fr:
             proposal_edit_time_choices:
               infinite: Autoriser l'édition des propositions pour une durée infinie
               limited: Autoriser l'édition des propositions durant un délai spécifique
-    devise:
-      registrations:
-        too_fast_modal:
-          buttons:
-            close_modal: Fermer
-          notice: Vous avez complété le formulaire d'inscription trop vite. Vous devez rééssayer.
-          title: Erreur d'inscription
     events:
       budgets:
         pending_order:
@@ -117,23 +52,6 @@ fr:
           email_subject: Your vote is still pending in %{participatory_space_title}
           notification_title: The vote on budget <a href="%{resource_path}">%{resource_title}</a> is still waiting for your confirmation in %{participatory_space_title}
     initiatives:
-      admin:
-        initiatives_settings:
-          edit:
-            update: Mettre à jour
-          form:
-            comments: Les plus commentées
-            date: Les plus récentes
-            name: Ordre des initiatives par défaut
-            publication_date: Plus récemment publié
-            random: Aléatoire
-            signatures: Les plus soutenues
-            title: Paramètres des initiatives
-          update:
-            success: Il y a eu une erreur lors de la mise à jour du paramètre.
-      admin_log:
-        initiatives_settings:
-          update: "%{user_name} a mis à jour les paramètres d'initiatives"
       create_initiative:
         select_initiative_type:
           not_authorized:
@@ -142,8 +60,12 @@ fr:
             explanation: Vous devez être autorisé pour créer cette initiative
             title: Autorisation requise
           verification_required: Verifier votre compte pour créer cette initiative
+    resources:
+      initiatives_type:
+        actions:
+          create: Create
       signature_interval:
-        title: Dates de signature
+        title: Période de signature
     meetings:
       directory:
         meetings:
@@ -164,14 +86,10 @@ fr:
         unsubscribe: Pour ne plus recevoir ce type d'email, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
     proposals:
       proposals:
-        form_view:
-          cancel: Annuler
         preview:
           update_position: Mettre à jour les coordonnées
-    resources:
-      initiatives_type:
-        actions:
-          create: Create
+        form_view:
+          cancel: Annuler
     verifications:
       authorizations:
         first_login:
@@ -219,9 +137,3 @@ fr:
         conversations: Conversations
         notifications: Notifications
         profile: Profil
-  rack_attack:
-    too_many_requests:
-      message: Il semblerait que vous fassiez trop de requetes sur notre serveur, votre connexion a ete ralentie.
-      time: 'Vous pourrez naviguer de nouveau sur notre plateforme dans :'
-      time_unit: secondes
-      title: Merci pour votre participation sur %{organization_name}
