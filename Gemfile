@@ -19,7 +19,7 @@ gem "decidim-friendly_signup", git: "https://github.com/OpenSourcePolitics/decid
 gem "decidim-question_captcha", git: "https://github.com/OpenSourcePolitics/decidim-module-question_captcha.git"
 gem "decidim-simple_proposal", git: "https://github.com/OpenSourcePolitics/decidim-module-simple_proposal.git", branch: "fix/0.26-proposal-form"
 gem "decidim-spam_detection", "2.0.0"
-gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: DECIDIM_BRANCH
+gem "decidim-term_customizer", git: "https://github.com/armandfardeau/decidim-module-term_customizer.git", branch: "fix/precompile-on-docker-0.26"
 
 gem "activejob-uniqueness", require: "active_job/uniqueness/sidekiq_patch"
 gem "aws-sdk-s3", require: false

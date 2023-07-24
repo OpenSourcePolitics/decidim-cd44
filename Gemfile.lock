@@ -39,6 +39,15 @@ GIT
       decidim-proposals (~> 0.26.0)
 
 GIT
+  remote: https://github.com/armandfardeau/decidim-module-term_customizer.git
+  revision: 63170f69b51bb7e7f60f20856e944ae1357f4dc7
+  branch: fix/precompile-on-docker-0.26
+  specs:
+    decidim-term_customizer (0.26.0)
+      decidim-admin (~> 0.26.0)
+      decidim-core (~> 0.26.0)
+
+GIT
   remote: https://github.com/digidemlab/decidim-module-budgets_paper_ballots
   revision: 3e5d2794f43b1c353e8a3116edf6daab9e3a26a7
   branch: release/0.26-stable
@@ -46,15 +55,6 @@ GIT
     decidim-budgets_paper_ballots (0.26.0)
       decidim-budgets (>= 0.26.0)
       decidim-core (>= 0.26.0)
-
-GIT
-  remote: https://github.com/mainio/decidim-module-term_customizer.git
-  revision: f0d720710822f1231ea249dd71f978143d38a6c4
-  branch: release/0.26-stable
-  specs:
-    decidim-term_customizer (0.26.0)
-      decidim-admin (~> 0.26.0)
-      decidim-core (~> 0.26.0)
 
 GIT
   remote: https://github.com/sgruhier/foundation_rails_helper.git
