@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "decidim_app/config"
-require "decidim/dev/dummy_translator"
 
 Decidim.configure do |config|
   config.unconfirmed_access_for = 2.days unless Rails.env.test?
