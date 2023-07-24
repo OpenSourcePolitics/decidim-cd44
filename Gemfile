@@ -27,6 +27,7 @@ gem "deface"
 gem "dotenv-rails"
 gem "faker", "~> 2.14"
 gem "fog-aws"
+gem "aws-sdk-s3", require: false
 gem "foundation_rails_helper", git: "https://github.com/sgruhier/foundation_rails_helper.git"
 gem "puma", ">= 5.5.1"
 gem "rack-attack", "~> 6.6"
