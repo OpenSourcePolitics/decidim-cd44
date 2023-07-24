@@ -21,14 +21,14 @@ gem "decidim-simple_proposal", git: "https://github.com/OpenSourcePolitics/decid
 gem "decidim-spam_detection", "2.0.0"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: DECIDIM_BRANCH
 
-gem "dotenv-rails"
+gem "activejob-uniqueness", require: "active_job/uniqueness/sidekiq_patch"
 gem "bootsnap", "~> 1.4"
 gem "deface"
+gem "dotenv-rails"
+gem "faker", "~> 2.14"
+gem "fog-aws"
 gem "foundation_rails_helper", git: "https://github.com/sgruhier/foundation_rails_helper.git"
 gem "puma", ">= 5.5.1"
-gem "faker", "~> 2.14"
-gem "activejob-uniqueness", require: "active_job/uniqueness/sidekiq_patch"
-gem "fog-aws"
 gem "rack-attack", "~> 6.6"
 gem "sys-filesystem"
 
