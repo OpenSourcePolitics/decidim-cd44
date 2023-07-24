@@ -103,6 +103,7 @@ Decidim.configure do |config|
     }
   end
 
+  config.minimum_time_to_sign_up = ENV["MINIMUM_TIME_TO_SIGN_UP"] || 1
   config.base_uploads_path = "#{ENV["HEROKU_APP_NAME"]}/" if ENV["HEROKU_APP_NAME"].present?
 end
 
