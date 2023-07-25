@@ -114,6 +114,11 @@ describe "Organizations", type: :system do
                 app_id: "fake-facebook-app-id",
                 app_secret: "fake-facebook-app-secret"
               },
+              publik: {
+                enabled: true,
+                client_id: "fake-publik-api-key",
+                client_secret: "fake-publik-api-secret"
+              },
               twitter: {
                 enabled: true,
                 api_key: "fake-twitter-api-key",
