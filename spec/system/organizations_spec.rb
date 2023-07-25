@@ -117,8 +117,8 @@ describe "Organizations", type: :system do
               publik: {
                 enabled: true,
                 client_id: "fake-publik-api-key",
-                client_secret: "fake-publik-api-secret"
-		site_url: "fake-url"
+                client_secret: "fake-publik-api-secret",
+                site_url: "fake-url"
               },
               twitter: {
                 enabled: true,
