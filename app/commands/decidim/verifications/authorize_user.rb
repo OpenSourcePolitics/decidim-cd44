@@ -7,12 +7,10 @@ module Decidim
       # Public: Initializes the command.
       #
       # handler - An AuthorizationHandler object.
-      # rubocop:disable Lint/MissingSuper
       def initialize(handler, organization)
         @handler = handler
         @organization = organization
       end
-      # rubocop:enable Lint/MissingSuper
 
       # Executes the command. Broadcasts these events:
       #

@@ -1,16 +1,14 @@
 require: rubocop-rails
 
-Lint/MissingSuper:
-  Exclude:
-    - lib/decidim/proposals/proposal_serializer.rb
-    - app/commands/decidim/initiatives/admin/update_initiatives_settings.rb
-
 Rails:
   Enabled: true
 
 Rails/ActionFilter:
   Include:
     - app/controllers/**/*.rb
+
+Rails/ContentTag:
+  Enabled: false
 
 Rails/CreateTableWithTimestamps:
   Enabled: false
@@ -65,8 +63,15 @@ Rails/Output:
     - lib/decidim/component_manifest.rb
     - lib/decidim/participatory_space_manifest.rb
     - db/seeds.rb
+    - db/seeds.rb
 
 Rails/OutputSafety:
+  Enabled: false
+
+Rails/Pluck:
+  Enabled: false
+
+Rails/RakeEnvironment:
   Enabled: false
 
 Rails/ReadWriteAttribute:
@@ -86,3 +91,11 @@ Rails/SkipsModelValidations:
 Rails/Validation:
   Include:
     - app/models/**/*.rb
+
+Rails/BulkChangeTable:
+  Exclude:
+    - db/**/*
+
+RSpec/MultipleMemoizedHelpers:
+  Exclude:
+    - spec/**/**

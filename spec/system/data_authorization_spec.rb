@@ -12,25 +12,11 @@ describe "Data authorization", type: :system do
   let(:gdpr) { true }
   let(:minimum_age) { true }
   let(:response_body) do
-    JSON.dump({
-                "features": [
-                  {
-                    "properties": {
-                      "name": "Paris"
-                    }
-                  }
-                ]
-              })
+    JSON.dump([{ "75001" => "Paris 1er Arrondissement" }])
   end
   let(:stubbed_request) do
-    stub_request(:get, "https://api-adresse.data.gouv.fr/search/?q=#{postal_code}&type=municipality").with(
-      headers: {
-        "Accept" => "*/*",
-        "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-        "Host" => "api-adresse.data.gouv.fr",
-        "User-Agent" => "Ruby"
-      }
-    ).to_return(status: 200, body: response_body, headers: {})
+    stub_request(:get, "/postal-code-autocomplete/75001").to_return(status: 200, body: response_body, headers: {})
+    stub_request(:get, "https://apicarto.ign.fr/api/codes-postaux/communes/75001").to_return(status: 200, body: response_body, headers: {})
   end
 
   before do
