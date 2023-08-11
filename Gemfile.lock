@@ -1,10 +1,43 @@
 GIT
-  remote: https://github.com/OpenSourcePolitics/decidim-module-friendly_signup
-  revision: ae96439a7db7158c3fdaa83de29793aefdc1c34a
+  remote: https://github.com/OpenSourcePolitics/decidim-module-budgets_importer.git
+  revision: eec557bf67a3cd0e00a1c6bdcc8aa56e4908b635
+  specs:
+    decidim-budgets_importer (2.0.0)
+      decidim-core (~> 0.27)
+
+GIT
+  remote: https://github.com/OpenSourcePolitics/decidim-module-extended_socio_demographic_authorization_handler
+  revision: 6d5fffaa09ea10024f7072ab77ee63861125300a
   branch: release/0.27-stable
+  specs:
+    decidim-extended_socio_demographic_authorization_handler (0.27.0)
+      decidim-core (~> 0.27)
+
+GIT
+  remote: https://github.com/OpenSourcePolitics/decidim-module-friendly_signup
+  revision: c42979ef983cf9f494d26f34fb803e043575f6c4
+  branch: fast_sign_up_management
   specs:
     decidim-friendly_signup (0.4.4)
       decidim-core (~> 0.27)
+
+GIT
+  remote: https://github.com/OpenSourcePolitics/decidim-module-question_captcha.git
+  revision: 9e8c5d28f8cd584641a4c3f95e3fabdcc0b221b2
+  branch: release/0.27-stable
+  specs:
+    decidim-question_captcha (3.0)
+      acts_as_textcaptcha (~> 4.6.0)
+      decidim-core (~> 0.27.0)
+      deface (~> 1.6)
+
+GIT
+  remote: https://github.com/armandfardeau/decidim-module-budgets_paper_ballots
+  revision: 5a24fd62b48fea1b6349cefab65941cd5be1f512
+  specs:
+    decidim-budgets_paper_ballots (0.27.0)
+      decidim-budgets (>= 0.27.0)
+      decidim-core (>= 0.27.0)
 
 GIT
   remote: https://github.com/decidim/decidim.git
@@ -285,7 +318,7 @@ GEM
       zeitwerk (~> 2.3)
     acts_as_list (0.9.19)
       activerecord (>= 3.0)
-    acts_as_textcaptcha (4.5.2)
+    acts_as_textcaptcha (4.6.0)
     addressable (2.8.4)
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
@@ -518,7 +551,7 @@ GEM
     invisible_captcha (0.13.0)
       rails (>= 3.2.0)
     json (2.6.3)
-    jwt (2.7.1)
+    jwt (2.5.0)
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.2)
@@ -927,17 +960,21 @@ PLATFORMS
 
 DEPENDENCIES
   activejob-uniqueness
-  acts_as_textcaptcha (~> 4.5.1)
+  acts_as_textcaptcha (~> 4.6.0)
   bootsnap (~> 1.4)
   brakeman (~> 5.1)
   byebug (~> 11.0)
   climate_control (~> 1.2)
   dalli
   decidim!
+  decidim-budgets_importer!
+  decidim-budgets_paper_ballots!
   decidim-decidim_awesome (~> 0.9.1)
   decidim-dev!
+  decidim-extended_socio_demographic_authorization_handler!
   decidim-friendly_signup!
   decidim-initiatives!
+  decidim-question_captcha!
   decidim-simple_proposal!
   decidim-spam_detection (= 4.0.0)
   decidim-term_customizer!

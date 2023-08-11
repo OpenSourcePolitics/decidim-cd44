@@ -10,7 +10,7 @@ def fill_registration_form
 end
 
 describe "Registration", type: :system do
-  let(:organization) { create(:organization) }
+  let(:organization) { create(:organization, default_locale: "en") }
   let!(:terms_and_conditions_page) { Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization) }
 
   before do
@@ -25,6 +25,7 @@ describe "Registration", type: :system do
         expect(page).to have_field("registration_user_name", with: "")
         expect(page).to have_field("registration_user_email", with: "")
         expect(page).to have_field("registration_user_password", with: "")
+        expect(page).to have_field("registration_user_textcaptcha_answer", with: "")
         expect(page).to have_field("registration_user_newsletter", checked: false)
       end
     end
@@ -63,6 +64,10 @@ describe "Registration", type: :system do
   end
 
   context "when newsletter checkbox is unchecked" do
+    before do
+      allow(Decidim.config).to receive(:minimum_time_to_sign_up).and_return(0)
+    end
+
     it "opens modal on submit" do
       within "form.new_user" do
         find("*[type=submit]").click

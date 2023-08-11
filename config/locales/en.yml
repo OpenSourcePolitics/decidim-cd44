@@ -14,6 +14,12 @@ en:
     accessibility:
       skip_button: Skip button
     account:
+      email_change:
+        body1: We've sent an email to %{unconfirmed_email} to verify your new email address.
+        body2: Need us to send the verification email again? %{resend_link} or %{cancel_link}.
+        cancel: cancel
+        send_again: Send again
+        title: Email change verification
       show:
         change_password: Change password
         update_account: Update account
@@ -35,9 +41,10 @@ en:
       data_authorization_handler:
         errors:
           error_message: This field contains an error
-          gdpr: Gdpr
-          minimum_age: Minimum age
+          gdpr: You must accept the terms and conditions
+          minimum_age: You must be over 16 years old to register
           no_postal_code_result: No result found for this postal code
+        explanation: Verify your identity
         fields:
           city: City
           firstname: Firstname
@@ -54,6 +61,7 @@ en:
           postal_code: Your postal code must be composed of 5 digits
           required_fields: Required fields are marked with an asterisk
         legend: Contact information
+        name: Data Sharing Process
       osp_authorization_handler:
         explanation: Vérifier votre identité en saisissant un numéro unique
         fields:

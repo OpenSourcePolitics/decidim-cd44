@@ -9,13 +9,16 @@ ruby RUBY_VERSION
 gem "decidim", git: "https://github.com/decidim/decidim.git", branch: DECIDIM_VERSION
 gem "decidim-initiatives", git: "https://github.com/decidim/decidim.git", branch: DECIDIM_VERSION
 
-gem "acts_as_textcaptcha", "~> 4.5.1"
-# gem "decidim-budgets_importer", git: "https://github.com/OpenSourcePolitics/decidim-module-budgets_importer.git"
-# gem "decidim-budgets_paper_ballots", git: "https://github.com/digidemlab/decidim-module-budgets_paper_ballots", branch: "release/0.26-stable"
+gem "acts_as_textcaptcha", "~> 4.6.0"
+gem "decidim-budgets_importer", git: "https://github.com/OpenSourcePolitics/decidim-module-budgets_importer.git"
+# TODO: Budgets booth (here ptp) may override the user model, which costs to make fail some test with the phone_number
+# gem "decidim-ptp", git: "https://github.com/Pipeline-to-Power/decidim-module-ptp.git"
+gem "decidim-budgets_paper_ballots", git: "https://github.com/armandfardeau/decidim-module-budgets_paper_ballots"
 gem "decidim-decidim_awesome", "~> 0.9.1"
-# gem "decidim-extended_socio_demographic_authorization_handler", git: "https://github.com/OpenSourcePolitics/decidim-module-extended_socio_demographic_authorization_handler"
-gem "decidim-friendly_signup", git: "https://github.com/OpenSourcePolitics/decidim-module-friendly_signup", branch: DECIDIM_VERSION
-# gem "decidim-question_captcha", git: "https://github.com/OpenSourcePolitics/decidim-module-question_captcha.git"
+gem "decidim-extended_socio_demographic_authorization_handler", git: "https://github.com/OpenSourcePolitics/decidim-module-extended_socio_demographic_authorization_handler",
+                                                                branch: DECIDIM_VERSION
+gem "decidim-friendly_signup", git: "https://github.com/OpenSourcePolitics/decidim-module-friendly_signup", branch: "fast_sign_up_management"
+gem "decidim-question_captcha", git: "https://github.com/OpenSourcePolitics/decidim-module-question_captcha.git", branch: DECIDIM_VERSION
 gem "decidim-simple_proposal", git: "https://github.com/mainio/decidim-module-simple_proposal.git"
 gem "decidim-spam_detection", "4.0.0"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git"
