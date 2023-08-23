@@ -133,6 +133,7 @@ describe "Registration", type: :system do
       expect(page).to have_field("registration_user_newsletter", checked: true)
     end
   end
+
   def stub_captcha(locale)
     stub_request(:get, "https://testm1obgqmc-decidimcaptchaapi.functions.fnc.fr-par.scw.cloud/?locale=#{locale}")
       .with(

@@ -699,6 +699,7 @@ describe "Authentication", type: :system do
       end
     end
   end
+
   def stub_captcha(locale)
     stub_request(:get, "https://testm1obgqmc-decidimcaptchaapi.functions.fnc.fr-par.scw.cloud/?locale=#{locale}")
       .with(
