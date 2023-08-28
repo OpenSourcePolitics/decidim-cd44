@@ -231,15 +231,6 @@ GIT
       decidim-proposals (~> 0.27.0)
 
 GIT
-  remote: https://github.com/mainio/decidim-module-term_customizer.git
-  revision: f1a8ed5c79079acc97ca109f0e5935ce0f6acd05
-  branch: develop
-  specs:
-    decidim-term_customizer (0.27.0)
-      decidim-admin (~> 0.27.0)
-      decidim-core (~> 0.27.0)
-
-GIT
   remote: https://github.com/sgruhier/foundation_rails_helper.git
   revision: bc33600db7a2d16ce3cdc1f8369d0d7e7c4245b5
   specs:
@@ -981,7 +972,6 @@ DEPENDENCIES
   decidim-question_captcha!
   decidim-simple_proposal!
   decidim-spam_detection (= 4.0.0)
-  decidim-term_customizer!
   deface
   dotenv-rails
   faker (~> 2.14)
