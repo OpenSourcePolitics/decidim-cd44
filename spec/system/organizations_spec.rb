@@ -22,7 +22,7 @@ describe "Organizations", type: :system do
 
     describe "creating an organization" do
       before do
-        click_link "Organisations"
+        click_link "Organizations"
         click_link "Nouvelle"
       end
 
@@ -61,7 +61,7 @@ describe "Organizations", type: :system do
       end
 
       before do
-        click_link "Organisations"
+        click_link "Organizations"
         within "table tbody" do
           first("tr").click_link "Citizen Corp"
         end
@@ -77,7 +77,7 @@ describe "Organizations", type: :system do
       let!(:organization) { create(:organization, name: "Citizen Corp") }
 
       before do
-        click_link "Organisations"
+        click_link "Organizations"
         within "table tbody" do
           first("tr").click_link "Modifier"
         end
@@ -139,7 +139,7 @@ describe "Organizations", type: :system do
         Decidim::System.send(:remove_const, :UpdateOrganizationForm)
         load "#{Decidim::System::Engine.root}/app/forms/decidim/system/update_organization_form.rb"
 
-        click_link "Organisations"
+        click_link "Organizations"
         within "table tbody" do
           first("tr").click_link "Modifier"
         end

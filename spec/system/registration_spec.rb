@@ -75,7 +75,7 @@ describe "Registration", type: :system do
         within "form.new_user" do
           find("*[type=submit]").click
         end
-        expect(page).to have_content("A message with a confirmation link")
+        expect(page).to have_content("A message with a code has been sent to your email address.")
       end
     end
   end

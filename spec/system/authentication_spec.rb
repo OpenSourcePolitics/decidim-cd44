@@ -73,7 +73,7 @@ describe "Authentication", type: :system do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("Un message avec un lien de confirmation a été envoyé à votre adresse e-mail.")
+        expect(page).to have_content("Un message contenant un code a été envoyé à votre adresse email.")
         expect(last_user.locale).to eq("fr")
       end
     end
@@ -299,7 +299,7 @@ describe "Authentication", type: :system do
       end
 
       expect(emails.count).to eq(2)
-      expect(page).to have_content("you will receive an email with instructions for how to confirm your email address in a few minutes.")
+      expect(page).to have_content("A message with a code has been sent to your email address.")
     end
   end
 
@@ -447,7 +447,7 @@ describe "Authentication", type: :system do
             end
 
             # TODO: Check why it is printed as a french translation (Maybe to check with the "machine translations" that disable the english locale)
-            expect(page).to have_content("invalide")
+            expect(page).to have_content("Invalid")
           end
         end
 
@@ -472,7 +472,7 @@ describe "Authentication", type: :system do
               perform_enqueued_jobs { find("*[type=submit]").click }
             end
 
-            expect(page).to have_content("invalide")
+            expect(page).to have_content("Invalid")
             expect(emails.count).to eq(1)
           end
         end

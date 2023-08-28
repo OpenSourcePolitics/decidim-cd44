@@ -81,7 +81,7 @@ describe "Edit initiative", type: :system do
         visit edit_initiative_path
 
         # Why does it automatically switch to french even if it's not available ??
-        expect(page).to have_content("pas autorisé")
+        expect(page).to have_content("You are not authorized")
       end
     end
   end
@@ -115,7 +115,7 @@ describe "Edit initiative", type: :system do
 
       # Why does it automatically switch to french even if it's not available ??
 
-      expect(page).to have_content("pas autorisé")
+      expect(page).to have_content("You are not authorized")
     end
   end
 end
