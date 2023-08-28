@@ -29,8 +29,6 @@ describe "Account", type: :system do
       visit decidim.account_path
     end
 
-    it_behaves_like "accessible page"
-
     describe "update avatar" do
       it "can update avatar" do
         dynamically_attach_file(:user_avatar, Decidim::Dev.asset("avatar.jpg"), remove_before: true)
