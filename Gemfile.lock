@@ -40,6 +40,15 @@ GIT
       decidim-core (>= 0.27.0)
 
 GIT
+  remote: https://github.com/armandfardeau/decidim-module-term_customizer.git
+  revision: 41f6c0fa95cc26c7f0dbe317d48e83723cb08b1b
+  branch: fix/precompile-on-docker-0.27
+  specs:
+    decidim-term_customizer (0.27.0)
+      decidim-admin (~> 0.27.0)
+      decidim-core (~> 0.27.0)
+
+GIT
   remote: https://github.com/decidim/decidim.git
   revision: 42a2296a9d695b9ff415e82562e4dc6469c5d577
   branch: release/0.27-stable
@@ -972,6 +981,7 @@ DEPENDENCIES
   decidim-question_captcha!
   decidim-simple_proposal!
   decidim-spam_detection (= 4.0.0)
+  decidim-term_customizer!
   deface
   dotenv-rails
   faker (~> 2.14)
