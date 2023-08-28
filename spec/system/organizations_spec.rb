@@ -7,10 +7,10 @@ describe "Organizations", type: :system do
 
   shared_examples "form hiding advanced settings" do
     it "hides advanced settings" do
-      expect(page).to have_content "Afficher les paramètres avancés"
-      expect(page).not_to have_content "SMTP settings"
-      expect(page).not_to have_content "Omniauth settings"
-      expect(page).not_to have_content "File upload settings"
+      expect(page).to have_content "Show advanced settings"
+      expect(page).to have_no_content "SMTP settings"
+      expect(page).to have_no_content "Omniauth settings"
+      expect(page).to have_no_content "File upload settings"
     end
   end
 
@@ -23,41 +23,40 @@ describe "Organizations", type: :system do
     describe "creating an organization" do
       before do
         click_link "Organizations"
-        click_link "Nouvelle"
+        click_link "New"
       end
 
       it_behaves_like "form hiding advanced settings"
 
       it "creates a new organization" do
-        fill_in :organization_name, with: "Citizen Corp"
-        fill_in :organization_host, with: "www.example.org"
-        fill_in :organization_secondary_hosts, with: "foo.example.org\n\rbar.example.org"
-        fill_in :organization_reference_prefix, with: "CCORP"
-        fill_in :organization_organization_admin_name, with: "City Mayor"
-        fill_in :organization_organization_admin_email, with: "mayor@example.org"
-        check "organization_available_locales_fr"
-        choose "organization_default_locale_fr"
-        choose "Autoriser les utilisateurs à se créer un compte et à s'identifier"
-        check "Procédure de partage de données (Direct)"
-        click_button "Créer une organisation et inviter un administrateur"
+        fill_in "Name", with: "Citizen Corp"
+        fill_in "Host", with: "www.example.org"
+        fill_in "Secondary hosts", with: "foo.example.org\n\rbar.example.org"
+        fill_in "Reference prefix", with: "CCORP"
+        fill_in "Organization admin name", with: "City Mayor"
+        fill_in "Organization admin email", with: "mayor@example.org"
+        check "organization_available_locales_en"
+        choose "organization_default_locale_en"
+        choose "Allow participants to register and login"
+        click_button "Create organization & invite admin"
 
         expect(page).to have_css("div.flash.success")
         expect(page).to have_content("Citizen Corp")
       end
 
       context "with invalid data" do
-        it "does not create an organization" do
-          fill_in :organization_name, with: "Bad"
-          click_button "Créer une organisation et inviter un administrateur"
+        it "doesn't create an organization" do
+          fill_in "Name", with: "Bad"
+          click_button "Create organization & invite admin"
 
-          expect(page).to have_content("Ce champ contient une erreur")
+          expect(page).to have_content("There's an error in this field")
         end
       end
     end
 
     describe "showing an organization with different locale than user" do
       let!(:organization) do
-        create(:organization, name: "Citizen Corp", default_locale: :fr, available_locales: ["fr"], description: { fr: "Un texte large" })
+        create(:organization, name: "Citizen Corp", default_locale: :fr, available_locales: ["fr"], description: { fr: "Un texto largo" })
       end
 
       before do
@@ -69,7 +68,7 @@ describe "Organizations", type: :system do
 
       it "shows the organization data" do
         expect(page).to have_content("Citizen Corp")
-        expect(page).to have_content("Un texte large")
+        expect(page).to have_content("Un texto largo")
       end
     end
 
@@ -79,23 +78,21 @@ describe "Organizations", type: :system do
       before do
         click_link "Organizations"
         within "table tbody" do
-          first("tr").click_link "Modifier"
+          first("tr").click_link "Edit"
         end
       end
 
       it_behaves_like "form hiding advanced settings"
 
       it "edits the data" do
-        fill_in :organization_name, with: "Citizens Rule!"
-        fill_in :organization_host, with: "www.example.org"
-        fill_in :organization_secondary_hosts, with: "foobar.example.org\n\rbar.example.org"
-        choose "Ne pas autoriser les utilisateurs à s'inscrire, mais autoriser les utilisateurs existants à se connecter"
-        check "Données personnelles (Direct)"
+        fill_in "Name", with: "Citizens Rule!"
+        fill_in "Host", with: "www.example.org"
+        fill_in "Secondary hosts", with: "foobar.example.org\n\rbar.example.org"
+        choose "Don't allow participants to register, but allow existing participants to login"
 
-        click_button "Afficher les paramètres avancés"
+        click_button "Show advanced settings"
         check "organization_omniauth_settings_facebook_enabled"
-
-        click_button "Sauvegarder"
+        click_button "Save"
 
         expect(page).to have_css("div.flash.success")
         expect(page).to have_content("Citizens Rule!")
@@ -104,7 +101,7 @@ describe "Organizations", type: :system do
 
     describe "editing an organization with disabled OmniAuth provider" do
       let!(:organization) do
-        create(:organization, name: "Citizen Corp", default_locale: :fr, available_locales: ["fr"], description: { fr: "Un texte large" })
+        create(:organization, name: "Citizen Corp", default_locale: :fr, available_locales: ["fr"], description: { fr: "Un texto largo" })
       end
 
       before do
@@ -141,10 +138,10 @@ describe "Organizations", type: :system do
 
         click_link "Organizations"
         within "table tbody" do
-          first("tr").click_link "Modifier"
+          first("tr").click_link "Edit"
         end
 
-        click_button "Afficher les paramètres avancés"
+        click_button "Show advanced settings"
       end
 
       after do

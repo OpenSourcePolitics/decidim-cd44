@@ -47,7 +47,7 @@ describe "Authentication", type: :system do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("A message with a confirmation link has been sent to your email address.")
+        expect(page).to have_content("A message with a code has been sent to your email address.")
       end
     end
 
@@ -94,7 +94,7 @@ describe "Authentication", type: :system do
           find("*[type=submit]").click
         end
 
-        expect(page).not_to have_content("A message with a confirmation link has been sent to your email address.")
+        expect(page).not_to have_content("A message with a code has been sent to your email address.")
       end
     end
 
@@ -628,7 +628,7 @@ describe "Authentication", type: :system do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_content("A message with a confirmation link has been sent to your email address.")
+          expect(page).to have_content("A message with a code has been sent to your email address.")
         end
       end
     end

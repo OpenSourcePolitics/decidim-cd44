@@ -160,8 +160,7 @@ describe "Homepage", type: :system do
           end
 
           within ".main-footer" do
-            # TODO: Check why it is printed as a french translation (Maybe to check with the "machine translations" that disable the english locale)
-            click_link static_page1.title["fr"]
+            click_link static_page1.title["en"]
           end
           expect(page).to have_i18n_content(static_page1.title)
 
