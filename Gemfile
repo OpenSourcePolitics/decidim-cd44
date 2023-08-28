@@ -21,7 +21,7 @@ gem "decidim-friendly_signup", git: "https://github.com/OpenSourcePolitics/decid
 gem "decidim-question_captcha", git: "https://github.com/OpenSourcePolitics/decidim-module-question_captcha.git", branch: DECIDIM_VERSION
 gem "decidim-simple_proposal", git: "https://github.com/mainio/decidim-module-simple_proposal.git"
 gem "decidim-spam_detection", "4.0.0"
-gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git"
+gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: "develop"
 
 gem "dotenv-rails"
 

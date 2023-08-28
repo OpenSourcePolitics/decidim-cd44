@@ -232,7 +232,8 @@ GIT
 
 GIT
   remote: https://github.com/mainio/decidim-module-term_customizer.git
-  revision: 187a46b387c3750a1f7703a538efada03d81f13e
+  revision: f1a8ed5c79079acc97ca109f0e5935ce0f6acd05
+  branch: develop
   specs:
     decidim-term_customizer (0.27.0)
       decidim-admin (~> 0.27.0)
@@ -1008,7 +1009,7 @@ DEPENDENCIES
   web-console (= 4.0.4)
 
 RUBY VERSION
-   ruby 3.0.3p157
+   ruby 3.0.2p107
 
 BUNDLED WITH
    2.3.11
