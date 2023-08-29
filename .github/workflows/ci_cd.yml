@@ -80,7 +80,7 @@ jobs:
         if: "github.ref != 'refs/heads/master' || github.ref != 'refs/heads/develop'"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-      - uses: OpenSourcePolitics/rspec-action@develop
+      - uses: OpenSourcePolitics/rspec-action@master
         with:
           command: 'bundle exec rspec --exclude-pattern "spec/system/**/*_spec.rb"'
           prepare_command: "bundle exec rails db:create db:migrate"
@@ -110,7 +110,7 @@ jobs:
         if: "github.ref != 'refs/heads/master' || github.ref != 'refs/heads/develop'"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-      - uses: OpenSourcePolitics/rspec-action@develop
+      - uses: OpenSourcePolitics/rspec-action@master
         with:
           command: 'bundle exec rspec "spec/system"'
           prepare_command: "bundle exec rails db:create db:migrate"
