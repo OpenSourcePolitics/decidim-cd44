@@ -2,12 +2,13 @@
 
 source "https://rubygems.org"
 
-DECIDIM_VERSION = "release/0.27-stable"
+DECIDIM_VERSION = "0.27"
+DECIDIM_BRANCH = "release/#{DECIDIM_VERSION}-stable".freeze
 
 ruby RUBY_VERSION
 
-gem "decidim", git: "https://github.com/decidim/decidim.git", branch: DECIDIM_VERSION
-gem "decidim-initiatives", git: "https://github.com/decidim/decidim.git", branch: DECIDIM_VERSION
+gem "decidim", "~> #{DECIDIM_VERSION}.0"
+gem "decidim-initiatives", "~> #{DECIDIM_VERSION}.0"
 
 gem "acts_as_textcaptcha", "~> 4.6.0"
 gem "decidim-budgets_importer", git: "https://github.com/OpenSourcePolitics/decidim-module-budgets_importer.git"
@@ -16,9 +17,9 @@ gem "decidim-budgets_importer", git: "https://github.com/OpenSourcePolitics/deci
 gem "decidim-budgets_paper_ballots", git: "https://github.com/armandfardeau/decidim-module-budgets_paper_ballots"
 gem "decidim-decidim_awesome", "~> 0.9.1"
 gem "decidim-extended_socio_demographic_authorization_handler", git: "https://github.com/OpenSourcePolitics/decidim-module-extended_socio_demographic_authorization_handler",
-                                                                branch: DECIDIM_VERSION
+                                                                branch: DECIDIM_BRANCH
 gem "decidim-friendly_signup", git: "https://github.com/OpenSourcePolitics/decidim-module-friendly_signup", branch: "fast_sign_up_management"
-gem "decidim-question_captcha", git: "https://github.com/OpenSourcePolitics/decidim-module-question_captcha.git", branch: DECIDIM_VERSION
+gem "decidim-question_captcha", git: "https://github.com/OpenSourcePolitics/decidim-module-question_captcha.git", branch: DECIDIM_BRANCH
 gem "decidim-simple_proposal", git: "https://github.com/mainio/decidim-module-simple_proposal.git"
 gem "decidim-spam_detection", "4.0.0"
 gem "decidim-term_customizer", git: "https://github.com/armandfardeau/decidim-module-term_customizer.git", branch: "fix/precompile-on-docker-0.27"
@@ -43,7 +44,7 @@ group :development, :test do
   gem "climate_control", "~> 1.2"
 
   gem "brakeman", "~> 5.1"
-  gem "decidim-dev", git: "https://github.com/decidim/decidim.git", branch: DECIDIM_VERSION
+  gem "decidim-dev", "~> #{DECIDIM_VERSION}.0"
 end
 
 group :development do
