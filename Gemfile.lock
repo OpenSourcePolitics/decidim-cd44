@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/OpenSourcePolitics/decidim-module-extended_socio_demographic_authorization_handler
-  revision: adec5e66cd07b5e5fdce5562453a7e8d6de88013
+  revision: 6d5fffaa09ea10024f7072ab77ee63861125300a
   branch: release/0.27-stable
   specs:
     decidim-extended_socio_demographic_authorization_handler (0.27.0)
@@ -50,7 +50,7 @@ GIT
 
 GIT
   remote: https://github.com/mainio/decidim-module-simple_proposal.git
-  revision: bdf2d5d3b2bbf22ab2a99e1b7b2ae52b3894ecec
+  revision: 8b69eabaa912a2e0592ea8d68ed6e56720e978cf
   specs:
     decidim-simple_proposal (0.27.0)
       decidim-core (~> 0.27.0)
@@ -327,7 +327,7 @@ GEM
     decidim-debates (0.27.4)
       decidim-comments (= 0.27.4)
       decidim-core (= 0.27.4)
-    decidim-decidim_awesome (0.9.3)
+    decidim-decidim_awesome (0.9.1)
       decidim-admin (>= 0.26.0, < 0.28)
       decidim-core (>= 0.26.0, < 0.28)
       sassc (~> 2.3)
