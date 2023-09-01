@@ -32,6 +32,15 @@ GIT
       deface (~> 1.6)
 
 GIT
+  remote: https://github.com/Pipeline-to-Power/decidim-module-ptp.git
+  revision: 18c7422633b743ff6fe63e1dda90bb3480d741a8
+  branch: main
+  specs:
+    decidim-budgets_booth (0.27.0)
+      decidim-budgets (~> 0.27.0)
+      decidim-core (~> 0.27.0)
+
+GIT
   remote: https://github.com/armandfardeau/decidim-module-budgets_paper_ballots
   revision: 5a24fd62b48fea1b6349cefab65941cd5be1f512
   specs:
@@ -966,6 +975,7 @@ DEPENDENCIES
   climate_control (~> 1.2)
   dalli
   decidim (~> 0.27.0)
+  decidim-budgets_booth!
   decidim-budgets_importer!
   decidim-budgets_paper_ballots!
   decidim-decidim_awesome (~> 0.9.1)
