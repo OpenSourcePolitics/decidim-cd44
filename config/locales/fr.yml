@@ -14,6 +14,12 @@ fr:
     accessibility:
       skip_button: Skip button
     account:
+      email_change:
+        body1: Nous avons envoyé un e-mail à %{unconfirmed_email} pour vérifier votre nouvelle adresse e-mail.
+        body2: Envoyer à nouveau l'e-mail de vérification ? %{resend_link} ou %{cancel_link}.
+        cancel: annuler
+        send_again: Envoyer à nouveau
+        title: Vérification du changement d'adresse e-mail
       show:
         change_password: Modifier mon mot de passe
         update_account: Mettre à jour mon compte
@@ -35,9 +41,10 @@ fr:
       data_authorization_handler:
         errors:
           error_message: Ce champ contient une erreur
-          gdpr: Gdpr
-          minimum_age: Minimum age
+          gdpr: Vous devez accepter les mentions légales
+          minimum_age: Vous devez avoir plus de 16 ans pour pouvoir vous inscrire
           no_postal_code_result: Aucun résultat trouvé pour ce code postal
+        explanation: Vérifier votre identité
         fields:
           city: Ville
           firstname: Prénom
@@ -54,6 +61,7 @@ fr:
           postal_code: Votre code postal doit être composé de 5 chiffres
           required_fields: Les champs obligatoires sont marqués d'un astérisque
         legend: Informations de contact
+        name: Procédure de partage de données
       osp_authorization_handler:
         explanation: Vérifier votre identité en saisissant un numéro unique
         fields:

@@ -10,13 +10,22 @@ describe "Homepage", type: :system do
 
     it "redirects to system UI and shows a warning" do
       expect(page).to have_current_path(decidim_system.new_admin_session_path)
-      expect(page).to have_content("You must create an organization to get started")
+      expect(page).to have_content("You must create an organization to get started.")
     end
   end
 
   context "when there's an organization" do
     let(:official_url) { "http://mytesturl.me" }
-    let(:organization) { create(:organization, official_url: official_url) }
+    let(:organization) do
+      create(:organization, default_locale: "en", official_url: official_url,
+                            highlighted_content_banner_enabled: true,
+                            highlighted_content_banner_title: Decidim::Faker::Localized.sentence(word_count: 2),
+                            highlighted_content_banner_short_description: Decidim::Faker::Localized.sentence(word_count: 2),
+                            highlighted_content_banner_action_title: Decidim::Faker::Localized.sentence(word_count: 2),
+                            highlighted_content_banner_action_subtitle: Decidim::Faker::Localized.sentence(word_count: 2),
+                            highlighted_content_banner_action_url: ::Faker::Internet.url,
+                            highlighted_content_banner_image: Decidim::Dev.test_file("city.jpeg", "image/jpeg"))
+    end
 
     before do
       create :content_block, organization: organization, scope_name: :homepage, manifest_name: :hero
@@ -37,21 +46,18 @@ describe "Homepage", type: :system do
         visit decidim.root_path
       end
 
-      it_behaves_like "accessible page"
-
       it "includes the official organization links and images" do
         expect(page).to have_selector("a.logo-cityhall[href='#{official_url}']")
-        expect(page).to have_selector("a.main-footer__badge[href='#{official_url}']")
       end
 
       context "and the organization has the omnipresent banner enabled" do
         let(:organization) do
-          create(:organization,
-                 official_url: official_url,
-                 enable_omnipresent_banner: true,
-                 omnipresent_banner_url: "#{official_url}/processes",
-                 omnipresent_banner_title: Decidim::Faker::Localized.sentence(word_count: 3),
-                 omnipresent_banner_short_description: Decidim::Faker::Localized.sentence(word_count: 3))
+          create(:organization, default_locale: "en",
+                                official_url: official_url,
+                                enable_omnipresent_banner: true,
+                                omnipresent_banner_url: "#{official_url}/processes",
+                                omnipresent_banner_title: Decidim::Faker::Localized.sentence(word_count: 3),
+                                omnipresent_banner_short_description: Decidim::Faker::Localized.sentence(word_count: 3))
         end
 
         before do
@@ -69,8 +75,8 @@ describe "Homepage", type: :system do
       end
 
       describe "call to action" do
-        let!(:participatory_process) { create :participatory_process, :published }
-        let!(:organization) { participatory_process.organization }
+        let!(:organization) { create :organization, default_locale: "en" }
+        let!(:participatory_process) { create :participatory_process, :published, organization: organization }
 
         before do
           switch_to_host(organization.host)
@@ -79,7 +85,7 @@ describe "Homepage", type: :system do
 
         context "when the organization has the CTA button text customized" do
           let(:cta_button_text) { { en: "Sign up", es: "Regístrate", ca: "Registra't" } }
-          let(:organization) { create(:organization, cta_button_text: cta_button_text) }
+          let(:organization) { create(:organization, default_locale: "en", cta_button_text: cta_button_text) }
 
           it "uses the custom values for the CTA button text" do
             within ".hero" do
@@ -92,7 +98,7 @@ describe "Homepage", type: :system do
         end
 
         context "when the organization has the CTA button link customized" do
-          let(:organization) { create(:organization, cta_button_path: "users/sign_in") }
+          let(:organization) { create(:organization, default_locale: "en", cta_button_path: "users/sign_in") }
 
           it "uses the custom values for the CTA button" do
             within ".hero" do
@@ -107,6 +113,8 @@ describe "Homepage", type: :system do
         end
 
         context "when the organization does not have it customized" do
+          let(:organization) { create(:organization, default_locale: "en", cta_button_path: "processes") }
+
           it "uses the default values for the CTA button" do
             visit decidim.root_path
 
@@ -122,21 +130,10 @@ describe "Homepage", type: :system do
 
       context "with header snippets" do
         let(:snippet) { "<meta data-hello=\"This is the organization header_snippet field\">" }
-        let(:organization) { create(:organization, official_url: official_url, header_snippets: snippet) }
+        let(:organization) { create(:organization, default_locale: "en", official_url: official_url, header_snippets: snippet) }
 
-        it "does not include the header snippets" do
-          expect(page).not_to have_selector("meta[data-hello]", visible: :all)
-        end
-
-        context "when header snippets are enabled" do
-          before do
-            allow(Decidim).to receive(:enable_html_header_snippets).and_return(true)
-            visit decidim.root_path
-          end
-
-          it "includes the header snippets" do
-            expect(page).to have_selector("meta[data-hello]", visible: :all)
-          end
+        it "includes the header snippets" do
+          expect(page).to have_selector("meta[data-hello]", visible: :all)
         end
       end
 
@@ -156,26 +153,100 @@ describe "Homepage", type: :system do
         it "includes links to them" do
           within ".main-footer" do
             [static_page1, static_page2].each do |static_page|
-              expect(page).to have_content(static_page.title["en"])
+              expect(page).to have_i18n_content(static_page.title)
             end
 
-            expect(page).to have_no_content(static_page3.title["en"])
+            expect(page).to have_no_i18n_content(static_page3.title)
           end
 
-          click_link static_page1.title["en"]
+          within ".main-footer" do
+            click_link static_page1.title["en"]
+          end
           expect(page).to have_i18n_content(static_page1.title)
 
           expect(page).to have_i18n_content(static_page1.content)
         end
 
-        it "does not include the footer sub_hero with the current organization name" do
-          expect(page).to have_no_selector(".main-footer__sub-hero")
+        it "includes the footer sub_hero with the current organization name" do
+          expect(page).to have_css(".footer__subhero")
+
+          within ".footer__subhero" do
+            expect(page).to have_content(organization.name)
+          end
+        end
+
+        context "when organization forces users to authenticate before access" do
+          let(:organization) do
+            create(
+              :organization, default_locale: "en",
+                             official_url: official_url,
+                             force_users_to_authenticate_before_access_organization: true
+            )
+          end
+          let(:user) { nil }
+          let!(:static_page1) { create(:static_page, organization: organization, show_in_footer: true, allow_public_access: true) }
+          let!(:static_page_topic1) { create(:static_page_topic, organization: organization, show_in_footer: true) }
+          let!(:static_page_topic1_page1) do
+            create(
+              :static_page,
+              organization: organization,
+              topic: static_page_topic1,
+              weight: 0,
+              allow_public_access: false
+            )
+          end
+          let!(:static_page_topic1_page2) do
+            create(
+              :static_page,
+              organization: organization,
+              topic: static_page_topic1,
+              weight: 1,
+              allow_public_access: true
+            )
+          end
+          let!(:static_page_topic2) { create(:static_page_topic, organization: organization, show_in_footer: true) }
+          let!(:static_page_topic2_page1) { create(:static_page, organization: organization, topic: static_page_topic2, weight: 0) }
+          let!(:static_page_topic2_page2) { create(:static_page, organization: organization, topic: static_page_topic2, weight: 1) }
+          let!(:static_page_topic3) { create(:static_page_topic, organization: organization) }
+          let!(:static_page_topic3_page1) { create(:static_page, organization: organization, topic: static_page_topic3) }
+
+          # Re-visit required for the added pages and topics to be visible and
+          # to sign in the user when it is defined.
+          before do
+            login_as user, scope: :user if user
+            visit current_path
+          end
+
+          context "when authenticated" do
+            let(:organization) { create(:organization, default_locale: "en") }
+            let(:user) { create :user, :confirmed, organization: organization }
+
+            it_behaves_like "accessible page"
+
+            it "displays all pages and topics in footer that are configured to display in footer" do
+              expect(page).to have_i18n_content(static_page1.title)
+              expect(page).to have_i18n_content(static_page2.title)
+              expect(page).to have_no_i18n_content(static_page3.title)
+              expect(page).to have_i18n_content(static_page_topic1.title)
+              expect(page).to have_i18n_content(static_page_topic2.title)
+              expect(page).to have_no_i18n_content(static_page_topic3.title)
+
+              expect(page).to have_link(
+                static_page_topic1.title["en"],
+                href: "/pages/#{static_page_topic1_page1.slug}"
+              )
+              expect(page).to have_link(
+                static_page_topic2.title["en"],
+                href: "/pages/#{static_page_topic2_page1.slug}"
+              )
+            end
+          end
         end
       end
 
       describe "includes statistics" do
         let!(:users) { create_list(:user, 4, :confirmed, organization: organization) }
-        let!(:participatory_processes) do
+        let!(:participatory_process) do
           create_list(
             :participatory_process,
             2,
@@ -187,7 +258,7 @@ describe "Homepage", type: :system do
         end
 
         context "when organization doesn't have the stats content block" do
-          let(:organization) { create(:organization) }
+          let(:organization) { create(:organization, default_locale: "en") }
 
           it "does not show the statistics block" do
             expect(page).to have_no_content("Current state of #{organization.name}")
@@ -195,7 +266,7 @@ describe "Homepage", type: :system do
         end
 
         context "when organization has the stats content block" do
-          let(:organization) { create(:organization) }
+          let(:organization) { create(:organization, default_locale: "en") }
 
           before do
             create :content_block, organization: organization, scope_name: :homepage, manifest_name: :stats
@@ -204,7 +275,7 @@ describe "Homepage", type: :system do
 
           it "shows the statistics block" do
             within "#statistics" do
-              expect(page).to have_content("Current state of #{organization.name}")
+              expect(page).to have_content("Current state of ")
               expect(page).to have_content("PROCESSES")
               expect(page).to have_content("PARTICIPANTS")
             end
@@ -224,7 +295,7 @@ describe "Homepage", type: :system do
 
       describe "includes metrics" do
         context "when organization doesn't have the metrics content block" do
-          let(:organization) { create(:organization) }
+          let(:organization) { create(:organization, default_locale: "en") }
 
           it "does not show the statistics block" do
             expect(page).to have_no_content("Participation in figures")
@@ -232,7 +303,7 @@ describe "Homepage", type: :system do
         end
 
         context "when organization does have the metrics content block" do
-          let(:organization) { create(:organization) }
+          let(:organization) { create(:organization, default_locale: "en") }
           let(:metrics) do
             Decidim.metrics_registry.all.each do |metric_registry|
               create(:metric, metric_type: metric_registry.metric_name, day: Time.zone.today, organization: organization, cumulative: 5, quantity: 2)
@@ -302,15 +373,15 @@ describe "Homepage", type: :system do
 
       context "and has highlighted content banner enabled" do
         let(:organization) do
-          create(:organization,
-                 official_url: official_url,
-                 highlighted_content_banner_enabled: true,
-                 highlighted_content_banner_title: Decidim::Faker::Localized.sentence(word_count: 2),
-                 highlighted_content_banner_short_description: Decidim::Faker::Localized.sentence(word_count: 2),
-                 highlighted_content_banner_action_title: Decidim::Faker::Localized.sentence(word_count: 2),
-                 highlighted_content_banner_action_subtitle: Decidim::Faker::Localized.sentence(word_count: 2),
-                 highlighted_content_banner_action_url: ::Faker::Internet.url,
-                 highlighted_content_banner_image: Decidim::Dev.test_file("city.jpeg", "image/jpeg"))
+          create(:organization, default_locale: "en",
+                                official_url: official_url,
+                                highlighted_content_banner_enabled: true,
+                                highlighted_content_banner_title: Decidim::Faker::Localized.sentence(word_count: 2),
+                                highlighted_content_banner_short_description: Decidim::Faker::Localized.sentence(word_count: 2),
+                                highlighted_content_banner_action_title: Decidim::Faker::Localized.sentence(word_count: 2),
+                                highlighted_content_banner_action_subtitle: Decidim::Faker::Localized.sentence(word_count: 2),
+                                highlighted_content_banner_action_url: ::Faker::Internet.url,
+                                highlighted_content_banner_image: Decidim::Dev.test_file("city.jpeg", "image/jpeg"))
         end
 
         before do

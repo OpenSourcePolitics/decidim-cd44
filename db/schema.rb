@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_19_102736) do
+ActiveRecord::Schema.define(version: 2023_08_29_123904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -780,6 +780,12 @@ ActiveRecord::Schema.define(version: 2023_07_19_102736) do
     t.index ["decidim_initiatives_id"], name: "index_decidim_committee_members_initiative"
     t.index ["decidim_users_id"], name: "index_decidim_committee_members_user"
     t.index ["state"], name: "index_decidim_initiatives_committee_members_on_state"
+  end
+
+  create_table "decidim_initiatives_settings", force: :cascade do |t|
+    t.string "initiatives_order", default: "random"
+    t.bigint "decidim_organization_id"
+    t.index ["decidim_organization_id"], name: "index_decidim_initiatives_settings_on_decidim_organization_id"
   end
 
   create_table "decidim_initiatives_type_scopes", force: :cascade do |t|
@@ -1635,6 +1641,18 @@ ActiveRecord::Schema.define(version: 2023_07_19_102736) do
     t.index ["reset_password_token"], name: "index_decidim_system_admins_on_reset_password_token", unique: true
   end
 
+  create_table "decidim_templates_templates", force: :cascade do |t|
+    t.integer "decidim_organization_id", null: false
+    t.string "templatable_type"
+    t.bigint "templatable_id"
+    t.jsonb "name", null: false
+    t.jsonb "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_organization_id"], name: "index_decidim_templates_organization"
+    t.index ["templatable_type", "templatable_id"], name: "index_decidim_templates_templatable"
+  end
+
   create_table "decidim_term_customizer_constraints", force: :cascade do |t|
     t.bigint "decidim_organization_id", null: false
     t.string "subject_type"
@@ -1902,6 +1920,7 @@ ActiveRecord::Schema.define(version: 2023_07_19_102736) do
   add_foreign_key "decidim_editor_images", "decidim_organizations"
   add_foreign_key "decidim_editor_images", "decidim_users", column: "decidim_author_id"
   add_foreign_key "decidim_identities", "decidim_organizations"
+  add_foreign_key "decidim_initiatives_settings", "decidim_organizations"
   add_foreign_key "decidim_newsletters", "decidim_users", column: "author_id"
   add_foreign_key "decidim_participatory_process_steps", "decidim_participatory_processes"
   add_foreign_key "decidim_participatory_process_types", "decidim_organizations"

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "UserTosAcceptance", type: :system do
-  let!(:organization) { create(:organization) }
+  let!(:organization) { create(:organization, default_locale: "en") }
   let!(:user) { create(:user, :confirmed, organization: organization) }
   let!(:tos_page) { Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization) }
   let(:btn_accept) { "I agree with these terms" }
@@ -75,7 +75,7 @@ describe "UserTosAcceptance", type: :system do
 
         it "shows an option to download the users data" do
           within "#tos-refuse-modal" do
-            expect(page).to have_link("download your data", href: decidim.data_portability_path)
+            expect(page).to have_link("download your data", href: decidim.download_your_data_path)
           end
         end
 
