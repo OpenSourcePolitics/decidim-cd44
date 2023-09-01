@@ -17,7 +17,16 @@ describe "Admin manages budgets", type: :system do
   describe "admin form" do
     before { click_on "New" }
 
-    it_behaves_like "having a rich text editor", "new_budget", "content"
+    it "is the form imported form budgets booth" do
+      expect(page).to have_selector(".card") # Check if the card element is present
+      expect(page).to have_css("h2.card-title", text: "New budget") # Check for the card title
+      expect(page).to have_selector(".card-section") # Check if the card-section element is present
+
+      expect(page).to have_selector('form input[type="text"][name="budget[title_en]"][autofocus="autofocus"]')
+      expect(page).to have_selector('form input[type="number"][name="budget[weight]"]')
+      expect(page).to have_selector('form input[type="number"][name="budget[total_budget]"]')
+      expect(page).to have_selector('form button[type="button"][name="main_image"]')
+    end
   end
 
   it "creates a new budget" do

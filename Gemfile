@@ -11,9 +11,8 @@ gem "decidim", "~> #{DECIDIM_VERSION}.0"
 gem "decidim-initiatives", "~> #{DECIDIM_VERSION}.0"
 
 gem "acts_as_textcaptcha", "~> 4.6.0"
+gem "decidim-budgets_booth", github: "Pipeline-to-Power/decidim-module-ptp", branch: "main"
 gem "decidim-budgets_importer", git: "https://github.com/OpenSourcePolitics/decidim-module-budgets_importer.git"
-# TODO: Budgets booth (here ptp) may override the user model, which costs to make fail some test with the phone_number
-# gem "decidim-ptp", git: "https://github.com/Pipeline-to-Power/decidim-module-ptp.git"
 gem "decidim-budgets_paper_ballots", git: "https://github.com/armandfardeau/decidim-module-budgets_paper_ballots"
 gem "decidim-decidim_awesome", "~> 0.9.1"
 gem "decidim-extended_socio_demographic_authorization_handler", git: "https://github.com/OpenSourcePolitics/decidim-module-extended_socio_demographic_authorization_handler",
