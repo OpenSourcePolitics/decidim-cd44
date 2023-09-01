@@ -49,8 +49,9 @@ GIT
       decidim-core (~> 0.27.0)
 
 GIT
-  remote: https://github.com/mainio/decidim-module-simple_proposal.git
-  revision: 8b69eabaa912a2e0592ea8d68ed6e56720e978cf
+  remote: https://github.com/opensourcepolitics/decidim-module-simple_proposal.git
+  revision: 697b0ba4a4027306a98368511784c1a2e4bba136
+  branch: fix/0.27_scope_picker_override
   specs:
     decidim-simple_proposal (0.27.0)
       decidim-core (~> 0.27.0)

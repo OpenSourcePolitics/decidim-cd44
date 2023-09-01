@@ -20,7 +20,7 @@ gem "decidim-extended_socio_demographic_authorization_handler", git: "https://gi
                                                                 branch: DECIDIM_BRANCH
 gem "decidim-friendly_signup", git: "https://github.com/OpenSourcePolitics/decidim-module-friendly_signup", branch: "fast_sign_up_management"
 gem "decidim-question_captcha", git: "https://github.com/OpenSourcePolitics/decidim-module-question_captcha.git", branch: DECIDIM_BRANCH
-gem "decidim-simple_proposal", git: "https://github.com/mainio/decidim-module-simple_proposal.git"
+gem "decidim-simple_proposal", git: "https://github.com/opensourcepolitics/decidim-module-simple_proposal.git", branch: "fix/0.27_scope_picker_override"
 gem "decidim-spam_detection", "4.0.0"
 gem "decidim-term_customizer", git: "https://github.com/armandfardeau/decidim-module-term_customizer.git", branch: "fix/precompile-on-docker-0.27"
 
