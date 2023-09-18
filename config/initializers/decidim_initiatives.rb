@@ -42,21 +42,6 @@ if defined?(Decidim::Initiatives)
     resources :initiatives_settings, only: [:edit, :update], controller: "initiatives_settings"
   end
 
-  Decidim.menu :admin_initiatives_menu do |menu|
-    menu.add_item :initiatives_settings,
-                  I18n.t("menu.initiatives_settings", scope: "decidim.admin"),
-                  decidim_admin_initiatives.edit_initiatives_setting_path(
-                    Decidim::InitiativesSettings.find_or_create_by!(
-                      organization: current_organization
-                    )
-                  ),
-                  active: is_active_link?(
-                    decidim_admin_initiatives.edit_initiatives_setting_path(
-                      Decidim::InitiativesSettings.find_or_create_by!(organization: current_organization)
-                    )
-                  ),
-                  if: allowed_to?(:update, :initiatives_settings)
-  end
   Decidim.resource_registry.find(:initiatives_type).actions += ["create"]
 
   Decidim::Initiatives::Engine.routes do
