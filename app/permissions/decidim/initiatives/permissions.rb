@@ -89,7 +89,7 @@ module Decidim
         Decidim::Initiatives.creation_enabled && (
             UserAuthorizations.for(user).any? ||
             Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?
-      )
+          )
       end
 
       def request_membership?
