@@ -160,7 +160,7 @@ fr:
             close: Fermer
             explanation: Vous devez être autorisé pour créer cette initiative
             title: Autorisation requise
-          verification_required: Verifier votre compte pour créer cette initiative
+          verification_required: Vérifier votre compte pour créer cette initiative
       form:
         delete_attachment: Delete attachment
     newsletter_mailer:
@@ -182,7 +182,7 @@ fr:
     resources:
       initiatives_type:
         actions:
-          create: Create
+          create: Créer
     verifications:
       authorizations:
         first_login:

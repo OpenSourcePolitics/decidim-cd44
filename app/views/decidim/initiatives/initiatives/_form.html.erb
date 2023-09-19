@@ -46,8 +46,8 @@
 
 <div class="field">
   <%= form.select :scope_id,
-                  @form.available_scopes.map { |scope| [translated_attribute(scope.scope_name), scope&.scope&.id] },
-                  { disabled: !@form.state_updatable? } %>
+                @form.available_scopes.map { |scope| [translated_attribute(scope.scope_name), scope&.scope&.id] },
+                { disabled: !@form.state_updatable? } %>
 </div>
 
 <% if current_initiative.area_enabled? %>
