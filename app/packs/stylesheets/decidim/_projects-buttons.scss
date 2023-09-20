@@ -1,0 +1,6 @@
+.button.hollow{
+    &:focus{
+        background-color: transparent;
+        color: var(--primary);
+    }
+}
