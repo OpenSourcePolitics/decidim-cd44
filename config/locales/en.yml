@@ -144,6 +144,8 @@ en:
         initiatives_settings:
           update: "%{user_name} updated the initiatives settings"
       create_initiative:
+        fill_data:
+          decidim_user_group_id_help: Decidim user group id help
         select_initiative_type:
           not_authorized:
             authorizations_page: View authorizations
