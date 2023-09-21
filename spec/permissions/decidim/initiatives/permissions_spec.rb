@@ -216,7 +216,7 @@ describe Decidim::Initiatives::Permissions do
           create :authorization, :granted, user: user
         end
 
-        it { is_expected.to be true }
+        it { is_expected.to be false }
       end
 
       context "when user belongs to a verified user group" do
@@ -224,7 +224,7 @@ describe Decidim::Initiatives::Permissions do
           create :user_group, :verified, users: [user], organization: user.organization
         end
 
-        it { is_expected.to be true }
+        it { is_expected.to be false }
       end
     end
 
