@@ -165,4 +165,8 @@ ignore_unused:
   - decidim.initiatives.admin_log.initiatives_settings.update
   - rack_attack.*
   - decidim.authorization_handlers.data_authorization_handler.{explanation,name}
+  - activemodel.attributes.content_block_attachment.background_image
+  - activemodel.attributes.project.document
+  - decidim.budgets.admin.imports.*
+  - decidim.proposals.admin.imports.help.proposals
 
