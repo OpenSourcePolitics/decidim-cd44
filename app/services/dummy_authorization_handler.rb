@@ -188,13 +188,13 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
       return {} unless authorization
 
       @user_metadata_params ||= begin
-                                  user_metadata_params = {}
-                                  user_metadata_params[:user_scope_name] = user_scope.name[I18n.locale.to_s] if user_scope
+        user_metadata_params = {}
+        user_metadata_params[:user_scope_name] = user_scope.name[I18n.locale.to_s] if user_scope
 
-                                  user_metadata_params[:user_postal_code] = authorization.metadata["postal_code"] if authorization.metadata["postal_code"].present?
+        user_metadata_params[:user_postal_code] = authorization.metadata["postal_code"] if authorization.metadata["postal_code"].present?
 
-                                  user_metadata_params
-                                end
+        user_metadata_params
+      end
     end
   end
 end
