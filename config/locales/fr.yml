@@ -110,6 +110,12 @@ fr:
             category: Category
             id: Id
             title: Title
+      projects:
+        order_progress:
+          assigned: 'Assigné: '
+          ready: I am ready
+          total_budget: 'Total budget: '
+          vote: Vote
     budgets_importer:
       actions:
         import: Importer des projets
