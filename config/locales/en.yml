@@ -159,14 +159,6 @@ en:
           verification_required: Verify your account to promote this initiative
       form:
         delete_attachment: Delete attachment
-      initiatives:
-        index:
-          new_initiative: New initiative
-          not_authorized:
-            authorizations_page: View authorizations
-            close: Close
-            explanation: You need to be verified in order to create a new initiative.
-            title: Authorization required
     newsletter_mailer:
       newsletter:
         note: Vous avez reçu cet email parce que vous êtes abonné aux newsletters de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.

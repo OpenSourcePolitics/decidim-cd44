@@ -163,14 +163,6 @@ fr:
           verification_required: Vérifier votre compte pour créer cette initiative
       form:
         delete_attachment: Delete attachment
-      initiatives:
-        index:
-          new_initiative: Nouvelle initiative
-          not_authorized:
-            authorizations_page: Voir les autorisations
-            close: Fermer
-            explanation: Vous devez être autorisé pour créer une initiative
-            title: Autorisation requise
     newsletter_mailer:
       newsletter:
         note: Vous avez reçu cet email parce que vous êtes abonné aux newsletters de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
