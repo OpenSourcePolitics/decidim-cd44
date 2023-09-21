@@ -16,16 +16,12 @@ module Decidim
 
       helper Decidim::Admin::IconLinkHelper
       helper InitiativeHelper
-      helper SignatureTypeOptionsHelper
-
       helper_method :similar_initiatives
       helper_method :scopes
       helper_method :areas
       helper_method :current_initiative
       helper_method :initiative_type
       helper_method :promotal_committee_required?
-
-      before_action :authenticate_user!
 
       steps :select_initiative_type,
             :previous_form,
@@ -34,28 +30,16 @@ module Decidim
             :promotal_committee,
             :finish
 
-      before_action :ensure_type_exists, only: :show
-
       def show
-        enforce_permission_to :create, :initiative
         send("#{step}_step", initiative: session_initiative)
       end
 
       def update
-        enforce_permission_to :create, :initiative
+        enforce_permission_to :create, :initiative, { initiative_type: initiative_type_from_params }
         send("#{step}_step", params)
       end
 
       private
-
-      def ensure_type_exists
-        destination_step = single_initiative_type? ? :previous_form : :select_initiative_type
-
-        return if step == destination_step
-        return if initiative_type_id.present? && initiative_type.present?
-
-        redirect_to wizard_path(destination_step)
-      end
 
       def select_initiative_type_step(_parameters)
         @form = form(Decidim::Initiatives::SelectInitiativeTypeForm).instance
@@ -137,8 +121,8 @@ module Decidim
 
       def similar_initiatives
         @similar_initiatives ||= Decidim::Initiatives::SimilarInitiatives
-                                 .for(current_organization, @form)
-                                 .all
+                                   .for(current_organization, @form)
+                                   .all
       end
 
       def build_form(klass, parameters)
@@ -190,7 +174,7 @@ module Decidim
         return false unless initiative_type.promoting_committee_enabled?
 
         minimum_committee_members = initiative_type.minimum_committee_members ||
-                                    Decidim::Initiatives.minimum_committee_members
+          Decidim::Initiatives.minimum_committee_members
         minimum_committee_members.present? && minimum_committee_members.positive?
       end
     end
