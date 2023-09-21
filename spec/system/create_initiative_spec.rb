@@ -20,9 +20,11 @@ describe "Initiative", type: :system do
            promoting_committee_enabled: initiative_type_promoting_committee_enabled,
            signature_type: signature_type)
   end
-  let!(:other_initiative_type) { create(:initiatives_type, organization: organization) }
   let!(:initiative_type_scope) { create(:initiatives_type_scope, type: initiative_type) }
-  let!(:other_initiative_type_scope) { create(:initiatives_type_scope, type: initiative_type) }
+  let!(:initiative_type_scope2) { create(:initiatives_type_scope, type: initiative_type) }
+  let!(:other_initiative_type) { create(:initiatives_type, organization: organization) }
+  let!(:other_initiative_type_scope) { create(:initiatives_type_scope, type: other_initiative_type) }
+  let(:third_initiative_type) { create(:initiatives_type, organization: organization) }
 
   shared_examples "initiatives path redirection" do
     it "redirects to initiatives path" do
@@ -84,71 +86,80 @@ describe "Initiative", type: :system do
     end
   end
 
-  context "when user requests a page not having all the data required" do
-    let(:do_not_require_authorization) { false }
-    let(:signature_type) { "online" }
-
-    context "when there is only one initiative type" do
+  describe "create initiative verification" do
+    context "when there is just one initiative type" do
       let!(:other_initiative_type) { nil }
       let!(:other_initiative_type_scope) { nil }
 
-      [
-        :select_initiative_type,
-        :previous_form,
-        :show_similar_initiatives,
-        :fill_data,
-        :promotal_committee,
-        :finish
-      ].each do |step|
-        it "redirects to the previous_form page when landing on #{step}" do
-          expect(Decidim::InitiativesType.count).to eq(1)
-          visit decidim_initiatives.create_initiative_path(step)
-          expect(page).to have_current_path(decidim_initiatives.create_initiative_path(:previous_form))
-        end
-      end
-    end
-
-    context "when there are more initiative types" do
-      [
-        :previous_form,
-        :show_similar_initiatives,
-        :fill_data,
-        :promotal_committee,
-        :finish
-      ].each do |step|
-        it "redirects to the select_initiative_type page when landing on #{step}" do
-          expect(Decidim::InitiativesType.count).to eq(2)
-          visit decidim_initiatives.create_initiative_path(step)
-          expect(page).to have_current_path(decidim_initiatives.create_initiative_path(:select_initiative_type))
-        end
-      end
-    end
-  end
-
-  describe "create initiative verification" do
-    context "when the user is logged in" do
-      context "and they're verified" do
-        it "they are taken to the initiative form" do
-          click_link "New initiative"
-          expect(page).to have_content("Which initiative do you want to launch")
-        end
-      end
-
-      context "and they aren't verified" do
-        let(:authorization) { nil }
-
-        it "they need to verify" do
-          click_button "New initiative"
-          expect(page).to have_content("Authorization required")
+      context "when the user is logged in" do
+        context "and they don't need to be verified" do
+          it "they are taken to the initiative form" do
+            click_link "New initiative"
+            expect(page).to have_content("What does the initiative consist of")
+          end
         end
 
-        it "they are redirected to the initiative form after verifying" do
-          click_button "New initiative"
-          click_link "View authorizations"
-          click_link "Example authorization"
-          fill_in "Document number", with: "123456789X"
-          click_button "Send"
-          expect(page).to have_content("Which initiative do you want to launch")
+        context "and creation require a verification" do
+          before do
+            allow(Decidim::Initiatives.config).to receive(:do_not_require_authorization).and_return(false)
+            visit decidim_initiatives.initiatives_path
+          end
+
+          context "and they're verified" do
+            it "they are taken to the initiative form" do
+              click_link "New initiative"
+              expect(page).to have_content("What does the initiative consist of?")
+            end
+          end
+
+          context "and they aren't verified" do
+            let(:authorization) { nil }
+
+            it "they need to verify" do
+              click_button "New initiative"
+              expect(page).to have_content("Authorization required")
+            end
+
+            it "they are redirected to the initiative form after verifying" do
+              click_button "New initiative"
+              click_link "View authorizations"
+              click_link "Example authorization"
+              fill_in "Document number", with: "123456789X"
+              click_button "Send"
+              expect(page).to have_content("What does the initiative consist of?")
+            end
+          end
+        end
+
+        context "and an authorization handler has been activated" do
+          before do
+            initiative_type.create_resource_permission(
+              permissions: {
+                "create" => {
+                  "authorization_handlers" => {
+                    "dummy_authorization_handler" => { "options" => {} }
+                  }
+                }
+              }
+            )
+            visit decidim_initiatives.initiatives_path
+          end
+
+          let(:authorization) { nil }
+
+          it "they need to verify" do
+            click_button "New initiative"
+            expect(page).to have_content("Authorization required")
+          end
+
+          it "they are authorized to create after verifying" do
+            click_button "New initiative"
+            click_link 'Authorize with "Example authorization"'
+            fill_in "Document number", with: "123456789X"
+            click_button "Send"
+            click_link "New initiative"
+            expect(page).to have_content("What does the initiative consist of?")
+          end
         end
       end
     end
@@ -278,6 +289,7 @@ describe "Initiative", type: :system do
 
       context "when there is only one initiative type" do
         let!(:other_initiative_type) { nil }
+        let!(:other_initiative_type_scope) { nil }
 
         it "doesn't displays initiative types" do
           expect(page).not_to have_current_path(decidim_initiatives.create_initiative_path(id: :select_initiative_type))
