@@ -306,7 +306,7 @@ describe "Initiative", type: :system do
         end
       end
 
-      context "when Show similar initiatives" do
+      context "when no similar initiatives must be shown" do
         let!(:initiative) { create(:initiative, organization: organization) }
 
         before do
@@ -316,22 +316,8 @@ describe "Initiative", type: :system do
           find_button("Continue").click
         end
 
-        it "similar initiatives view is shown" do
-          expect(page).to have_content("Compare")
-        end
-
-        it "offers contextual help" do
-          within ".callout.secondary" do
-            expect(page).to have_content("If any of the following initiatives is similar to yours we encourage you to sign it. Your proposal will have more possibilities to get done.")
-          end
-        end
-
-        it "contains data about the similar initiative found" do
-          expect(page).to have_content(translated(initiative.title, locale: :en))
-          expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(translated(initiative.description, locale: :en), tags: []))
-          expect(page).to have_content(translated(initiative.type.title, locale: :en))
-          expect(page).to have_content(translated(initiative.scope.name, locale: :en))
-          expect(page).to have_content(initiative.author_name)
+        it "similar initiatives view are not shown" do
+          expect(page).not_to have_content("If any of the following initiatives is similar to yours we encourage you to sign it. Your proposal will have more possibilities to get done.")
         end
       end
 
