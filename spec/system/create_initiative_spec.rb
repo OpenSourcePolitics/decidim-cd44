@@ -535,10 +535,10 @@ describe "Initiative", type: :system do
           find_link("Edit my initiative").click
 
           within ".process-nav__content" do
-            find_link("Page").click
+            find_link("Initiative").click
           end
 
-          expect(page).to have_content("PAGE")
+          expect(page).to have_content("INITIATIVE")
         end
 
         context "when minimum committee size is above zero" do
