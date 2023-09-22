@@ -391,7 +391,15 @@ describe Decidim::Initiatives::Permissions do
       context "when user is not a member" do
         let(:initiative) { create(:initiative, :discarded, organization: organization) }
 
-        it { is_expected.to be false }
+        context "and authorization are required" do
+          before do
+            allow(Decidim::Initiatives)
+              .to receive(:do_not_require_authorization)
+              .and_return(false)
+          end
+
+          it { is_expected.to be false }
+        end
 
         context "when authorizations are not required" do
           before do
