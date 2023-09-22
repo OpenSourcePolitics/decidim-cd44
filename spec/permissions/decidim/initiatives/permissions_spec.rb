@@ -206,7 +206,7 @@ describe Decidim::Initiatives::Permissions do
       before do
         allow(Decidim::Initiatives)
           .to receive(:creation_enabled)
-                .and_return(true)
+          .and_return(true)
       end
 
       it { is_expected.to be false }
@@ -215,7 +215,7 @@ describe Decidim::Initiatives::Permissions do
         before do
           allow(Decidim::Initiatives)
             .to receive(:do_not_require_authorization)
-                  .and_return(true)
+            .and_return(true)
         end
 
         it { is_expected.to be true }
@@ -242,7 +242,7 @@ describe Decidim::Initiatives::Permissions do
       before do
         allow(Decidim::Initiatives)
           .to receive(:creation_enabled)
-                .and_return(false)
+          .and_return(false)
       end
 
       it { is_expected.to be false }
@@ -362,7 +362,7 @@ describe Decidim::Initiatives::Permissions do
           before do
             allow(Decidim::Initiatives)
               .to receive(:do_not_require_authorization)
-                    .and_return(true)
+              .and_return(true)
           end
 
           it { is_expected.to be true }
