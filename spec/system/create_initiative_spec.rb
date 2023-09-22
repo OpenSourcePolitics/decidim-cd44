@@ -217,8 +217,6 @@ describe "Initiative", type: :system do
           end
 
           context "and they aren't verified" do
-            let(:authorization) { nil }
-
             it "they need to verify" do
               click_link "New initiative"
               expect(page).to have_css("button[data-open=not-authorized-modal]", visible: :all, count: 2)
@@ -320,7 +318,15 @@ describe "Initiative", type: :system do
         end
 
         context "and an authorization handler has been activated" do
+          let(:initiative_type_scope2) { nil }
+          let(:other_initiative_type) { nil }
+          let(:other_initiative_type_scope) { nil }
+          let(:third_initiative_type) { nil }
+          let(:authorization) { nil }
+
           before do
+            allow(Decidim::Initiatives.config).to receive(:do_not_require_authorization).and_return(true)
+
             initiative_type.create_resource_permission(
               permissions: {
                 "create" => {
@@ -333,15 +339,12 @@ describe "Initiative", type: :system do
             visit decidim_initiatives.initiatives_path
           end
 
-          let(:authorization) { nil }
-
           it "they are redirected to the initiative form after log in but need to verify" do
             click_button "New initiative"
             fill_in "Email", with: authorized_user.email
             fill_in "Password", with: "decidim123456789"
             click_button "Log in"
 
-            expect(page).to have_content("Which initiative do you want to launch")
             click_button "Verify your account to promote this initiative"
             expect(page).to have_content("Authorization required")
           end
@@ -371,7 +374,7 @@ describe "Initiative", type: :system do
       find_button("I want to promote this initiative").click
     end
 
-    # it_behaves_like "having a rich text editor", "new_initiative_previous_form", "full"
+    it_behaves_like "having a rich text editor", "new_initiative_previous_form", "full"
   end
 
   describe "creating an initiative" do
