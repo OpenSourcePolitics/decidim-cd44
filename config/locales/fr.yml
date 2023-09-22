@@ -154,6 +154,8 @@ fr:
         initiatives_settings:
           update: "%{user_name} a mis à jour les paramètres d'initiatives"
       create_initiative:
+        fill_data:
+          decidim_user_group_id_help: Il n'est pas possible de changer l'auteur de la pétition après sa création
         select_initiative_type:
           not_authorized:
             authorizations_page: Voir les autorisations
