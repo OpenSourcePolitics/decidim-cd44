@@ -165,6 +165,12 @@ fr:
           verification_required: Verifier votre compte pour créer cette initiative
       form:
         delete_attachment: Delete attachment
+      modal:
+        not_authorized:
+          authorizations_page: Voir les autorisations
+          close: Fermer
+          explanation: Vous devez être autorisé pour créer cette initiative
+          title: Autorisation requise
     newsletter_mailer:
       newsletter:
         note: Vous avez reçu cet email parce que vous êtes abonné aux newsletters de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
@@ -240,3 +246,6 @@ fr:
       time: 'Vous pourrez naviguer de nouveau sur notre plateforme dans :'
       time_unit: secondes
       title: Merci pour votre participation sur %{organization_name}
+  type:
+    select: Select
+    verification_required: Verification required

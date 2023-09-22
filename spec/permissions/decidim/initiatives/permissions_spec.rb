@@ -6,8 +6,7 @@ describe Decidim::Initiatives::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
   let(:user) { create :user, organization: organization }
-  let(:organization) { create :organization, available_authorizations: authorizations }
-  let(:authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
+  let(:organization) { create :organization }
   let(:initiative) { create(:initiative, organization: organization) }
   let(:context) { {} }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
@@ -202,27 +201,24 @@ describe Decidim::Initiatives::Permissions do
     let(:action) do
       { scope: :public, action: :create, subject: :initiative }
     end
-    let(:context) do
-      { initiative_type: initiative.type }
-    end
 
     context "when creation is enabled" do
       before do
         allow(Decidim::Initiatives)
           .to receive(:creation_enabled)
-          .and_return(true)
+                .and_return(true)
       end
 
-      it { is_expected.to be true }
+      it { is_expected.to be false }
 
-      context "when authorizations are required" do
+      context "when authorizations are not required" do
         before do
           allow(Decidim::Initiatives)
             .to receive(:do_not_require_authorization)
-            .and_return(false)
+                  .and_return(true)
         end
 
-        it { is_expected.to be false }
+        it { is_expected.to be true }
       end
 
       context "when user is authorized" do
@@ -240,41 +236,13 @@ describe Decidim::Initiatives::Permissions do
 
         it { is_expected.to be true }
       end
-
-      context "when the initiative type has permissions to create" do
-        before do
-          initiative.type.create_resource_permission(
-            permissions: {
-              "create" => {
-                "authorization_handlers" => {
-                  "dummy_authorization_handler" => { "options" => {} },
-                  "another_dummy_authorization_handler" => { "options" => {} }
-                }
-              }
-            }
-          )
-        end
-
-        context "when user is not verified" do
-          it { is_expected.to be false }
-        end
-
-        context "when user is fully verified" do
-          before do
-            create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 2.seconds.ago)
-            create(:authorization, name: "another_dummy_authorization_handler", user: user, granted_at: 2.seconds.ago)
-          end
-
-          it { is_expected.to be true }
-        end
-      end
     end
 
     context "when creation is not enabled" do
       before do
         allow(Decidim::Initiatives)
           .to receive(:creation_enabled)
-          .and_return(false)
+                .and_return(false)
       end
 
       it { is_expected.to be false }
@@ -388,16 +356,16 @@ describe Decidim::Initiatives::Permissions do
       context "when user is not a member" do
         let(:initiative) { create(:initiative, :discarded, organization: organization) }
 
-        it { is_expected.to be true }
+        it { is_expected.to be false }
 
         context "when authorizations are not required" do
           before do
             allow(Decidim::Initiatives)
               .to receive(:do_not_require_authorization)
-              .and_return(false)
+                    .and_return(true)
           end
 
-          it { is_expected.to be false }
+          it { is_expected.to be true }
         end
 
         context "when user is authorized" do
