@@ -159,6 +159,12 @@ en:
             explanation: You need to be verified in order to create a new initiative.
             title: Authorization required
           verification_required: Verify your account to promote this initiative
+      modal:
+        not_authorized:
+          authorizations_page: View authorizations
+          close: Close
+          explanation: You need to be verified in order to create a new initiative.
+          title: Authorization required
       form:
         delete_attachment: Delete attachment
     newsletter_mailer:
