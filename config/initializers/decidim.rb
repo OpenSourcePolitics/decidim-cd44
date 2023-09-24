@@ -6,7 +6,7 @@ Decidim.configure do |config|
   config.application_name = "Loire Atlantique"
   config.mailer_sender = "Loire Atlantique <ne-pas-repondre@opensourcepolitics.eu>"
   config.expire_session_after = ENV.fetch("DECIDIM_SESSION_TIMEOUT", 180).to_i.minutes
-  config.admin_password_expiration_days = 0
+  config.admin_password_expiration_days = ENV.fetch("ADMIN_PASSWORD_EXPIRATION_DAYS", 365).to_i.days
 
   # Change these lines to set your preferred locales
   if Rails.env.production?
