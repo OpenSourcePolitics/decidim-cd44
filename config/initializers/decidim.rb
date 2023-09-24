@@ -118,7 +118,7 @@ Decidim.configure do |config|
   end
 
   config.base_uploads_path = "#{ENV.fetch("HEROKU_APP_NAME", nil)}/" if ENV["HEROKU_APP_NAME"].present?
-  config.minimum_time_to_sign_up = ENV["MINIMUM_TIME_TO_SIGN_UP"] || 1
+  config.minimum_time_to_sign_up = ENV.fetch("MINIMUM_TIME_TO_SIGN_UP", nil) || 1
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales
