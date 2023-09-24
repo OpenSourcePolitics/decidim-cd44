@@ -5,6 +5,7 @@ Decidim.configure do |config|
   config.mailer_sender = "Loire Atlantique <ne-pas-repondre@opensourcepolitics.eu>"
 
   config.expire_session_after = ENV.fetch("DECIDIM_SESSION_TIMEOUT", 180).to_i.minutes
+  config.admin_password_expiration_days = 0
 
   if Rails.application.secrets.decidim[:session_timeout_interval].present?
     config.session_timeout_interval = Rails.application.secrets.decidim[:session_timeout_interval].to_i.seconds
