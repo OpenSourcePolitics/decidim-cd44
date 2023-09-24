@@ -23,8 +23,6 @@ services:
     environment:
       - REDIS_URL=redis://redis:6379
       - MEMCACHE_SERVERS=memcached:11211
-      - DATABASE_HOST=database
-      - DATABASE_USERNAME=postgres
     depends_on:
       - app
     links:

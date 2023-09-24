@@ -1,12 +1,24 @@
 # frozen_string_literal: true
 
+require "decidim_app/config"
+
 Decidim.configure do |config|
   config.application_name = "Loire Atlantique"
   config.mailer_sender = "Loire Atlantique <ne-pas-repondre@opensourcepolitics.eu>"
-
   config.expire_session_after = ENV.fetch("DECIDIM_SESSION_TIMEOUT", 180).to_i.minutes
   config.admin_password_expiration_days = 0
 
+  # Change these lines to set your preferred locales
+  if Rails.env.production?
+    config.default_locale = ENV.fetch("DEFAULT_LOCALE", "fr").to_sym
+    config.available_locales = ENV.fetch("AVAILABLE_LOCALES", "fr,en").split(",").map(&:to_sym)
+  else
+    config.default_locale = ENV.fetch("DEFAULT_LOCALE", "en").to_sym
+    config.available_locales = ENV.fetch("AVAILABLE_LOCALES", "en,fr").split(",").map(&:to_sym)
+  end
+
+  # Timeout session
+  config.expire_session_after = ENV.fetch("DECIDIM_SESSION_TIMEOUT", 180).to_i.minutes
   if Rails.application.secrets.decidim[:session_timeout_interval].present?
     config.session_timeout_interval = Rails.application.secrets.decidim[:session_timeout_interval].to_i.seconds
   end
@@ -24,8 +36,10 @@ Decidim.configure do |config|
 
   config.maximum_attachment_height_or_width = 6000
 
-  # maps configuration
-  # Use Here.com by default but fallback to nominatim for geocoding
+  # Whether SSL should be forced or not (only in production).
+  config.force_ssl = (ENV.fetch("FORCE_SSL", "1") == "1") && Rails.env.production?
+
+  # Geocoder configuration
   config.maps = {
     provider: :here,
     api_key: Rails.application.secrets.maps[:api_key],
@@ -104,8 +118,7 @@ Decidim.configure do |config|
   end
 
   config.base_uploads_path = "#{ENV.fetch("HEROKU_APP_NAME", nil)}/" if ENV["HEROKU_APP_NAME"].present?
-
-  config.minimum_time_to_sign_up = 1
+  config.minimum_time_to_sign_up = ENV["MINIMUM_TIME_TO_SIGN_UP"] || 1
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales

@@ -13,15 +13,10 @@ AllCops:
     - "**/Gemfile"
     - "**/Rakefile"
   Exclude:
-    - "**/node_modules/**/*"
-    - "**/vendor/**/*"
-    - "development_app/**/*"
-    - "decidim_app-design/node_modules/**/*"
-    - "spec/decidim_dummy_app/**/*"
+    - "vendor/**/*"
     - "node_modules/**/*"
-    - "db/migrate/**/*"
-    - "db/schema.rb"
-    - "bin/**/*"
+    - "db/**/*"
+    - "bin/*"
   # Default formatter will be used if no -f/--format option is given.
   DefaultFormatter: progress
   # Cop names are not displayed in offense messages by default. Change behavior
@@ -74,10 +69,14 @@ AllCops:
   # Otherwise we fallback to the oldest officially supported Ruby version (2.0).
   TargetRubyVersion: 3.0
 
-#  RSpec:
-#    Patterns:
-#      - "(?:^|/)spec/"
-#      - "(?:^|/)test/"
+  RSpec:
+    Patterns:
+      - "(?:^|/)spec/"
+      - "(?:^|/)test/"
+
+Lint/SafeNavigationChain:
+  Exclude:
+    - lib/tasks/migrate.rake
 
 # Indent private/protected/public as deep as method definitions
 Layout/AccessModifierIndentation:
@@ -404,6 +403,10 @@ Style/Copyright:
 Style/DocumentationMethod:
   RequireForNonPublicMethods: false
 
+Style/MixinUsage:
+  Exclude:
+    - "bin/*"
+
 # Multi-line method chaining should be done with leading dots.
 Layout/DotPosition:
   EnforcedStyle: leading
@@ -465,7 +468,7 @@ Naming/FileName:
     - "**/Gemfile"
     - "**/Rakefile"
     - "**/*.gemspec"
-    - "decidim-dev/lib/decidim-dev.rb"
+
   # When true, requires that each source file should define a class or module
   # with a name which matches the file name (converted to ... case).
   # It further expects it to be nested inside modules which match the names
@@ -519,6 +522,8 @@ Style/FormatStringToken:
 
 Style/FrozenStringLiteralComment:
   EnforcedStyle: always
+  Exclude:
+    - bin/*
   SupportedStyles:
     - never
     # `always` will always add the frozen string literal comment to a file
@@ -1074,6 +1079,10 @@ Naming/VariableNumber:
     - snake_case
     - normalcase
     - non_integer
+  Exclude:
+    - "**/*/dummy_authorization_handler.rb"
+    - "app/controllers/decidim/proposals/proposals_controller.rb"
+    - "spec/system/homepage_spec.rb"
 
 # WordArray enforces how array literals of word-like strings should be expressed.
 Style/WordArray:
@@ -1116,7 +1125,6 @@ Metrics/CyclomaticComplexity:
   Max: 9
   Exclude:
     - "bin/bundle"
-    - "decidim-admin/app/queries/decidim/admin/newsletter_recipients.rb"
     - "**/*/dummy_authorization_handler.rb"
     - "**/*/permissions.rb"
 
@@ -1128,13 +1136,10 @@ Metrics/MethodLength:
 Metrics/ParameterLists:
   Max: 5
   CountKeywordArgs: true
-  Exclude:
-    - "decidim-core/lib/decidim/filter_form_builder.rb"
 
 Metrics/PerceivedComplexity:
   Max: 10
   Exclude:
-    - "decidim-admin/app/queries/decidim/admin/newsletter_recipients.rb"
     - "**/*/dummy_authorization_handler.rb"
     - "**/*/permissions.rb"
 
@@ -1202,7 +1207,8 @@ Layout/LineLength:
     - http
     - https
   Exclude:
-    - "**/spec/**/*"
+    - "spec/**/*"
+    - "db/schema.rb"
 
 # Checks for unused block arguments
 Lint/UnusedBlockArgument:
@@ -1236,12 +1242,7 @@ RSpec/DescribeClass:
     - spec/webpacker_spec.rb
     - spec/i18n_spec.rb
     - "**/*/spec/**/*_badge_spec.rb"
-    - decidim-core/spec/lib/global_engines_spec.rb
     - "**/tasks/**/*"
-
-RSpec/EmptyExampleGroup:
-  Exclude:
-    - decidim-core/spec/lib/participatory_space_manifest_spec.rb
 
 RSpec/ExampleLength:
   Max: 49
@@ -1261,11 +1262,6 @@ RSpec/MessageSpies:
 RSpec/MultipleExpectations:
   Enabled: false
 
-RSpec/MultipleMemoizedHelpers:
-  Max: 35
-  Exclude:
-    - decidim-assemblies/spec/forms/assembly_form_spec.rb
-
 RSpec/NestedGroups:
   Max: 7
 
@@ -1273,10 +1269,10 @@ RSpec/NamedSubject:
   Enabled: false
 
 RSpec/RepeatedExampleGroupDescription:
-  Enabled: true
+  Enabled: false
 
 RSpec/RepeatedExampleGroupBody:
-  Enabled: true
+  Enabled: false
 
 RSpec/VerifiedDoubles:
   Enabled: false
@@ -1767,4 +1763,3 @@ Faker/DeprecatedArguments:
       questions:
         - number
         - supplemental
-
