@@ -35,6 +35,8 @@ namespace :decidim_app do
     task install: :environment do
       puts "Running db:migrate"
       Rake::Task["db:migrate"].invoke
+      # TODO: Sync with decidim-app
+      #
     end
 
     # This task is used to upgrade your decidim-app to the latest version
