@@ -10,12 +10,29 @@ def fill_registration_form
 end
 
 describe "Registration", type: :system do
-  let(:organization) { create(:organization) }
+  let(:organization) { create(:organization, default_locale: "en") }
   let!(:terms_and_conditions_page) { Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization) }
 
+  let(:api_questions) { nil }
+  let(:api_endpoint) { nil }
+  let(:en_api_questions) do
+    { "q" => "What is the color of the white horse", "a" => [Digest::MD5.hexdigest("white")] }
+  end
+  let(:fr_api_questions) do
+    { "q" => "Quelle est la couleur du cheval gris ?", "a" => [Digest::MD5.hexdigest("gris")] }
+  end
+
+  let(:cache_store) { :memory_store }
+
   before do
+    allow(Rails.application.secrets.question_captcha).to receive(:[]).with(:host).and_return("captcha.api")
+    stub_captcha("en")
+    stub_captcha("fr")
+    allow(Rails).to receive(:cache).and_return(ActiveSupport::Cache.lookup_store(cache_store))
+    Rails.cache.clear
     switch_to_host(organization.host)
     visit decidim.new_user_registration_path
+    allow(Decidim.config).to receive(:minimum_time_to_sign_up).and_return(0)
   end
 
   context "when signing up" do
@@ -25,6 +42,7 @@ describe "Registration", type: :system do
         expect(page).to have_field("registration_user_name", with: "")
         expect(page).to have_field("registration_user_email", with: "")
         expect(page).to have_field("registration_user_password", with: "")
+        expect(page).to have_field("registration_user_textcaptcha_answer", with: "")
         expect(page).to have_field("registration_user_newsletter", checked: false)
       end
     end
@@ -57,12 +75,16 @@ describe "Registration", type: :system do
         within "form.new_user" do
           find("*[type=submit]").click
         end
-        expect(page).to have_content("A message with a confirmation link")
+        expect(page).to have_content("A message with a code has been sent to your email address.")
       end
     end
   end
 
   context "when newsletter checkbox is unchecked" do
+    before do
+      allow(Decidim.config).to receive(:minimum_time_to_sign_up).and_return(0)
+    end
+
     it "opens modal on submit" do
       within "form.new_user" do
         find("*[type=submit]").click
@@ -110,5 +132,18 @@ describe "Registration", type: :system do
       expect(page).to have_current_path decidim.user_registration_path
       expect(page).to have_field("registration_user_newsletter", checked: true)
     end
+  end
+
+  def stub_captcha(locale)
+    stub_request(:get, "https://testm1obgqmc-decidimcaptchaapi.functions.fnc.fr-par.scw.cloud/?locale=#{locale}")
+      .with(
+        headers: {
+          "Accept" => "*/*",
+          "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+          "Host" => "testm1obgqmc-decidimcaptchaapi.functions.fnc.fr-par.scw.cloud",
+          "User-Agent" => "Ruby"
+        }
+      )
+      .to_return(status: 200, body: "", headers: {})
   end
 end

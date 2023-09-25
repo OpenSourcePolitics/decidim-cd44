@@ -61,7 +61,7 @@ module Decidim::Verifications
 
       describe "When creating a revoke all authorizations command" do
         context "with organization not set" do
-          let(:subject) { described_class.new(nil, current_user) }
+          subject { described_class.new(nil, current_user) }
 
           it "is not valid" do
             expect { subject.call }.to broadcast(:invalid)
@@ -127,7 +127,7 @@ module Decidim::Verifications
 
       describe "When creating a revoke all authorizations command" do
         context "with organization not set" do
-          let(:subject) { described_class.new(nil, current_user) }
+          subject { described_class.new(nil, current_user) }
 
           it "is not valid" do
             expect { subject.call }.to broadcast(:invalid)

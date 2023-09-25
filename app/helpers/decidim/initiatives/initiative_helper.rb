@@ -7,6 +7,26 @@ module Decidim
       include Decidim::SanitizeHelper
       include Decidim::ResourceVersionsHelper
 
+      def authorized_create_modal_button(type, html_options, &block)
+        tag = "button"
+        html_options ||= {}
+
+        if current_user
+          if action_authorized_to("create", permissions_holder: type).ok?
+            html_options["data-open"] = "not-authorized-modal"
+          else
+            html_options["data-open"] = "authorizationModal"
+            html_options["data-open-url"] = authorization_create_modal_initiative_path(type)
+          end
+        else
+          html_options["data-open"] = "loginModal"
+        end
+
+        html_options["onclick"] = "event.preventDefault();"
+
+        send("#{tag}_to", "", html_options, &block)
+      end
+
       # Public: The css class applied based on the initiative state to
       #         the initiative badge.
       #
@@ -41,14 +61,14 @@ module Decidim
       end
 
       def popularity_tag(initiative)
-        tag.div(class: "extra__popularity popularity #{popularity_class(initiative)}".strip) do
+        content_tag(:div, class: "extra__popularity popularity #{popularity_class(initiative)}".strip) do
           5.times do
-            concat(tag.span(class: "popularity__item") do
+            concat(content_tag(:span, class: "popularity__item") do
               # empty block
             end)
           end
 
-          concat(tag.span(class: "popularity__desc") do
+          concat(content_tag(:span, class: "popularity__desc") do
             I18n.t("decidim.initiatives.initiatives.vote_cabin.supports_required",
                    total_supports: initiative.scoped_type.supports_required)
           end)
@@ -83,26 +103,6 @@ module Decidim
 
       def popularity_level5?(initiative)
         initiative.percentage >= 100
-      end
-
-      def authorized_create_modal_button(type, html_options, &block)
-        tag = "button"
-        html_options ||= {}
-
-        if current_user
-          if action_authorized_to("create", permissions_holder: type).ok?
-            html_options["data-open"] = "not-authorized-modal"
-          else
-            html_options["data-open"] = "authorizationModal"
-            html_options["data-open-url"] = authorization_create_modal_initiative_path(type)
-          end
-        else
-          html_options["data-open"] = "loginModal"
-        end
-
-        html_options["onclick"] = "event.preventDefault();"
-
-        send("#{tag}_to", "", html_options, &block)
       end
 
       def authorized_vote_modal_button(initiative, html_options, &block)

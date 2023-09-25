@@ -67,12 +67,7 @@ AllCops:
   # If a value is specified for TargetRubyVersion then it is used.
   # Else if .ruby-version exists and it contains an MRI version it is used.
   # Otherwise we fallback to the oldest officially supported Ruby version (2.0).
-  TargetRubyVersion: 2.7
-
-  RSpec:
-    Patterns:
-      - "(?:^|/)spec/"
-      - "(?:^|/)test/"
+  TargetRubyVersion: 3.0
 
 Lint/SafeNavigationChain:
   Exclude:
@@ -468,6 +463,7 @@ Naming/FileName:
     - "**/Gemfile"
     - "**/Rakefile"
     - "**/*.gemspec"
+
   # When true, requires that each source file should define a class or module
   # with a name which matches the file name (converted to ... case).
   # It further expects it to be nested inside modules which match the names
@@ -1098,10 +1094,6 @@ Style/WordArray:
   # The regular expression WordRegex decides what is considered a word.
   WordRegex: !ruby/regexp '/\A[\p{Word}\n\t]+\z/'
 
-Style/MutableConstant:
-  Exclude:
-    - "bin/overloads"
-
 ##################### Metrics ##################################
 
 Metrics/AbcSize:
@@ -1276,6 +1268,7 @@ RSpec/RepeatedExampleGroupDescription:
 
 RSpec/RepeatedExampleGroupBody:
   Enabled: false
+
 RSpec/VerifiedDoubles:
   Enabled: false
 

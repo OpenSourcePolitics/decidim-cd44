@@ -2,8 +2,8 @@
 en:
   activemodel:
     attributes:
-      initiative:
-        area_id: Area
+      content_block_attachment:
+        background_image: Background image
       initiatives_type:
         comments_enabled: Enable comments
       osp_authorization_handler:
@@ -12,63 +12,42 @@ en:
         postal_code: Code postal
       participatory_process:
         private_space: Espace privé
-    errors:
-      models:
-        user:
-          attributes:
-            password:
-              password_blank: can't be blank
+      project:
+        document: Document
   decidim:
     accessibility:
       skip_button: Skip button
     account:
+      email_change:
+        body1: We've sent an email to %{unconfirmed_email} to verify your new email address.
+        body2: Need us to send the verification email again? %{resend_link} or %{cancel_link}.
+        cancel: cancel
+        send_again: Send again
+        title: Email change verification
       show:
         change_password: Change password
         update_account: Update account
     admin:
-      initiatives_settings:
-        update:
-          error: An error has occured
-          success: The initiatives settings have been successfully updated
+      actions:
+        import: Import
       menu:
         initiatives_settings: Settings
-      participatory_space_private_users:
-        create:
-          error: Error
-          success: Success
     amendments:
       emendation:
         announcement:
           evaluating: |-
             Cet amendement pour le %{amendable_type} %{proposal_link}
             est en cours d’évaluation.
+    application:
+      geocoding:
+        geocoded_address: Geocoded address
     authorization_handlers:
       data_authorization_handler:
         errors:
           error_message: This field contains an error
-          no_postal_code_result: No result found for this postal code
-        explanation: Verify your identity
-        fields:
-          city: City
-          firstname: Firstname
-          gdpr: I accept that my data will be used to verify my identity
-          lastname: Lastname
-          minimum_age: I confirm that I am over 16 years old
-          phone: Phone number
-          postal_code: Zip code
-        help_text:
-          city: Your city depends on your postal code, please select your city from the dropdown list
-          firstname: Your firstname must contain at least 1 character and be composed only of letters, spaces and special characters such as - and '
-          gdpr: Your data will be used to verify your identity.
-          global_help: It is necessary to complete this form to submit a proposal in the participatory budget.
-          lastname: Your lastname must contain at least 1 character and be composed only of letters, spaces and special characters such as - and '
+          gdpr: You must accept the terms and conditions
           minimum_age: You must be over 16 years old to register
-          phone: Enter your phone number
-          postal_code: Your postal code must be composed of 5 digits
-          required_fields: Required fields are marked with an asterisk
-          terms_and_conditions: Terms and conditions
-        legend: Contact information
-        name: Data Sharing Process
+          no_postal_code_result: No result found for this postal code
       osp_authorization_handler:
         explanation: Vérifier votre identité en saisissant un numéro unique
         fields:
@@ -78,6 +57,50 @@ en:
         name: Formulaire de vérification d'identité
       osp_authorization_workflow:
         name: Authorization procedure
+    budgets:
+      actions:
+        attachment_collections: Attachment collections
+        attachments: Attachments
+        confirm_destroy: Confirm destroy
+        destroy: Destroy
+        edit: Edit
+        import: Import
+        new: New
+        preview: Preview
+        title: Title
+      admin:
+        imports:
+          help:
+            paper_ballot_results: 'The import document should contain the following columns: ''id'' (with the project''s id) and ''paper_ballots_to_import'' (with the number of new votes for the project that should be imported). You can simply reuse an export of all the projects and add a column named ''paper_ballots_to_import''.'
+          label:
+            paper_ballot_results: Import paper ballots
+          title:
+            paper_ballot_results: Import results from paper ballots
+        models:
+          project:
+            name: Name
+        projects:
+          index:
+            finished_orders: Finished orders
+            paper_ballots: Vote papier
+            pending_orders: Pending orders
+            selected: Selected
+            title: Title
+      models:
+        project:
+          fields:
+            category: Category
+            id: Id
+            title: Title
+      projects:
+        order_progress:
+          assigned: 'Assigned: '
+          ready: I am ready
+          total_budget: 'Total budget: '
+          vote: Vote
+    budgets_importer:
+      actions:
+        import: Importer des projets
     components:
       proposals:
         settings:
@@ -93,6 +116,10 @@ en:
             close_modal: Close modal
           notice: You have completed the sign up form too fast. Please try again.
           title: Registration error
+    editor_images:
+      create:
+        error: Error
+        success: Success
     events:
       budgets:
         pending_order:
@@ -105,6 +132,8 @@ en:
         initiatives_settings:
           update: "%{user_name} updated the initiatives settings"
       create_initiative:
+        fill_data:
+          decidim_user_group_id_help: Decidim user group id help
         select_initiative_type:
           not_authorized:
             authorizations_page: View authorizations
@@ -112,30 +141,29 @@ en:
             explanation: You need to be verified in order to create a new initiative.
             title: Authorization required
           verification_required: Verify your account to promote this initiative
-      signature_interval:
-        title: Signature collection period
-    meetings:
-      directory:
-        meetings:
-          index:
-            all: All
-      meeting:
-        not_allowed: You are not allowed to view this meeting
-      meetings:
-        create:
-          invalid: There was a problem creating this meeting.
-          success: You have created the meeting successfully.
-        update:
-          invalid: There was a problem updating the meeting.
-          success: You have updated the meeting successfully.
+      form:
+        delete_attachment: Delete attachment
+      modal:
+        not_authorized:
+          authorizations_page: View authorizations
+          close: Close
+          explanation: You need to be verified in order to create a new initiative.
+          title: Authorization required
     newsletter_mailer:
       newsletter:
         note: Vous avez reçu cet email parce que vous êtes abonné aux newsletters de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
         unsubscribe: Pour ne plus recevoir ce type d'email, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
     proposals:
+      admin:
+        imports:
+          help:
+            proposals: 'The file should have the following column names in the case of CSV or Excel files, or the following key names in the case of JSON files: <ul> <li><b>title/fr:</b> Title of the proposal. This will depend on the language configuration of your platform.</li> <li><b>body/fr:</b> Body of the proposal. This will depend on the language configuration of your platform.</li> <li><b>scope/id:</b> ID of the application scope.</li> <li><b>category/id:</b> ID of the category.</li> </ul>'
       proposals:
         form_view:
           cancel: Annuler
+        preview:
+          modify: Modify
+          publish: Publish
     resources:
       admin:
         initiatives_settings:
@@ -162,6 +190,8 @@ en:
       minimum:
         one: Au moins %{count} caractère
         other: Au moins %{count} caractères
+  index:
+    confirmed_orders_count: Confirmed orders count
   layouts:
     decidim:
       footer:
@@ -183,3 +213,6 @@ en:
       time: 'You will be able to navigate on our website in :'
       time_unit: seconds
       title: Thank you for your participation on %{organization_name}
+  type:
+    select: Select
+    verification_required: Verification required

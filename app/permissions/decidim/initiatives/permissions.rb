@@ -16,6 +16,7 @@ module Decidim
 
         return permission_action unless user
 
+        print_public_initiative?
         create_initiative?
         edit_public_initiative?
         update_public_initiative?
@@ -57,6 +58,15 @@ module Decidim
         disallow!
       end
 
+      def print_public_initiative?
+        return unless permission_action.subject == :initiative &&
+                      permission_action.action == :print
+
+        return allow! if initiative.published? && user == initiative.author
+
+        disallow!
+      end
+
       def search_initiative_types_and_scopes?
         return unless permission_action.action == :search
         return unless [:initiative_type, :initiative_type_scope, :initiative_type_signature_types].include?(permission_action.subject)
@@ -88,7 +98,7 @@ module Decidim
       def creation_enabled?
         Decidim::Initiatives.creation_enabled && (
           Decidim::Initiatives.do_not_require_authorization ||
-            UserAuthorizations.for(user).any? ||
+            Decidim::Initiatives::UserAuthorizations.for(user).any? ||
             Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?) &&
           authorized?(:create, permissions_holder: initiative_type)
       end

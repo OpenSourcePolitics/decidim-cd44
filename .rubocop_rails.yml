@@ -1,5 +1,9 @@
 require: rubocop-rails
 
+Lint/MissingSuper:
+  Exclude:
+    - lib/decidim/proposals/proposal_serializer.rb
+
 Rails:
   Enabled: true
 
