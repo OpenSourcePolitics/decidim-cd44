@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Edit initiative", type: :system do
-  let(:organization) { create(:organization) }
+  let(:organization) { create(:organization, default_locale: "en") }
   let(:user) { create(:user, :confirmed, organization: organization) }
   let(:initiative_title) { translated(initiative.title) }
   let(:new_title) { "This is my initiative new title" }
@@ -47,6 +47,7 @@ describe "Edit initiative", type: :system do
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
+    allow(Decidim).to receive(:enforced_locales).and_return("en")
   end
 
   describe "when user is initiative author" do
@@ -79,7 +80,8 @@ describe "Edit initiative", type: :system do
 
         visit edit_initiative_path
 
-        expect(page).to have_content("not authorized")
+        # Why does it automatically switch to french even if it's not available ??
+        expect(page).to have_content("You are not authorized")
       end
     end
   end
@@ -111,7 +113,9 @@ describe "Edit initiative", type: :system do
 
       visit edit_initiative_path
 
-      expect(page).to have_content("not authorized")
+      # Why does it automatically switch to french even if it's not available ??
+
+      expect(page).to have_content("You are not authorized")
     end
   end
 end

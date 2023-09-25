@@ -11,5 +11,5 @@ Decidim::FriendlySignup.configure do |config|
   config.hide_nickname = ENV.fetch("FRIENDLY_SIGNUP_HIDE_NICKNAME", "1") == "1"
 
   # Send the users a 4-digit number that needs to be entered in a confirmation page instead of a confirmation link (default is false)
-  config.use_confirmation_codes = ENV.fetch("FRIENDLY_SIGNUP_USE_CONFIRMATION_CODES", "0") == "1"
+  config.use_confirmation_codes = ENV.fetch("FRIENDLY_SIGNUP_USE_CONFIRMATION_CODES", "1") == "1"
 end

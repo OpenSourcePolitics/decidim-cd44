@@ -2,30 +2,30 @@
 
 source "https://rubygems.org"
 
-DECIDIM_VERSION = "0.26"
-DECIDIM_BRANCH = "release/#{DECIDIM_VERSION}-stable"
+DECIDIM_VERSION = "0.27"
+DECIDIM_BRANCH = "release/#{DECIDIM_VERSION}-stable".freeze
 
 ruby RUBY_VERSION
 
 # Many gems depend on environment variables, so we load them as soon as possible
 gem "dotenv-rails", require: "dotenv/rails-now"
 
-# Core gems
 gem "decidim", "~> #{DECIDIM_VERSION}.0"
 gem "decidim-initiatives", "~> #{DECIDIM_VERSION}.0"
 
-# External Decidim gems
 gem "acts_as_textcaptcha", "~> 4.6.0"
-gem "decidim-budgets_importer", git: "https://github.com/OpenSourcePolitics/decidim-module-budgets_importer.git", branch: DECIDIM_BRANCH
-gem "decidim-budgets_paper_ballots", git: "https://github.com/digidemlab/decidim-module-budgets_paper_ballots", branch: DECIDIM_BRANCH
+gem "decidim-budgets_booth", github: "Pipeline-to-Power/decidim-module-ptp", branch: "main"
+gem "decidim-budgets_importer", git: "https://github.com/OpenSourcePolitics/decidim-module-budgets_importer.git"
+gem "decidim-budgets_paper_ballots", git: "https://github.com/armandfardeau/decidim-module-budgets_paper_ballots"
 gem "decidim-cache_cleaner"
-gem "decidim-decidim_awesome"
-gem "decidim-extended_socio_demographic_authorization_handler", git: "https://github.com/OpenSourcePolitics/decidim-module-extended_socio_demographic_authorization_handler"
-gem "decidim-friendly_signup", git: "https://github.com/OpenSourcePolitics/decidim-module-friendly_signup.git"
-gem "decidim-question_captcha", git: "https://github.com/OpenSourcePolitics/decidim-module-question_captcha.git"
-gem "decidim-simple_proposal", git: "https://github.com/OpenSourcePolitics/decidim-module-simple_proposal.git", branch: "fix/0.26-proposal-form"
-gem "decidim-spam_detection"
-gem "decidim-term_customizer", git: "https://github.com/armandfardeau/decidim-module-term_customizer.git", branch: "fix/precompile-on-docker-0.26"
+gem "decidim-decidim_awesome", "~> 0.9.1"
+gem "decidim-extended_socio_demographic_authorization_handler", git: "https://github.com/OpenSourcePolitics/decidim-module-extended_socio_demographic_authorization_handler",
+                                                                branch: DECIDIM_BRANCH
+gem "decidim-friendly_signup", git: "https://github.com/OpenSourcePolitics/decidim-module-friendly_signup", branch: "fast_sign_up_management"
+gem "decidim-question_captcha", git: "https://github.com/OpenSourcePolitics/decidim-module-question_captcha.git", branch: DECIDIM_BRANCH
+gem "decidim-simple_proposal", git: "https://github.com/opensourcepolitics/decidim-module-simple_proposal.git", branch: "fix/0.27_scope_picker_override"
+gem "decidim-spam_detection", "4.0.0"
+gem "decidim-term_customizer", git: "https://github.com/armandfardeau/decidim-module-term_customizer.git", branch: "fix/precompile-on-docker-0.27"
 
 # Omniauth gems
 gem "omniauth-publik", git: "https://github.com/OpenSourcePolitics/omniauth-publik"

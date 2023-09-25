@@ -58,9 +58,6 @@ module Decidim
 
       def previous_form_step(parameters)
         @form = build_form(Decidim::Initiatives::PreviousForm, parameters)
-
-        enforce_permission_to :create, :initiative, { initiative_type: initiative_type }
-
         render_wizard
       end
 
@@ -141,6 +138,10 @@ module Decidim
         @form
       end
 
+      def initiative_type_from_params
+        Decidim::InitiativesType.find_by(id: params["initiative"]["type_id"])
+      end
+
       def extra_context
         return {} unless initiative_type_id
 
@@ -152,15 +153,11 @@ module Decidim
       end
 
       def current_initiative
-        Initiative.find(session_initiative[:id]) if session_initiative.has_key?(:id)
+        Initiative.where(organization: current_organization).find_by(id: session_initiative[:id]) if session_initiative.has_key?(:id)
       end
 
       def initiative_type
-        @initiative_type ||= InitiativesType.find(initiative_type_id)
-      end
-
-      def initiative_type_from_params
-        Decidim::InitiativesType.find_by(id: params["initiative"]["type_id"])
+        @initiative_type ||= InitiativesType.where(organization: current_organization).find_by(id: initiative_type_id)
       end
 
       def initiative_type_id

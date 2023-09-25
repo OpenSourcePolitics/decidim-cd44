@@ -20,7 +20,6 @@
       <div class="card__content">
         <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { class: "form new_initiative_form" }) do |f| %>
           <%= form_required_explanation %>
-          <%= f.hidden_field :type_id %>
           <div class=section>
             <% if single_initiative_type? %>
               <%= f.hidden_field :type_id %>
@@ -46,15 +45,21 @@
             </div>
 
             <div class="field">
-              <%= f.editor :description, lines: 8, toolbar: :full %>
+              <%= text_editor_for(f, :description, lines: 8, toolbar: :content) %>
             </div>
 
-            <% signature_type_options = signature_type_options(f.object) %>
-            <% if signature_type_options.length == 1 %>
-              <%= f.hidden_field :signature_type, value: signature_type_options.first.last %>
-            <% else %>
-              <%= f.hidden_field :signature_type, value: signature_type_options.last.last %>
-          <% end %>
+              <% signature_type_options = signature_type_options(f.object) %>
+              <% if signature_type_options.length == 1 %>
+                <%= f.hidden_field :signature_type, value: signature_type_options.first.last %>
+              <% else %>
+                <%= f.hidden_field :signature_type, value: signature_type_options.last.last %>
+              <% end %>
+
+            <% if initiative_type.custom_signature_end_date_enabled? %>
+              <div class="field">
+                <%= f.date_field :signature_end_date %>
+              </div>
+            <% end %>
 
             <% if scopes.length == 1 %>
               <%= f.hidden_field :scope_id, value: scopes.first.scope&.id %>
@@ -64,12 +69,6 @@
                              scopes.map { |scope| [translated_attribute(scope.scope_name), scope&.scope&.id] },
                              required: true,
                              include_blank: t(".select_scope") %>
-              </div>
-            <% end %>
-
-            <% if initiative_type.custom_signature_end_date_enabled? %>
-              <div class="field">
-                <%= f.date_field :signature_end_date %>
               </div>
             <% end %>
 
@@ -83,7 +82,7 @@
               <div class="field">
                 <%= f.select :decidim_user_group_id,
                              Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map { |g| [g.name, g.id] },
-                             include_blank: current_user.name %>
+                             include_blank: current_user.name, help_text: t(".decidim_user_group_id_help") %>
               </div>
             <% end %>
 
@@ -92,7 +91,9 @@
                 <legend><%= t("attachment_legend", scope: "decidim.initiatives.form") %></legend>
 
                 <div class="row column">
-                  <%= f.file_field :add_documents, multiple: true, label: t("add_attachments", scope: "decidim.initiatives.form") %>
+                  <%= f.attachment :documents,
+                                   multiple: true,
+                                   label: t("add_attachments", scope: "decidim.initiatives.form") %>
                 </div>
               </fieldset>
             <% end %>

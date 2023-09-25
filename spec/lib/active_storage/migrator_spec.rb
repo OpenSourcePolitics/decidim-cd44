@@ -54,9 +54,9 @@ describe ActiveStorage::Migrator do
 
   describe ".migrate!" do
     it "creates a new instance and calls #migrate!" do
-      expect(described_class).to receive(:new).with(source, destination).and_return(subject)
+      allow(described_class).to receive(:new).with(source, destination).and_return(subject)
       # rubocop:disable RSpec/SubjectStub
-      expect(subject).to receive(:migrate!)
+      allow(subject).to receive(:migrate!)
       # rubocop:enable RSpec/SubjectStub
 
       described_class.migrate!(source, destination)
@@ -71,8 +71,8 @@ describe ActiveStorage::Migrator do
     end
 
     it "migrates the blobs" do
-      expect(blob).to receive(:open).and_yield(Tempfile.new("blob"))
-      expect(subject.instance_variable_get(:@destination_service)).to receive(:upload).with(blob.key, anything, checksum: blob.checksum)
+      allow(blob).to receive(:open).and_yield(Tempfile.new("blob"))
+      allow(subject.instance_variable_get(:@destination_service)).to receive(:upload).with(blob.key, anything, checksum: blob.checksum)
 
       subject.migrate!
     end

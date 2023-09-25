@@ -3,11 +3,10 @@
 require "decidim_app/config"
 
 Decidim.configure do |config|
-  config.unconfirmed_access_for = 2.days unless Rails.env.test?
-  config.skip_first_login_authorization = ENV["SKIP_FIRST_LOGIN_AUTHORIZATION"] ? ActiveRecord::Type::Boolean.new.cast(ENV["SKIP_FIRST_LOGIN_AUTHORIZATION"]) : true
-
   config.application_name = "Loire Atlantique"
   config.mailer_sender = "Loire Atlantique <ne-pas-repondre@opensourcepolitics.eu>"
+  config.expire_session_after = ENV.fetch("DECIDIM_SESSION_TIMEOUT", 180).to_i.minutes
+  config.admin_password_expiration_days = ENV.fetch("ADMIN_PASSWORD_EXPIRATION_DAYS", 365).to_i.days
 
   # Change these lines to set your preferred locales
   if Rails.env.production?
@@ -23,6 +22,18 @@ Decidim.configure do |config|
   if Rails.application.secrets.decidim[:session_timeout_interval].present?
     config.session_timeout_interval = Rails.application.secrets.decidim[:session_timeout_interval].to_i.seconds
   end
+
+  config.unconfirmed_access_for = ENV.fetch("DECIDIM_UNCONFIRMED_ACCESS", 2).to_i.days unless Rails.env.test?
+  config.skip_first_login_authorization = ENV["SKIP_FIRST_LOGIN_AUTHORIZATION"] ? ActiveRecord::Type::Boolean.new.cast(ENV.fetch("SKIP_FIRST_LOGIN_AUTHORIZATION", nil)) : true
+
+  if Rails.env.production?
+    config.default_locale = ENV.fetch("DEFAULT_LOCALE", "fr").to_sym
+    config.available_locales = ENV.fetch("AVAILABLE_LOCALES", "fr,en").split(",").map(&:to_sym)
+  else
+    config.default_locale = ENV.fetch("DEFAULT_LOCALE", "en").to_sym
+    config.available_locales = ENV.fetch("AVAILABLE_LOCALES", "en,fr").split(",").map(&:to_sym)
+  end
+
   config.maximum_attachment_height_or_width = 6000
 
   # Whether SSL should be forced or not (only in production).
@@ -33,6 +44,10 @@ Decidim.configure do |config|
     provider: :here,
     api_key: Rails.application.secrets.maps[:api_key],
     static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" },
+    geocoding: {
+      host: "nominatim.openstreetmap.org",
+      use_https: true
+    },
     autocomplete: {
       address_format: [%w(houseNumber street), "city", "country"]
     }
@@ -102,8 +117,8 @@ Decidim.configure do |config|
     }
   end
 
-  config.minimum_time_to_sign_up = ENV["MINIMUM_TIME_TO_SIGN_UP"] || 1
-  config.base_uploads_path = "#{ENV["HEROKU_APP_NAME"]}/" if ENV["HEROKU_APP_NAME"].present?
+  config.base_uploads_path = "#{ENV.fetch("HEROKU_APP_NAME", nil)}/" if ENV["HEROKU_APP_NAME"].present?
+  config.minimum_time_to_sign_up = ENV.fetch("MINIMUM_TIME_TO_SIGN_UP", nil) || 1
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales

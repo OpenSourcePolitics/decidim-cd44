@@ -17,9 +17,9 @@ module Decidim
                                                    message: I18n.t("decidim.authorization_handlers.data_authorization_handler.errors.error_message") }
     validates :phone, presence: true
 
-    validates :gdpr, acceptance: true, presence: { message: "" }
+    validates :gdpr, acceptance: true, presence: { message: I18n.t("decidim.authorization_handlers.data_authorization_handler.errors.gdpr") }
 
-    validates :minimum_age, acceptance: true, presence: { message: "" }
+    validates :minimum_age, acceptance: true, presence: { message: I18n.t("decidim.authorization_handlers.data_authorization_handler.errors.minimum_age") }
 
     validates :postal_code, presence: true, format: { with: /\A[0-9]{5}\z/,
                                                       message: I18n.t("decidim.authorization_handlers.data_authorization_handler.errors.error_message") }
