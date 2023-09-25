@@ -15,7 +15,7 @@ GIT
 
 GIT
   remote: https://github.com/OpenSourcePolitics/decidim-module-friendly_signup
-  revision: 7c91423e5880a797796044b7265a0e03622aa708
+  revision: cf4ee3f57fecd291fe896f711c53593148f501bb
   branch: fast_sign_up_management
   specs:
     decidim-friendly_signup (0.4.4)
@@ -664,6 +664,8 @@ GEM
       racc (~> 1.4)
     nokogiri (1.13.4-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.13.4-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.13.4-x86_64-linux)
       racc (~> 1.4)
     oauth (1.1.0)
@@ -983,11 +985,12 @@ GEM
     wkhtmltopdf-binary (0.12.6.6)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.6.11)
+    zeitwerk (2.6.12)
 
 PLATFORMS
   aarch64-linux
   arm64-darwin-22
+  x86_64-darwin-22
   x86_64-linux
 
 DEPENDENCIES
