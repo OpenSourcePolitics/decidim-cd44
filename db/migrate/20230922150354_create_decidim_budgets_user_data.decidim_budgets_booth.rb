@@ -3,7 +3,7 @@
 
 class CreateDecidimBudgetsUserData < ActiveRecord::Migration[6.1]
   def change
-    create_table :decidim_budgets_user_data do |t|
+    create_table :decidim_budgets_user_data, if_not_exists: true do |t|
       t.jsonb :metadata
       t.boolean :affirm_statements_are_correct, default: false
       t.references :decidim_component, null: false, indec: true
@@ -12,6 +12,6 @@ class CreateDecidimBudgetsUserData < ActiveRecord::Migration[6.1]
       t.timestamps
     end
 
-    add_index :decidim_budgets_user_data, [:decidim_component_id, :decidim_user_id], unique: true, name: "decidim_budgets_user_data_unique_user_and_component"
+    add_index :decidim_budgets_user_data, [:decidim_component_id, :decidim_user_id], unique: true, name: "decidim_budgets_user_data_unique_user_and_component", if_not_exists: true
   end
 end
