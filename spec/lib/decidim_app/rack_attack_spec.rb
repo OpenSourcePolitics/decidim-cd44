@@ -71,6 +71,11 @@ describe DecidimApp::RackAttack, type: :request do
     describe "Throttling" do
       let(:headers) { { "REMOTE_ADDR" => "1.2.3.4", "decidim.current_organization" => organization } }
 
+      it "defines default period and max_requests" do
+        expect(DecidimApp::RackAttack::Throttling.max_requests).to eq(100)
+        expect(DecidimApp::RackAttack::Throttling.period).to eq(60)
+      end
+
       it "successful for 100 requests, then blocks the user" do
         100.times do
           get decidim.root_path, params: {}, headers: headers
