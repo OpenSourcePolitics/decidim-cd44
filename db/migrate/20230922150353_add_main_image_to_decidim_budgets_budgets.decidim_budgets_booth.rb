@@ -3,6 +3,6 @@
 
 class AddMainImageToDecidimBudgetsBudgets < ActiveRecord::Migration[6.1]
   def change
-    add_column :decidim_budgets_budgets, :main_image, :string
+    add_column :decidim_budgets_budgets, :main_image, :string, if_not_exists: true
   end
 end

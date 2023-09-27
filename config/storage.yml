@@ -11,8 +11,9 @@ scaleway:
   endpoint: https://<%= Rails.application.secrets.dig(:scaleway, :endpoint) %>
   access_key_id: <%= Rails.application.secrets.dig(:scaleway, :id) %>
   secret_access_key: <%= Rails.application.secrets.dig(:scaleway, :token) %>
-  region: fr-par
+  region: <%= Rails.application.secrets.dig(:scaleway, :region) %>
   bucket: <%= Rails.application.secrets.dig(:scaleway, :bucket_name) %>
+  force_path_style: <%= Rails.application.secrets.dig(:scaleway, :force_path_style) %>
 
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
