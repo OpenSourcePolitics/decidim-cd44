@@ -6,7 +6,15 @@ Decidim.configure do |config|
   config.application_name = "Loire Atlantique"
   config.mailer_sender = "Loire Atlantique <ne-pas-repondre@opensourcepolitics.eu>"
   config.expire_session_after = ENV.fetch("DECIDIM_SESSION_TIMEOUT", 180).to_i.minutes
-  config.admin_password_expiration_days = ENV.fetch("ADMIN_PASSWORD_EXPIRATION_DAYS", 365).to_i.days
+
+  # Admin admin password configurations
+  Rails.application.secrets.dig(:decidim, :admin_password, :strong).tap do |strong_pw|
+    # When the strong password is not configured, default to true
+    config.admin_password_strong = strong_pw.nil? ? true : strong_pw.present?
+  end
+  config.admin_password_expiration_days = Rails.application.secrets.dig(:decidim, :admin_password, :expiration_days)
+  config.admin_password_min_length = Rails.application.secrets.dig(:decidim, :admin_password, :min_length)
+  config.admin_password_repetition_times = Rails.application.secrets.dig(:decidim, :admin_password, :repetition_times)
 
   # Change these lines to set your preferred locales
   if Rails.env.production?
