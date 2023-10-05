@@ -89,4 +89,4 @@ yarn-debug.log*
 .yarn-integrity
 app/compiled_views/
 
-.DS_Store
+.DS_Storecertificate-https-local/
