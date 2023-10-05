@@ -30,7 +30,7 @@ services:
       - RAILS_SERVE_STATIC_FILES=true
       - RAILS_LOG_TO_STDOUT=true
       - ASSET_HOST=localhost:3000
-      - FORCE_SSL="0"
+      - FORCE_SSL=1
       - ENABLE_LETTER_OPENER=1
       - SEED=true
       - DEFACE_ENABLED=false
@@ -55,7 +55,7 @@ services:
       - RAILS_SERVE_STATIC_FILES=true
       - RAILS_LOG_TO_STDOUT=true
       - ASSET_HOST=localhost:3000
-      - FORCE_SSL="0"
+      - FORCE_SSL=1
       - ENABLE_LETTER_OPENER=1
       - SEED=true
       - DEFACE_ENABLED=false
