@@ -16,22 +16,11 @@
 
   <div class="progressbox-fixed-wrapper" data-progressbox-fixed>
     <div class="budget-summary__progressbox budget-summary__progressbox--fixed padding-bottom-0">
-      <% if current_order.projects_rule? %>
-        <span class="mini-title">
-          <strong>
-            <%= t(".assigned") %>
-            <%= render partial: "decidim/budgets/projects/order_total_budget" %>
-          </strong>
-        </span>
-      <% else %>
-        <div class="budget-summary__total" data-total-allocation="<%= current_order.available_allocation %>" data-total-budget="<%= budget.total_budget %>">
-          <span class="mini-title"><%= t(".total_budget") %>
-            <strong class="mini-title__strong mini-title__strong--highlight">
-              <%= budget_to_currency(budget.total_budget) %>
-            </strong>
-          </span>
-        </div>
-      <% end %>
+      <span class="mini-title"><%= t(".total_budget") %>
+        <strong class="mini-title__strong mini-title__strong--highlight">
+          <%= budget_to_currency(budget.total_budget) %>
+        </strong>
+      </span>
     </div>
     <div class="budget-summary__progressbox budget-summary__progressbox--fixed">
       <div class="progress budget-progress budget-progress--fixed" role="progressbar" aria-valuenow="<%= current_order_budget_percent %>" aria-valuetext="<%= current_order_budget_percent %>%" aria-valuemin="0" aria-valuemax="100">
@@ -46,13 +35,5 @@
         </button>
       <% end %>
     </div>
-    <% unless current_order.projects_rule? %>
-      <div class="budget-summary__progressbox--fixed padding-top-0">
-        <span class="mini-title">
-          <%= t(".assigned") %>
-          <%= render partial: "decidim/budgets/projects/order_total_budget" %>
-        </span>
-      </div>
-    <% end %>
   </div>
 </div>
