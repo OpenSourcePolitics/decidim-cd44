@@ -1,6 +1,13 @@
 # Overrides
 ## Fixes
 
+### Fix: Fix Display of Budgets Summary (#123), 2023-10-09
+* `app/views/decidim/budgets/projects/_order_progress.html.erb`
+* `app/views/decidim/budgets/projects/_order_total_budget.html.erb`
+  * (Add class `order-total-budget`)
+* `app/views/decidim/budgets/line_items/update_budget.js.erb`
+  * (Loop on all `order-total-budget` class elements)
+
 ### bf363e7 - fix: Fix Display of Budgets Summary (#123), 2023-09-21
 * `app/views/decidim/budgets/projects/_order_progress.html.erb`
 
