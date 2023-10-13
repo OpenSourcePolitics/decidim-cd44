@@ -35,6 +35,7 @@ services:
       - SEED=true
       - DEFACE_ENABLED=false
       - QUESTION_CAPTCHA_HOST=
+      - DECIDIM_SESSION_TIMEOUT=30
     depends_on:
       - app
     volumes:
@@ -60,6 +61,7 @@ services:
       - SEED=true
       - DEFACE_ENABLED=false
       - QUESTION_CAPTCHA_HOST=
+      - DECIDIM_SESSION_TIMEOUT=30
     volumes:
       - .:/app
     ports:

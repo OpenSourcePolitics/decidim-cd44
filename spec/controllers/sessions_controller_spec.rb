@@ -96,6 +96,28 @@ module Decidim
         end
       end
 
+      describe "after_sign_out_path_for" do
+        subject { controller.after_sign_out_path_for(user) }
+        let(:user) { create(:user, :confirmed) }
+
+        before do
+          request.env["decidim.current_organization"] = user.organization
+          request.env["devise.mapping"] = ::Devise.mappings[:user]
+
+          sign_in user
+        end
+
+        it { is_expected.to eq root_path }
+
+        context "when the user has a stored location" do
+          before do
+            controller.store_location_for(user, account_path)
+          end
+
+          it { is_expected.to eq account_path }
+        end
+      end
+
       describe "DELETE destroy" do
         let(:user) { create(:user, :confirmed) }
 
