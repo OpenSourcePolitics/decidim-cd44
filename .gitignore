@@ -90,3 +90,4 @@ yarn-debug.log*
 app/compiled_views/
 
 .DS_Store
+certificate-https-local/

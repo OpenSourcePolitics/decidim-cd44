@@ -11,6 +11,10 @@ module SessionControllerExtends
     end
   end
 
+  def after_sign_out_path_for(user)
+    stored_location_for(user) || super
+  end
+
   private
 
   # Skip authorization handler by default
