@@ -56,7 +56,6 @@ describe "Answer a survey", type: :system do
     end
 
     it "shows a modal dialog" do
-
       expect(page).to have_content('Authorize with "Example authorization"')
     end
   end
