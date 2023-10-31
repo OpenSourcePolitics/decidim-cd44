@@ -21,7 +21,7 @@ gem "decidim-cache_cleaner"
 gem "decidim-decidim_awesome", "~> 0.9.1"
 gem "decidim-extended_socio_demographic_authorization_handler", git: "https://github.com/OpenSourcePolitics/decidim-module-extended_socio_demographic_authorization_handler",
                                                                 branch: DECIDIM_BRANCH
-gem "decidim-friendly_signup", git: "https://github.com/OpenSourcePolitics/decidim-module-friendly_signup", branch: "fast_sign_up_management"
+gem "decidim-friendly_signup", git: "https://github.com/OpenSourcePolitics/decidim-module-friendly_signup", branch: "bump/fast_sign_up_branch"
 gem "decidim-question_captcha", git: "https://github.com/OpenSourcePolitics/decidim-module-question_captcha.git", branch: DECIDIM_BRANCH
 gem "decidim-simple_proposal", git: "https://github.com/opensourcepolitics/decidim-module-simple_proposal.git", branch: "fix/0.27_scope_picker_override"
 gem "decidim-spam_detection", "4.0.0"
