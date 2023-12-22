@@ -15,10 +15,10 @@ GIT
 
 GIT
   remote: https://github.com/OpenSourcePolitics/decidim-module-friendly_signup
-  revision: cf4ee3f57fecd291fe896f711c53593148f501bb
-  branch: fast_sign_up_management
+  revision: e3f7843b1d5ebc1cc68a4bfaadfe36e7c2a0c37f
+  branch: bump/fast_sign_up_branch
   specs:
-    decidim-friendly_signup (0.4.4)
+    decidim-friendly_signup (0.4.5)
       decidim-core (~> 0.27)
 
 GIT

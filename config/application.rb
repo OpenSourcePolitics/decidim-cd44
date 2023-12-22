@@ -49,6 +49,7 @@ module DevelopmentApp
     config.after_initialize do
       require "extends/controllers/decidim/devise/sessions_controller_extends"
       require "extends/controllers/decidim/editor_images_controller_extends"
+      require "extends/models/decidim/budgets/project_extend"
       require "extends/services/decidim/iframe_disabler_extends"
 
       Decidim::GraphiQL::Rails.config.tap do |config|
